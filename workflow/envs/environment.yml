@@ -1,0 +1,9 @@
+channels:
+  - defaults
+  - bioconda
+dependencies:
+  - bcftools
+  - tabix
+  - pip
+  - pip:
+    - -r requirements.txt
