@@ -4,9 +4,6 @@ import pandas
 import pathlib
 import sys
 
-query_path = "/home/gonzalez/Repositories/gwastoeqtl/test.txt"
-md5sum_txt_path = "/home/gonzalez/Repositories/gwastoeqtl/md5sum.txt"
-
 #%%############################################################################
 #
 # arguments

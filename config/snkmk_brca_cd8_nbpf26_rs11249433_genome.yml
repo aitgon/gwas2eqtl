@@ -1,0 +1,9 @@
+region: genome
+gwas_pval: "5e-8"
+window: 500000
+eqtl_tsv: config/eqtl_Kasela_2017_CD8.tsv
+gwas_ods: config/gwas_ieu-a1162.ods
+out_tsv: results/catcoloc/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162.tsv
+out_ods: results/catcoloc/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162.ods
+db_sqlite: "results/db.sqlite"
+image_sif: "resources/eqtl2gwas.sif"

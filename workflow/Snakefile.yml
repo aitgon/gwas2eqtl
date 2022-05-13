@@ -161,23 +161,6 @@ rule extract_eqtlleads:
     shell:
         """Rscript workflow/scripts/extract_lead_var_pairs.R {input.permuted} {output.eqtlleads_hg38_tsv} {params.region}"""
 
-rule gunzip_eqtl_permuted:
-    input:
-        permuted=lambda w: eqtl_df.loc[w.eqtl_identifier, 'ftp_path'].replace('.all.', '.permuted.').replace('ftp://', '')
-    output:
-        permuted="resources/hg38/ebi/eqtl/{eqtl_identifier}.permuted.tsv"
-    shell:
-        """gunzip -c {input.permuted} > {output.permuted}"""
-
-rule dwnld_eqtl_permuted:
-    input:
-        md5sum=lambda w: os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv", eqtl_df.loc[w.eqtl_identifier, "study"], eqtl_df.loc[w.eqtl_identifier, "quant_method"], "md5sum.txt"),
-    output:
-        permuted="ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv/{study}/{quant_method}/{eqtl_identifier}.permuted.tsv.gz",
-    shell:
-        """wget -q -N -x {output.permuted}
-        python workflow/scripts/md5sum_check.py {output.permuted} {input.md5sum}"""
-
 
 rule dwnld_eqtl_md5sum:
     output:
@@ -203,3 +186,20 @@ rule dwnld_eqtl_tbi:
     shell:
         """wget -q -N -x {output.tbi}
         python workflow/scripts/md5sum_check.py {output.tbi} {input.md5sum}"""
+
+rule gunzip_eqtl_permuted:
+    input:
+        permuted=lambda w: eqtl_df.loc[w.eqtl_identifier, 'ftp_path'].replace('.all.', '.permuted.').replace('ftp://', '')
+    output:
+        permuted="resources/hg38/ebi/eqtl/{eqtl_identifier}.permuted.tsv"
+    shell:
+        """gunzip -c {input.permuted} > {output.permuted}"""
+
+rule dwnld_eqtl_permuted:
+    input:
+        md5sum=lambda w: os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv", eqtl_df.loc[w.eqtl_identifier, "study"], eqtl_df.loc[w.eqtl_identifier, "quant_method"], "md5sum.txt"),
+    output:
+        permuted="ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv/{study}/{quant_method}/{eqtl_identifier}.permuted.tsv.gz",
+    shell:
+        """wget -q -N -x {output.permuted}
+        python workflow/scripts/md5sum_check.py {output.permuted} {input.md5sum}"""

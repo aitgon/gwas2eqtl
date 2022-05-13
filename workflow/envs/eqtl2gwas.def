@@ -177,8 +177,8 @@ exec /opt/miniconda/envs/myenv/bin/"${@}"
 ###############################################################################
 
 %files
-requirements.txt /root/requirements.txt
-environment.yml /root/environment.yml
+workflow/envs/requirements.txt /root/requirements.txt
+workflow/envs/environment.yml /root/environment.yml
 
 %post
 /opt/miniconda/bin/conda env update -n myenv -f /root/environment.yml
