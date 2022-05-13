@@ -1,0 +1,8 @@
+region: genome
+gwas_pval: "1e-7"
+window: 500000
+gwas_ods: config/gwas_all.ods
+out_tsv: results/catcoloc/genome/1e-7/500000/coloc_all.tsv
+out_ods: results/catcoloc/genome/1e-7/500000/coloc_all.ods
+db_sqlite: "results/db.sqlite"
+image_sif: "resources/gwastoeqtl.sif"

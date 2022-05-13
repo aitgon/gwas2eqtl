@@ -1,6 +1,16 @@
 Running the worfklow
 ===========================
 
+Using singularity
+--------------------------------------------------
+
+Install snakemake and compile singularity image
+
+.. code-block:: bash
+
+    pip install snakemake --user
+    sudo singularity build resources/eqtl2gwas.sif workflow/envs/eqtl2gwas.def
+
 Run all GWAS and eQTLs
 
 .. code-block:: bash
