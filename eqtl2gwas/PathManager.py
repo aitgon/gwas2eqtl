@@ -27,7 +27,7 @@ class PathManager:
         :return: the output leading to the tests output of the project
         """
 
-        wdir_path = os.path.join(cls.get_project_path(), "out")
+        wdir_path = os.path.join(cls.get_project_path(), "results")
         pathlib.Path(wdir_path).mkdir(parents=True, exist_ok=True)
         return wdir_path
 

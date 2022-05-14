@@ -77,7 +77,7 @@ rule cat_tsv_sql:
         os.path.join("logs", config['out_ods'] + ".log"),
     shell:
         """
-        python workflow/scripts/cat_tsv_sql.py {eqtl_tsv_path} {gwas_ods_path} {params.coloc_dir} {output.coloc_tsv} {output.coloc_ods} {params.db_path}
+        python workflow/scripts/merge_coloc_raw.py {eqtl_tsv_path} {gwas_ods_path} {params.coloc_dir} {output.coloc_tsv} {output.coloc_ods} {params.db_path}
         """
 
 rule coloc:
