@@ -25,5 +25,3 @@ Run **all** eQTLs and GWAS
 .. code-block:: bash
 
     PYTHONPATH=.:$PYTHONPATH snakemake -j 9999 -s workflow/Snakefile.yml -p --use-singularity --configfile config/snkmk_all.yml  --singularity-args="\-u"
-
-

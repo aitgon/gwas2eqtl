@@ -39,7 +39,28 @@ container: image_sif
 
 rule all:
     input:
-        coloc_tsv=config['out_ods'],
+        coloc_tsv=config['coloc_h4_tsv'],
+
+rule cmpt_public_h4:
+    input:
+        coloc_tsv=config['coloc_all_tsv'],
+    output:
+        coloc_tsv=config['coloc_h4_tsv'],
+    shell:
+        """
+        python workflow/scripts/cmpt_public_h4.py {input.coloc_tsv} {output.coloc_tsv}
+        """
+
+rule cmpt_public_all:
+    input:
+        coloc_tsv=config['out_tsv'],
+    output:
+        coloc_tsv=config['coloc_all_tsv'],
+        coloc_gz_tbi=config['coloc_all_tsv'] + ".gz.tbi",
+    shell:
+        """
+        python workflow/scripts/cmpt_public_all.py {input.coloc_tsv} {output.coloc_tsv}
+        """
 
 rule cat_tsv_sql:
     input:
