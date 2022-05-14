@@ -14,8 +14,6 @@ $ singularity run mycontainer.sif [args]
 $ singularity run --app R mycontainer.sif R [args]
 $ singularity run --app R mycontainer.sif Rscript [args]
 $ singularity run --app miniconda mycontainer.sif python [args]
-$ singularity run --app maggie mycontainer.sif maggie_vcf_input.py --help
-$ singularity run --app maggie mycontainer.sif maggie_fasta_input.py --help
 R packages go to '/usr/local/lib/R/site-library'
 
 %labels
@@ -160,7 +158,10 @@ CONDAINSTALLER=Miniconda3-py39_4.10.3-Linux-x86_64.sh
 wget https://repo.anaconda.com/miniconda/${CONDAINSTALLER}
 chmod +x ${CONDAINSTALLER}
 ./${CONDAINSTALLER} -b -p /opt/miniconda
-/opt/miniconda/bin/conda create -y -n myenv python=3.9
+/opt/miniconda/bin/conda config --add channels defaults
+/opt/miniconda/bin/conda config --add channels bioconda
+/opt/miniconda/bin/conda config --add channels conda-forge
+/opt/miniconda/bin/conda create -y -n myenv samtools bcftools
 chmod --recursive a+rw /opt/miniconda
 cd # change to /root
 rm ${CONDAINSTALLER}
