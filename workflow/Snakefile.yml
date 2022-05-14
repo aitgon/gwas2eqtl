@@ -164,7 +164,7 @@ rule extract_eqtlleads:
 
 rule dwnld_eqtl_md5sum:
     output:
-        md5sum=os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv/{study}/{quant_method}/md5sum.txt"),
+        md5sum=os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
     shell:
         """wget -q -N -x {output.md5sum}"""
 
@@ -172,7 +172,7 @@ rule dwnld_eqtl_all:
     input:
         md5sum=lambda w: os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv", eqtl_df.loc[w.eqtl_identifier, "study"], eqtl_df.loc[w.eqtl_identifier, "quant_method"], "md5sum.txt"),
     output:
-        all="ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv/{study}/{quant_method}/{eqtl_identifier}.all.tsv.gz",
+        all="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_identifier}.all.tsv.gz",
     shell:
         """wget -q -N -x {output.all}
         python workflow/scripts/md5sum_check.py {output.all} {input.md5sum}
@@ -182,7 +182,7 @@ rule dwnld_eqtl_tbi:
     input:
         md5sum=lambda w: os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv", eqtl_df.loc[w.eqtl_identifier, "study"], eqtl_df.loc[w.eqtl_identifier, "quant_method"], "md5sum.txt"),
     output:
-        tbi="ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv/{study}/{quant_method}/{eqtl_identifier}.all.tsv.gz.tbi",
+        tbi="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_identifier}.all.tsv.gz.tbi",
     shell:
         """wget -q -N -x {output.tbi}
         python workflow/scripts/md5sum_check.py {output.tbi} {input.md5sum}"""
@@ -199,7 +199,7 @@ rule dwnld_eqtl_permuted:
     input:
         md5sum=lambda w: os.path.join("ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv", eqtl_df.loc[w.eqtl_identifier, "study"], eqtl_df.loc[w.eqtl_identifier, "quant_method"], "md5sum.txt"),
     output:
-        permuted="ftp.ebi.ac.uk/pub/databases/spot/eQTL/csv/{study}/{quant_method}/{eqtl_identifier}.permuted.tsv.gz",
+        permuted="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_identifier}.permuted.tsv.gz",
     shell:
         """wget -q -N -x {output.permuted}
         python workflow/scripts/md5sum_check.py {output.permuted} {input.md5sum}"""
