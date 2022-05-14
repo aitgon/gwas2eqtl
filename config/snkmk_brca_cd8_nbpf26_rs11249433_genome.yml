@@ -5,7 +5,7 @@ eqtl_tsv: config/eqtl_Kasela_2017_CD8.tsv
 gwas_ods: config/gwas_ieu-a1162.ods
 out_tsv: results/merged/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162.tsv
 out_ods: results/merged/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162.ods
-coloc_all_tsv: results/share/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162.tsv
-coloc_h4_tsv: results/share/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162_h4.tsv
-db_sqlite: results/share/genome/5e-08/500000/db.sqlite
+coloc_all_tsv: results/release/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162.tsv
+coloc_h4_tsv: results/release/genome/5e-08/500000/coloc_Kasela_2017_CD8_ieu-a1162_h4.tsv
+db_sqlite: results/release/genome/5e-08/500000/db.sqlite
 image_sif: resources/eqtl2gwas.sif
