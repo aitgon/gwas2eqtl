@@ -1,0 +1,107 @@
+from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
+HTTP = HTTPRemoteProvider()
+
+import os
+import pandas
+
+# eQTLs
+if "eqtl_tsv" in config:
+    eqtl_tsv_path = config["eqtl_tsv"] # path to the eqtl< ods list
+else:
+    from eqtl2gwas.URL import URL
+    url = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
+    eqtl_tsv_path = URL(url=url).download()
+    config["eqtl_tsv"] = eqtl_tsv_path
+eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t")
+# keep urls containing "ge" or "microarray"
+eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
+eqtl_identifier_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
+eqtl_df.index = eqtl_identifier_lst
+
+# configuration
+gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
+window = config['window'] # colocalisation window, eg 500000
+region = config['region'] # 'genome' or region in the form 1:10-100
+out_tsv = config['out_tsv'] # output file in ODS file
+out_ods = config['out_ods'] # output file in ODS file
+db_sqlite = config['db_sqlite'] # db path
+image_sif = config['image_sif'] # singularity image
+public_data_dir_path = config['public_data_dir'] # db path
+process_data_dir_path = config['process_data_dir'] # singularity image
+
+# GWAS
+gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
+gwas_df = pandas.read_excel(gwas_ods_path, header=0)
+gwas_df['trait_name'] = gwas_df['trait_name'].str.replace("'", "")
+gwas_identifier_lst = gwas_df['identifier'].tolist()
+gwas_traitname_lst = gwas_df['trait_name'].tolist()
+gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+
+container: image_sif
+
+rule all:
+    input:
+        expand(os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"), eqtl_identifier=eqtl_identifier_lst, gwas_id=gwas_identifier_lst),
+
+rule gwas_hg38_csi:
+    input:
+        bgz=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+    output:
+        bgz=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
+    shell:
+        "bcftools index {input.bgz}"
+
+rule gwas_hg38_bgz :
+    input:
+        vcf_gz=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+    output:
+        bgz=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+    shell:
+        "gunzip -c {input.vcf_gz} |bcftools sort |bgzip -c > {output.bgz}"
+
+rule gwas_liftover_hg38:
+    input:
+        vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        fa=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa"),
+    output:
+        vcf_gz=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+    params:
+        vcf=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf"),
+    shell:
+        "CrossMap.py vcf --compress {input.chain_gz} {input.vcf_gz} {input.fa} {params.vcf}"
+
+rule wget_vcf:
+    output:
+        vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+    params:
+        url="gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""
+
+rule wget_chain:
+    output:
+        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+    params:
+        url="ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""
+
+rule gunzip_ref_fasta:
+    input:
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+    output:
+        fa=os.path.join(process_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa"),
+    shell:
+        """gunzip -c {input.fa_gz} > {output.fa}"""
+
+rule wget_ref_fasta:
+    output:
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+    params:
+        url="ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""

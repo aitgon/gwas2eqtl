@@ -26,8 +26,8 @@ out_tsv = config['out_tsv'] # output file in ODS file
 out_ods = config['out_ods'] # output file in ODS file
 db_sqlite = config['db_sqlite'] # db path
 image_sif = config['image_sif'] # singularity image
-public_data_dir = config['public_data_dir'] # db path
-process_data_dir = config['process_data_dir'] # singularity image
+public_data_dir_path = config['public_data_dir'] # db path
+process_data_dir_path = config['process_data_dir'] # singularity image
 
 # GWAS
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
@@ -124,7 +124,17 @@ rule gwas_tophits_liftover_hg38:
     shell:
         "CrossMap.py bed {input.chain_gz} {input.tophits_hg19_bed} {output.tophits_hg38_bed}"
 
-rule gwas_tophits_hg19:
+rule bcftools_pval:
+    output:
+        tophits_hg19_tsv="results/gwas/" + gwas_pval + "/{gwas_identifier}_hg19.tsv",
+        tophits_hg19_bed="results/gwas/" + gwas_pval + "/{gwas_identifier}_hg19.bed",
+    params:
+        gwas_pval = gwas_pval,
+        gwas_identifier="{gwas_identifier}",
+    shell:
+        "Rscript workflow/scripts/gwasglue_tophits.R {params.gwas_identifier} {params.gwas_pval} {output.tophits_hg19_tsv} {output.tophits_hg19_bed}"
+
+rule gwasglue_tophits_hg19:
     output:
         tophits_hg19_tsv="results/gwas/" + gwas_pval + "/{gwas_identifier}_hg19.tsv",
         tophits_hg19_bed="results/gwas/" + gwas_pval + "/{gwas_identifier}_hg19.bed",
