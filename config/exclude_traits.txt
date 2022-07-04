@@ -1,0 +1,553 @@
+Acceptance of an invitation to participate in a mental health questionnaire
+Acceptance of an invitation to wear a physical activity monitor
+Activities undertaken to treat anxiety: Other therapeutic activities such as mindfulness, yoga or art classes
+Activities undertaken to treat anxiety: Talking therapies, such as psychotherapy, counselling, group therapy or CBT
+Activities undertaken to treat depression: Other therapeutic activities such as mindfulness, yoga or art classes
+Activities undertaken to treat depression: Talking therapies, such as psychotherapy, counselling, group therapy or CBT
+Adopted as a child
+Aide-memoire completed
+Alcohol consumed
+Alcohol drinker status: Current
+Alcohol drinker status: Never
+Alcohol drinker status: Previous
+Alcohol usually taken with meals
+Attendance/disability/mobility allowance: Blue badge
+Attendance/disability/mobility allowance: Disability living allowance
+Attendance/disability/mobility allowance: None of the above
+Bread consumed
+Bread type
+Breakfast cereal consumed
+Breastfed as a baby
+Breathing problems during period of job: Yes
+Breathing problems responsible for leaving job: No
+Bring up phlegm/sputum/mucus on most days
+Caffeine drink within last hour
+Cereal type
+Cheese
+Close to major road
+Coffee
+College
+Current employment status
+Day shifts worked: Shift pattern was worked for whole of job
+Day shifts worked: This type of shift pattern was not worked during job
+Day-of-week questionnaire completion requested: Friday
+Day-of-week questionnaire completion requested: Monday
+Day-of-week questionnaire completion requested: Saturday
+Day-of-week questionnaire completion requested: Thursday
+Day-of-week questionnaire completion requested: Tuesday
+Day-of-week questionnaire completion requested: Wednesday
+Did your sleep change?
+Ever had bowel cancer screening
+Ever had breast cancer screening / mammogram
+Ever had hysterectomy (womb removed)
+Ever had known person concerned about, or recommend reduction of, alcohol consumption: No
+Ever had period extreme irritability
+Ever had prolonged feelings of sadness or depression
+Ever had prolonged loss of interest in normal activities
+Ever had prostate specific antigen (PSA) test
+Ever had same-sex intercourse
+Ever had stillbirth  spontaneous miscarriage or termination
+Ever had stillbirth, spontaneous miscarriage or termination
+Ever highly irritable/argumentative for 2 days
+Ever smoked
+Ever sought or received professional help for mental distress
+Ever stopped smoking for 6+ months
+Ever suffered mental distress preventing usual activities
+Ever taken oral contraceptive pill
+Ever unenthusiastic/disinterested for a whole week
+Ever used hormone-replacement therapy (HRT)
+Ever vs never smoked
+Ever worried more than most people would in similar situation
+Falling risk
+Father still alive
+Fed-up feelings
+Feelings of tiredness during worst episode of depression
+Feelings of worthlessness during worst period of depression
+FEV1/FVC &lt; 0.7
+FI3 : word interpolation
+FI4 : positional arithmetic
+FI5 : family relationship calculation
+FI6 : conditional arithmetic
+FI7 : synonym
+FI8 : chained arithmetic
+Fish consumer
+Gap coding: Full-time or part-time education
+Gap coding: Looking after the home and/or family
+Gap coding: Paid work for less than 15 hours per week on average or lasting less than 6 months
+Gap coding: Retired
+Gas or solid-fuel cooking/heating: A gas fire that you use regularly in winter time
+Gas or solid-fuel cooking/heating: A gas hob or gas cooker
+Gas or solid-fuel cooking/heating: An open solid fuel fire that you use regularly in winter time
+Gas or solid-fuel cooking/heating: None of the above
+Genetic sex
+Had major operations
+Had menopause
+Had other major operations
+Home area population density - urban or rural: England/Wales - Town and Fringe - less sparse
+Home area population density - urban or rural: England/Wales - Urban - less sparse
+Home area population density - urban or rural: England/Wales - Village - less sparse
+Home area population density - urban or rural: Scotland - Large Urban Area
+How are people in household related to participant: Husband, wife or partner
+How are people in household related to participant: Mother and/or father
+How are people in household related to participant: Other unrelated
+How are people in household related to participant: Son and/or daughter (include step-children)
+Illness  injury  bereavement  stress in last 2 years: Death of a close relative
+Illness  injury  bereavement  stress in last 2 years: Financial difficulties
+Illness  injury  bereavement  stress in last 2 years: Marital separation/divorce
+Illness  injury  bereavement  stress in last 2 years: None of the above
+Illness  injury  bereavement  stress in last 2 years: Serious illness  injury or assault of a close relative
+Illness  injury  bereavement  stress in last 2 years: Serious illness  injury or assault to yourself
+Illness, injury, bereavement, stress in last 2 years: Death of a close relative
+Illness, injury, bereavement, stress in last 2 years: Death of a spouse or partner
+Illness, injury, bereavement, stress in last 2 years: Financial difficulties
+Illness, injury, bereavement, stress in last 2 years: Marital separation/divorce
+Illness, injury, bereavement, stress in last 2 years: None of the above
+Illness, injury, bereavement, stress in last 2 years: Serious illness, injury or assault of a close relative
+Illness, injury, bereavement, stress in last 2 years: Serious illness, injury or assault to yourself
+Illnesses of father: Alzheimer's disease/dementia
+Illnesses of father: Bowel cancer
+Illnesses of father: Chronic bronchitis/emphysema
+Illnesses of father: Diabetes
+Illnesses of father: Heart disease
+Illnesses of father: High blood pressure
+Illnesses of father: Lung cancer
+Illnesses of father: None of the above (group 1)
+Illnesses of father: None of the above (group 2)
+Illnesses of father: Parkinson's disease
+Illnesses of father: Prostate cancer
+Illnesses of father: Severe depression
+Illnesses of father: Stroke
+Illnesses of mother: Alzheimer's disease/dementia
+Illnesses of mother: Bowel cancer
+Illnesses of mother: Breast cancer
+Illnesses of mother: Chronic bronchitis/emphysema
+Illnesses of mother: Diabetes
+Illnesses of mother: Heart disease
+Illnesses of mother: High blood pressure
+Illnesses of mother: Lung cancer
+Illnesses of mother: None of the above (group 1)
+Illnesses of mother: None of the above (group 2)
+Illnesses of mother: Parkinson's disease
+Illnesses of mother: Severe depression
+Illnesses of mother: Stroke
+Illnesses of siblings: Bowel cancer
+Illnesses of siblings: Breast cancer
+Illnesses of siblings: Chronic bronchitis/emphysema
+Illnesses of siblings: Diabetes
+Illnesses of siblings: Heart disease
+Illnesses of siblings: High blood pressure
+Illnesses of siblings: Lung cancer
+Illnesses of siblings: None of the above (group 1)
+Illnesses of siblings: None of the above (group 2)
+Illnesses of siblings: Prostate cancer
+Illnesses of siblings: Severe depression
+Illnesses of siblings: Stroke
+Injury, poisoning and certain other consequences of external causes
+Intended management of patient (recoded): No overnight hospital stay
+Intended management of patient (recoded): One or more nights hospital stay
+Invitation to complete online 24-hour recall dietary questionnaire, acceptance
+Invitation to physical activity study, acceptance
+Job coding: all other personal assistants and secretaries
+Job coding: primary /junior school teacher or teaching professional, nursery school teacher (including head teacher)
+Job coding: secondary school teacher or teaching professional (including head teacher)
+Job involved shift work: Yes
+Job SOC coding: Nurses
+Job SOC coding: Personal assistants and other secretaries
+Job SOC coding: Primary and nursery education teaching professionals
+Job SOC coding: Secondary education teaching professionals
+Keyed up or on edge during worst period of anxiety
+Knee osteoarthritis
+Leg pain in calf/calves
+Leg pain on walking
+Leg pain on walking : effect of standing still
+Leg pain when standing still or sitting
+Leg pain when walking normally
+Leg pain when walking uphill or hurrying
+Leisure/social activities: Adult education class
+Leisure/social activities: None of the above
+Leisure/social activities: Other group activity
+Leisure/social activities: Pub or social club
+Leisure/social activities: Religious group
+Leisure/social activities: Sports club or gym
+Length of longest manic/irritable episode
+Light smokers  at least 100 smokes in lifetime
+Light smokers, at least 100 smokes in lifetime
+Liquid used to make porridge: Porridge with milk
+Loneliness  isolation
+Loneliness, isolation
+Long-standing illness  disability or infirmity
+Long-standing illness, disability or infirmity
+Low back pain
+Low hand grip strength (60 years and older) (EWGSOP)
+Low hand grip strength (60 years and older) (FNIH)
+LRTI
+Main speciality of consultant (recoded): Accident and emergency (A&E)
+Main speciality of consultant (recoded): Cardiology
+Main speciality of consultant (recoded): Ear, nose and throat (ENT)
+Main speciality of consultant (recoded): Gastroenterology
+Main speciality of consultant (recoded): General medicine
+Main speciality of consultant (recoded): General surgery
+Main speciality of consultant (recoded): Gynaecology
+Main speciality of consultant (recoded): Obstetrics
+Main speciality of consultant (recoded): Ophthalmology
+Main speciality of consultant (recoded): Oral surgery
+Main speciality of consultant (recoded): Plastic surgery
+Main speciality of consultant (recoded): Trauma and orthopaedics
+Major dietary changes in the last 5 years: No
+Major dietary changes in the last 5 years: Yes, because of illness
+Major dietary changes in the last 5 years: Yes, because of other reasons
+Maternal history of Alzheimer's disease
+Maternal smoking around birth
+Meat consumers
+Medication
+Methods
+Milk
+Mineral
+Mixture of day and night shifts worked: Shift pattern was worked for some (but not all) of job
+Mixture of day and night shifts worked: Shift pattern was worked for whole of job
+Mixture of day and night shifts worked: This type of shift pattern was not worked during job
+Mood swings
+More irritable than usual during worst period of anxiety
+Mother still alive
+Mouth/teeth
+Nervous feelings
+Never eat eggs, dairy, wheat, sugar: Dairy products
+Never eat eggs, dairy, wheat, sugar: Eggs or foods containing eggs
+Never eat eggs, dairy, wheat, sugar: I eat all of the above
+Never eat eggs, dairy, wheat, sugar: Sugar or foods/drinks containing sugar
+Never eat eggs, dairy, wheat, sugar: Wheat products
+Non-accidental death in close genetic family
+Non-butter spread type details: Flora Pro-Active or Benecol
+Non-butter spread type details: Olive oil based spread (eg: Bertolli)
+Non-butter spread type details: Other low or reduced fat spread
+Non-butter spread type details: Other type of spread/margarine
+Non-butter spread type details: Polyunsaturated/sunflower oil based spread (eg: Flora)
+Non-butter spread type details: Soft (tub) margarine
+Number of things worried about during worst period of anxiety
+Operation code: appendicectomy
+Operation code: arthroscopy nos
+Operation code: bilateral oophorectomy
+Operation code: bunion/hallus valgus surgery
+Operation code: caesarean section / caesarian section
+Operation code: cholecystectomy/gall bladder removal
+Operation code: colonoscopy/sigmoidoscopy
+Operation code: dilatation and curettage/d+c
+Operation code: ear surgery
+Operation code: endoscopy / gastroscopy
+Operation code: foot surgery
+Operation code: haemorroidectomy / piles surgery/ banding of piles
+Operation code: hip replacement/revision
+Operation code: hysterectomy
+Operation code: inguinal hernia repair
+Operation code: inguinal/femoral hernia repair
+Operation code: knee replacement/revision
+Operation code: knee surgery (not replacement)
+Operation code: laparoscopy
+Operation code: lumpectomy
+Operation code: muscle/soft tissue surgery
+Operation code: nasal/sinus/nose surgery
+Operation code: ovarian cyst removal/surgery
+Operation code: reduction or fixation of bone fracture
+Operation code: removal of mole/skin lesion
+Operation code: shoulder surgery
+Operation code: spine or back surgery
+Operation code: squint correction
+Operation code: sterilisation
+Operation code: tonsillectomy +/- adenoids
+Operation code: tonsillectomy / tonsil surgery
+Operation code: unclassifiable
+Operation code: varicose vein surgery
+Operation code: vasectomy
+Operation code: wisdom teeth surgery
+Operative procedures - main OPCS: A65.1 Carpal tunnel release
+Operative procedures - main OPCS: C75.1 Insertion of prosthetic replacement for lens NEC
+Operative procedures - main OPCS: G45.1 Fibreoptic endoscopic examination of upper gastrointestinal tract and biopsy of lesion of upper gastrointestinal tract
+Operative procedures - main OPCS: G45.9 Unspecified diagnostic fibreoptic endoscopic examination of upper gastrointestinal tract
+Operative procedures - main OPCS: H20.1 Fibreoptic endoscopic snare resection of lesion of colon
+Operative procedures - main OPCS: H22.1 Diagnostic fibreoptic endoscopic examination of colon and biopsy of lesion of colon
+Operative procedures - main OPCS: H22.9 Unspecified diagnostic endoscopic examination of colon
+Operative procedures - main OPCS: H25.1 Diagnostic endoscopic examination of lower bowel and biopsy of lesion of lower bowel using fibreoptic sigmoidoscope
+Operative procedures - main OPCS: H25.9 Unspecified diagnostic endoscopic examination of lower bowel using fibreoptic sigmoidoscope
+Operative procedures - main OPCS: J18.3 Total cholecystectomy NEC
+Operative procedures - main OPCS: K63.3 Angiocardiography of left side of heart NEC
+Operative procedures - main OPCS: K63.6 Coronary arteriography NEC
+Operative procedures - main OPCS: L85.1 Ligation of long saphenous vein
+Operative procedures - main OPCS: M45.9 Unspecified diagnostic endoscopic examination of bladder
+Operative procedures - main OPCS: Q07.4 Total abdominal hysterectomy NEC
+Operative procedures - main OPCS: Q18.1 Diagnostic endoscopic examination of uterus and biopsy of lesion of uterus
+Operative procedures - main OPCS: Q18.9 Unspecified diagnostic endoscopic examination of uterus
+Operative procedures - main OPCS: R24.9 All normal delivery
+Operative procedures - main OPCS: S06.5 Excision of lesion of skin of head or neck NEC
+Operative procedures - main OPCS: S06.9 Unspecified other excision of lesion of skin
+Operative procedures - main OPCS: T20.2 Primary repair of inguinal hernia using insert of prosthetic material
+Operative procedures - main OPCS: U05.1 Computed tomography of head
+Operative procedures - main OPCS: W40.1 Primary total prosthetic replacement of knee joint using cement
+Operative procedures - main OPCS: W82.2 Endoscopic resection of semilunar cartilage NEC
+Operative procedures - main OPCS: W90.3 Injection of therapeutic substance into joint
+Operative procedures - main OPCS: X99.8 No procedure performed
+Operative procedures - secondary OPCS: C71.2 Phacoemulsification of lens
+Operative procedures - secondary OPCS: L87.4 Avulsion of varicose vein of leg
+Operative procedures - secondary OPCS: Q18.9 Unspecified diagnostic endoscopic examination of uterus
+Operative procedures - secondary OPCS: Q22.1 Bilateral salpingoophorectomy
+Operative procedures - secondary OPCS: Y50.8 Other specified approach through abdominal cavity
+Operative procedures - secondary OPCS: Y53.1 Approach to organ under radiological control
+Operative procedures - secondary OPCS: Y53.2 Approach to organ under ultrasonic control
+Operative procedures - secondary OPCS: Y53.4 Approach to organ under fluoroscopic control
+Operative procedures - secondary OPCS: Y75.2 Laparoscopic approach to abdominal cavity NEC
+Operative procedures - secondary OPCS: Y80.9 Unspecified general anaesthetic
+Operative procedures - secondary OPCS: Y82.2 Injection of local anaesthetic NEC
+Operative procedures - secondary OPCS: Y82.3 Application of local anaesthetic NEC
+Operative procedures - secondary OPCS: Y82.9 Unspecified local anaesthetic
+Operative procedures - secondary OPCS: Y98.1 Radiology of one body area (or &lt; 20 minutes)
+Operative procedures - secondary OPCS: Z27.1 Oesophagus
+Operative procedures - secondary OPCS: Z27.2 Stomach
+Operative procedures - secondary OPCS: Z27.4 Duodenum
+Operative procedures - secondary OPCS: Z28.2 Caecum
+Operative procedures - secondary OPCS: Z28.4 Transverse colon
+Operative procedures - secondary OPCS: Z28.5 Descending colon
+Operative procedures - secondary OPCS: Z28.6 Sigmoid colon
+Operative procedures - secondary OPCS: Z28.7 Colon NEC
+Operative procedures - secondary OPCS: Z29.1 Rectum
+Operative procedures - secondary OPCS: Z50.4 Skin of leg NEC
+Operative procedures - secondary OPCS: Z84.6 Knee joint
+Operative procedures - secondary OPCS: Z94.1 Bilateral operation
+Operative procedures - secondary OPCS: Z94.2 Right sided operation
+Operative procedures - secondary OPCS: Z94.3 Left sided operation
+Other non-alcoholic drinks
+Own or rent accommodation lived in: Own outright (by you or someone in your household)
+Own or rent accommodation lived in: Own with a mortgage
+Own or rent accommodation lived in: Rent - from local authority, local council, housing association
+Own or rent accommodation lived in: Rent - from private landlord or letting agency
+Pain type(s) experienced in last month: Back pain
+Pain type(s) experienced in last month: Facial pain
+Pain type(s) experienced in last month: Headache
+Pain type(s) experienced in last month: Hip pain
+Pain type(s) experienced in last month: Knee pain
+Pain type(s) experienced in last month: Neck or shoulder pain
+Pain type(s) experienced in last month: None of the above
+Pain type(s) experienced in last month: Pain all over the body
+Pain type(s) experienced in last month: Stomach or abdominal pain
+PCT responsible for patient data: BRISTOL PCT
+PCT responsible for patient data: DERBYSHIRE COUNTY PCT
+PCT responsible for patient data: LEEDS PCT
+PCT responsible for patient data: NOTTINGHAMSHIRE COUNTY TEACHING PCT
+PCT responsible for patient data: OXFORDSHIRE PCT
+PCT responsible for patient data: SHEFFIELD PCT
+PCT where patients GP was registered: BRISTOL PCT
+PCT where patients GP was registered: DERBYSHIRE COUNTY PCT
+PCT where patients GP was registered: LEEDS PCT
+PCT where patients GP was registered: NEWCASTLE PCT
+PCT where patients GP was registered: NORTH SOMERSET PCT
+PCT where patients GP was registered: NORTH TYNESIDE PCT
+PCT where patients GP was registered: NOT KNOWN
+PCT where patients GP was registered: NOTTINGHAMSHIRE COUNTY TEACHING PCT
+PCT where patients GP was registered: OXFORDSHIRE PCT
+PCT where patients GP was registered: SHEFFIELD PCT
+PCT where patients GP was registered: SOUTH GLOUCESTERSHIRE PCT
+PGC cross-disorder traits
+Pregnancy, childbirth and the puerperium
+Professional informed about anxiety
+Professional informed about depression
+Qualifications: A levels/AS levels or equivalent
+Qualifications: College or University degree
+Qualifications: CSEs or equivalent
+Qualifications: None of the above
+Qualifications: NVQ or HND or HNC or equivalent
+Qualifications: O levels/GCSEs or equivalent
+Qualifications: Other professional qualifications eg: nursing  teaching
+Qualifications: Other professional qualifications eg: nursing, teaching
+Reason for not eating or drinking normally: Away
+Reason for not eating or drinking normally: Other reason untypical diet
+Reason for reducing amount of alcohol drunk: Financial reasons
+Reason for reducing amount of alcohol drunk: Health precaution
+Reason for reducing amount of alcohol drunk: Illness or ill health
+Reason for reducing amount of alcohol drunk: Other reason
+Recent medication for hayfever or allergic rhinitis
+Reproduciblity of spirometry measurement using ERS/ATS criteria
+Restless during period of worst anxiety
+Risk taking
+Savoury snack consumers
+Seen a psychiatrist for nerves  anxiety  tension or depression
+Seen a psychiatrist for nerves, anxiety, tension or depression
+Seen doctor (GP) for nerves  anxiety  tension or depression
+Seen doctor (GP) for nerves, anxiety, tension or depression
+Self-reported risk-taking behaviour
+Severity of problems due to mania or irritability
+Shortness of breath walking on level ground
+Shoulder lesions
+Size of red wine glass drunk: medium (175ml)
+Sleep duration (oversleepers)
+Sleep duration (undersleepers)
+Smoked cigarette or pipe within last hour
+smoking initiation
+Smoking status: Current
+Smoking status: Never
+Smoking status: Previous
+Soup consumers
+Sources of admission to hospital (recoded): Transfer to other NHS provider: General ward, young physically disabled, A&E
+Sources of admission to hospital (recoded): Usual Place of residence
+Sources of admission to hospital (recoded): Usual Place of residence: Living with relatives
+Spread type: Butter/spreadable butter
+Spread type: Never/rarely use spread
+Spread type: Other type of spread/margarine
+Spreads/sauces consumers
+Starchy food consumers
+Strenuous sports or other exercises
+Substances taken for anxiety: Medication prescribed to you (for at least two weeks)
+Substances taken for depression: Medication prescribed to you (for at least two weeks)
+Suffer from 'nerves'
+Sweet snack consumers
+Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
+Taking other prescription medications
+Tea consumed
+Tense / 'highly strung'
+Thickness of butter/margarine spread on sliced bread: medium
+Thickness of butter/margarine spread on sliced bread: thin
+Thoughts of death during worst depression
+Tinnitus: No, never
+Tinnitus: Yes  but not now  but have in the past
+Tinnitus: Yes, but not now, but have in the past
+Tinnitus: Yes, now some of the time
+Tobacco smoking: Ex-smoker
+Tobacco smoking: Never smoked
+Transport type for commuting to job workplace: Car/motor vehicle
+Transport type for commuting to job workplace: Cycle
+Transport type for commuting to job workplace: Public transport
+Transport type for commuting to job workplace: Walk
+Trauma exposure
+Trauma exposure in major depressive disorder-negative individuals
+Treatment speciality of consultant (recoded): Accident & emergency (A&E)
+Treatment speciality of consultant (recoded): Cardiology
+Treatment speciality of consultant (recoded): Ear, nose and throat (ENT)
+Treatment speciality of consultant (recoded): Gastroenterology
+Treatment speciality of consultant (recoded): General medicine
+Treatment speciality of consultant (recoded): General surgery
+Treatment speciality of consultant (recoded): Gynaecology
+Treatment speciality of consultant (recoded): Obstetrics
+Treatment speciality of consultant (recoded): Ophthalmology
+Treatment speciality of consultant (recoded): Oral surgery
+Treatment speciality of consultant (recoded): Plastic surgery
+Treatment speciality of consultant (recoded): Trauma & orthopaedics
+Treatment speciality of consultant (recoded): Urology
+Treatment/medication code: alendronate sodium
+Treatment/medication code: allopurinol
+Treatment/medication code: amitriptyline
+Treatment/medication code: amlodipine
+Treatment/medication code: aspirin
+Treatment/medication code: atenolol
+Treatment/medication code: atorvastatin
+Treatment/medication code: bendroflumethiazide
+Treatment/medication code: bisoprolol
+Treatment/medication code: cetirizine
+Treatment/medication code: chondroitin product
+Treatment/medication code: citalopram
+Treatment/medication code: co-codamol
+Treatment/medication code: cod liver oil capsule
+Treatment/medication code: diclofenac
+Treatment/medication code: doxazosin
+Treatment/medication code: evening primrose oil
+Treatment/medication code: fluoxetine
+Treatment/medication code: Free-text entry, unable to be coded
+Treatment/medication code: garlic product
+Treatment/medication code: glucosamine product
+Treatment/medication code: ibuprofen
+Treatment/medication code: lansoprazole
+Treatment/medication code: levothyroxine sodium
+Treatment/medication code: lisinopril
+Treatment/medication code: metformin
+Treatment/medication code: multivitamin+mineral preparations
+Treatment/medication code: multivitamins
+Treatment/medication code: omega-3/fish oil supplement
+Treatment/medication code: omeprazole
+Treatment/medication code: paracetamol
+Treatment/medication code: perindopril
+Treatment/medication code: ramipril
+Treatment/medication code: ranitidine
+Treatment/medication code: salbutamol
+Treatment/medication code: seretide 50 evohaler
+Treatment/medication code: simvastatin
+Treatment/medication code: thyroxine product
+Treatment/medication code: tramadol
+Treatment/medication code: ventolin 100micrograms inhaler
+Treatment/medication code: vitamin c product
+Type milk consumed: semiskimmed
+Type milk consumed: skimmed
+Type of
+Type of accommodation lived in: A flat, maisonette or apartment
+Type of accommodation lived in: A house or bungalow
+Type of fat/oil used in cooking: Cooking fat unknown
+Type of fat/oil used in cooking: Olive oil
+Type of meals eaten: Home cooked meals
+Type of sliced bread eaten: mixed
+Type of sliced bread eaten: white
+Type of sliced bread eaten: wholemeal
+Type of tobacco previously smoked: Manufactured cigarettes
+Type of yogurt eaten: Low fat yogurt consumers
+Types of
+Types of physical activity in last 4 weeks: Heavy DIY (eg: weeding  lawn mowing  carpentry  digging)
+Types of physical activity in last 4 weeks: Heavy DIY (eg: weeding, lawn mowing, carpentry, digging)
+Types of physical activity in last 4 weeks: Light DIY (eg: pruning  watering the lawn)
+Types of physical activity in last 4 weeks: Light DIY (eg: pruning, watering the lawn)
+Types of physical activity in last 4 weeks: None of the above
+Types of physical activity in last 4 weeks: Other exercises (eg: swimming  cycling  keep fit  bowling)
+Types of physical activity in last 4 weeks: Other exercises (eg: swimming, cycling, keep fit, bowling)
+Types of physical activity in last 4 weeks: Strenuous sports
+Types of physical activity in last 4 weeks: Walking for pleasure (not as a means of transport)
+Types of spread used on bread/crackers: Butter on bread/crackers
+Types of spread used on bread/crackers: Polyunsaturated margarine on bread/crackers
+Types of spreads/sauces consumed: Jam/honey
+Types of transport used (excluding work): Car/motor vehicle
+Types of transport used (excluding work): Cycle
+Types of transport used (excluding work): Public transport
+Types of transport used (excluding work): Walk
+Typical diet yesterday
+Usual side of head for mobile phone use: Equally left and right
+Usual side of head for mobile phone use: Left
+Usual side of head for mobile phone use: Right
+Vegetable consumers
+Victim of physically violent crime
+Victim of sexual assault
+Vigorous physical activity
+Vitamin and mineral supplements
+Vitamin and mineral supplements: Folic acid or Folate (Vit B9)
+Vitamin and mineral supplements: Multivitamins +/- minerals
+Vitamin and mineral supplements: None of the above
+Vitamin and mineral supplements: Vitamin B
+Vitamin and mineral supplements: Vitamin C
+Vitamin and mineral supplements: Vitamin D
+Vitamin and mineral supplements: Vitamin E
+Vitamin and/or mineral supplement use: Fish oil
+Vitamin supplement user
+Weight change during worst episode of depression: Lost weight
+Weight change during worst episode of depression: Stayed about the same or was on a diet
+Wheeze or whistling in the chest in last year
+Why stopped smoking
+Why stopped smoking: Financial reasons
+Why stopped smoking: Health precaution
+Why stopped smoking: Illness or ill health
+Why stopped smoking: None of the above
+Witnessed sudden violent death
+Work hours
+Work hours - lumped category: 15 to less-than-20 hours
+Work hours - lumped category: 20 to less-than-30 hours
+Work hours - lumped category: 30 to 40 hours
+Work hours - lumped category: Over 40 hours
+Worked with paints, thinners or glues: Sometimes
+Workplace full of chemical or other fumes: Sometimes
+Workplace had a lot of cigarette smoke from other people smoking: Often
+Workplace had a lot of cigarette smoke from other people smoking: Rarely/never
+Workplace had a lot of cigarette smoke from other people smoking: Sometimes
+Workplace had a lot of diesel exhaust: Sometimes
+Workplace very cold: Rarely/never
+Workplace very cold: Sometimes
+Workplace very dusty
+Workplace very dusty: Sometimes
+Workplace very hot: Often
+Workplace very hot: Rarely/never
+Workplace very hot: Sometimes
+Workplace very noisy: Often
+Workplace very noisy: Rarely/never
+Workplace very noisy: Sometimes
+Worrier / anxious feelings
+Worry too long after embarrassment
+Yogurt/ice-cream consumers
