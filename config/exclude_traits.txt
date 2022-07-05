@@ -584,6 +584,10 @@ Operative procedures - secondary OPCS: Z28.7 Colon NEC
 Operative procedures - secondary OPCS: Z29.1 Rectum
 Cardiac arrhytmias, COPD co-morbidities
 Certain infectious and parasitic diseases
+Hernia
+Non-cancer illness code, self-reported: hiatus hernia
+Hernia
+Non-cancer illness code, self-reported: hiatus hernia
 Operative procedures - secondary OPCS: Z50.4 Skin of leg NEC
 Operative procedures - secondary OPCS: Z84.6 Knee joint
 Operative procedures - secondary OPCS: Z94.1 Bilateral operation
