@@ -20,28 +20,22 @@ eqtl_df.index = eqtl_identifier_lst
 
 # configuration
 gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
-window = config['window'] # colocalisation window, eg 500000
-region = config['region'] # 'genome' or region in the form 1:10-100
-out_tsv = config['out_tsv'] # output file in ODS file
-out_ods = config['out_ods'] # output file in ODS file
-db_sqlite = config['db_sqlite'] # db path
-image_sif = config['image_sif'] # singularity image
 public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
 
 # GWAS
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
-gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-gwas_df['trait_name'] = gwas_df['trait_name'].str.replace("'", "")
-gwas_identifier_lst = gwas_df['identifier'].tolist()
-gwas_traitname_lst = gwas_df['trait_name'].tolist()
+gwas_df = pandas.read_csv(gwas_ods_path, header=0, sep='\t')
+gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
+gwas_identifier_lst = gwas_df['id'].tolist()
+gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
-container: image_sif
+#container: image_sif
 
 rule all:
     input:
-        expand(os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"), eqtl_identifier=eqtl_identifier_lst, gwas_id=gwas_identifier_lst),
+        expand(os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"), gwas_id=gwas_identifier_lst),
 
 rule gwas_hg38_csi:
     input:
