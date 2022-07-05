@@ -11,11 +11,21 @@ Alcohol drinker status: Current
 Alcohol drinker status: Never
 Alcohol drinker status: Previous
 Alcohol usually taken with meals
+Answered sexual history questions
 Attendance/disability/mobility allowance: Blue badge
 Attendance/disability/mobility allowance: Disability living allowance
 Attendance/disability/mobility allowance: None of the above
+Back pain for 3+ months
+Been in serious accident believed to be life-threatening
+Bilateral oophorectomy (both ovaries removed)
+Biological sex (age adjusted)
+Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: None of the above
 Bread consumed
 Bread type
+Bread type: Brown
+Bread type: Other type of bread
+Bread type: White
+Bread type: Wholemeal or wholegrain
 Breakfast cereal consumed
 Breastfed as a baby
 Breathing problems during period of job: Yes
@@ -23,11 +33,31 @@ Breathing problems responsible for leaving job: No
 Bring up phlegm/sputum/mucus on most days
 Caffeine drink within last hour
 Cereal type
+Cereal type: Biscuit cereal (e.g. Weetabix)
+Cereal type: Bran cereal (e.g. All Bran, Branflakes)
+Cereal type: Muesli
+Cereal type: Oat cereal (e.g. Ready Brek, porridge)
+Cereal type: Other (e.g. Cornflakes, Frosties)
 Cheese
+Cheese consumers
+Chest pain or discomfort
+Chest pain or discomfort walking normally
+Chest pain or discomfort when walking uphill or hurrying
 Close to major road
 Coffee
+Coffee consumed
+Coffee type: Decaffeinated coffee (any type)
+Coffee type: Ground coffee (include espresso, filter etc)
+Coffee type: Instant coffee
 College
+College completion
+Completion of the aide-memoire
 Current employment status
+Current employment status: Doing unpaid or voluntary work
+Current employment status: In paid employment or self-employed
+Current employment status: Looking after home and/or family
+Current employment status: Retired
+Current employment status: Unable to work because of sickness or disability
 Day shifts worked: Shift pattern was worked for whole of job
 Day shifts worked: This type of shift pattern was not worked during job
 Day-of-week questionnaire completion requested: Friday
@@ -36,7 +66,25 @@ Day-of-week questionnaire completion requested: Saturday
 Day-of-week questionnaire completion requested: Thursday
 Day-of-week questionnaire completion requested: Tuesday
 Day-of-week questionnaire completion requested: Wednesday
+Dessert consumers
+Destinations on discharge from hospital (recoded): Usual Place of residence
+Destinations on discharge from hospital (recoded): Usual Place of residence: Living with relatives
+Detention categories: Informal, not formally detained
+Diagnosed with life-threatening illness
+Diagnoses - main ICD10: R07 Pain in throat and chest
+Diagnoses - main ICD10: R07.4 Chest pain, unspecified
+Diagnoses - main ICD10: R10 Abdominal and pelvic pain
+Diagnoses - main ICD10: R10.4 Other and unspecified abdominal pain
+Diagnoses - secondary ICD10: E11.9 Without complications
+Diagnoses - secondary ICD10: Z37.0 Single live birth
+Diagnoses - secondary ICD10: Z53.8 Procedure not carried out for other reasons
+Diagnoses - secondary ICD10: Z72.0 Tobacco use
+Diagnoses - secondary ICD10: Z86.4 Personal history of psychoactive substance abuse
+Diagnoses - secondary ICD10: Z88.0 Personal history of allergy to penicillin
 Did your sleep change?
+Difficulty concentrating during worst depression
+Egg consumers
+Ever felt worried, tense, or anxious for most of a month or longer
 Ever had bowel cancer screening
 Ever had breast cancer screening / mammogram
 Ever had hysterectomy (womb removed)
@@ -58,6 +106,9 @@ Ever unenthusiastic/disinterested for a whole week
 Ever used hormone-replacement therapy (HRT)
 Ever vs never smoked
 Ever worried more than most people would in similar situation
+Eye problems/disorders: Cataract
+Eye problems/disorders: None of the above
+Factors influencing health status and contact with health services
 Falling risk
 Father still alive
 Fed-up feelings
@@ -71,6 +122,10 @@ FI6 : conditional arithmetic
 FI7 : synonym
 FI8 : chained arithmetic
 Fish consumer
+Fractured bone site(s): Other bones
+Fractured/broken bones in last 5 years
+Fractures
+Fruit consumers
 Gap coding: Full-time or part-time education
 Gap coding: Looking after the home and/or family
 Gap coding: Paid work for less than 15 hours per week on average or lasting less than 6 months
@@ -80,17 +135,33 @@ Gas or solid-fuel cooking/heating: A gas hob or gas cooker
 Gas or solid-fuel cooking/heating: An open solid fuel fire that you use regularly in winter time
 Gas or solid-fuel cooking/heating: None of the above
 Genetic sex
+Guilty feelings
 Had major operations
 Had menopause
 Had other major operations
+Hair colour (natural, before greying): Black
+Hair colour (natural, before greying): Blonde
+Hair colour (natural, before greying): Dark brown
+Hair colour (natural, before greying): Light brown
+Hair colour (natural, before greying): Red
+Hair/balding pattern: Pattern 1
+Hair/balding pattern: Pattern 3
+Hair/balding pattern: Pattern 4
+Handedness (chirality/laterality): Left-handed
+Handedness (chirality/laterality): Right-handed
+Headaches for 3+ months
+Heating type(s) in home: Gas central heating
+Hip pain for 3+ months
 Home area population density - urban or rural: England/Wales - Town and Fringe - less sparse
 Home area population density - urban or rural: England/Wales - Urban - less sparse
 Home area population density - urban or rural: England/Wales - Village - less sparse
 Home area population density - urban or rural: Scotland - Large Urban Area
+Hospital episode type: General episode
 How are people in household related to participant: Husband, wife or partner
 How are people in household related to participant: Mother and/or father
 How are people in household related to participant: Other unrelated
 How are people in household related to participant: Son and/or daughter (include step-children)
+ILD differential diagnosis
 Illness  injury  bereavement  stress in last 2 years: Death of a close relative
 Illness  injury  bereavement  stress in last 2 years: Financial difficulties
 Illness  injury  bereavement  stress in last 2 years: Marital separation/divorce
@@ -147,6 +218,7 @@ Intended management of patient (recoded): No overnight hospital stay
 Intended management of patient (recoded): One or more nights hospital stay
 Invitation to complete online 24-hour recall dietary questionnaire, acceptance
 Invitation to physical activity study, acceptance
+Irritability
 Job coding: all other personal assistants and secretaries
 Job coding: primary /junior school teacher or teaching professional, nursery school teacher (including head teacher)
 Job coding: secondary school teacher or teaching professional (including head teacher)
@@ -157,6 +229,7 @@ Job SOC coding: Primary and nursery education teaching professionals
 Job SOC coding: Secondary education teaching professionals
 Keyed up or on edge during worst period of anxiety
 Knee osteoarthritis
+Knee pain for 3+ months
 Leg pain in calf/calves
 Leg pain on walking
 Leg pain on walking : effect of standing still
@@ -193,16 +266,73 @@ Main speciality of consultant (recoded): Ophthalmology
 Main speciality of consultant (recoded): Oral surgery
 Main speciality of consultant (recoded): Plastic surgery
 Main speciality of consultant (recoded): Trauma and orthopaedics
+Main speciality of consultant (recoded): Urology
 Major dietary changes in the last 5 years: No
 Major dietary changes in the last 5 years: Yes, because of illness
 Major dietary changes in the last 5 years: Yes, because of other reasons
+Manifestations of mania or irritability: I was more restless than usual
+Manifestations of mania or irritability: My thoughts were racing
 Maternal history of Alzheimer's disease
 Maternal smoking around birth
 Meat consumers
 Medication
+Medication for cholesterol  blood pressure  diabetes  or take exogenous hormones: Blood pressure medication
+Medication for cholesterol  blood pressure  diabetes  or take exogenous hormones: Cholesterol lowering medication
+Medication for cholesterol  blood pressure  diabetes  or take exogenous hormones: Hormone replacement therapy
+Medication for cholesterol  blood pressure  diabetes  or take exogenous hormones: None of the above
+Medication for cholesterol  blood pressure or diabetes: Blood pressure medication
+Medication for cholesterol  blood pressure or diabetes: Cholesterol lowering medication
+Medication for cholesterol  blood pressure or diabetes: None of the above
+Medication for cholesterol, blood pressure or diabetes: Blood pressure medication
+Medication for cholesterol, blood pressure or diabetes: Cholesterol lowering medication
+Medication for cholesterol, blood pressure or diabetes: None of the above
+Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones: Blood pressure medication
+Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones: Cholesterol lowering medication
+Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones: Hormone replacement therapy
+Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones: None of the above
+Medication for pain relief  constipation  heartburn: Aspirin
+Medication for pain relief  constipation  heartburn: Ibuprofen (e.g. Nurofen)
+Medication for pain relief  constipation  heartburn: None of the above
+Medication for pain relief  constipation  heartburn: Omeprazole (e.g. Zanprol)
+Medication for pain relief  constipation  heartburn: Paracetamol
+Medication for pain relief, constipation, heartburn: Aspirin
+Medication for pain relief, constipation, heartburn: Ibuprofen (e.g. Nurofen)
+Medication for pain relief, constipation, heartburn: Laxatives (e.g. Dulcolax, Senokot)
+Medication for pain relief, constipation, heartburn: None of the above
+Medication for pain relief, constipation, heartburn: Omeprazole (e.g. Zanprol)
+Medication for pain relief, constipation, heartburn: Paracetamol
+Medication related adverse effects
+Medication related adverse effects (Asthma/COPD)
+Meniscus derangement
+Menstruating today
 Methods
+Methods of admission to hospital (recoded): Elective admission
+Methods of admission to hospital (recoded): Elective admission: Booked
+Methods of admission to hospital (recoded): Elective admission: Planned
+Methods of admission to hospital (recoded): Elective admission: Waiting List
+Methods of admission to hospital (recoded): Emergency admission
+Methods of admission to hospital (recoded): Emergency admission: A&E
+Methods of admission to hospital (recoded): Emergency admission: GP
+Methods of admission to hospital (recoded): Emergency admission: Non-injury
+Methods of admission to hospital (recoded): Emergency admission: Outpatients (obsolete)
+Methods of admission to hospital (recoded): Maternity admission: Post-partum
+Methods of discharge from hospital (recoded): Discharged on clinical advice/consent
+Methods of discharge from hospital (recoded): Discharged on clinical advice/consent: From inpatient/daycase care
 Milk
+Milk type used: Full cream
+Milk type used: Never/rarely have milk
+Milk type used: Semi-skimmed
+Milk type used: Skimmed
+Milk type used: Soya
 Mineral
+Mineral and other dietary supplements: Calcium
+Mineral and other dietary supplements: Fish oil (including cod liver oil)
+Mineral and other dietary supplements: Glucosamine
+Mineral and other dietary supplements: Iron
+Mineral and other dietary supplements: None of the above
+Mineral and other dietary supplements: Selenium
+Mineral and other dietary supplements: Zinc
+Miserableness
 Mixture of day and night shifts worked: Shift pattern was worked for some (but not all) of job
 Mixture of day and night shifts worked: Shift pattern was worked for whole of job
 Mixture of day and night shifts worked: This type of shift pattern was not worked during job
@@ -210,6 +340,14 @@ Mood swings
 More irritable than usual during worst period of anxiety
 Mother still alive
 Mouth/teeth
+Mouth/teeth dental problems: Bleeding gums
+Mouth/teeth dental problems: Dentures
+Mouth/teeth dental problems: Loose teeth
+Mouth/teeth dental problems: Mouth ulcers
+Mouth/teeth dental problems: None of the above
+Mouth/teeth dental problems: Painful gums
+Mouth/teeth dental problems: Toothache
+Neck/shoulder pain for 3+ months
 Nervous feelings
 Never eat eggs, dairy, wheat, sugar: Dairy products
 Never eat eggs, dairy, wheat, sugar: Eggs or foods containing eggs
@@ -223,6 +361,7 @@ Non-butter spread type details: Other low or reduced fat spread
 Non-butter spread type details: Other type of spread/margarine
 Non-butter spread type details: Polyunsaturated/sunflower oil based spread (eg: Flora)
 Non-butter spread type details: Soft (tub) margarine
+Non-cancer illness code, self-reported: unclassifiable
 Number of things worried about during worst period of anxiety
 Operation code: appendicectomy
 Operation code: arthroscopy nos
@@ -314,6 +453,7 @@ Operative procedures - secondary OPCS: Z94.1 Bilateral operation
 Operative procedures - secondary OPCS: Z94.2 Right sided operation
 Operative procedures - secondary OPCS: Z94.3 Left sided operation
 Other non-alcoholic drinks
+Other serious medical condition/disability diagnosed by doctor
 Own or rent accommodation lived in: Own outright (by you or someone in your household)
 Own or rent accommodation lived in: Own with a mortgage
 Own or rent accommodation lived in: Rent - from local authority, local council, housing association
@@ -327,6 +467,9 @@ Pain type(s) experienced in last month: Neck or shoulder pain
 Pain type(s) experienced in last month: None of the above
 Pain type(s) experienced in last month: Pain all over the body
 Pain type(s) experienced in last month: Stomach or abdominal pain
+Part of a multiple birth
+Participation in an health questionnaire (not invited vs invited)
+Paternal history of Alzheimer's disease
 PCT responsible for patient data: BRISTOL PCT
 PCT responsible for patient data: DERBYSHIRE COUNTY PCT
 PCT responsible for patient data: LEEDS PCT
@@ -372,6 +515,7 @@ Seen a psychiatrist for nerves, anxiety, tension or depression
 Seen doctor (GP) for nerves  anxiety  tension or depression
 Seen doctor (GP) for nerves, anxiety, tension or depression
 Self-reported risk-taking behaviour
+Sensitivity / hurt feelings
 Severity of problems due to mania or irritability
 Shortness of breath walking on level ground
 Shoulder lesions
@@ -504,6 +648,7 @@ Typical diet yesterday
 Usual side of head for mobile phone use: Equally left and right
 Usual side of head for mobile phone use: Left
 Usual side of head for mobile phone use: Right
+UTI
 Vegetable consumers
 Victim of physically violent crime
 Victim of sexual assault
