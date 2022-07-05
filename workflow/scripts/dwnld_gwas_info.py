@@ -51,9 +51,9 @@ for rowi, row in exclude_datasets_df.iterrows():
 df = df.loc[df['drop'] == 0]
 
 #%% select 1
-n = 50000
-ncontrol = 10000
-ncase = 10000
+n = 25000
+ncontrol = 5000
+ncase = 5000
 df = df.loc[df['population'] == 'European']  # keep european
 df = df.loc[df['ncontrol'] > ncontrol]  # ncontrol > 10000
 df = df.loc[df['ncase'] > ncase]  # ncase > 10000
@@ -68,7 +68,3 @@ m_df.drop_duplicates(subset=m_df.columns.tolist(), inplace=True)
 m_df = m_df[['id', 'manual_category', 'subcategory', 'trait', 'note', 'group_name', 'mr', 'year', 'author', 'sex', 'pmid', 'population', 'unit', 'sample_size', 'nsnp', 'build', 'category', 'subcategory', 'ontology', 'ncase', 'consortium', 'ncontrol', 'priority', 'sd', 'drop', 'manual_category']]
 gwassinfo_tsv_path = os.path.join(outdir_path, "gwasinfo_select_ncontrol{}_ncase{}_n{}.tsv".format(ncontrol, ncase, n))
 m_df.to_csv(gwassinfo_tsv_path, sep="\t", header=True, index=False)
-
-#%% select 2
-# gwassinfo_tsv_path = os.path.join(outdir_path, "gwasinfo_select2.tsv")
-# df.to_csv(gwassinfo_tsv_path, sep="\t", header=True, index=False)
