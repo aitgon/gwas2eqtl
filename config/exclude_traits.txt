@@ -12,6 +12,7 @@ Alcohol drinker status: Never
 Alcohol drinker status: Previous
 Alcohol usually taken with meals
 Answered sexual history questions
+Any ICDMAIN event in hilmo or causes of death
 Attendance/disability/mobility allowance: Blue badge
 Attendance/disability/mobility allowance: Disability living allowance
 Attendance/disability/mobility allowance: None of the above
@@ -33,16 +34,17 @@ Breathing problems during period of job: Yes
 Breathing problems responsible for leaving job: No
 Bring up phlegm/sputum/mucus on most days
 Caffeine drink within last hour
+Carer support indicators: Yes
+Carpal tunnel syndrome
 Cereal type
 Cereal type: Biscuit cereal (e.g. Weetabix)
-Operative procedures - secondary OPCS: Y98.1 Radiology of one body area (or < 20 minutes
-Diagnoses - main ICD10: I83.9 Varicose veins of lower extremities without ulcer or inflammation
 Cereal type: Bran cereal (e.g. All Bran, Branflakes)
 Cereal type: Muesli
 Cereal type: Oat cereal (e.g. Ready Brek, porridge)
 Cereal type: Other (e.g. Cornflakes, Frosties)
 Cheese
 Cheese consumers
+Chest pain due to walking ceases when standing still
 Chest pain or discomfort
 Chest pain or discomfort walking normally
 Chest pain or discomfort when walking uphill or hurrying
@@ -70,31 +72,104 @@ Day-of-week questionnaire completion requested: Thursday
 Day-of-week questionnaire completion requested: Tuesday
 Day-of-week questionnaire completion requested: Wednesday
 Dessert consumers
+Destinations on discharge from hospital (recoded): Transfer to other NHS provider: General ward, young physically disabled, A&E
 Destinations on discharge from hospital (recoded): Usual Place of residence
 Destinations on discharge from hospital (recoded): Usual Place of residence: Living with relatives
 Detention categories: Informal, not formally detained
 Diagnosed with life-threatening illness
+Diagnoses - main ICD10: C50.9 Breast, unspecified
+Diagnoses - main ICD10: D12 Benign neoplasm of colon, rectum, anus and anal canal
+Diagnoses - main ICD10: D25.9 Leiomyoma of uterus, unspecified
+Diagnoses - main ICD10: G56 Mononeuropathies of upper limb
+Diagnoses - main ICD10: G56.0 Carpal tunnel syndrome
+Diagnoses - main ICD10: I48 Atrial fibrillation and flutter
+Diagnoses - main ICD10: I83 Varicose veins of lower extremities
+Diagnoses - main ICD10: I83.9 Varicose veins of lower extremities without ulcer or inflammation
+Diagnoses - main ICD10: K40 Inguinal hernia
 Diagnoses - main ICD10: K40.9 Unilateral or unspecified inguinal hernia, without obstruction or gangrene
+Diagnoses - main ICD10: K44 Diaphragmatic hernia
+Diagnoses - main ICD10: K44.9 Diaphragmatic hernia without obstruction or gangrene
+Diagnoses - main ICD10: K52 Other non-infective gastro-enteritis and colitis
+Diagnoses - main ICD10: K52.9 Non-infective gastro-enteritis and colitis, unspecified
+Diagnoses - main ICD10: K57 Diverticular disease of intestine
+Diagnoses - main ICD10: K57.3 Diverticular disease of large intestine without perforation or abscess
+Diagnoses - main ICD10: K62 Other diseases of anus and rectum
+Diagnoses - main ICD10: K62.5 Haemorrhage of anus and rectum
+Diagnoses - main ICD10: K63 Other diseases of intestine
+Diagnoses - main ICD10: K80 Cholelithiasis
+Diagnoses - main ICD10: K80.2 Calculus of gallbladder without cholecystitis
+Diagnoses - main ICD10: K92 Other diseases of digestive system
+Diagnoses - main ICD10: L72 Follicular cysts of skin and subcutaneous tissue
+Diagnoses - main ICD10: M17 Gonarthrosis [arthrosis of knee]
+Diagnoses - main ICD10: M17.9 Gonarthrosis, unspecified
+Diagnoses - main ICD10: M20 Acquired deformities of fingers and toes
+Diagnoses - main ICD10: M20.1 Hallux valgus (acquired)
+Diagnoses - main ICD10: M23 Internal derangement of knee
+Diagnoses - main ICD10: M25 Other joint disorders, not elsewhere classified
+Diagnoses - main ICD10: M54 Dorsalgia
+Diagnoses - main ICD10: M75 Shoulder lesions
+Diagnoses - main ICD10: M79 Other soft tissue disorders, not elsewhere classified
+Diagnoses - main ICD10: N92 Excessive  frequent and irregular menstruation
+Diagnoses - main ICD10: N92 Excessive, frequent and irregular menstruation
+Diagnoses - main ICD10: N92.0 Excessive and frequent menstruation with regular cycle
+Diagnoses - main ICD10: N95 Menopausal and other perimenopausal disorders
+Diagnoses - main ICD10: N95.0 Postmenopausal bleeding
 Diagnoses - main ICD10: R07 Pain in throat and chest
+Diagnoses - main ICD10: R07.3 Other chest pain
 Diagnoses - main ICD10: R07.4 Chest pain, unspecified
 Diagnoses - main ICD10: R10 Abdominal and pelvic pain
+Diagnoses - main ICD10: R10.1 Pain localised to upper abdomen
 Diagnoses - main ICD10: R10.4 Other and unspecified abdominal pain
+Diagnoses - main ICD10: R19 Other symptoms and signs involving the digestive system and abdomen
+Diagnoses - main ICD10: R19.4 Change in bowel habit
+Diagnoses - main ICD10: R31 Unspecified haematuria
+Diagnoses - main ICD10: R69 Unknown and unspecified causes of morbidity
+Diagnoses - main ICD10: T81 Complications of procedures, not elsewhere classified
+Diagnoses - main ICD10: Z09 Follow-up examination after treatment for conditions other than malignant neoplasms
+Diagnoses - main ICD10: Z30 Contraceptive management
+Diagnoses - main ICD10: Z30.2 Sterilisation
+Diagnoses - secondary ICD10: D64.9 Anaemia, unspecified
+Diagnoses - secondary ICD10: E03.9 Hypothyroidism, unspecified
 Diagnoses - secondary ICD10: E11.9 Without complications
+Diagnoses - secondary ICD10: F32.9 Depressive episode, unspecified
+Diagnoses - secondary ICD10: K29.7 Gastritis, unspecified
 Diagnoses - secondary ICD10: K44.9 Diaphragmatic hernia without obstruction or gangrene
+Diagnoses - secondary ICD10: K52.9 Non-infective gastro-enteritis and colitis, unspecified
+Diagnoses - secondary ICD10: K57.3 Diverticular disease of large intestine without perforation or abscess
+Diagnoses - secondary ICD10: R11 Nausea and vomiting
+Diagnoses - secondary ICD10: R69 Unknown and unspecified causes of morbidity
 Diagnoses - secondary ICD10: Z37.0 Single live birth
+Diagnoses - secondary ICD10: Z51.1 Chemotherapy session for neoplasm
 Diagnoses - secondary ICD10: Z53.8 Procedure not carried out for other reasons
 Diagnoses - secondary ICD10: Z72.0 Tobacco use
+Diagnoses - secondary ICD10: Z80.0 Family history of malignant neoplasm of digestive organs
+Diagnoses - secondary ICD10: Z82.4 Family history of ischaemic heart disease and other diseases of the circulatory system
+Diagnoses - secondary ICD10: Z85.3 Personal history of malignant neoplasm of breast
 Diagnoses - secondary ICD10: Z86.4 Personal history of psychoactive substance abuse
 Diagnoses - secondary ICD10: Z88.0 Personal history of allergy to penicillin
+Diagnoses - secondary ICD10: Z92.1 Personal history of long-term (current) use of anticoagulants
+Diagnoses - secondary ICD10: Z92.2 Personal history of long-term (current) use of other medicaments
+Diagnoses - secondary ICD10: Z96.6 Presence of orthopaedic joint implants
 Did your sleep change?
 Difficulty concentrating during worst depression
+Difficulty concentrating during worst period of anxiety
+Dorsalgia
+Easily tired during worst period of anxiety
 Egg consumers
+Endocrine, nutritional and metabolic diseases
+Endometrial cancer (endometrioid histology)
+Episodal and paroxysmal disorders
+Erectile dysfunction
 Estradiol levels
+Ever addicted to any substance or behaviour
+Ever been injured or injured someone else through drinking alcohol: No
 Ever felt worried, tense, or anxious for most of a month or longer
 Ever had bowel cancer screening
 Ever had breast cancer screening / mammogram
+Ever had cervical smear test
 Ever had hysterectomy (womb removed)
 Ever had known person concerned about, or recommend reduction of, alcohol consumption: No
+Ever had known person concerned about, or recommend reduction of, alcohol consumption: Yes, but not in the last year
 Ever had period extreme irritability
 Ever had prolonged feelings of sadness or depression
 Ever had prolonged loss of interest in normal activities
@@ -103,6 +178,8 @@ Ever had same-sex intercourse
 Ever had stillbirth  spontaneous miscarriage or termination
 Ever had stillbirth, spontaneous miscarriage or termination
 Ever highly irritable/argumentative for 2 days
+Ever manic/hyper for 2 days
+Ever self-harmed
 Ever smoked
 Ever sought or received professional help for mental distress
 Ever stopped smoking for 6+ months
@@ -127,10 +204,16 @@ FI5 : family relationship calculation
 FI6 : conditional arithmetic
 FI7 : synonym
 FI8 : chained arithmetic
+FI9 : concept interpolation
 Fish consumer
+Former alcohol drinker
+Fracture resulting from simple fall
+Fractured bone site(s): Ankle
 Fractured bone site(s): Other bones
+Fractured bone site(s): Wrist
 Fractured/broken bones in last 5 years
 Fractures
+Frequent trouble falling or staying asleep during worst period of anxiety
 Fruit consumers
 Gap coding: Full-time or part-time education
 Gap coding: Looking after the home and/or family
@@ -141,6 +224,8 @@ Gas or solid-fuel cooking/heating: A gas hob or gas cooker
 Gas or solid-fuel cooking/heating: An open solid fuel fire that you use regularly in winter time
 Gas or solid-fuel cooking/heating: None of the above
 Genetic sex
+GI-bleeding
+Gonarthrosis [arthrosis of knee](FG)
 Guilty feelings
 Had major operations
 Had menopause
@@ -153,11 +238,14 @@ Hair colour (natural, before greying): Red
 Hair/balding pattern: Pattern 1
 Hair/balding pattern: Pattern 3
 Hair/balding pattern: Pattern 4
+Hallux valgus (acquired)
 Handedness (chirality/laterality): Left-handed
 Handedness (chirality/laterality): Right-handed
+Handedness (chirality/laterality): Use both right and left hands equally
 Headaches for 3+ months
 Heating type(s) in home: Gas central heating
 Hip pain for 3+ months
+Home area population density - urban or rural: England/Wales - Hamlet and Isolated Dwelling - less sparse
 Home area population density - urban or rural: England/Wales - Town and Fringe - less sparse
 Home area population density - urban or rural: England/Wales - Urban - less sparse
 Home area population density - urban or rural: England/Wales - Village - less sparse
@@ -261,22 +349,35 @@ Low hand grip strength (60 years and older) (EWGSOP)
 Low hand grip strength (60 years and older) (FNIH)
 LRTI
 Main speciality of consultant (recoded): Accident and emergency (A&E)
+Main speciality of consultant (recoded): Anaesthetics
 Main speciality of consultant (recoded): Cardiology
+Main speciality of consultant (recoded): Cardiothoracic surgery
+Main speciality of consultant (recoded): Dermatology
 Main speciality of consultant (recoded): Ear, nose and throat (ENT)
 Main speciality of consultant (recoded): Gastroenterology
 Main speciality of consultant (recoded): General medicine
 Main speciality of consultant (recoded): General surgery
+Main speciality of consultant (recoded): Geriatric medicine
 Main speciality of consultant (recoded): Gynaecology
+Main speciality of consultant (recoded): Neurology
+Main speciality of consultant (recoded): Neurosurgery
 Main speciality of consultant (recoded): Obstetrics
 Main speciality of consultant (recoded): Ophthalmology
 Main speciality of consultant (recoded): Oral surgery
 Main speciality of consultant (recoded): Plastic surgery
+Main speciality of consultant (recoded): Respiratory medicine
 Main speciality of consultant (recoded): Trauma and orthopaedics
 Main speciality of consultant (recoded): Urology
 Major dietary changes in the last 5 years: No
 Major dietary changes in the last 5 years: Yes, because of illness
 Major dietary changes in the last 5 years: Yes, because of other reasons
+Manic/hyper symptoms: I was more active than usual
+Manic/hyper symptoms: I was more talkative than usual
+Manic/hyper symptoms: None of the above
+Manifestations of mania or irritability: I was easily distracted
+Manifestations of mania or irritability: I was more active than usual
 Manifestations of mania or irritability: I was more restless than usual
+Manifestations of mania or irritability: I was more talkative than usual
 Manifestations of mania or irritability: My thoughts were racing
 Maternal history of Alzheimer's disease
 Maternal smoking around birth
@@ -353,6 +454,7 @@ Mouth/teeth dental problems: Mouth ulcers
 Mouth/teeth dental problems: None of the above
 Mouth/teeth dental problems: Painful gums
 Mouth/teeth dental problems: Toothache
+Multiple worries during worst period of anxiety
 Neck/shoulder pain for 3+ months
 Nervous feelings
 Never eat eggs, dairy, wheat, sugar: Dairy products
@@ -367,10 +469,30 @@ Non-butter spread type details: Other low or reduced fat spread
 Non-butter spread type details: Other type of spread/margarine
 Non-butter spread type details: Polyunsaturated/sunflower oil based spread (eg: Flora)
 Non-butter spread type details: Soft (tub) margarine
+Non-cancer illness code  self-reported: back problem
+Non-cancer illness code  self-reported: cholelithiasis/gall stones
+Non-cancer illness code  self-reported: deep venous thrombosis (dvt)
+Non-cancer illness code  self-reported: hiatus hernia
 Non-cancer illness code  self-reported: migraine
+Non-cancer illness code  self-reported: uterine fibroids
+Non-cancer illness code, self-reported: anxiety/panic attacks
+Non-cancer illness code, self-reported: back problem
+Non-cancer illness code, self-reported: cholelithiasis/gall stones
+Non-cancer illness code, self-reported: deep venous thrombosis (dvt)
+Non-cancer illness code, self-reported: diverticular disease/diverticulitis
+Non-cancer illness code, self-reported: emphysema/chronic bronchitis
+Non-cancer illness code, self-reported: enlarged prostate
+Non-cancer illness code, self-reported: gout
 Non-cancer illness code, self-reported: migraine
+Non-cancer illness code, self-reported: prolapsed disc/slipped disc
 Non-cancer illness code, self-reported: unclassifiable
+Non-cancer illness code, self-reported: uterine fibroids
+Noninfectious colitis NAS
 Number of things worried about during worst period of anxiety
+OCT measured (left): Measurable
+OCT measured (left): Not performed - equipment failure
+OCT measured (right): Measurable
+OCT measured (right): Not performed - equipment failure
 Operation code: appendicectomy
 Operation code: arthroscopy nos
 Operation code: bilateral oophorectomy
@@ -445,8 +567,13 @@ Operative procedures - secondary OPCS: Y80.9 Unspecified general anaesthetic
 Operative procedures - secondary OPCS: Y82.2 Injection of local anaesthetic NEC
 Operative procedures - secondary OPCS: Y82.3 Application of local anaesthetic NEC
 Operative procedures - secondary OPCS: Y82.9 Unspecified local anaesthetic
-Operative procedures - secondary OPCS: Y98.1 Radiology of one body area (or &lt; 20 minutes)
+Operative procedures - secondary OPCS: Y98.1 Radiology of one body area
 Operative procedures - secondary OPCS: Z27.1 Oesophagus
+Any ICDMAIN event in hilmo or causes of death
+Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: None of the above
+Diagnoses - main ICD10: I83.9 Varicose veins of lower extremities without ulcer or inflammation
+Diagnoses - main ICD10: K40.9 Unilateral or unspecified inguinal hernia, without obstruction or gangrene
+Diagnoses - secondary ICD10: K44.9 Diaphragmatic hernia without obstruction or gangrene
 Operative procedures - secondary OPCS: Z27.2 Stomach
 Operative procedures - secondary OPCS: Z27.4 Duodenum
 Operative procedures - secondary OPCS: Z28.2 Caecum
@@ -455,6 +582,8 @@ Operative procedures - secondary OPCS: Z28.5 Descending colon
 Operative procedures - secondary OPCS: Z28.6 Sigmoid colon
 Operative procedures - secondary OPCS: Z28.7 Colon NEC
 Operative procedures - secondary OPCS: Z29.1 Rectum
+Cardiac arrhytmias, COPD co-morbidities
+Certain infectious and parasitic diseases
 Operative procedures - secondary OPCS: Z50.4 Skin of leg NEC
 Operative procedures - secondary OPCS: Z84.6 Knee joint
 Operative procedures - secondary OPCS: Z94.1 Bilateral operation
@@ -545,20 +674,27 @@ Spread type: Other type of spread/margarine
 Spreads/sauces consumers
 Starchy food consumers
 Strenuous sports or other exercises
+Substances taken for anxiety: Drugs or alcohol (more than once)
 Substances taken for anxiety: Medication prescribed to you (for at least two weeks)
+Substances taken for depression: Drugs or alcohol (more than once)
 Substances taken for depression: Medication prescribed to you (for at least two weeks)
 Suffer from 'nerves'
 Sweet snack consumers
 Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
 Taking other prescription medications
+Target heart rate achieved
 Tea consumed
 Tense / 'highly strung'
+Tense, sore, or aching muscles during worst period of anxiety
 Thickness of butter/margarine spread on sliced bread: medium
 Thickness of butter/margarine spread on sliced bread: thin
 Thoughts of death during worst depression
 Tinnitus: No, never
 Tinnitus: Yes  but not now  but have in the past
+Tinnitus: Yes  now most or all of the time
+Tinnitus: Yes  now some of the time
 Tinnitus: Yes, but not now, but have in the past
+Tinnitus: Yes, now most or all of the time
 Tinnitus: Yes, now some of the time
 Tobacco smoking: Ex-smoker
 Tobacco smoking: Never smoked
@@ -570,15 +706,21 @@ Trauma exposure
 Trauma exposure in major depressive disorder-negative individuals
 Treatment speciality of consultant (recoded): Accident & emergency (A&E)
 Treatment speciality of consultant (recoded): Cardiology
+Treatment speciality of consultant (recoded): Colorectal surgery
+Treatment speciality of consultant (recoded): Dermatology
 Treatment speciality of consultant (recoded): Ear, nose and throat (ENT)
 Treatment speciality of consultant (recoded): Gastroenterology
 Treatment speciality of consultant (recoded): General medicine
 Treatment speciality of consultant (recoded): General surgery
+Treatment speciality of consultant (recoded): Geriatric medicine
 Treatment speciality of consultant (recoded): Gynaecology
+Treatment speciality of consultant (recoded): Neurology
+Treatment speciality of consultant (recoded): Neurosurgery
 Treatment speciality of consultant (recoded): Obstetrics
 Treatment speciality of consultant (recoded): Ophthalmology
 Treatment speciality of consultant (recoded): Oral surgery
 Treatment speciality of consultant (recoded): Plastic surgery
+Treatment speciality of consultant (recoded): Thoracic medicine
 Treatment speciality of consultant (recoded): Trauma & orthopaedics
 Treatment speciality of consultant (recoded): Urology
 Treatment/medication code: alendronate sodium
@@ -622,6 +764,7 @@ Treatment/medication code: thyroxine product
 Treatment/medication code: tramadol
 Treatment/medication code: ventolin 100micrograms inhaler
 Treatment/medication code: vitamin c product
+Trouble falling asleep
 Type milk consumed: semiskimmed
 Type milk consumed: skimmed
 Type of
@@ -670,7 +813,9 @@ Vitamin and mineral supplements: Vitamin C
 Vitamin and mineral supplements: Vitamin D
 Vitamin and mineral supplements: Vitamin E
 Vitamin and/or mineral supplement use: Fish oil
+Vitamin and/or mineral supplement use: Glucosamine/chondroitin
 Vitamin supplement user
+Weight change during worst episode of depression: Gained weight
 Weight change during worst episode of depression: Lost weight
 Weight change during worst episode of depression: Stayed about the same or was on a diet
 Wheeze or whistling in the chest in last year
@@ -679,18 +824,22 @@ Why stopped smoking: Financial reasons
 Why stopped smoking: Health precaution
 Why stopped smoking: Illness or ill health
 Why stopped smoking: None of the above
+Willing to attempt cognitive tests
 Witnessed sudden violent death
 Work hours
 Work hours - lumped category: 15 to less-than-20 hours
 Work hours - lumped category: 20 to less-than-30 hours
 Work hours - lumped category: 30 to 40 hours
 Work hours - lumped category: Over 40 hours
+Worked with materials containing asbestos: Sometimes
 Worked with paints, thinners or glues: Sometimes
+Workplace full of chemical or other fumes: Often
 Workplace full of chemical or other fumes: Sometimes
 Workplace had a lot of cigarette smoke from other people smoking: Often
 Workplace had a lot of cigarette smoke from other people smoking: Rarely/never
 Workplace had a lot of cigarette smoke from other people smoking: Sometimes
 Workplace had a lot of diesel exhaust: Sometimes
+Workplace very cold: Often
 Workplace very cold: Rarely/never
 Workplace very cold: Sometimes
 Workplace very dusty
