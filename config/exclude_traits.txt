@@ -20,6 +20,7 @@ Been in serious accident believed to be life-threatening
 Bilateral oophorectomy (both ovaries removed)
 Biological sex (age adjusted)
 Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: None of the above
+Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: None of the above
 Bread consumed
 Bread type
 Bread type: Brown
@@ -34,6 +35,8 @@ Bring up phlegm/sputum/mucus on most days
 Caffeine drink within last hour
 Cereal type
 Cereal type: Biscuit cereal (e.g. Weetabix)
+Operative procedures - secondary OPCS: Y98.1 Radiology of one body area (or < 20 minutes
+Diagnoses - main ICD10: I83.9 Varicose veins of lower extremities without ulcer or inflammation
 Cereal type: Bran cereal (e.g. All Bran, Branflakes)
 Cereal type: Muesli
 Cereal type: Oat cereal (e.g. Ready Brek, porridge)
@@ -71,11 +74,13 @@ Destinations on discharge from hospital (recoded): Usual Place of residence
 Destinations on discharge from hospital (recoded): Usual Place of residence: Living with relatives
 Detention categories: Informal, not formally detained
 Diagnosed with life-threatening illness
+Diagnoses - main ICD10: K40.9 Unilateral or unspecified inguinal hernia, without obstruction or gangrene
 Diagnoses - main ICD10: R07 Pain in throat and chest
 Diagnoses - main ICD10: R07.4 Chest pain, unspecified
 Diagnoses - main ICD10: R10 Abdominal and pelvic pain
 Diagnoses - main ICD10: R10.4 Other and unspecified abdominal pain
 Diagnoses - secondary ICD10: E11.9 Without complications
+Diagnoses - secondary ICD10: K44.9 Diaphragmatic hernia without obstruction or gangrene
 Diagnoses - secondary ICD10: Z37.0 Single live birth
 Diagnoses - secondary ICD10: Z53.8 Procedure not carried out for other reasons
 Diagnoses - secondary ICD10: Z72.0 Tobacco use
@@ -84,6 +89,7 @@ Diagnoses - secondary ICD10: Z88.0 Personal history of allergy to penicillin
 Did your sleep change?
 Difficulty concentrating during worst depression
 Egg consumers
+Estradiol levels
 Ever felt worried, tense, or anxious for most of a month or longer
 Ever had bowel cancer screening
 Ever had breast cancer screening / mammogram
@@ -361,6 +367,8 @@ Non-butter spread type details: Other low or reduced fat spread
 Non-butter spread type details: Other type of spread/margarine
 Non-butter spread type details: Polyunsaturated/sunflower oil based spread (eg: Flora)
 Non-butter spread type details: Soft (tub) margarine
+Non-cancer illness code  self-reported: migraine
+Non-cancer illness code, self-reported: migraine
 Non-cancer illness code, self-reported: unclassifiable
 Number of things worried about during worst period of anxiety
 Operation code: appendicectomy

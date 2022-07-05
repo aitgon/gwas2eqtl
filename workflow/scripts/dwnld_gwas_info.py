@@ -61,7 +61,8 @@ df = df.loc[(df['ncontrol'] + df['ncase']) > n]  # sum > 50000
 
 #%%
 annot_df = pandas.read_excel('config/manual_annotation.ods', engine='odf')
-m_df = df.merge(annot_df,  on=['id', 'trait', 'subcategory'], how='left')
+m_df = df.merge(annot_df[['id', 'manual_category']],  on='id', how='left')
+m_df.drop_duplicates(subset=m_df.columns.tolist(), inplace=True)
 
 #%%
 m_df = m_df[['id', 'manual_category', 'subcategory', 'trait', 'note', 'group_name', 'mr', 'year', 'author', 'sex', 'pmid', 'population', 'unit', 'sample_size', 'nsnp', 'build', 'category', 'subcategory', 'ontology', 'ncase', 'consortium', 'ncontrol', 'priority', 'sd', 'drop', 'manual_category']]
