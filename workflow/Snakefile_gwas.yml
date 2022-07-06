@@ -1,6 +1,7 @@
 from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
 HTTP = HTTPRemoteProvider()
 
+import math
 import os
 import pandas
 
@@ -18,24 +19,31 @@ eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex
 eqtl_identifier_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
 eqtl_df.index = eqtl_identifier_lst
 
-# configuration
-gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
+# Various configs
 public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
 
-# GWAS
+# GWAS config
+gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
-gwas_df = pandas.read_csv(gwas_ods_path, header=0, sep='\t')
+gwas_df = pandas.read_excel(gwas_ods_path, header=0)
 gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_identifier_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
-#container: image_sif
-
 rule all:
     input:
-        expand(os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"), gwas_id=gwas_identifier_lst),
+        expand(os.path.join(process_data_dir_path, "hg83", "pval{}".format(gwas_pval), "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"), gwas_id=gwas_identifier_lst),
+
+rule gwas_pval:
+    input:
+        bgz=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+        csi=os.path.join(process_data_dir_path, "hg83/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
+    output:
+        bgz=os.path.join(process_data_dir_path, "hg83", "pval{}".format(gwas_pval), "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+    shell:
+        "bcftools view -i 'FORMAT/LP>" + str(math.log10(float(gwas_pval))) + "' {input.bgz} > {output.bgz}"
 
 rule gwas_hg38_csi:
     input:
