@@ -1,25 +1,3 @@
-library(VariantAnnotation)
-library(dplyr)
-
-gwas_vcf_path = "/home/gonzalez/Software/process/hg38/pval5e-08/gwas.mrcieu.ac.uk/files/ieu-a-1162/ieu-a-1162.vcf2.bgz"
-eqtl_leads_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.permuted.tsv"
-eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.all.tsv.gz"
-window=500000
-pcutoff=5e-8
-
-# gwas_vcf_obj <- readVcf(vcf_path, "hg38")
-eqtl_leads_df = read.table(eqtl_leads_path, sep='\t', header=T)
-
-# select somatic chromosomes
-eqtl_leads_df = eqtl_leads_df[eqtl_leads_df$chromosome %in% as.character(1:22), ]
-eqtl_leads_df = eqtl_leads_df[ , colSums(is.na(eqtl_leads_df)) == 0]  # remove if at leas one na
-region_df <- data.frame(chrom=eqtl_leads_df$chromosome, start=eqtl_leads_df$position-window, end=eqtl_leads_df$position+window)
-
-assoc_vcf <- gwasvcf::query_chrompos_file(chrompos=region_df, vcffile=gwas_vcf_path)
-assoc_vcf <- gwasvcf::query_pval_vcf(vcf=assoc_vcf, pval=pcutoff)  # select associations
-
-eqtl_sumstats_hg38_tbl = seqminer::tabix.read.table(tabixFile = eqtl_all_path, tabixRange = "1:317186-1317186", stringsAsFactors = FALSE) %>% dplyr::as_tibble()
-
 coloc_gwasglue_leadpair_all <- function(coloc_window, eqtl_identifier, eqtlleads_hg38_tsv_path, eqtl_hg38_tsv_gz_path, gwas_identifier, gwas_trait_name, gwastop_hg38_tsv_path, gwas_hg38_vcf_gz_path, out_tsv_path) {
   
   ################################################################################
@@ -75,6 +53,7 @@ coloc_gwasglue_leadpair_all <- function(coloc_window, eqtl_identifier, eqtlleads
     cat(NULL, file=out_tsv_path)
     return(NULL)
   }
+
   gwastop_tbl <- readr::read_tsv(gwastop_hg38_tsv_path)
   gwastop_tbl = gwastop_tbl[!is.na(gwastop_tbl$n),]  # remove n NAs
   if (nrow(gwastop_tbl) == 0) { # if non top gwas, then write empty file

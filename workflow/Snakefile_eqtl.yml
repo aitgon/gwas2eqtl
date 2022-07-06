@@ -8,7 +8,7 @@ import pandas
 # General config
 public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
-#window = config['window'] # colocalisation window, eg 500000
+window = config['window'] # colocalisation window
 region = config['region'] # 'genome' or region in the form 1:10-100
 #out_tsv = config['out_tsv'] # output file in ODS file
 #out_ods = config['out_ods'] # output file in ODS file
@@ -44,20 +44,39 @@ eqtl_fdr=str(config["eqtl_fdr"]) # gwas p-value, eg. 5e-8
 
 rule all:
     input:
-        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.regions.tsv"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
         expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
         expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+
+rule eqtl_region_all_index:
+    input:
+        all=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz"),
+    output:
+        tbi=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz.tbi"),
+    shell:
+        """tabix -s 2 -b 3 -e 3 {input.all}"""
+
+rule eqtl_region_all:
+    input:
+        all=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"),
+        region=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.region.tsv"),
+    output:
+        all=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz"),
+    shell:
+        """tabix {input.all} -R {input.region} |sort -k2,2 -k3,3n |bgzip > {output.all}"""
 
 rule extract_eqtlleads:
     input:
         permuted=os.path.join(process_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv"),
     output:
-        eqtlleads_hg38_tsv=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv"),
+        leadpair=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.leadpair.tsv"),
+        region=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.region.tsv"),
     params:
         region=region,  # 7:6000000-7000000
         eqtl_fdr=eqtl_fdr,  # 7:6000000-7000000
     shell:
-        """python workflow/scripts/extract_lead_eqtls.py {input.permuted} {output.eqtlleads_hg38_tsv} {params.region} {params.eqtl_fdr}"""
+        """python workflow/scripts/extract_lead_eqtls.py {input.permuted} {output.leadpair} {output.region} {params.region} {params.eqtl_fdr}"""
 
 rule gunzip_eqtl_permuted:
     input:
