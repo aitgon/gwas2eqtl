@@ -76,7 +76,7 @@ rule dwnld_eqtl_permuted:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv.gz",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}
         python workflow/scripts/md5sum_check.py {output.permuted} {input.md5sum}"""
 
 rule dwnld_eqtl_tbi:
@@ -88,7 +88,7 @@ rule dwnld_eqtl_tbi:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}
         python workflow/scripts/md5sum_check.py {output.tbi} {input.md5sum}"""
 
 rule dwnld_eqtl_all:
@@ -100,7 +100,7 @@ rule dwnld_eqtl_all:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}
         python workflow/scripts/md5sum_check.py {output.all} {input.md5sum}"""
 
 rule dwnld_eqtl_md5sum:
@@ -110,4 +110,4 @@ rule dwnld_eqtl_md5sum:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
