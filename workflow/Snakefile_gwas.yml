@@ -80,7 +80,7 @@ rule wget_vcf:
         url="gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
 
 rule wget_chain:
     output:
@@ -89,7 +89,7 @@ rule wget_chain:
         url="ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
 
 rule gunzip_ref_fasta:
     input:
@@ -106,4 +106,4 @@ rule wget_ref_fasta:
         url="ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz",
         public_data_dir_path=public_data_dir_path,
     shell:
-        """wget -c -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
