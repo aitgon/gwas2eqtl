@@ -30,5 +30,5 @@ permuted_df['p_fdr'] = pvalue_corrected
 
 #%%
 out_df = permuted_df.loc[rejected]
-out_df.to_csv(out_tsv_path, sep="\t", )
+out_df.to_csv(out_tsv_path, sep="\t", index=False)
 
