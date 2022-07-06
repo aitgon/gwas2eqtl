@@ -55,8 +55,9 @@ rule extract_eqtlleads:
         eqtlleads_hg38_tsv=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv"),
     params:
         region=region,  # 7:6000000-7000000
+        eqtl_fdr=eqtl_fdr,  # 7:6000000-7000000
     shell:
-        """Rscript workflow/scripts/extract_lead_var_pairs.R {input.permuted} {output.eqtlleads_hg38_tsv} {params.region}"""
+        """python workflow/scripts/extract_lead_eqtls.py {input.permuted} {output.eqtlleads_hg38_tsv} {params.region} {params.eqtl_fdr}"""
 
 rule gunzip_eqtl_permuted:
     input:
