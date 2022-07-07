@@ -45,8 +45,8 @@ rule coloc:
         gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
         gwas_tbi=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz.tbi"),
         eqtl_leads_tsv=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadpair.tsv"),
-        eqtl_all_gz=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.regions.tsv.gz"),
-        eqtl_all_tsv_gz_tbi=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.regions.tsv.gz.tbi"),
+        eqtl_all_gz=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz"),
+        eqtl_all_tsv_gz_tbi=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz.tbi"),
     output:
         coloc_tsv=os.path.join("out/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.tsv"),
     log:
@@ -69,7 +69,7 @@ rule cross_tabix:
 
 rule cross_eqtl_gwas:
     input:
-        regions=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadregion" + window + ".tsv"),
+        regions=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadregion" + str(window) + ".tsv"),
         gwas_vcf_gz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
         gwas_vcf_gz_tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
     output:
