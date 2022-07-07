@@ -44,26 +44,24 @@ eqtl_fdr=str(config["eqtl_fdr"]) # gwas p-value, eg. 5e-8
 
 rule all:
     input:
-        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.regions.tsv"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
-        expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
-        expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
-        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
-        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.leadregion" + str(window) + ".tsv"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
 
 rule eqtl_region_all_index:
     input:
-        all=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz"),
+        all=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz"),
     output:
-        tbi=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz.tbi"),
+        tbi=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz.tbi"),
     shell:
         """tabix -s 2 -b 3 -e 3 {input.all}"""
 
 rule eqtl_region_all:
     input:
         all=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"),
-        region=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.region.tsv"),
+        region=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.leadregion" + str(window) + ".tsv"),
     output:
-        all=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.regions.tsv.gz"),
+        all=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz"),
     shell:
         """tabix {input.all} -R {input.region} |sort -k2,2 -k3,3n |bgzip > {output.all}"""
 
@@ -71,13 +69,14 @@ rule extract_eqtlleads:
     input:
         permuted=os.path.join(process_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv"),
     output:
-        leadpair=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.leadpair.tsv"),
-        region=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.region.tsv"),
+        leadpair=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.leadeqtl.tsv"),
+        region=os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.leadregion" + str(window) + ".tsv"),
     params:
         region=region,  # 7:6000000-7000000
-        eqtl_fdr=eqtl_fdr,  # 7:6000000-7000000
+        eqtl_fdr=eqtl_fdr,
+        window=window,
     shell:
-        """python workflow/scripts/extract_lead_eqtls.py {input.permuted} {output.leadpair} {output.region} {params.region} {params.eqtl_fdr}"""
+        """python workflow/scripts/extract_lead_eqtls.py {input.permuted} {output.leadpair} {output.region} {params.region} {params.eqtl_fdr} {params.window}"""
 
 rule gunzip_eqtl_permuted:
     input:

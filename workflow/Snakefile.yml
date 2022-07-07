@@ -69,7 +69,7 @@ rule cross_tabix:
 
 rule cross_eqtl_gwas:
     input:
-        regions=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.permuted.regions.tsv"),
+        regions=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadregion" + window + ".tsv"),
         gwas_vcf_gz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
         gwas_vcf_gz_tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
     output:
