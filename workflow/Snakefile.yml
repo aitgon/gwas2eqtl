@@ -42,24 +42,21 @@ rule all:
 
 rule coloc:
     input:
-        eqtlleads_hg38_tsv=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadpair.tsv"),
-        eqtl_all_tsv_gz=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.regions.tsv.gz"),
-        eqtl_all_tsv_gz_tbi=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.regions.tsv.gz.tbi"),
-        gwas_vcf_gz=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
+        gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
         gwas_tbi=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz.tbi"),
+        eqtl_leads_tsv=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadpair.tsv"),
+        eqtl_all_gz=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.regions.tsv.gz"),
+        eqtl_all_tsv_gz_tbi=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.regions.tsv.gz.tbi"),
     output:
         coloc_tsv=os.path.join("out/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.tsv"),
     log:
         os.path.join("logs/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.log"),
     params:
         window = window,
-        gwas_id="{gwas_id}",
-        eqtl_id="{eqtl_id}",
-        gwas_trait_name=lambda w: "{gwas_trait_name}".format(gwas_trait_name=(gwas_dic[w.gwas_id])),
-        bcftools="/opt/miniconda/envs/myenv/bin/bcftools",
+        gwas_pval=gwas_pval,
     shell:
         """
-        Rscript workflow/scripts/run_coloc.R {params.window} {params.eqtl_id} {input.eqtlleads_hg38_tsv} {input.eqtl_all_tsv_gz} {params.gwas_id} '{params.gwas_trait_name}' {input.gwastop_hg38_tsv} {input.gwas_vcf_gz} {output.coloc_tsv} {params.bcftools}
+        Rscript workflow/scripts/run_coloc2.R {params.window} {params.gwas_pval} {input.gwas_vcf} {input.eqtl_leads_tsv} {input.eqtl_all_gz} {output.coloc_tsv}
         """
 
 rule cross_tabix:

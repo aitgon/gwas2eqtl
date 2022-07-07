@@ -3,12 +3,30 @@ library(VariantAnnotation)
 library(dplyr)
 }))
 
-gwas_vcf_path = "/home/gonzalez/Repositories/eqtl2gwas/out/intersection/fdr0.05/5e-08/500000/Kasela_2017_microarray_T-cell_CD8/ieu-a-1162.vcf.bgz"
-eqtl_leads_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.leadpair.tsv"
-eqtl_all_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.all.regions.tsv.gz"
-window=500000
-pcutoff=5e-8
-out_tsv_path = "coloc.tsv"
+# window=500000
+# pcutoff=5e-8
+# gwas_vcf_path = "/out/intersection/fdr0.05/5e-08/500000/Kasela_2017_microarray_T-cell_CD8/ieu-a-1162.vcf.bgz"
+# eqtl_leads_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.leadpair.tsv"
+# eqtl_all_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.all.regions.tsv.gz"
+# out_tsv_path = "../../coloc.tsv"
+
+args = commandArgs(trailingOnly=TRUE)
+window = as.numeric(args[1])
+pcutoff = as.numeric(args[2])
+gwas_vcf_path = args[3]
+eqtl_leads_path = args[4]
+eqtl_all_path = args[5]
+out_tsv_path = args[6]
+
+dir.create(dirname(out_tsv_path), showWarnings = FALSE, recursive=TRUE)
+
+# no bcftools error message and exit
+if (length(which(!is.na(system('which bcftools', intern=T))))==0) {
+  stop("Error. Please, install bcftools")
+} else {
+  bcftools_path = system("which bcftools", intern=T)
+  gwasvcf::set_bcftools(bcftools_path)
+}
 
 ################################################################################
 # Init output df
@@ -120,6 +138,9 @@ for (region_i in c("1:120860278-121860278")) {
     coloc_df = coloc_df %>% dplyr::mutate(coloc_region = region_i)
     coloc_df = coloc_df %>% dplyr::mutate(molecular_trait_id = molecular_trait_id_i)
     coloc_df = coloc_df %>% dplyr::mutate(egene_ensg = egene_ensg)
+    
+    coloc_df = dplyr::rename(coloc_df, rsid=snp)
+    
     out_df = rbind(out_df, coloc_df)
     # print(coloc_df)
     # print(colnames(coloc_df))
