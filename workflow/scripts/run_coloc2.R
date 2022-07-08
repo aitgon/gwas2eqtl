@@ -58,14 +58,14 @@ for (i in 1:nrow(eqtl_leads_df)) {
   end = eqtl_leads_df[i, "position"] + window / 2
   molecular_trait_id_i = eqtl_leads_df[i, "molecular_trait_id"]
   region_i = paste0(chrom, ":", start, "-", end)
-  print(region_i)
+  # print(region_i)
 
   ################################################################################
   # Load and filter gwas summary statistics
   gwas_vcf <- gwasvcf::query_chrompos_file(chrompos=region_i, vcffile=gwas_vcf_path)
-  if(nrow(gwasvcf::vcf_to_tibble(gwas_vcf)) == 0) {next}  # continue if empty gwas
+  if(length(gwas_vcf) == 0) {next}  # continue if empty gwas
   gwas_vcf <- gwasvcf::query_pval_vcf(vcf=gwas_vcf, pval=pcutoff)  # select associations
-  if(nrow(gwasvcf::vcf_to_tibble(gwas_vcf)) == 0) {next}  # continue if empty gwas
+  if(length(gwas_vcf) == 0) {next}  # continue if empty gwas
   gwas_tbl <- gwas_vcf %>% gwasvcf::vcf_to_granges() %>% dplyr::as_tibble()
   
   gwas_tbl = gwas_tbl[gwas_tbl$AF<1, ]  # keep MAF<1
@@ -94,7 +94,7 @@ for (i in 1:nrow(eqtl_leads_df)) {
   ################################################################################
   # Get eqtl_egene 
     
-    print(molecular_trait_id_i)
+    # print(molecular_trait_id_i)
     
     egene_ensg = as.character(eqtl_tbl[head(which(eqtl_tbl$molecular_trait_id==molecular_trait_id_i), 1), "molecular_trait_object_id"])
     # print(egene_ensg)
