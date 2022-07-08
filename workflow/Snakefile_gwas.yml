@@ -65,7 +65,7 @@ rule gwas_liftover_hg38:
     input:
         vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
         chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
-        fa=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa"),
+        fa=os.path.join(process_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa"),
     output:
         vcf_gz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
     params:

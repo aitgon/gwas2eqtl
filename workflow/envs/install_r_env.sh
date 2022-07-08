@@ -26,13 +26,14 @@ export R_LIBS="${HOME}/Software/R_envs/${NAME}/lib/R/library"
 # Process extract_lead_var_pairs
 Rscript -e 'install.packages(c("devtools"), repos = "https://cran.biotools.fr/")'
 
-Rscript -e 'devtools::install_version("dplyr", version = "1.0.5", repos = "https://cran.biotools.fr/")'
+Rscript -e 'devtools::install_version("dplyr", version = "1.0.9", repos = "https://cran.biotools.fr/")'
 Rscript -e 'install.packages("BiocManager", repos = "https://cran.biotools.fr/")'
 Rscript -e 'install.packages(c("coloc"), repos = "https://cran.biotools.fr/")'
 Rscript -e 'install.packages(c("seqminer"), repos = "https://cran.biotools.fr/")'
 Rscript -e 'remotes::install_github("mrcieu/gwasvcf@0.1.0", upgrade="never")'
 
 Rscript -e 'BiocManager::install("VariantAnnotation")'
+Rscript -e 'remotes::install_github("mrcieu/gwasvcf@0.1.0", upgrade="never")'
 
 #
 #
