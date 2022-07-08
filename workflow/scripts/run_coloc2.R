@@ -3,6 +3,8 @@ library(VariantAnnotation)
 library(dplyr)
 }))
 
+options(warn=-1)  # turn off warning
+
 # window=500000
 # pcutoff=5e-8
 # gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ieu-a-1162/ieu-a-1162.vcf.bgz"
@@ -49,8 +51,8 @@ eqtl_leads_df[eqtl_leads_df$start<0, "start"] <-0  # negative values with 0
 # Loop over regions
 # region_i = region_lst[1]
 # region_i = "1:120860278-121860278"
-# i = 86
-for (i in 1:nrow(eqtl_leads_df)) {
+i = 86
+# for (i in 1:nrow(eqtl_leads_df)) {
   
   chrom = eqtl_leads_df[i, "chromosome"]
   start = eqtl_leads_df[i, "position"] - window / 2
@@ -131,7 +133,9 @@ for (i in 1:nrow(eqtl_leads_df)) {
                                         z = .$ES / .$SE, 
                                         id = VariantAnnotation::samples(VariantAnnotation::header(gwas_vcf))[1])}
     
-    coloc_res <- coloc::coloc.abf(eqtl_coloc_lst, gwas_coloc_lst)
+    options(warn=-1)  # turn off warning
+    invisible(capture.output(coloc_res <- coloc::coloc.abf(eqtl_coloc_lst, gwas_coloc_lst)))
+    options(warn=0)  # turn on warning
     
     ################################################################################
     # Format output
@@ -163,6 +167,6 @@ for (i in 1:nrow(eqtl_leads_df)) {
                             "PP.H3.abf", "PP.H2.abf", "PP.H1.abf", "PP.H0.abf")]
 
     out_df = rbind(out_df, coloc_df)
-}
+# }
 
 write.table(out_df, out_tsv_path, quote=F, sep="\t", row.names = F, append=F, col.names = T)
