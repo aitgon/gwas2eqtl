@@ -34,24 +34,24 @@ gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
 rule all:
     input:
-        expand(os.path.join(process_data_dir_path, "hg38", "pval{}".format(gwas_pval), "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"), gwas_id=gwas_identifier_lst),
+        expand(os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
 
-rule gwas_pval:
+#rule gwas_pval:
+#    input:
+#        bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+#        csi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
+#    output:
+#        bgz=os.path.join(process_data_dir_path, "hg38", "pval{}".format(gwas_pval), "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+#    shell:
+#        "bcftools view -i 'FORMAT/LP>" + str(math.log10(float(gwas_pval))) + "' {input.bgz} > {output.bgz}"
+
+rule gwas_hg38_tbi:
     input:
         bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-        csi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
     output:
-        bgz=os.path.join(process_data_dir_path, "hg38", "pval{}".format(gwas_pval), "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+        tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
     shell:
-        "bcftools view -i 'FORMAT/LP>" + str(math.log10(float(gwas_pval))) + "' {input.bgz} > {output.bgz}"
-
-rule gwas_hg38_csi:
-    input:
-        bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-    output:
-        bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
-    shell:
-        "bcftools index {input.bgz}"
+        "tabix -p vcf {input.bgz}"
 
 rule gwas_hg38_bgz :
     input:

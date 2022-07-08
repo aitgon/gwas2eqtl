@@ -15,10 +15,10 @@ fdr = 0.05
 #%%
 permuted_tsv_path = sys.argv[1]
 out_tsv_path = sys.argv[2]
-chrom_start_end_tsv_path = sys.argv[3]
-region = sys.argv[4]  # genome or region in the format 1:10-100
-fdr = float(sys.argv[5])  # fdr 0.05
-window = int(sys.argv[6])  # fdr 0.05
+# chrom_start_end_tsv_path = sys.argv[3]
+region = sys.argv[3]  # genome or region in the format 1:10-100
+fdr = float(sys.argv[4])  # fdr 0.05
+window = int(sys.argv[5])  # fdr 0.05
 
 #%%
 df = pandas.read_csv(permuted_tsv_path, sep="\t", header=0)
@@ -48,9 +48,9 @@ df = df.sort_values(by=['chromosome', 'position'])
 df.to_csv(out_tsv_path, sep="\t", index=False)
 
 #%%
-df['start'] = df['position'] - window/2
-df['end'] = df['position'] + window/2
-columns = ['chromosome', 'start', 'end']
-df = df[columns].drop_duplicates()
-df.to_csv(chrom_start_end_tsv_path, sep="\t", index=False, header=False)
+# df['start'] = df['position'] - window/2
+# df['end'] = df['position'] + window/2
+# columns = ['chromosome', 'start', 'end']
+# df = df[columns].drop_duplicates()
+# df.to_csv(chrom_start_end_tsv_path, sep="\t", index=False, header=False)
 

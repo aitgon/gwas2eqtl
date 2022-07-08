@@ -42,11 +42,11 @@ rule all:
 
 rule coloc:
     input:
-        gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
-        gwas_tbi=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz.tbi"),
-        eqtl_leads_tsv=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadpair.tsv"),
-        eqtl_all_gz=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz"),
-        eqtl_all_tsv_gz_tbi=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.leadregion" + str(window) + ".tsv.gz.tbi"),
+        gwas_vcf=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+        gwas_tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
+        eqtl_leadpair_tsv=lambda w: os.path.join("out", "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadpair.tsv"),
+        eqtl_all_gz=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.tsv.gz"),
+        eqtl_all_gz_tbi=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.tsv.gz.tbi"),
     output:
         coloc_tsv=os.path.join("out/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.tsv"),
     log:
@@ -56,23 +56,23 @@ rule coloc:
         gwas_pval=gwas_pval,
     shell:
         """
-        Rscript workflow/scripts/run_coloc2.R {params.window} {params.gwas_pval} {input.gwas_vcf} {input.eqtl_leads_tsv} {input.eqtl_all_gz} {output.coloc_tsv}
+        Rscript workflow/scripts/run_coloc2.R {params.window} {params.gwas_pval} {input.gwas_vcf} {input.eqtl_leadpair_tsv} {input.eqtl_all_gz} {output.coloc_tsv}
         """
 
-rule cross_tabix:
-    input:
-        gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
-    output:
-        gwas_tbi=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz.tbi"),
-    shell:
-        """tabix -p vcf  {input.gwas_vcf}"""
-
-rule cross_eqtl_gwas:
-    input:
-        regions=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadregion" + str(window) + ".tsv"),
-        gwas_vcf_gz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-        gwas_vcf_gz_tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
-    output:
-        gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
-    shell:
-        """bcftools view -R {input.regions}  {input.gwas_vcf_gz} |bgzip >{output.gwas_vcf}"""
+#rule cross_tabix:
+#    input:
+#        gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
+#    output:
+#        gwas_tbi=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz.tbi"),
+#    shell:
+#        """tabix -p vcf  {input.gwas_vcf}"""
+#
+#rule cross_eqtl_gwas:
+#    input:
+#        regions=lambda w: os.path.join(process_data_dir_path, "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadregion" + str(window) + ".tsv"),
+#        gwas_vcf_gz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+#        gwas_vcf_gz_tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.csi"),
+#    output:
+#        gwas_vcf=os.path.join("out/intersection", "fdr"+str(eqtl_fdr), gwas_pval, str(window), "{eqtl_id}/{gwas_id}.vcf.bgz"),
+#    shell:
+#        """bcftools view -R {input.regions}  {input.gwas_vcf_gz} |bgzip >{output.gwas_vcf}"""
