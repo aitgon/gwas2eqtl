@@ -10,6 +10,7 @@ public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
 region = config['region'] # singularity image
 window = config['window'] # singularity image
+image_sif = config['image_sif'] # singularity image
 
 ###############################################################################
 # eQTL config
@@ -35,6 +36,8 @@ gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_id_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_id_lst, gwas_traitname_lst))
+
+container: image_sif
 
 rule all:
     input:

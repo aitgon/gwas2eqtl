@@ -22,6 +22,7 @@ eqtl_df.index = eqtl_identifier_lst
 # Various configs
 public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
+image_sif = config['image_sif'] # singularity image
 
 # GWAS config
 gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
@@ -32,18 +33,18 @@ gwas_identifier_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
+container: image_sif
+
 rule all:
     input:
         expand(os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
 
-#rule gwas_pval:
-#    input:
-#        bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-#        csi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
-#    output:
-#        bgz=os.path.join(process_data_dir_path, "hg38", "pval{}".format(gwas_pval), "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-#    shell:
-#        "bcftools view -i 'FORMAT/LP>" + str(math.log10(float(gwas_pval))) + "' {input.bgz} > {output.bgz}"
+# This rule just downloads all data. Useful for meso without singularity
+rule download:
+    input:
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        expand(os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"), gwas_id=gwas_identifier_lst),
 
 rule gwas_hg38_tbi:
     input:
