@@ -22,6 +22,7 @@ eqtl_df.index = eqtl_identifier_lst
 # Various configs
 public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
+image_sif = config['image_sif'] # singularity image
 
 # GWAS config
 gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
@@ -31,6 +32,8 @@ gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_identifier_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+
+container: image_sif
 
 rule all:
     input:
