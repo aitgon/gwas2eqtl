@@ -51,8 +51,8 @@ eqtl_leads_df[eqtl_leads_df$start<0, "start"] <-0  # negative values with 0
 # Loop over regions
 # region_i = region_lst[1]
 # region_i = "1:120860278-121860278"
-i = 86
-# for (i in 1:nrow(eqtl_leads_df)) {
+# i = 86
+for (i in 1:nrow(eqtl_leads_df)) {
   
   chrom = eqtl_leads_df[i, "chromosome"]
   start = eqtl_leads_df[i, "position"] - window / 2
@@ -167,6 +167,6 @@ i = 86
                             "PP.H3.abf", "PP.H2.abf", "PP.H1.abf", "PP.H0.abf")]
 
     out_df = rbind(out_df, coloc_df)
-# }
+}
 
 write.table(out_df, out_tsv_path, quote=F, sep="\t", row.names = F, append=F, col.names = T)
