@@ -65,6 +65,7 @@ rule gwas_liftover_hg38:
         vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
         chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
         fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
     output:
         vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
         reject_vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
@@ -72,6 +73,17 @@ rule gwas_liftover_hg38:
         vcf=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf"),
     shell:
         "java -jar {input.jar} LiftoverVcf -I {input.vcf_gz} -O {output.vcf_bgz}  -CHAIN {input.chain_gz} -R {input.fa_gz} -REJECT {output.reject_vcf_bgz}"
+
+rule picard_ref_dict:
+    input:
+        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+    output:
+        dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
+    params:
+        vcf=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf"),
+    shell:
+        "java -jar {input.jar} CreateSequenceDictionary -I {input.fa_gz} -O {output.dict}"
 
 rule wget_vcf:
     output:
