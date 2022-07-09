@@ -1,3 +1,9 @@
+# Download and annotate GWAS
+
+~~~
+python workflow/scripts/dwnld_gwas_info.py config/exclude_traits.txt config/exclude_datasets.txt config/manual_annotation.ods 50000 10000 10000 out/dwnld_gwas_info.py/gwasinfo_noelesect.tsv out/dwnld_gwas_info.py/gwasinfo_50000_10000_10000.ods
+~~~
+
 # Test eQTLs
 
 ~~~
