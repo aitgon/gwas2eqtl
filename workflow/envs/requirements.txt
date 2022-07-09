@@ -1,5 +1,4 @@
 CrossMap
-jupyter
 odfpy
 pandas
 pymysql
@@ -8,4 +7,5 @@ requests
 snakemake
 sphinx_rtd_theme
 sqlalchemy
+statsmodels
 termcolor

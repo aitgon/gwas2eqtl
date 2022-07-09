@@ -1,0 +1,128 @@
+from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
+HTTP = HTTPRemoteProvider()
+
+import math
+import os
+import pandas
+
+# eQTLs
+if "eqtl_tsv" in config:
+    eqtl_tsv_path = config["eqtl_tsv"] # path to the eqtl< ods list
+else:
+    from eqtl2gwas.URL import URL
+    url = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
+    eqtl_tsv_path = URL(url=url).download()
+    config["eqtl_tsv"] = eqtl_tsv_path
+eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t")
+# keep urls containing "ge" or "microarray"
+eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
+eqtl_identifier_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
+eqtl_df.index = eqtl_identifier_lst
+
+# Various configs
+public_data_dir_path = config['public_data_dir'] # db path
+process_data_dir_path = config['process_data_dir'] # singularity image
+
+# GWAS config
+gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
+gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
+gwas_df = pandas.read_excel(gwas_ods_path, header=0)
+gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
+gwas_identifier_lst = gwas_df['id'].tolist()
+gwas_traitname_lst = gwas_df['trait'].tolist()
+gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+
+rule all:
+    input:
+        expand(os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
+
+# This rule just downloads all data. Useful for meso without singularity
+rule download:
+    input:
+        os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        expand(os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"), gwas_id=gwas_identifier_lst),
+
+rule gwas_hg38_tbi:
+    input:
+        vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+    output:
+        tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
+    shell:
+        "tabix -p vcf {input.vcf_bgz}"
+
+#rule gwas_hg38_bgz :
+#    input:
+#        vcf_gz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+#    output:
+#        bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+#    shell:
+#        "gunzip -c {input.vcf_gz} |bcftools sort |bgzip -c > {output.bgz}"
+
+rule gwas_liftover_hg38:
+    input:
+        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
+    output:
+        vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+        reject_vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
+    resources:
+        mem_mb= 20000
+    shell:
+        "java -jar {input.jar} LiftoverVcf --VERBOSITY ERROR --QUIET -I {input.vcf_gz} -O {output.vcf_bgz}  -CHAIN {input.chain_gz} -R {input.fa_gz} -REJECT {output.reject_vcf_bgz}"
+
+rule picard_ref_dict:
+    input:
+        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+    output:
+        dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
+    shell:
+        "java -jar {input.jar} CreateSequenceDictionary -R {input.fa_gz} -O {output.dict}"
+
+rule wget_vcf:
+    output:
+        vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+    params:
+        url="gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+
+rule wget_chain:
+    output:
+        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+    params:
+        url="ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+
+#rule gunzip_ref_fasta:
+#    input:
+#        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+#    output:
+#        fa=os.path.join(process_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa"),
+#    shell:
+#        """gunzip -c {input.fa_gz} > {output.fa}"""
+
+rule wget_ref_fasta:
+    output:
+        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+    params:
+        url="ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+
+rule wget_picard_jar:
+    output:
+        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+    params:
+        url="github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar",
+        public_data_dir_path=public_data_dir_path,
+    shell:
+        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""

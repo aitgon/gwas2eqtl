@@ -9,6 +9,7 @@ if (argsLen < 2) stop('Error: Rscript extract_lead_var_pairs.R input_path output
 input_path = args[1]
 output_path = args[2]
 region = args[3]  # genome or region in the format 1:10-100
+fdr = args[4]  # genome or region in the format 1:10-100
 
 permutation_df <-readr::read_tsv(input_path, trim_ws = TRUE)
 permutation_df <- permutation_df %>% mutate(FDR = p.adjust(p = p_beta, method = 'fdr')) %>% filter(FDR < 0.05)

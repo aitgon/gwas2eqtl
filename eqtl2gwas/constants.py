@@ -15,3 +15,5 @@ opengwas_metadata_url = 'http://gwas-api.mrcieu.ac.uk/gwasinfo'
 eqtl_metadata_url = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
 
 h4_cutoff = 0.8  # coloc cutoff
+
+public_data_dir = os.path.join(os.environ['HOME'], "Software", "public")
