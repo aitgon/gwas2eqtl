@@ -1,3 +1,12 @@
+# Test GWAS
+
+~~~
+PYTHONPATH=.:$PYTHONPATH snakemake -j 999 -s workflow/Snakefile_gwas.yml -p --config gwas_ods=config/gwas_ieu-a-1162.ods gwas_pval=5e-8 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process image_sif=out/eqt2gwas.sif --use-singularity --singularity-args "\-u"  --rerun-incomplete
+~~~
+
+~~~
+PYTHONPATH=.:$PYTHONPATH snakemake -j 999 -s workflow/Snakefile_gwas.yml -p --config gwas_ods=config/gwas_ukb-a-256.ods gwas_pval=5e-8 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process image_sif=out/eqt2gwas.sif --use-singularity --singularity-args "\-u"  --rerun-incomplete
+~~~
 
 PYTHONPATH=.:$PYTHONPATH snakemake -j 999 -s workflow/Snakefile_gwas.yml -p --config gwas_ods=config/gwas_ieu-a1162.ods gwas_pval=5e-8 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process
 
