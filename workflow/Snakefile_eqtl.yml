@@ -10,10 +10,6 @@ public_data_dir_path = config['public_data_dir'] # db path
 process_data_dir_path = config['process_data_dir'] # singularity image
 window = config['window'] # colocalisation window
 region = config['region'] # 'genome' or region in the form 1:10-100
-#out_tsv = config['out_tsv'] # output file in ODS file
-#out_ods = config['out_ods'] # output file in ODS file
-#db_sqlite = config['db_sqlite'] # db path
-#image_sif = config['image_sif'] # singularity image
 
 ###############################################################################
 # eQTL config
@@ -30,17 +26,6 @@ eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex
 eqtl_id_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
 eqtl_df.index = eqtl_id_lst
 eqtl_fdr=str(config["eqtl_fdr"]) # gwas p-value, eg. 5e-8
-
-###############################################################################
-# GWAS config
-#gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
-#gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-#gwas_df['trait_name'] = gwas_df['trait_name'].str.replace("'", "")
-#gwas_identifier_lst = gwas_df['identifier'].tolist()
-#gwas_traitname_lst = gwas_df['trait_name'].tolist()
-#gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
-
-#container: image_sif
 
 rule all:
     input:
