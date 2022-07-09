@@ -35,7 +35,7 @@ if (length(which(!is.na(system('which bcftools', intern=T))))==0) {
 ################################################################################
 # Init output df
 mat = matrix(ncol = 0, nrow = 0)
-out_columns = c("snp", "SNP.PP.H4", "PP.H4.abf", "nsnps", "PP.H3.abf", "PP.H2.abf", "PP.H1.abf", "PP.H0.abf", "coloc_region", "molecular_trait_id", "egene_ensg")
+out_columns = c("chrom ", "pos ", "rsid ", "ref ", "alt ", "egene ", "eqtl_beta ", "eqtl_pvalue ", "eqtl_identifier ", "gwas_beta ", "gwas_pvalue ", "gwas_identifier ", "pp_h4 ", "PP.H4.abf ", "coloc_window ", "nsnps ", "PP.H3.abf ", "PP.H2.abf ", "PP.H1.abf ", "PP.H0.abf")
 out_df = data.frame(matrix(vector(), 0, length(out_columns), dimnames=list(c(), out_columns)),  stringsAsFactors=F)
 
 ################################################################################
