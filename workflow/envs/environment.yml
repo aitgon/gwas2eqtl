@@ -2,7 +2,6 @@ channels:
   - defaults
   - bioconda
 dependencies:
-  - bioconda::bcftools
   - bioconda::samtools
   - bioconda::tabix
   - anaconda::libopenblas
