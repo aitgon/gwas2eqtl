@@ -79,7 +79,7 @@ rule picard_ref_dict:
     output:
         dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
     shell:
-        "java -jar {input.jar} CreateSequenceDictionary -I {input.fa_gz} -O {output.dict}"
+        "java -jar {input.jar} CreateSequenceDictionary -R {input.fa_gz} -O {output.dict}"
 
 rule wget_vcf:
     output:
