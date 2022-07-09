@@ -75,6 +75,7 @@ for (i in 1:nrow(eqtl_leads_df)) {
   gwas_tbl = gwas_tbl[!duplicated(gwas_tbl$ID), ]  # keep unique RSIDs
   gwas_tbl = gwas_tbl[!is.na(gwas_tbl$ES), ]  # keep non-null effect size/Z
   gwas_tbl = gwas_tbl[!is.na(gwas_tbl$SE), ]  # remove non-null se
+  gwas_tbl = gwas_tbl[!is.na(gwas_tbl$SS), ]  # keep non-null ss
   if(nrow(gwas_tbl) == 0) {next}  # continue if empty gwas
   
   ################################################################################
