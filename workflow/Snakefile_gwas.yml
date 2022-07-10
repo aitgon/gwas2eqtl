@@ -12,7 +12,6 @@ process_data_dir_path = config['process_data_dir'] # singularity image
 
 ###############################################################################
 # GWAS config
-gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
 gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")

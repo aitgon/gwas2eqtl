@@ -55,9 +55,8 @@ eqtl_leads_df[eqtl_leads_df$start<0, "start"] <-0  # negative values with 0
 for (i in 1:nrow(eqtl_leads_df)) {
   
   chrom = eqtl_leads_df[i, "chromosome"]
-  start = eqtl_leads_df[i, "position"] - window / 2
-  if(start < 0) {start=0}  # set negative values to 0
-  end = eqtl_leads_df[i, "position"] + window / 2
+  start = eqtl_leads_df[i, "start"]
+  end = eqtl_leads_df[i, "end"]
   molecular_trait_id_i = eqtl_leads_df[i, "molecular_trait_id"]
   region_i = paste0(chrom, ":", start, "-", end)
   # print(region_i)
