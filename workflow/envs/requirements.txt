@@ -1,0 +1,11 @@
+CrossMap
+odfpy
+pandas
+pymysql
+recommonmark
+requests
+snakemake
+sphinx_rtd_theme
+sqlalchemy
+statsmodels
+termcolor

@@ -1,0 +1,194 @@
+Bootstrap: docker
+From: ubuntu:20.04
+
+IncludeCmd: yes
+
+%help
+# Build takes around 60m
+# Size 2G
+# home is /root
+# software goes to /opt
+
+Usage:
+$ singularity run mycontainer.sif [args]
+$ singularity run --app R mycontainer.sif R [args]
+$ singularity run --app R mycontainer.sif Rscript [args]
+$ singularity run --app miniconda mycontainer.sif python [args]
+R packages go to '/usr/local/lib/R/site-library'
+
+%labels
+MAINTAINER Aitor Gonzalez
+EMAIL aitor.gonzalez@univ-amu.fr
+
+%environment
+export LC_ALL=C
+
+%post
+export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
+apt update
+apt update --fix-missing
+apt -y upgrade
+apt install -y aptitude
+apt install -y build-essential
+apt install -y cmake
+apt install -y emacs
+apt install -y fort77
+apt install -y g++
+apt install -y gcc
+apt install -y gcc-multilib
+apt install -y gfortran
+apt install -y git
+apt install -y gobjc++
+apt install -y libblas-dev
+apt install -y libbz2-dev
+apt install -y libcurl4-openssl-dev
+apt install -y libgsl-dev
+apt install -y liblzma-dev
+apt install -y libpcre2-dev
+apt install -y libpcre3
+apt install -y libpcre3-dev
+apt install -y libreadline-dev
+apt install -y libssl-dev
+apt install -y libxml2-dev
+apt install -y libz-dev
+apt install -y openjdk-8-jdk
+apt install -y texinfo
+apt install -y texlive
+apt install -y texlive-fonts-extra
+apt install -y wget
+apt install -y xorg-dev
+apt install -y zlib1g-dev
+
+###############################################################################
+#
+# R
+#
+###############################################################################
+
+%environment
+export PATH=/opt/R/bin:"${PATH}"
+export R_LIBS=/opt/R/lib/R/library
+
+%post
+export R_LIBS=/opt/R/lib/R/library # R packages folder
+cd # change to /root
+VERSION=4.1.0
+MAJOR=4
+wget https://cran.r-project.org/src/base/R-${MAJOR}/R-${VERSION}.tar.gz
+tar zxvf R-${VERSION}.tar.gz
+rm -rf R-${VERSION}.tar.gz
+cd R-${VERSION}/
+mkdir -p "${R_LIBS}"
+./configure --prefix=/opt/R/ --enable-R-shlib --with-pcre1
+make
+make install
+cd # change to /root
+rm -rf R-${VERSION}
+
+# Executables in this folder will be called with:
+# singularity run --app myapprun out/mycontainer.sif myexecutable [args]
+%apprun R
+exec /opt/R/bin/"${@}"
+
+###############################################################################
+#
+# R: coloc
+#
+###############################################################################
+
+%post
+
+# Devtools
+/opt/R/bin/Rscript -e 'install.packages(c("devtools"), repos = "https://cran.biotools.fr/")'
+
+# Process extract_lead_var_pairs
+/opt/R/bin/Rscript -e 'devtools::install_version("dplyr", version = "1.0.5", repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'devtools::install_version("readr", repos = "https://cran.biotools.fr/")'
+
+# Process run_coloc
+/opt/R/bin/Rscript -e 'install.packages("remotes", repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages("BiocManager", repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'BiocManager::install("snpStats")'
+/opt/R/bin/Rscript -e 'install.packages(c("coloc"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages(c("seqminer"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'BiocManager::install("GenomicRanges")'
+/opt/R/bin/Rscript -e 'BiocManager::install("Rsamtools")'
+/opt/R/bin/Rscript -e 'install.packages(c("optparse"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'BiocManager::install("S4Vectors")'
+/opt/R/bin/Rscript -e 'BiocManager::install("IRanges")'
+/opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/gwasvcf@0.1.0", upgrade="never")'
+
+###############################################################################
+#
+# R: gwasglue
+#
+###############################################################################
+
+%post
+apt install -y libgmp3-dev libcairo2-dev libxt-dev libgmp-dev
+apt install -y libcairo2-dev libxt-dev
+
+# Devtools
+/opt/R/bin/Rscript -e 'install.packages(c("devtools"), repos = "https://cran.biotools.fr/")'
+
+/opt/R/bin/Rscript -e 'install.packages(c("gmp"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages(c("arrangements"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages(c("iterpc"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages(c("Cairo"), repos = "https://cran.biotools.fr/")'
+
+# Expires on Sat, Mar 12 2022.
+export GITHUB_PAT="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"
+/opt/R/bin/Rscript -e 'remotes::install_github("jrs95/gassocplot", upgrade="never")'
+/opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/TwoSampleMR", upgrade="never")'
+/opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/gwasglue", upgrade="never")'
+
+###############################################################################
+#
+# miniconda
+#
+###############################################################################
+
+%environment
+export PATH=/opt/miniconda/envs/myenv/bin:"${PATH}"
+
+%post
+
+cd # change to /root
+CONDAINSTALLER=Miniconda3-py39_4.10.3-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/${CONDAINSTALLER}
+chmod +x ${CONDAINSTALLER}
+./${CONDAINSTALLER} -b -p /opt/miniconda
+/opt/miniconda/bin/conda config --add channels defaults
+/opt/miniconda/bin/conda config --add channels bioconda
+/opt/miniconda/bin/conda config --add channels conda-forge
+/opt/miniconda/bin/conda create -y -n myenv samtools bcftools
+chmod --recursive a+rw /opt/miniconda
+cd # change to /root
+rm ${CONDAINSTALLER}
+
+# Executables in this folder will be called with:
+# singularity run --app myapprun out/mycontainer.sif myexecutable [args]
+%apprun miniconda
+exec /opt/miniconda/envs/myenv/bin/"${@}"
+
+###############################################################################
+#
+# miniconda packages
+#
+###############################################################################
+
+%files
+workflow/envs/requirements.txt /root/requirements.txt
+workflow/envs/environment.yml /root/environment.yml
+
+%post
+/opt/miniconda/bin/conda env update -n myenv -f /root/environment.yml
+
+###############################################################################
+#
+# Clean ubuntu packages
+#
+###############################################################################
+
+apt clean
+rm -rf /var/lib/apt/lists/*

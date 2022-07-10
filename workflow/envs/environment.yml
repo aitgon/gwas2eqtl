@@ -1,0 +1,11 @@
+channels:
+  - defaults
+  - bioconda
+dependencies:
+  - anaconda::libopenblas
+  - bioconda::bcftools
+  - bioconda::samtools
+  - bioconda::tabix
+  - pip
+  - pip:
+    - -r requirements.txt

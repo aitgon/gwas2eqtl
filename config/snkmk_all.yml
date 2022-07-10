@@ -1,0 +1,10 @@
+region: genome
+gwas_pval: "1e-7"
+window: 500000
+gwas_ods: config/gwas_all.ods
+out_tsv: results/merged/genome/1e-7/500000/coloc_all.tsv
+out_ods: results/merged/genome/1e-7/500000/coloc_all.ods
+coloc_all_tsv: results/release/genome/1e-7/500000/coloc_all.tsv
+coloc_h4_tsv: results/release/genome/1e-7/500000/coloc_h4.tsv
+db_sqlite: results/release/genome/1e-7/500000/db.sqlite
+image_sif: resources/eqtl2gwas.sif
