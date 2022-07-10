@@ -45,6 +45,14 @@ Breathing problems responsible for leaving job: No
 Bring up phlegm/sputum/mucus on most days
 Bronchitis
 Caffeine drink within last hour
+Cancer code  self-reported: basal cell carcinoma
+Cancer code, self-reported: basal cell carcinoma
+Cancer code  self-reported: breast cancer
+Cancer code, self-reported: breast cancer
+Cancer code  self-reported: malignant melanoma
+Cancer code, self-reported: malignant melanoma
+Cancer code  self-reported: prostate cancer
+Cancer code, self-reported: prostate cancer
 Cardiac arrhytmias, COPD co-morbidities
 Carer support indicators: No
 Carer support indicators: Yes
@@ -76,6 +84,7 @@ Completion status of test: Fully completed
 Completion status of test: Heart rate reached safety level
 Congenital malformations, deformations and chromosomal abnormalities
 Contemplated self-harm in past year
+COVID-19 (predicted covid from self-reported symptoms vs predicted or self-reported non-covid) RELEASE 4
 Current employment status
 Current employment status: Doing unpaid or voluntary work
 Current employment status: In paid employment or self-employed
@@ -718,6 +727,8 @@ Non-cancer illness code, self-reported: angina
 Non-cancer illness code  self-reported: anxiety/panic attacks
 Non-cancer illness code, self-reported: anxiety/panic attacks
 Non-cancer illness code, self-reported: appendicitis
+Non-cancer illness code  self-reported: arthritis (nos)
+Non-cancer illness code, self-reported: arthritis (nos)
 Non-cancer illness code  self-reported: asthma
 Non-cancer illness code, self-reported: atrial fibrillation
 Non-cancer illness code, self-reported: back pain
@@ -726,6 +737,7 @@ Non-cancer illness code, self-reported: back problem
 Non-cancer illness code  self-reported: bladder problem (not cancer)
 Non-cancer illness code, self-reported: bladder problem (not cancer)
 Non-cancer illness code, self-reported: bronchitis
+Non-cancer illness code, self-reported: cataract
 Non-cancer illness code, self-reported: cervical spondylosis
 Non-cancer illness code  self-reported: cholelithiasis/gall stones
 Non-cancer illness code, self-reported: cholelithiasis/gall stones
@@ -735,14 +747,20 @@ Non-cancer illness code  self-reported: deep venous thrombosis (dvt)
 Non-cancer illness code, self-reported: deep venous thrombosis (dvt)
 Non-cancer illness code  self-reported: depression
 Non-cancer illness code, self-reported: depression
+Non-cancer illness code  self-reported: diabetes
+Non-cancer illness code, self-reported: diabetes
+Non-cancer illness code  self-reported: diverticular disease/diverticulitis
 Non-cancer illness code, self-reported: diverticular disease/diverticulitis
 Non-cancer illness code, self-reported: ear/vestibular disorder
+Non-cancer illness code  self-reported: eczema/dermatitis
+Non-cancer illness code, self-reported: eczema/dermatitis
 Non-cancer illness code  self-reported: emphysema/chronic bronchitis
 Non-cancer illness code, self-reported: emphysema/chronic bronchitis
 Non-cancer illness code, self-reported: endometriosis
 Non-cancer illness code  self-reported: enlarged prostate
 Non-cancer illness code, self-reported: enlarged prostate
 Non-cancer illness code, self-reported: epilepsy
+Non-cancer illness code, self-reported: essential hypertension
 Non-cancer illness code, self-reported: eye/eyelid problem
 Non-cancer illness code, self-reported: gastric/stomach ulcers
 Non-cancer illness code  self-reported: gastro-oesophageal reflux (gord) / gastric reflux
@@ -752,26 +770,53 @@ Non-cancer illness code, self-reported: glaucoma
 Non-cancer illness code  self-reported: gout
 Non-cancer illness code, self-reported: gout
 Non-cancer illness code, self-reported: headaches (not migraine)
+Non-cancer illness code, self-reported: heart arrhythmia
+Non-cancer illness code  self-reported: heart attack/myocardial infarction
+Non-cancer illness code, self-reported: heart attack/myocardial infarction
+Non-cancer illness code, self-reported: heart valve problem/heart murmur
 Non-cancer illness code  self-reported: hiatus hernia
 Non-cancer illness code, self-reported: hiatus hernia
+Non-cancer illness code  self-reported: high cholesterol
+Non-cancer illness code, self-reported: high cholesterol
+Non-cancer illness code  self-reported: hypertension
+Non-cancer illness code, self-reported: hypertension
+Non-cancer illness code  self-reported: hyperthyroidism/thyrotoxicosis
+Non-cancer illness code, self-reported: hyperthyroidism/thyrotoxicosis
+Non-cancer illness code  self-reported: hypothyroidism/myxoedema
+Non-cancer illness code, self-reported: hypothyroidism/myxoedema
+Non-cancer illness code, self-reported: iron deficiency anaemia
 Non-cancer illness code, self-reported: irritable bowel syndrome
+Non-cancer illness code, self-reported: joint disorder
 Non-cancer illness code  self-reported: kidney stone/ureter stone/bladder stone
 Non-cancer illness code, self-reported: kidney stone/ureter stone/bladder stone
 Non-cancer illness code  self-reported: migraine
 Non-cancer illness code, self-reported: migraine
+Non-cancer illness code  self-reported: muscle or soft tissue injuries
 Non-cancer illness code, self-reported: muscle or soft tissue injuries
 Non-cancer illness code, self-reported: muscle/soft tissue problem
 Non-cancer illness code, self-reported: nasal polyps
+Non-cancer illness code  self-reported: osteoarthritis
+Non-cancer illness code, self-reported: osteoarthritis
+Non-cancer illness code  self-reported: osteoporosis
+Non-cancer illness code, self-reported: osteoporosis
 Non-cancer illness code, self-reported: other joint disorder
 Non-cancer illness code, self-reported: ovarian cyst or cysts
 Non-cancer illness code, self-reported: pneumonia
 Non-cancer illness code, self-reported: prolapsed disc/slipped disc
+Non-cancer illness code  self-reported: psoriasis
+Non-cancer illness code, self-reported: psoriasis
 Non-cancer illness code  self-reported: pulmonary embolism +/- dvt
 Non-cancer illness code, self-reported: pulmonary embolism +/- dvt
+Non-cancer illness code  self-reported: rheumatoid arthritis
+Non-cancer illness code, self-reported: rheumatoid arthritis
 Non-cancer illness code, self-reported: sciatica
 Non-cancer illness code, self-reported: spine arthritis/spondylitis
+Non-cancer illness code, self-reported: stroke
 Non-cancer illness code, self-reported: tonsiltis
 Non-cancer illness code, self-reported: tuberculosis (tb)
+Non-cancer illness code  self-reported: type 2 diabetes
+Non-cancer illness code, self-reported: type 2 diabetes
+Non-cancer illness code, self-reported: ulcerative colitis
 Non-cancer illness code, self-reported: unclassifiable
 Non-cancer illness code, self-reported: urinary tract infection/kidney infection
 Non-cancer illness code  self-reported: uterine fibroids
@@ -1012,6 +1057,7 @@ Operative procedures - secondary OPCS: Z94.1 Bilateral operation
 Operative procedures - secondary OPCS: Z94.2 Right sided operation
 Operative procedures - secondary OPCS: Z94.3 Left sided operation
 Osteoarthritis of the knee (hospital diagnosed)
+Osteoarthritis (self-reported)
 Osteomyelitis
 Other and unspecified disorders of skin and subcutaneous tissue
 Other disorders of eyelid
