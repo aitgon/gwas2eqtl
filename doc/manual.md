@@ -29,5 +29,5 @@ wget -nc -r -q raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources
 ~~~
 
 ~~~
-python workflow/scripts/cat_tsv_sql.py /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv out/dwnld_gwas_info.py/gwasinfo_select_ncontrol40000_ncase40000_n200000.ods "out/coloc/genome/5e-08/500000" out/merged/coloc.tsv out/merged/coloc.ods out/merged/db.sqlite
+export OUTDIR=out/merged/manualannot20220714/genome/5e-08/1000000; python workflow/scripts/cat_tsv_sql.py /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv config/manual_annotation.ods "out/coloc/genome/5e-08/1000000" ${OUTDIR}/coloc.tsv ${OUTDIR}/coloc.ods ${OUTDIR}/db.sqlite
 ~~~
