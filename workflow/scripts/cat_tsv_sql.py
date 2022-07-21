@@ -43,6 +43,10 @@ except IndexError:
     {}""".format(help_cmd_str))
     sys.exit(1)
 
+pathlib.Path(os.path.dirname(tsv_path)).mkdir(exist_ok=True, parents=True)
+pathlib.Path(os.path.dirname(ods_path)).mkdir(exist_ok=True, parents=True)
+pathlib.Path(os.path.dirname(db_path)).mkdir(exist_ok=True, parents=True)
+
 ###############################################################################
 #
 # select immune cell types
