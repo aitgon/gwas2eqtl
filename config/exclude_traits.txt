@@ -1,10 +1,14 @@
 Acceptance of an invitation to participate in a mental health questionnaire
 Acceptance of an invitation to wear a physical activity monitor
 Actions taken following self-harm: Need hospital treatment (eg A&E)
+Actions taken following self-harm: Receive help from friends / family / neighbours
+Actions taken following self-harm: See anyone from psychiatric or mental health services, including liaison services
+Actions taken following self-harm: See own GP
 Activities undertaken to treat anxiety: Other therapeutic activities such as mindfulness, yoga or art classes
 Activities undertaken to treat anxiety: Talking therapies, such as psychotherapy, counselling, group therapy or CBT
 Activities undertaken to treat depression: Other therapeutic activities such as mindfulness, yoga or art classes
 Activities undertaken to treat depression: Talking therapies, such as psychotherapy, counselling, group therapy or CBT
+Adhesive capsulitis of shoulder
 Adopted as a child
 Aide-memoire completed
 Alcohol consumed
@@ -14,6 +18,7 @@ Alcohol drinker status: Previous
 Alcohol usually taken with meals
 Allergic disease (asthma, hay fever or eczema)
 Ambidextrousness
+Ankylosing spondylitis
 Answered sexual history questions
 Any ICDMAIN event in hilmo or causes of death
 Appendicitis
@@ -25,6 +30,7 @@ Attendance/disability/mobility allowance: None of the above
 Back pain for 3+ months
 Been in serious accident believed to be life-threatening
 Been involved in combat or exposed to war-zone
+Behavioural and miscellaneous addictions: A behaviour
 Bilateral oophorectomy (both ovaries removed)
 Biological sex (age adjusted)
 Bipolar and major depression status: No Bipolar or Depression
@@ -38,6 +44,7 @@ Bread type: White
 Bread type: Wholemeal or wholegrain
 Breakfast cereal consumed
 Breastfed as a baby
+Breathing problems during period of job: No
 Breathing problems during period of job: Yes
 Breathing problems improved/stopped away from workplace or on holiday: No
 Breathing problems improved/stopped away from workplace or on holiday: Yes
@@ -47,12 +54,18 @@ Bronchitis
 Caffeine drink within last hour
 Cancer code  self-reported: basal cell carcinoma
 Cancer code, self-reported: basal cell carcinoma
+Cancer code, self-reported: bladder cancer
 Cancer code  self-reported: breast cancer
 Cancer code, self-reported: breast cancer
+Cancer code, self-reported: cervical cancer
+Cancer code, self-reported: cin/pre-cancer cells cervix
+Cancer code, self-reported: colon cancer/sigmoid cancer
 Cancer code  self-reported: malignant melanoma
 Cancer code, self-reported: malignant melanoma
 Cancer code  self-reported: prostate cancer
 Cancer code, self-reported: prostate cancer
+Cancer code, self-reported: skin cancer
+Cancer code, self-reported: uterine/endometrial cancer
 Cardiac arrhytmias, COPD co-morbidities
 Carer support indicators: No
 Carer support indicators: Yes
@@ -64,6 +77,7 @@ Cereal type: Muesli
 Cereal type: Oat cereal (e.g. Ready Brek, porridge)
 Cereal type: Other (e.g. Cornflakes, Frosties)
 Certain infectious and parasitic diseases
+Cervicalgia
 Cheese
 Cheese consumers
 Chest pain due to walking ceases when standing still
@@ -71,6 +85,7 @@ Chest pain or discomfort
 Chest pain or discomfort walking normally
 Chest pain or discomfort when walking uphill or hurrying
 Cholecystitits
+Clear cell ovarian cancer
 Close to major road
 Coffee
 Coffee consumed
@@ -97,9 +112,17 @@ Day-of-week questionnaire completion requested: Saturday
 Day-of-week questionnaire completion requested: Thursday
 Day-of-week questionnaire completion requested: Tuesday
 Day-of-week questionnaire completion requested: Wednesday
+Day shifts worked: Shift pattern was worked for some (but not all) of job
 Day shifts worked: Shift pattern was worked for whole of job
 Day shifts worked: This type of shift pattern was not worked during job
+Death due to cardiac causes
+Degeneration of macula and posterior pole
+Delivery methods: Elective caesarean section
+Delivery methods: Emergency caesarean section
+Delivery methods: Ventouse, vacuum extraction
+Depression
 Dessert consumers
+Destinations on discharge from hospital (recoded): Temporary place of residence
 Destinations on discharge from hospital (recoded): Transfer to other NHS provider: General ward, young physically disabled, A&E
 Destinations on discharge from hospital (recoded): Transfer within NHS provider
 Destinations on discharge from hospital (recoded): Transfer within NHS provider: Medical specialty
@@ -108,53 +131,153 @@ Destinations on discharge from hospital (recoded): Usual Place of residence: Liv
 Detention categories: Formally detained under Part II, Mental Health Act 1983
 Detention categories: Informal, not formally detained
 Diagnosed with life-threatening illness
+Diagnoses - main ICD10: A41 Other septicaemia
+Diagnoses - main ICD10: B34.9 Viral infection, unspecified
+Diagnoses - main ICD10: C50.4 Upper-outer quadrant of breast
 Diagnoses - main ICD10: C50.9 Breast, unspecified
+Diagnoses - main ICD10: C67.9 Bladder, unspecified
+Diagnoses - main ICD10: C78 Secondary malignant neoplasm of respiratory and digestive organs
+Diagnoses - main ICD10: C79 Secondary malignant neoplasm of other sites
+Diagnoses - main ICD10: D12.6 Colon, unspecified
 Diagnoses - main ICD10: D12 Benign neoplasm of colon  rectum  anus and anal canal
 Diagnoses - main ICD10: D12 Benign neoplasm of colon, rectum, anus and anal canal
 Diagnoses - main ICD10: D17.1 Benign lipomatous neoplasm of skin and subcutaneous tissue of trunk
+Diagnoses - main ICD10: D17.2 Benign lipomatous neoplasm of skin and subcutaneous tissue of limbs
 Diagnoses - main ICD10: D17 Benign lipomatous neoplasm
+Diagnoses - main ICD10: D22.3 Melanocytic naevi of other and unspecified parts of face
 Diagnoses - main ICD10: D22 Melanocytic naevi
 Diagnoses - main ICD10: D23 Other benign neoplasms of skin
+Diagnoses - main ICD10: D24 Benign neoplasm of breast
 Diagnoses - main ICD10: D25.9 Leiomyoma of uterus, unspecified
 Diagnoses - main ICD10: D25 Leiomyoma of uterus
+Diagnoses - main ICD10: G43.9 Migraine, unspecified
+Diagnoses - main ICD10: G43 Migraine
 Diagnoses - main ICD10: G56.0 Carpal tunnel syndrome
 Diagnoses - main ICD10: G56 Mononeuropathies of upper limb
+Diagnoses - main ICD10: G57 Mononeuropathies of lower limb
 Diagnoses - main ICD10: H02 Other disorders of eyelid
 Diagnoses - main ICD10: I20.0 Unstable angina
 Diagnoses - main ICD10: I20.9 Angina pectoris, unspecified
 Diagnoses - main ICD10: I20 Angina pectoris
+Diagnoses - main ICD10: I26.9 Pulmonary embolism without mention of acute cor pulmonale
 Diagnoses - main ICD10: I26 Pulmonary embolism
+Diagnoses - main ICD10: I47.1 Supraventricular tachycardia
+Diagnoses - main ICD10: I47 Paroxysmal tachycardia
 Diagnoses - main ICD10: I48 Atrial fibrillation and flutter
 Diagnoses - main ICD10: I63 Cerebral infarction
+Diagnoses - main ICD10: I80.2 Phlebitis and thrombophlebitis of other deep vessels of lower extremities
+Diagnoses - main ICD10: I80 Phlebitis and thrombophlebitis
 Diagnoses - main ICD10: I83.9 Varicose veins of lower extremities without ulcer or inflammation
 Diagnoses - main ICD10: I83 Varicose veins of lower extremities
+Diagnoses - main ICD10: J22 Unspecified acute lower respiratory infection
 Diagnoses - main ICD10: J34.2 Deviated nasal septum
 Diagnoses - main ICD10: J34 Other disorders of nose and nasal sinuses
+Diagnoses - main ICD10: J38 Diseases of vocal cords and larynx, not elsewhere classified
+Diagnoses - main ICD10: K01.1 Impacted teeth
+Diagnoses - main ICD10: K01 Embedded and impacted teeth
+Diagnoses - main ICD10: K02.9 Dental caries, unspecified
 Diagnoses - main ICD10: K02 Dental caries
+Diagnoses - main ICD10: K04 Diseases of pulp and periapical tissues
+Diagnoses - main ICD10: K08.3 Retained dental root
+Diagnoses - main ICD10: K08 Other disorders of teeth and supporting structures
+Diagnoses - main ICD10: K13.7 Other and unspecified lesions of oral mucosa
 Diagnoses - main ICD10: K13 Other diseases of lip and oral mucosa
+Diagnoses - main ICD10: K25.9 Unspecified as acute or chronic, without haemorrhage or perforation
+Diagnoses - main ICD10: K25 Gastric ulcer
+Diagnoses - main ICD10: K26 Duodenal ulcer
+Diagnoses - main ICD10: K29.5 Chronic gastritis, unspecified
+Diagnoses - main ICD10: K29.6 Other gastritis
+Diagnoses - main ICD10: K29.8 Duodenitis
+Diagnoses - main ICD10: K31.7 Polyp of stomach and duodenum
+Diagnoses - main ICD10: K35.9 Acute appendicitis, unspecified
+Diagnoses - main ICD10: K35 Acute appendicitis
+Diagnoses - main ICD10: K40.2 Bilateral inguinal hernia, without obstruction or gangrene
 Diagnoses - main ICD10: K40.9 Unilateral or unspecified inguinal hernia, without obstruction or gangrene
 Diagnoses - main ICD10: K40 Inguinal hernia
 Diagnoses - main ICD10: K42.9 Umbilical hernia without obstruction or gangrene
 Diagnoses - main ICD10: K42 Umbilical hernia
 Diagnoses - main ICD10: K43.9 Ventral hernia without obstruction or gangrene
+Diagnoses - main ICD10: K43 Ventral hernia
 Diagnoses - main ICD10: K44.9 Diaphragmatic hernia without obstruction or gangrene
 Diagnoses - main ICD10: K44 Diaphragmatic hernia
+Diagnoses - main ICD10: K56 Paralytic ileus and intestinal obstruction without hernia
+Diagnoses - main ICD10: L02 Cutaneous abscess, furuncle and carbuncle
+Diagnoses - main ICD10: L57 Skin changes due to chronic exposure to nonionising radiation
 Diagnoses - main ICD10: M20.1 Hallux valgus (acquired)
+Diagnoses - main ICD10: M20.2 Hallux rigidus
 Diagnoses - main ICD10: M20 Acquired deformities of fingers and toes
+Diagnoses - main ICD10: M23.22 Derangement of meniscus due to old tear or injury (Posterior cruciate ligament or Posterior horn of medial meniscus)
+Diagnoses - main ICD10: M23.2 Derangement of meniscus due to old tear or injury
 Diagnoses - main ICD10: M23 Internal derangement of knee
+Diagnoses - main ICD10: M25.56 Pain in joint (Lower leg)
+Diagnoses - main ICD10: M25.5 Pain in joint
+Diagnoses - main ICD10: M48 Other spondylopathies
+Diagnoses - main ICD10: M51.2 Other specified intervertebral disk displacement
+Diagnoses - main ICD10: M51.3 Other specified intervertebral disk degeneration
+Diagnoses - main ICD10: M54.56 Low back pain (Lumbar region)
+Diagnoses - main ICD10: M54.59 Low back pain (Site unspecified)
 Diagnoses - main ICD10: M54 Dorsalgia
+Diagnoses - main ICD10: M65.3 Trigger finger
+Diagnoses - main ICD10: M67 Other disorders of synovium and tendon
+Diagnoses - main ICD10: M70 Soft tissue disorders related to use, overuse and pressure
+Diagnoses - main ICD10: M72.04 Palmar fascial fibromatosis [Dupuytren]-Hand
+Diagnoses - main ICD10: M72.0 Palmar fascial fibromatosis [Dupuytren]
+Diagnoses - main ICD10: M72 Fibroblastic disorders
+Diagnoses - main ICD10: M75.0 Adhesive capsulitis of shoulder
+Diagnoses - main ICD10: M75.1 Rotator cuff syndrome
 Diagnoses - main ICD10: M75 Shoulder lesions
+Diagnoses - main ICD10: M79.66 Pain in limb (Lower leg)
+Diagnoses - main ICD10: M79.86 Other specified soft tissue disorders (Lower leg)
 Diagnoses - main ICD10: M79 Other soft tissue disorders, not elsewhere classified
+Diagnoses - main ICD10: M84 Disorders of continuity of bone
+Diagnoses - main ICD10: N13 Obstructive and reflux uropathy
+Diagnoses - main ICD10: N20.1 Calculus of ureter
+Diagnoses - main ICD10: N23 Unspecified renal colic
+Diagnoses - main ICD10: N30 Cystitis
+Diagnoses - main ICD10: N31 Neuromuscular dysfunction of bladder, not elsewhere classified
+Diagnoses - main ICD10: N32.0 Bladder-neck obstruction
+Diagnoses - main ICD10: N47 Redundant prepuce, phimosis and paraphimosis
+Diagnoses - main ICD10: N60 Benign mammary dysplasia
+Diagnoses - main ICD10: N63 Unspecified lump in breast
+Diagnoses - main ICD10: N80 Endometriosis
+Diagnoses - main ICD10: N81.6 Rectocele
 Diagnoses - main ICD10: N84.1 Polyp of cervix uteri
+Diagnoses - main ICD10: N85 Other noninflammatory disorders of uterus, except cervix
+Diagnoses - main ICD10: N87 Dysplasia of cervix uteri
+Diagnoses - main ICD10: N90 Other noninflammatory disorders of vulva and perineum
 Diagnoses - main ICD10: N92.0 Excessive and frequent menstruation with regular cycle
 Diagnoses - main ICD10: N92.1 Excessive and frequent menstruation with irregular cycle
+Diagnoses - main ICD10: N92.6 Irregular menstruation, unspecified
 Diagnoses - main ICD10: N92 Excessive  frequent and irregular menstruation
 Diagnoses - main ICD10: N92 Excessive, frequent and irregular menstruation
+Diagnoses - main ICD10: N93.8 Other specified abnormal uterine and vaginal bleeding
+Diagnoses - main ICD10: N93.9 Abnormal uterine and vaginal bleeding, unspecified
 Diagnoses - main ICD10: N93 Other abnormal uterine and vaginal bleeding
+Diagnoses - main ICD10: N94 Pain and other conditions associated with female genital organs and menstrual cycle
 Diagnoses - main ICD10: N95.0 Postmenopausal bleeding
 Diagnoses - main ICD10: N95 Menopausal and other perimenopausal disorders
+Diagnoses - main ICD10: O02.1 Missed abortion
+Diagnoses - main ICD10: O02 Other abnormal products of conception
+Diagnoses - main ICD10: O03 Spontaneous abortion
+Diagnoses - main ICD10: O04.9 Complete or unspecified, without complication
+Diagnoses - main ICD10: O26.8 Other specified pregnancy-related conditions
+Diagnoses - main ICD10: O26 Maternal care for other conditions predominantly related to pregnancy
+Diagnoses - main ICD10: O36 Maternal care for other known or suspected foetal problems
+Diagnoses - main ICD10: O63.1 Prolonged second stage (of labour)
+Diagnoses - main ICD10: O63 Long labour
+Diagnoses - main ICD10: O68.0 Labour and delivery complicated by foetal heart rate anomaly
+Diagnoses - main ICD10: O68 Labour and delivery complicated by foetal stress [distress]
+Diagnoses - main ICD10: O70.0 First degree perineal laceration during delivery
 Diagnoses - main ICD10: O70.1 Second degree perineal laceration during delivery
 Diagnoses - main ICD10: O70 Perineal laceration during delivery
+Diagnoses - main ICD10: O80.0 Spontaneous vertex delivery
+Diagnoses - main ICD10: O80 Single spontaneous delivery
+Diagnoses - main ICD10: R00.2 Palpitations
+Diagnoses - main ICD10: R04.0 Epistaxis
+Diagnoses - main ICD10: R04.2 Haemoptysis
+Diagnoses - main ICD10: R04 Haemorrhage from respiratory passages
+Diagnoses - main ICD10: R06.0 Dyspnoea
+Diagnoses - main ICD10: R06.5 Mouth breathing
 Diagnoses - main ICD10: R07.2 Precordial pain
 Diagnoses - main ICD10: R07.3 Other chest pain
 Diagnoses - main ICD10: R07.4 Chest pain, unspecified
@@ -167,59 +290,124 @@ Diagnoses - main ICD10: R11 Nausea and vomiting
 Diagnoses - main ICD10: R13 Dysphagia
 Diagnoses - main ICD10: R19.4 Change in bowel habit
 Diagnoses - main ICD10: R19 Other symptoms and signs involving the digestive system and abdomen
+Diagnoses - main ICD10: R22 Localised swelling, mass and lump of skin and subcutaneous tissue
 Diagnoses - main ICD10: R31 Unspecified haematuria
+Diagnoses - main ICD10: R32 Unspecified urinary incontinence
 Diagnoses - main ICD10: R33 Retention of urine
+Diagnoses - main ICD10: R35 Polyuria
+Diagnoses - main ICD10: R39.8 Other and unspecified symptoms and signs involving the urinary system
 Diagnoses - main ICD10: R39 Other symptoms and signs involving the urinary system
+Diagnoses - main ICD10: R42 Dizziness and giddiness
+Diagnoses - main ICD10: R50 Fever of unknown origin
 Diagnoses - main ICD10: R51 Headache
 Diagnoses - main ICD10: R55 Syncope and collapse
+Diagnoses - main ICD10: R56 Convulsions, not elsewhere classified
+Diagnoses - main ICD10: R63 Symptoms and signs concerning food and fluid intake
 Diagnoses - main ICD10: R69 Unknown and unspecified causes of morbidity
+Diagnoses - main ICD10: R79.8 Other specified abnormal findings of blood chemistry
 Diagnoses - main ICD10: R79 Other abnormal findings of blood chemistry
+Diagnoses - main ICD10: R87.6 Abnormal cytological findings
+Diagnoses - main ICD10: R87 Abnormal findings in specimens from female genital organs
+Diagnoses - main ICD10: R93 Abnormal findings on diagnostic imaging of other body structures
+Diagnoses - main ICD10: S01 Open wound of head
+Diagnoses - main ICD10: S02 Fracture of skull and facial bones
+Diagnoses - main ICD10: S09.9 Unspecified injury of head
+Diagnoses - main ICD10: S42 Fracture of shoulder and upper arm
 Diagnoses - main ICD10: S52.50 Fracture of lower end of radius (closed)
 Diagnoses - main ICD10: S52 Fracture of forearm
+Diagnoses - main ICD10: S61 Open wound of wrist and hand
+Diagnoses - main ICD10: S62 Fracture at wrist and hand level
+Diagnoses - main ICD10: S72 Fracture of femur
+Diagnoses - main ICD10: S82.80 Fractures of other parts of lower leg (closed)
 Diagnoses - main ICD10: S82 Fracture of lower leg, including ankle
+Diagnoses - main ICD10: T39.1 4-Aminophenol derivatives
+Diagnoses - main ICD10: T39 Poisoning by nonopioid analgesics, antipyretics and antirheumatics
+Diagnoses - main ICD10: T81.0 Haemorrhage and haematoma complicating a procedure, not elsewhere classified
 Diagnoses - main ICD10: T81.4 Infection following a procedure, not elsewhere classified
 Diagnoses - main ICD10: T81 Complications of procedures, not elsewhere classified
+Diagnoses - main ICD10: T82 Complications of cardiac and vascular prosthetic devices, implants and grafts
+Diagnoses - main ICD10: T84.0 Mechanical complication of internal joint prosthesis
+Diagnoses - main ICD10: T84.8 Other complications of internal orthopaedic prosthetic devices, implants and grafts
 Diagnoses - main ICD10: T84 Complications of internal orthopaedic prosthetic devices  implants and grafts
 Diagnoses - main ICD10: T84 Complications of internal orthopaedic prosthetic devices, implants and grafts
+Diagnoses - main ICD10: T85 Complications of other internal prosthetic devices, implants and grafts
+Diagnoses - main ICD10: Z01 Other special examinations and investigations of persons without complaint or reported diagnosis
 Diagnoses - main ICD10: Z03.8 Observation for other suspected diseases and conditions
 Diagnoses - main ICD10: Z03 Medical observation and evaluation for suspected diseases and conditions
 Diagnoses - main ICD10: Z08.0 Follow-up examination after surgery for malignant neoplasm
 Diagnoses - main ICD10: Z08 Follow-up examination after treatment for malignant neoplasm
 Diagnoses - main ICD10: Z09.0 Follow-up examination after surgery for other conditions
 Diagnoses - main ICD10: Z09.8 Follow-up examination after other treatment for other conditions
+Diagnoses - main ICD10: Z09.9 Follow-up examination after unspecified treatment for other conditions
 Diagnoses - main ICD10: Z09 Follow-up examination after treatment for conditions other than malignant neoplasms
 Diagnoses - main ICD10: Z12.1 Special screening examination for neoplasm of intestinal tract
 Diagnoses - main ICD10: Z12 Special screening examination for neoplasms
+Diagnoses - main ICD10: Z13.8 Special screening examination for other specified diseases and disorders
 Diagnoses - main ICD10: Z13 Special screening examination for other diseases and disorders
 Diagnoses - main ICD10: Z30.2 Sterilisation
 Diagnoses - main ICD10: Z30 Contraceptive management
+Diagnoses - main ICD10: Z42.1 Follow-up care involving plastic surgery of breast
+Diagnoses - main ICD10: Z42 Follow-up care involving plastic surgery
+Diagnoses - main ICD10: Z43 Attention to artificial openings
 Diagnoses - main ICD10: Z45 Adjustment and management of implanted device
 Diagnoses - main ICD10: Z46.6 Fitting and adjustment of urinary device
 Diagnoses - main ICD10: Z46 Fitting and adjustment of other devices
 Diagnoses - main ICD10: Z47.0 Follow-up care involving removal of fracture plate and other internal fixation device
+Diagnoses - main ICD10: Z47 Other orthopaedic follow-up care
+Diagnoses - main ICD10: Z53.8 Procedure not carried out for other reasons
+Diagnoses - main ICD10: Z53 Persons encountering health services for specifie procedures, not carried out
+Diagnoses - main ICD9: 4549 Varicose veins of lower extremity without ulcer/inflammation
+Diagnoses - main ICD9: 6262 Excessive or frequent menstruation
 Diagnoses - main ICD9: V252 Sterilization
+Diagnoses - secondary ICD10: B95.6 Staphylococcus aureus as the cause of diseases classified to other chapters
+Diagnoses - secondary ICD10: B96.2 Escherichia coli [E. coli] as the cause of diseases classified to other chapters
 Diagnoses - secondary ICD10: B96.8 Other specified bacterial agents as the cause of diseases classified to other chapters
+Diagnoses - secondary ICD10: C50.9 Breast, unspecified
+Diagnoses - secondary ICD10: C61 Malignant neoplasm of prostate
+Diagnoses - secondary ICD10: C77.3 Axillary and upper limb lymph nodes
+Diagnoses - secondary ICD10: C78.7 Secondary malignant neoplasm of liver
+Diagnoses - secondary ICD10: D12.5 Sigmoid colon
 Diagnoses - secondary ICD10: D25.9 Leiomyoma of uterus, unspecified
+Diagnoses - secondary ICD10: D50.9 Iron deficiency anaemia, unspecified
 Diagnoses - secondary ICD10: D64.9 Anaemia, unspecified
+Diagnoses - secondary ICD10: D70 Agranulocytosis
 Diagnoses - secondary ICD10: E03.9 Hypothyroidism, unspecified
 Diagnoses - secondary ICD10: E10.9 Without complications
 Diagnoses - secondary ICD10: E11.9 Without complications
+Diagnoses - secondary ICD10: E14.9 Without complications
 Diagnoses - secondary ICD10: E66.9 Obesity, unspecified
 Diagnoses - secondary ICD10: E78.0 Pure hypercholesterolaemia
 Diagnoses - secondary ICD10: E78.5 Hyperlipidaemia, unspecified
+Diagnoses - secondary ICD10: E86 Volume depletion
+Diagnoses - secondary ICD10: F10.0 Acute intoxication
+Diagnoses - secondary ICD10: F10.1 Harmful use
+Diagnoses - secondary ICD10: F10.2 Dependence syndrome
+Diagnoses - secondary ICD10: F17.1 Harmful use
 Diagnoses - secondary ICD10: F32.9 Depressive episode, unspecified
+Diagnoses - secondary ICD10: F41.9 Anxiety disorder, unspecified
 Diagnoses - secondary ICD10: G40.9 Epilepsy, unspecified
+Diagnoses - secondary ICD10: G47.3 Sleep apnoea
 Diagnoses - secondary ICD10: G55.1 Nerve root and plexus compressions in intervertebral disk disorders
 Diagnoses - secondary ICD10: I10 Essential (primary) hypertension
+Diagnoses - secondary ICD10: I12.0 Hypertensive renal disease with renal failure
+Diagnoses - secondary ICD10: I20.0 Unstable angina
 Diagnoses - secondary ICD10: I20.9 Angina pectoris, unspecified
 Diagnoses - secondary ICD10: I25.1 Atherosclerotic heart disease
 Diagnoses - secondary ICD10: I25.2 Old myocardial infarction
 Diagnoses - secondary ICD10: I25.8 Other forms of chronic ischaemic heart disease
 Diagnoses - secondary ICD10: I25.9 Chronic ischaemic heart disease, unspecified
+Diagnoses - secondary ICD10: I34.0 Mitral (valve) insufficiency
 Diagnoses - secondary ICD10: I48 Atrial fibrillation and flutter
 Diagnoses - secondary ICD10: I50.1 Left ventricular failure
+Diagnoses - secondary ICD10: I51.7 Cardiomegaly
+Diagnoses - secondary ICD10: I73.9 Peripheral vascular disease, unspecified
+Diagnoses - secondary ICD10: I84.2 Internal haemorrhoids without complication
+Diagnoses - secondary ICD10: I84.6 Residual haemorrhoidal skin tags
 Diagnoses - secondary ICD10: I84.9 Unspecified haemorrhoids without complication
+Diagnoses - secondary ICD10: I95.9 Hypotension, unspecified
+Diagnoses - secondary ICD10: J18.1 Lobar pneumonia, unspecified
 Diagnoses - secondary ICD10: J22 Unspecified acute lower respiratory infection
+Diagnoses - secondary ICD10: J34.3 Hypertrophy of nasal turbinates
 Diagnoses - secondary ICD10: J44.9 Chronic obstructive pulmonary disease, unspecified
 Diagnoses - secondary ICD10: J45.9 Asthma, unspecified
 Diagnoses - secondary ICD10: J90 Pleural effusion, not elsewhere classified
@@ -227,57 +415,112 @@ Diagnoses - secondary ICD10: K20 Oesophagitis
 Diagnoses - secondary ICD10: K21.0 Gastro-oesophageal reflux disease with oesophagitis
 Diagnoses - secondary ICD10: K21.9 Gastro-oesophageal reflux disease without oesophagitis
 Diagnoses - secondary ICD10: K22.1 Ulcer of oesophagus
+Diagnoses - secondary ICD10: K25.9 Unspecified as acute or chronic, without haemorrhage or perforation
+Diagnoses - secondary ICD10: K26.9 Unspecified as acute or chronic, without haemorrhage or perforation
+Diagnoses - secondary ICD10: K29.5 Chronic gastritis, unspecified
+Diagnoses - secondary ICD10: K29.6 Other gastritis
 Diagnoses - secondary ICD10: K29.7 Gastritis, unspecified
 Diagnoses - secondary ICD10: K29.8 Duodenitis
 Diagnoses - secondary ICD10: K30 Dyspepsia
+Diagnoses - secondary ICD10: K31.7 Polyp of stomach and duodenum
+Diagnoses - secondary ICD10: K31.8 Other specified diseases of stomach and duodenum
 Diagnoses - secondary ICD10: K44.9 Diaphragmatic hernia without obstruction or gangrene
+Diagnoses - secondary ICD10: K51.9 Ulcerative colitis, unspecified
 Diagnoses - secondary ICD10: K52.9 Non-infective gastro-enteritis and colitis, unspecified
 Diagnoses - secondary ICD10: K57.3 Diverticular disease of large intestine without perforation or abscess
 Diagnoses - secondary ICD10: K57.9 Diverticular disease of intestine, part unspecified, without perforation or abscess
 Diagnoses - secondary ICD10: K58.9 Irritable bowel syndrome without diarrhoea
 Diagnoses - secondary ICD10: K59.0 Constipation
+Diagnoses - secondary ICD10: K62.1 Rectal polyp
 Diagnoses - secondary ICD10: K62.5 Haemorrhage of anus and rectum
 Diagnoses - secondary ICD10: K63.5 Polyp of colon
+Diagnoses - secondary ICD10: K66.0 Peritoneal adhesions
 Diagnoses - secondary ICD10: K80.2 Calculus of gallbladder without cholecystitis
+Diagnoses - secondary ICD10: L03.1 Cellulitis of other parts of limb
+Diagnoses - secondary ICD10: M06.99 Rheumatoid arthritis, unspecified (Site unspecified)
+Diagnoses - secondary ICD10: M10.99 Gout, unspecified (Site unspecified)
 Diagnoses - secondary ICD10: M13.99 Arthritis, unspecified (Site unspecified)
+Diagnoses - secondary ICD10: M13.9 Arthritis, unspecified
+Diagnoses - secondary ICD10: M15.9 Polyarthrosis, unspecified
+Diagnoses - secondary ICD10: M17.1 Other primary gonarthrosis
 Diagnoses - secondary ICD10: M17.9 Gonarthrosis, unspecified
 Diagnoses - secondary ICD10: M19.99 Arthrosis, unspecified (Site unspecified)
+Diagnoses - secondary ICD10: M19.9 Arthrosis, unspecified
+Diagnoses - secondary ICD10: M47.82 Other spondylosis (Cervical region)
+Diagnoses - secondary ICD10: M81.99 Osteoporosis, unspecified (Site unspecified)
+Diagnoses - secondary ICD10: N17.9 Acute renal failure, unspecified
 Diagnoses - secondary ICD10: N32.8 Other specified disorders of bladder
 Diagnoses - secondary ICD10: N39.0 Urinary tract infection, site not specified
+Diagnoses - secondary ICD10: N39.3 Stress incontinence
 Diagnoses - secondary ICD10: N40 Hyperplasia of prostate
+Diagnoses - secondary ICD10: N73.6 Female pelvic peritoneal adhesions
+Diagnoses - secondary ICD10: N80.0 Endometriosis of uterus
+Diagnoses - secondary ICD10: N81.1 Cystocele
+Diagnoses - secondary ICD10: N81.2 Incomplete uterovaginal prolapse
 Diagnoses - secondary ICD10: N81.6 Rectocele
+Diagnoses - secondary ICD10: N83.2 Other and unspecified ovarian cysts
 Diagnoses - secondary ICD10: N84.0 Polyp of corpus uteri
+Diagnoses - secondary ICD10: N85.8 Other specified noninflammatory disorders of uterus
 Diagnoses - secondary ICD10: N92.0 Excessive and frequent menstruation with regular cycle
+Diagnoses - secondary ICD10: N94.6 Dysmenorrhoea, unspecified
 Diagnoses - secondary ICD10: N95.0 Postmenopausal bleeding
+Diagnoses - secondary ICD10: O70.1 Second degree perineal laceration during delivery
+Diagnoses - secondary ICD10: R00.0 Tachycardia, unspecified
+Diagnoses - secondary ICD10: R00.1 Bradycardia, unspecified
+Diagnoses - secondary ICD10: R00.2 Palpitations
+Diagnoses - secondary ICD10: R03.0 Elevated blood-pressure reading, without diagnosis of hypertension
+Diagnoses - secondary ICD10: R05 Cough
 Diagnoses - secondary ICD10: R06.0 Dyspnoea
 Diagnoses - secondary ICD10: R07.4 Chest pain, unspecified
+Diagnoses - secondary ICD10: R10.1 Pain localised to upper abdomen
+Diagnoses - secondary ICD10: R10.3 Pain localised to other parts of lower abdomen
 Diagnoses - secondary ICD10: R10.4 Other and unspecified abdominal pain
 Diagnoses - secondary ICD10: R11 Nausea and vomiting
+Diagnoses - secondary ICD10: R13 Dysphagia
 Diagnoses - secondary ICD10: R19.4 Change in bowel habit
 Diagnoses - secondary ICD10: R31 Unspecified haematuria
 Diagnoses - secondary ICD10: R33 Retention of urine
+Diagnoses - secondary ICD10: R35 Polyuria
+Diagnoses - secondary ICD10: R42 Dizziness and giddiness
+Diagnoses - secondary ICD10: R50.9 Fever, unspecified
 Diagnoses - secondary ICD10: R51 Headache
+Diagnoses - secondary ICD10: R53 Malaise and fatigue
 Diagnoses - secondary ICD10: R55 Syncope and collapse
 Diagnoses - secondary ICD10: R63.4 Abnormal weight loss
 Diagnoses - secondary ICD10: R69 Unknown and unspecified causes of morbidity
 Diagnoses - secondary ICD10: R79.8 Other specified abnormal findings of blood chemistry
+Diagnoses - secondary ICD10: R94.5 Abnormal results of liver function studies
 Diagnoses - secondary ICD10: T81.0 Haemorrhage and haematoma complicating a procedure, not elsewhere classified
+Diagnoses - secondary ICD10: T81.4 Infection following a procedure, not elsewhere classified
+Diagnoses - secondary ICD10: W01.0 Home
+Diagnoses - secondary ICD10: W01.9 Unspecified place
+Diagnoses - secondary ICD10: W10.0 Home
 Diagnoses - secondary ICD10: W19.9 Unspecified place
 Diagnoses - secondary ICD10: X59.9 Unspecified place
+Diagnoses - secondary ICD10: Y43.3 Other antineoplastic drugs
 Diagnoses - secondary ICD10: Y83.1 Surgical operation with implant of artificial internal device
+Diagnoses - secondary ICD10: Y83.2 Surgical operation with anastomosis, bypass or graft
 Diagnoses - secondary ICD10: Y83.6 Removal of other organ (partial) (total)
 Diagnoses - secondary ICD10: Y83.8 Other surgical procedures
 Diagnoses - secondary ICD10: Z03.4 Observation for suspected myocardial infarction
 Diagnoses - secondary ICD10: Z03.8 Observation for other suspected diseases and conditions
+Diagnoses - secondary ICD10: Z13.0 Special screening examination for diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
+Diagnoses - secondary ICD10: Z13.8 Special screening examination for other specified diseases and disorders
 Diagnoses - secondary ICD10: Z37.0 Single live birth
+Diagnoses - secondary ICD10: Z50.1 Other physical therapy
+Diagnoses - secondary ICD10: Z51.0 Radiotherapy session
 Diagnoses - secondary ICD10: Z51.1 Chemotherapy session for neoplasm
 Diagnoses - secondary ICD10: Z51.2 Other chemotherapy
+Diagnoses - secondary ICD10: Z51.5 Palliative care
 Diagnoses - secondary ICD10: Z53.0 Procedure not carried out because of contraindication
+Diagnoses - secondary ICD10: Z53.2 Procedure not carried out because of patient's decision for other and unspecified reasons
 Diagnoses - secondary ICD10: Z53.8 Procedure not carried out for other reasons
+Diagnoses - secondary ICD10: Z53.9 Procedure not carried out, unspecified reason
 Diagnoses - secondary ICD10: Z60.2 Living alone
 Diagnoses - secondary ICD10: Z72.0 Tobacco use
 Diagnoses - secondary ICD10: Z72.1 Alcohol use
 Diagnoses - secondary ICD10: Z80.0 Family history of malignant neoplasm of digestive organs
+Diagnoses - secondary ICD10: Z80.3 Family history of malignant neoplasm of breast
 Diagnoses - secondary ICD10: Z82.4 Family history of ischaemic heart disease and other diseases of the circulatory system
 Diagnoses - secondary ICD10: Z85.0 Personal history of malignant neoplasm of digestive organs
 Diagnoses - secondary ICD10: Z85.3 Personal history of malignant neoplasm of breast
@@ -285,23 +528,32 @@ Diagnoses - secondary ICD10: Z85.4 Personal history of malignant neoplasm of gen
 Diagnoses - secondary ICD10: Z85.5 Personal history of malignant neoplasm of urinary tract
 Diagnoses - secondary ICD10: Z85.8 Personal history of malignant neoplasms of other organs and systems
 Diagnoses - secondary ICD10: Z86.0 Personal history of other neoplasms
+Diagnoses - secondary ICD10: Z86.1 Personal history of infectious and parasitic diseases
 Diagnoses - secondary ICD10: Z86.4 Personal history of psychoactive substance abuse
 Diagnoses - secondary ICD10: Z86.6 Personal history of diseases of the nervous system and sense organs
 Diagnoses - secondary ICD10: Z86.7 Personal history of diseases of the circulatory system
 Diagnoses - secondary ICD10: Z87.1 Personal history of diseases of the digestive system
+Diagnoses - secondary ICD10: Z87.3 Personal history of diseases of the musculoskeletal system and connective tissue
 Diagnoses - secondary ICD10: Z87.4 Personal history of diseases of the genito-urinary system
 Diagnoses - secondary ICD10: Z88.0 Personal history of allergy to penicillin
 Diagnoses - secondary ICD10: Z88.1 Personal history of allergy to other antibiotic agents
 Diagnoses - secondary ICD10: Z88.6 Personal history of allergy to analgesic agent
 Diagnoses - secondary ICD10: Z88.8 Personal history of allergy to other drugs, medicaments and biological substances
+Diagnoses - secondary ICD10: Z90.1 Acquired absence of breast(s)
 Diagnoses - secondary ICD10: Z90.4 Acquired absence of other parts of digestive tract
 Diagnoses - secondary ICD10: Z90.7 Acquired absence of genital organ(s)
+Diagnoses - secondary ICD10: Z91.0 Personal history of allergy, other than to drugs and biological substances
 Diagnoses - secondary ICD10: Z92.1 Personal history of long-term (current) use of anticoagulants
 Diagnoses - secondary ICD10: Z92.2 Personal history of long-term (current) use of other medicaments
+Diagnoses - secondary ICD10: Z92.3 Personal history of irradiation
+Diagnoses - secondary ICD10: Z92.4 Personal history of major surgery, not elsewhere classified
+Diagnoses - secondary ICD10: Z95.0 Presence of cardiac pacemaker
 Diagnoses - secondary ICD10: Z95.1 Presence of aortocoronary bypass graft
 Diagnoses - secondary ICD10: Z95.5 Presence of coronary angioplasty implant and graft
+Diagnoses - secondary ICD10: Z95.8 Presence of other cardiac and vascular implants and grafts
 Diagnoses - secondary ICD10: Z96.1 Presence of intraocular lens
 Diagnoses - secondary ICD10: Z96.6 Presence of orthopaedic joint implants
+Diagnoses - secondary ICD10: Z98.0 Intestinal bypass and anastomosis status
 Did your sleep change?
 Difficulty concentrating during worst depression
 Difficulty concentrating during worst period of anxiety
@@ -315,15 +567,19 @@ Easily tired during worst period of anxiety
 Egg consumers
 Endocrine, nutritional and metabolic diseases
 Endometrial cancer (endometrioid histology)
+Endometriosis, IBD co-morbidity
 Episodal and paroxysmal disorders
 Erectile dysfunction
 Estradiol levels
+Ever addicted to a behaviour or miscellanous
+Ever addicted to alcohol
 Ever addicted to any substance or behaviour
 Ever been injured or injured someone else through drinking alcohol: No
 Ever been injured or injured someone else through drinking alcohol: Yes, but not in the last year
 Ever felt worried, tense, or anxious for most of a month or longer
 Ever had bowel cancer screening
 Ever had breast cancer screening / mammogram
+Ever had cataract surgery: No
 Ever had cervical smear test
 Ever had hysterectomy (womb removed)
 Ever had known person concerned about, or recommend reduction of, alcohol consumption: No
@@ -334,6 +590,8 @@ Ever had period of mania / excitability
 Ever had prolonged feelings of sadness or depression
 Ever had prolonged loss of interest in normal activities
 Ever had prostate specific antigen (PSA) test
+Ever had refractive laser eye surgery: Both eyes
+Ever had refractive laser eye surgery: No
 Ever had same-sex intercourse
 Ever had stillbirth  spontaneous miscarriage or termination
 Ever had stillbirth, spontaneous miscarriage or termination
@@ -347,21 +605,27 @@ Ever sought or received professional help for mental distress
 Ever stopped smoking for 6+ months
 Ever suffered mental distress preventing usual activities
 Ever taken oral contraceptive pill
+Ever talked to a health professional about unusual or psychotic experiences
 Ever unenthusiastic/disinterested for a whole week
 Ever used hormone-replacement therapy (HRT)
 Ever vs never smoked
 Ever worried more than most people would in similar situation
+External causes: W01.9 Unspecified place
+External causes: W19.9 Unspecified place
 External causes: X59.9 Unspecified place
 External causes: Y83.1 Surgical operation with implant of artificial internal device
+External causes: Y83.2 Surgical operation with anastomosis, bypass or graft
 External causes: Y83.6 Removal of other organ (partial) (total)
 External causes: Y83.8 Other surgical procedures
 Eye problems/disorders: Cataract
 Eye problems/disorders: Diabetes related eye disease
 Eye problems/disorders: Injury or trauma resulting in loss of vision
 Eye problems/disorders: None of the above
+Facial pains for 3+ months
 Factors influencing health status and contact with health services
 Falling risk
 Father still alive
+Fat removed from meat
 Fed-up feelings
 Feelings of tiredness during worst episode of depression
 Feelings of worthlessness during worst period of depression
@@ -386,6 +650,7 @@ Fractured bone site(s): Ankle
 Fractured bone site(s): Arm
 Fractured bone site(s): Leg
 Fractured bone site(s): Other bones
+Fractured bone site(s): Spine
 Fractured bone site(s): Wrist
 Fractured/broken bones in last 5 years
 Fracture resulting from simple fall
@@ -407,6 +672,7 @@ Gas or solid-fuel cooking/heating: None of the above
 Gastroduodenal ulcer
 Genetic sex
 GI-bleeding
+Glioma
 Gonarthrosis [arthrosis of knee](FG)
 Guilty feelings
 Had major operations
@@ -421,11 +687,17 @@ Hair colour (natural, before greying): Dark brown
 Hair colour (natural, before greying): Light brown
 Hair colour (natural, before greying): Other
 Hair colour (natural, before greying): Red
+Hallux rigidus
 Hallux valgus (acquired)
 Handedness (chirality/laterality): Left-handed
 Handedness (chirality/laterality): Right-handed
 Handedness (chirality/laterality): Use both right and left hands equally
 Headaches for 3+ months
+Head and neck cancer
+Hearing test done: No, I am unable to do this
+Heart failure
+Heart failure, not strict
+Heart failure,strict
 Heating type(s) in home: Electric storage heaters
 Heating type(s) in home: Gas central heating
 Heating type(s) in home: None of the above
@@ -436,6 +708,8 @@ Home area population density - urban or rural: England/Wales - Hamlet and Isolat
 Home area population density - urban or rural: England/Wales - Town and Fringe - less sparse
 Home area population density - urban or rural: England/Wales - Urban - less sparse
 Home area population density - urban or rural: England/Wales - Village - less sparse
+Home area population density - urban or rural: Scotland - Accessible Rural
+Home area population density - urban or rural: Scotland - Accessible Small Town
 Home area population density - urban or rural: Scotland - Large Urban Area
 Home area population density - urban or rural: Scotland - Other Urban Area
 Hospital episode type: General episode
@@ -446,6 +720,8 @@ How are people in household related to participant: Mother and/or father
 How are people in household related to participant: Other related
 How are people in household related to participant: Other unrelated
 How are people in household related to participant: Son and/or daughter (include step-children)
+Hypertension
+Hypertensive diseases
 ILD differential diagnosis
 Illnesses of father: Alzheimer's disease/dementia
 Illnesses of father: Bowel cancer
@@ -501,64 +777,151 @@ Illness, injury, bereavement, stress in last 2 years: Serious illness, injury or
 Illness  injury  bereavement  stress in last 2 years: Serious illness  injury or assault to yourself
 Illness, injury, bereavement, stress in last 2 years: Serious illness, injury or assault to yourself
 Impingement syndrome of shoulder
+Ingredients in canned soup: Vegetables
 Ingredients in homemade soup: Vegetables
 Injury, poisoning and certain other consequences of external causes
 Intended management of patient (recoded): No overnight hospital stay
 Intended management of patient (recoded): One or more nights hospital stay
 Intended management of patient (recoded): Planned series of admissions with no overnight stay
 Intestinal infectious diseases
+Invasive mucinous ovarian cancer
 Invitation to complete online 24-hour recall dietary questionnaire, acceptance
 Invitation to physical activity study, acceptance
 Iron deficiency anaemia
 Irritability
+Job coding: accounts and wages clerk/assistant/supervisor, bookkeeper, cost or ledger clerk, audit assistant, budget officer, student loans officer, paymaster
 Job coding: all other personal assistants and secretaries
+Job coding: bank manager, bank section manager, building society manager, post/sub-post office manager
+Job coding: care assistant, home care assistant, residential social worker, home carer, nursing home assistant
+Job coding: chartered/certified accountant, auditor, company accountant, articled/audit clerk, official receiver
+Job coding: chemist (analytic, developmental, industrial, research)
 Job coding: civil service administrative officer or assistant or clerk, tax collector, prison service clerk, law courts clerk
 Job coding: civil service executive officer, revenue/tax executive or officer, fraud inspector or officer, job centre adviser
+Job coding: civil service senior manager outside the senior civil service (former grades 6 and 7)
+Job coding: community worker, day centre officer, youth leader, youth worker, parish worker, bail support officer
 Job coding: counter clerk, bank clerk, cashier, post office clerk
+Job coding: customer care adviser/officer/assistant, store guide, customer relations officer/representative
 Job coding: director or chief executive of private organisation/company, company chairman or president, general manager
 Job coding: educational assistant, classroom assistant, special needs helper
+Job coding: financial controller, accounting/audit technician, trust officer
 Job coding: further education teaching professional, college lecturer/professor
 Job coding: general office assistant/clerk, clerical officer, clerk-typist, office supervisor, press/newspaper corrector/reader
 Job coding: higher education teaching professional, university lecturer/professor (including college/university head/vice chancellor)
+Job coding: ict or it manager, systems/data processing manager, telecom manager
+Job coding: it operations technician, computer operator or technician, database manager, network or web technician, web master, systems administrator or officer
+Job coding: it strategy or planning professional, computer consultant, software consultant
 Job coding: laboratory technician, scientific assistant, cytology screener; hospital, medical or health technician
 Job coding: local government administrative officer or assistant or clerk
+Job coding: management information officer, conference/events co-ordinator/organiser, exhibition officer, work study engineer/officer/analyst, contract adviser/agent, election agent, business system analyst
+Job coding: manager in construction, clerk of works, site manager, contracts manager, highways manager
+Job coding: mechanical engineer, automobile engineer, aeronautical engineer, locomotive or marine engineer, welding engineer
+Job coding: medical doctor, general practitioner, hospital consultant
 Job coding: non-commissioned officers or other rank of armed forces
 Job coding: nurse (of any kind, at any level)
+Job coding: nursing auxiliary or assistant, steriliser of medical equipment, occupational therapy assistant, phlebotomist, physiotherapy assistant, ward orderly, ward assistant
+Job coding: office manager, account/payrolls manager, administration manager, litigation/solicitor's office manager
+Job coding: officer of ngo, trade union organiser/official, charity administrator, secretary of research or charity or political or professional or trade association or trade union
 Job coding: other general office clerical tasks including: office junior, office worker, photocopy/print room operator, office machinist
+Job coding: other science technician, materials technician, technical assistant, technical officer
+Job coding: other teaching professional including private tutor, tefl (teaching english as a foreign language) teacher; tutor at adult education centre, etc.
+Job coding: pensions and insurance clerk/administrator, claims handler
+Job coding: personnel, human resources, training or industrial relations manager/director, recruitment manager/director
+Job coding: police officer (sergeant or below)
 Job coding: primary /junior school teacher or teaching professional, nursery school teacher (including head teacher)
 Job coding: public service higher/senior executive officer, hospital administrator
+Job coding: receptionist, doctor's/dental receptionist
+Job coding: registrar or senior administrator of educational establishment, bursar, registrar, university administrator
+Job coding: research or laboratory manager
+Job coding: retail or wholesale shop manager, showroom manager
 Job coding: sales assistant, retail/shop assistant, counter assistant, sub post office assistant, takeaway food worker
 Job coding: sales or marketing manager/director, export/import manager, business development manager, advertising/commercial manager
+Job coding: sales or marketing representative, manufacturer's agent or representative or salesman/woman
+Job coding: scientific researcher, scientific officer, medical research associate, experimental officer
 Job coding: secondary school teacher or teaching professional (including head teacher)
+Job coding: senior official in local government including parish or town or county chief clerk, chief or superintendent rate collector, chief executive or director, councillor
 Job coding: senior official of special interest organisation including general manager or director or executive or general secretary of charity, or trade union/association or religious organisation
+Job coding: shopkeeper, shop owner, newsagent, wholesale/retail dealer
+Job coding: social worker, child care/protection officer, adoption officer, mental health officer, almoner, family case worker
 Job coding: software professional, analyst-programmer, computer programmer, software analyst or engineer, systems designer or programmer
+Job coding: solicitor, lawyer, barrister, judge, coroner, articled clerk, attorney, advocate, stipendiary magistrate, fiscal/crown prosecutor, sheriff (scottish courts), legal services recorder
+Job coding: special needs teaching professional (including head teacher)
 Job coding: typist, shorthand typist, transcriber, stenographer
 Job involved shift work: No
 Job involved shift work: Yes
 Job SOC coding: Accounts and wages clerks, book-keepers, other financial clerks
+Job SOC coding: Assemblers and routine operatives n.e.c.
+Job SOC coding: Biological scientists and biochemists
+Job SOC coding: Business and related associate professionals n.e.c.
+Job SOC coding: Care assistants and home carers
+Job SOC coding: Chartered and certified accountants
+Job SOC coding: Chemists
 Job SOC coding: Civil Service administrative officers and assistants
 Job SOC coding: Civil Service executive officers
 Job SOC coding: Counter clerks
+Job SOC coding: Customer care occupations
 Job SOC coding: Directors and chief executives of major organisations
 Job SOC coding: Educational assistants
+Job SOC coding: Education officers, school inspectors
+Job SOC coding: Electricians, electrical fitters
 Job SOC coding: Elementary office occupations n.e.c.
+Job SOC coding: Engineering technicians
+Job SOC coding: Filing and other records assistants/clerks
+Job SOC coding: Financial and accounting technicians
+Job SOC coding: Financial institution managers
 Job SOC coding: Further education teaching professionals
 Job SOC coding: General office assistants/clerks
 Job SOC coding: Higher education teaching professionals
+Job SOC coding: Information and communication technology managers
+Job SOC coding: IT operations technicians
+Job SOC coding: IT strategy and planning professionals
 Job SOC coding: Laboratory technicians
+Job SOC coding: Legal secretaries
+Job SOC coding: Librarians
 Job SOC coding: Local government clerical officers and assistants
+Job SOC coding: Management consultants, actuaries, economists and statisticians
+Job SOC coding: Managers in construction
 Job SOC coding: Marketing and sales managers
+Job SOC coding: Mechanical engineers
+Job SOC coding: Medical practitioners
+Job SOC coding: Medical secretaries
+Job SOC coding: Metal working production and maintenance fitters
 Job SOC coding: NCOs and other ranks
 Job SOC coding: Nurses
+Job SOC coding: Nursing auxiliaries and assistants
+Job SOC coding: Office managers
+Job SOC coding: Officers of non-governmental organisations
+Job SOC coding: Other goods handling and storage occupations n.e.c.
+Job SOC coding: Pensions and insurance clerks
 Job SOC coding: Personal assistants and other secretaries
+Job SOC coding: Personnel and industrial relations officers
+Job SOC coding: Personnel, training and industrial relations managers
+Job SOC coding: Police officers (sergeant and below)
 Job SOC coding: Primary and nursery education teaching professionals
+Job SOC coding: Public service administrative professionals
 Job SOC coding: Public service associate professionals
+Job SOC coding: Receptionists
+Job SOC coding: Registrars and senior administrators of educational establishments
+Job SOC coding: Research and development managers
+Job SOC coding: Researchers n.e.c.
+Job SOC coding: Retail and wholesale managers
 Job SOC coding: Sales and retail assistants
+Job SOC coding: Sales related occupations n.e.c.
+Job SOC coding: Sales representatives
+Job SOC coding: School secretaries
 Job SOC coding: Science and engineering technicians n.e.c.
+Job SOC coding: Scientific researchers
 Job SOC coding: Secondary education teaching professionals
+Job SOC coding: Senior officials in local government
 Job SOC coding: Senior officials of special interest organisations
+Job SOC coding: Shopkeepers and wholesale/retail dealers
+Job SOC coding: Social workers
 Job SOC coding: Software professionals
+Job SOC coding: Solicitors and lawyers, judges and coroners
+Job SOC coding: Special needs education teaching professionals
+Job SOC coding: Teaching professionals n.e.c.
 Job SOC coding: Typists
+Job SOC coding: Vocational and industrial trainers and instructors
+Job SOC coding: Youth and community workers
 Keyed up or on edge during worst period of anxiety
 Knee pain for 3+ months
 Leg pain in calf/calves
@@ -597,6 +960,7 @@ Main speciality of consultant (recoded): Clinical haematology
 Main speciality of consultant (recoded): Clinical oncology/ Radiotherapy
 Main speciality of consultant (recoded): Dermatology
 Main speciality of consultant (recoded): Ear, nose and throat (ENT)
+Main speciality of consultant (recoded): Endocrinology
 Main speciality of consultant (recoded): Gastroenterology
 Main speciality of consultant (recoded): General medicine
 Main speciality of consultant (recoded): General surgery
@@ -604,12 +968,16 @@ Main speciality of consultant (recoded): Geriatric medicine
 Main speciality of consultant (recoded): Gynaecology
 Main speciality of consultant (recoded): Infectious diseases
 Main speciality of consultant (recoded): Medical oncology
+Main speciality of consultant (recoded): Midwifery
+Main speciality of consultant (recoded): Nephrology
 Main speciality of consultant (recoded): Neurology
 Main speciality of consultant (recoded): Neurosurgery
 Main speciality of consultant (recoded): Obstetrics
 Main speciality of consultant (recoded): Ophthalmology
+Main speciality of consultant (recoded): Oral and maxillo facial surgery
 Main speciality of consultant (recoded): Oral surgery
 Main speciality of consultant (recoded): Plastic surgery
+Main speciality of consultant (recoded): Radiology
 Main speciality of consultant (recoded): Respiratory medicine
 Main speciality of consultant (recoded): Rheumatology
 Main speciality of consultant (recoded): Trauma and orthopaedics
@@ -721,28 +1089,43 @@ Non-butter spread type details: Other low or reduced fat spread
 Non-butter spread type details: Other type of spread/margarine
 Non-butter spread type details: Polyunsaturated/sunflower oil based spread (eg: Flora)
 Non-butter spread type details: Soft (tub) margarine
+Non-cancer illness code, self-reported: allergy/hypersensitivity/anaphylaxis
 Non-cancer illness code  self-reported: allergy or anaphylactic reaction to drug
+Non-cancer illness code, self-reported: allergy or anaphylactic reaction to drug
+Non-cancer illness code, self-reported: allergy or anaphylactic reaction to food
 Non-cancer illness code  self-reported: angina
 Non-cancer illness code, self-reported: angina
+Non-cancer illness code, self-reported: ankylosing spondylitis
 Non-cancer illness code  self-reported: anxiety/panic attacks
 Non-cancer illness code, self-reported: anxiety/panic attacks
 Non-cancer illness code, self-reported: appendicitis
 Non-cancer illness code  self-reported: arthritis (nos)
 Non-cancer illness code, self-reported: arthritis (nos)
 Non-cancer illness code  self-reported: asthma
+Non-cancer illness code, self-reported: asthma
 Non-cancer illness code, self-reported: atrial fibrillation
 Non-cancer illness code, self-reported: back pain
 Non-cancer illness code  self-reported: back problem
 Non-cancer illness code, self-reported: back problem
+Non-cancer illness code, self-reported: benign breast lump
 Non-cancer illness code  self-reported: bladder problem (not cancer)
 Non-cancer illness code, self-reported: bladder problem (not cancer)
+Non-cancer illness code, self-reported: bone disorder
+Non-cancer illness code, self-reported: breast cysts
+Non-cancer illness code, self-reported: bronchiectasis
 Non-cancer illness code, self-reported: bronchitis
 Non-cancer illness code, self-reported: cataract
 Non-cancer illness code, self-reported: cervical spondylosis
+Non-cancer illness code, self-reported: chickenpox
 Non-cancer illness code  self-reported: cholelithiasis/gall stones
 Non-cancer illness code, self-reported: cholelithiasis/gall stones
 Non-cancer illness code, self-reported: chronic fatigue syndrome
+Non-cancer illness code  self-reported: chronic obstructive airways disease/copd
+Non-cancer illness code, self-reported: chronic obstructive airways disease/copd
 Non-cancer illness code, self-reported: chronic sinusitis
+Non-cancer illness code, self-reported: colitis/not crohns or ulcerative colitis
+Non-cancer illness code  self-reported: crohns disease
+Non-cancer illness code, self-reported: crohns disease
 Non-cancer illness code  self-reported: deep venous thrombosis (dvt)
 Non-cancer illness code, self-reported: deep venous thrombosis (dvt)
 Non-cancer illness code  self-reported: depression
@@ -751,6 +1134,7 @@ Non-cancer illness code  self-reported: diabetes
 Non-cancer illness code, self-reported: diabetes
 Non-cancer illness code  self-reported: diverticular disease/diverticulitis
 Non-cancer illness code, self-reported: diverticular disease/diverticulitis
+Non-cancer illness code, self-reported: duodenal ulcer
 Non-cancer illness code, self-reported: ear/vestibular disorder
 Non-cancer illness code  self-reported: eczema/dermatitis
 Non-cancer illness code, self-reported: eczema/dermatitis
@@ -762,18 +1146,27 @@ Non-cancer illness code, self-reported: enlarged prostate
 Non-cancer illness code, self-reported: epilepsy
 Non-cancer illness code, self-reported: essential hypertension
 Non-cancer illness code, self-reported: eye/eyelid problem
+Non-cancer illness code, self-reported: fracture lower leg / ankle
+Non-cancer illness code, self-reported: fracture wrist / colles fracture
 Non-cancer illness code, self-reported: gastric/stomach ulcers
 Non-cancer illness code  self-reported: gastro-oesophageal reflux (gord) / gastric reflux
 Non-cancer illness code, self-reported: gastro-oesophageal reflux (gord) / gastric reflux
+Non-cancer illness code, self-reported: gestational hypertension/pre-eclampsia
 Non-cancer illness code  self-reported: glaucoma
 Non-cancer illness code, self-reported: glaucoma
 Non-cancer illness code  self-reported: gout
 Non-cancer illness code, self-reported: gout
+Non-cancer illness code, self-reported: haemorrhoids / piles
+Non-cancer illness code  self-reported: hayfever/allergic rhinitis
+Non-cancer illness code, self-reported: hayfever/allergic rhinitis
 Non-cancer illness code, self-reported: headaches (not migraine)
+Non-cancer illness code, self-reported: head injury
 Non-cancer illness code, self-reported: heart arrhythmia
 Non-cancer illness code  self-reported: heart attack/myocardial infarction
 Non-cancer illness code, self-reported: heart attack/myocardial infarction
+Non-cancer illness code, self-reported: heart/cardiac problem
 Non-cancer illness code, self-reported: heart valve problem/heart murmur
+Non-cancer illness code, self-reported: helicobacter pylori
 Non-cancer illness code  self-reported: hiatus hernia
 Non-cancer illness code, self-reported: hiatus hernia
 Non-cancer illness code  self-reported: high cholesterol
@@ -784,44 +1177,85 @@ Non-cancer illness code  self-reported: hyperthyroidism/thyrotoxicosis
 Non-cancer illness code, self-reported: hyperthyroidism/thyrotoxicosis
 Non-cancer illness code  self-reported: hypothyroidism/myxoedema
 Non-cancer illness code, self-reported: hypothyroidism/myxoedema
+Non-cancer illness code, self-reported: infective/viral hepatitis
+Non-cancer illness code, self-reported: inguinal hernia
+Non-cancer illness code  self-reported: iron deficiency anaemia
 Non-cancer illness code, self-reported: iron deficiency anaemia
 Non-cancer illness code, self-reported: irritable bowel syndrome
+Non-cancer illness code  self-reported: joint disorder
 Non-cancer illness code, self-reported: joint disorder
+Non-cancer illness code, self-reported: joint pain
 Non-cancer illness code  self-reported: kidney stone/ureter stone/bladder stone
 Non-cancer illness code, self-reported: kidney stone/ureter stone/bladder stone
+Non-cancer illness code  self-reported: malabsorption/coeliac disease
+Non-cancer illness code, self-reported: malabsorption/coeliac disease
+Non-cancer illness code, self-reported: mania/bipolar disorder/manic depression
+Non-cancer illness code, self-reported: measles / morbillivirus
+Non-cancer illness code, self-reported: meniere's disease
+Non-cancer illness code, self-reported: meningitis
+Non-cancer illness code, self-reported: menorrhagia (unknown cause)
 Non-cancer illness code  self-reported: migraine
 Non-cancer illness code, self-reported: migraine
+Non-cancer illness code, self-reported: multiple sclerosis
 Non-cancer illness code  self-reported: muscle or soft tissue injuries
 Non-cancer illness code, self-reported: muscle or soft tissue injuries
 Non-cancer illness code, self-reported: muscle/soft tissue problem
+Non-cancer illness code  self-reported: nasal polyps
 Non-cancer illness code, self-reported: nasal polyps
+Non-cancer illness code, self-reported: nasal/sinus disorder
+Non-cancer illness code, self-reported: oesophagitis/barretts oesophagus
 Non-cancer illness code  self-reported: osteoarthritis
 Non-cancer illness code, self-reported: osteoarthritis
+Non-cancer illness code, self-reported: osteopenia
 Non-cancer illness code  self-reported: osteoporosis
 Non-cancer illness code, self-reported: osteoporosis
 Non-cancer illness code, self-reported: other joint disorder
+Non-cancer illness code, self-reported: other neurological problem
+Non-cancer illness code, self-reported: other renal/kidney problem
 Non-cancer illness code, self-reported: ovarian cyst or cysts
+Non-cancer illness code, self-reported: pancreatitis
+Non-cancer illness code, self-reported: peritonitis
+Non-cancer illness code  self-reported: pernicious anaemia
+Non-cancer illness code, self-reported: pernicious anaemia
+Non-cancer illness code, self-reported: pleurisy
 Non-cancer illness code, self-reported: pneumonia
 Non-cancer illness code, self-reported: prolapsed disc/slipped disc
 Non-cancer illness code  self-reported: psoriasis
 Non-cancer illness code, self-reported: psoriasis
 Non-cancer illness code  self-reported: pulmonary embolism +/- dvt
 Non-cancer illness code, self-reported: pulmonary embolism +/- dvt
+Non-cancer illness code, self-reported: rectal or colon adenoma/polyps
+Non-cancer illness code  self-reported: retinal detachment
+Non-cancer illness code, self-reported: retinal detachment
+Non-cancer illness code, self-reported: rheumatic fever
 Non-cancer illness code  self-reported: rheumatoid arthritis
 Non-cancer illness code, self-reported: rheumatoid arthritis
 Non-cancer illness code, self-reported: sciatica
+Non-cancer illness code  self-reported: sleep apnoea
+Non-cancer illness code, self-reported: sleep apnoea
 Non-cancer illness code, self-reported: spine arthritis/spondylitis
+Non-cancer illness code, self-reported: spontaneous pneumothorax/recurrent pneumothorax
+Non-cancer illness code, self-reported: stomach disorder
 Non-cancer illness code, self-reported: stroke
+Non-cancer illness code, self-reported: thyroid problem (not cancer)
 Non-cancer illness code, self-reported: tonsiltis
+Non-cancer illness code, self-reported: transient ischaemic attack (tia)
+Non-cancer illness code, self-reported: trapped nerve/compressed nerve
 Non-cancer illness code, self-reported: tuberculosis (tb)
 Non-cancer illness code  self-reported: type 2 diabetes
 Non-cancer illness code, self-reported: type 2 diabetes
+Non-cancer illness code  self-reported: ulcerative colitis
 Non-cancer illness code, self-reported: ulcerative colitis
 Non-cancer illness code, self-reported: unclassifiable
+Non-cancer illness code, self-reported: urinary frequency / incontinence
 Non-cancer illness code, self-reported: urinary tract infection/kidney infection
 Non-cancer illness code  self-reported: uterine fibroids
 Non-cancer illness code, self-reported: uterine fibroids
+Non-cancer illness code, self-reported: uterine polyps
+Non-cancer illness code  self-reported: vaginal prolapse/uterine prolapse
 Non-cancer illness code, self-reported: vaginal prolapse/uterine prolapse
+Non-cancer illness code  self-reported: varicose veins
+Non-cancer illness code, self-reported: varicose veins
 Noninfectious colitis NAS
 Number of things worried about during worst period of anxiety
 OCT measured (left): Measurable
@@ -830,47 +1264,61 @@ OCT measured (left): Not performed - other reason
 OCT measured (right): Measurable
 OCT measured (right): Not performed - equipment failure
 OCT measured (right): Not performed - other reason
+Operation code: abdominal/pelvic adhesion surgery
 Operation code: adenoid surgery / adenoidectomy
 Operation code: anal surgery
+Operation code: ankle surgery
 Operation code: anterior/posterior repair bladder/uterus
 Operation code: appendicectomy
 Operation code: arthroscopy nos
 Operation code: bilateral oophorectomy
 Operation code: bladder surgery
 Operation code: bone surgery/joint surgery
+Operation code: brain surgery
 Operation code: breast cyst/abscess removal
+Operation code: breast surgery
 Operation code: bunion/hallus valgus surgery
 Operation code: caesarean section / caesarian section
 Operation code: carpal tunnel surgery
 Operation code: cataract extraction/lens implant
+Operation code: cervix surgery
 Operation code: cholecystectomy/gall bladder removal
+Operation code: colectomy/hemicolectomy
 Operation code: colonoscopy/sigmoidoscopy
+Operation code: colposcopy +/- biopsy
 Operation code: cone biopsy
 Operation code: coronary angiogram
 Operation code: coronary angioplasty (ptca) +/- stent
 Operation code: coronary artery bypass grafts (cabg)
 Operation code: cruciate ligament surgery
 Operation code: cystectomy
+Operation code: dental/tooth surgery
 Operation code: dilatation and curettage/d+c
+Operation code: discectomy
 Operation code: ear surgery
 Operation code: ectopic pregnancy surgery
 Operation code: elbow surgery
 Operation code: endometrial ablation
 Operation code: endoscopy / gastroscopy
 Operation code: eye surgery
+Operation code: fertility treatment procedures
 Operation code: foot surgery
 Operation code: gynaecological surgery
 Operation code: haemorroidectomy / piles surgery/ banding of piles
 Operation code: hand/finger surgery
 Operation code: hernia surgery
 Operation code: hip replacement/revision
+Operation code: hip surgery (not replacement)
 Operation code: hysterectomy
+Operation code: hysteroscopy +/- biopsy
+Operation code: incisional hernia repair
 Operation code: inguinal/femoral hernia repair
 Operation code: inguinal hernia repair
 Operation code: knee replacement/revision
 Operation code: knee surgery (not replacement)
 Operation code: laparoscopy
 Operation code: laparotomy nos
+Operation code: large bowel resection +/- colostomy
 Operation code: lower limb surgery
 Operation code: lumpectomy
 Operation code: male circumcision
@@ -880,22 +1328,36 @@ Operation code: maxillo-facial surgery
 Operation code: mouth/salivary gland surgery
 Operation code: muscle/soft tissue surgery
 Operation code: myomectomy/fibroids removed
+Operation code: nasal polyp surgery / nasal polypectomy
 Operation code: nasal/sinus/nose surgery
+Operation code: nephrectomy/kidney removed
+Operation code: oesphageal fundoplication/hiatus hernia surgery
 Operation code: other bowel surgery
+Operation code: other thoracic surgery
+Operation code: other urological surgery
 Operation code: ovarian cyst removal/surgery
+Operation code: ovarian/tubal surgery
 Operation code: percutaneous/open kidney stone surgery/lithotripsy
 Operation code: pilonidal sinus surgery (anal)
+Operation code: prostate operation
+Operation code: radical prostatectomy
+Operation code: rectal or colon polypectomy
 Operation code: reduction or fixation of bone fracture
 Operation code: removal of mole/skin lesion
+Operation code: removal of rodent ulcer / basal cell carcinoma (bcc)
+Operation code: removal of testicle/orchidectomy
 Operation code: retinal operation/vitrectomy
 Operation code: rhinoplasty / nose surgery
 Operation code: shoulder surgery
+Operation code: sinus surgery
 Operation code: skin operation or plastic surgery
 Operation code: spinal laminectomy
 Operation code: spine or back surgery
 Operation code: squint correction
 Operation code: sterilisation
 Operation code: stomach surgery
+Operation code: termination of pregnancy/top
+Operation code: testicular hydrocoele surgery / drainage
 Operation code: testicular/scrotal operation
 Operation code: throat/larynx surgery (incl tracheostomy)
 Operation code: thyroidectomy/partial thyroidectomy
@@ -906,128 +1368,260 @@ Operation code: umbilical hernia repair
 Operation code: unclassifiable
 Operation code: unilateral oophorectomy
 Operation code: upper limb surgery
+Operation code: uterine surgery
 Operation code: vaginal prolapse/colposuspension
 Operation code: varicose vein surgery
 Operation code: vasectomy
 Operation code: wisdom teeth surgery
 Operative procedures - main OPCS: A52.1 Therapeutic lumbar epidural injection
+Operative procedures - main OPCS: A52.2 Therapeutic sacral epidural injection
 Operative procedures - main OPCS: A55.9 Unspecified diagnostic spinal puncture
+Operative procedures - main OPCS: A61.1 Excision of lesion of peripheral nerve
 Operative procedures - main OPCS: A65.1 Carpal tunnel release
+Operative procedures - main OPCS: A73.5 Injection of therapeutic substance around peripheral nerve
 Operative procedures - main OPCS: B27.4 Total mastectomy NEC
 Operative procedures - main OPCS: B28.2 Partial excision of breast NEC
 Operative procedures - main OPCS: B28.3 Excision of lesion of breast NEC
+Operative procedures - main OPCS: B28.5 Wire guided partial excision of breast
 Operative procedures - main OPCS: C12.1 Excision of lesion of eyelid NEC
+Operative procedures - main OPCS: C12.4 Curettage of lesion of eyelid
 Operative procedures - main OPCS: C75.1 Insertion of prosthetic replacement for lens NEC
+Operative procedures - main OPCS: C79.2 Vitrectomy using pars plana approach
+Operative procedures - main OPCS: D02.1 Excision of lesion of external ear
+Operative procedures - main OPCS: D15.1 Myringotomy with insertion of ventilation tube through tympanic membrane
 Operative procedures - main OPCS: E03.6 Septoplasty of nose NEC
 Operative procedures - main OPCS: E08.1 Polypectomy of internal nose
+Operative procedures - main OPCS: E09.1 Excision of lesion of external nose
+Operative procedures - main OPCS: E36.9 Unspecified diagnostic endoscopic examination of larynx
+Operative procedures - main OPCS: E49.9 Unspecified diagnostic fibreoptic endoscopic examination of lower respiratory tract
+Operative procedures - main OPCS: F02.1 Excision of lesion of lip
+Operative procedures - main OPCS: F09.1 Surgical removal of impacted wisdom tooth
+Operative procedures - main OPCS: F09.3 Surgical removal of wisdom tooth NEC
+Operative procedures - main OPCS: F09.5 Surgical removal of retained root of tooth
+Operative procedures - main OPCS: F12.1 Apicectomy of tooth
 Operative procedures - main OPCS: G45.1 Fibreoptic endoscopic examination of upper gastrointestinal tract and biopsy of lesion of upper gastrointestinal tract
 Operative procedures - main OPCS: G45.9 Unspecified diagnostic fibreoptic endoscopic examination of upper gastrointestinal tract
+Operative procedures - main OPCS: H01.2 Emergency excision of abnormal appendix NEC
 Operative procedures - main OPCS: H20.1 Fibreoptic endoscopic snare resection of lesion of colon
+Operative procedures - main OPCS: H20.2 Fibreoptic endoscopic cauterisation of lesion of colon
+Operative procedures - main OPCS: H20.6 Fibreoptic endoscopic resection of lesion of colon NEC
 Operative procedures - main OPCS: H22.1 Diagnostic fibreoptic endoscopic examination of colon and biopsy of lesion of colon
 Operative procedures - main OPCS: H22.9 Unspecified diagnostic endoscopic examination of colon
+Operative procedures - main OPCS: H23.1 Endoscopic snare resection of lesion of lower bowel using fibreoptic sigmoidoscope
 Operative procedures - main OPCS: H25.1 Diagnostic endoscopic examination of lower bowel and biopsy of lesion of lower bowel using fibreoptic sigmoidoscope
 Operative procedures - main OPCS: H25.9 Unspecified diagnostic endoscopic examination of lower bowel using fibreoptic sigmoidoscope
+Operative procedures - main OPCS: H28.9 Unspecified diagnostic endoscopic examination of sigmoid colon using rigid sigmoidoscope
+Operative procedures - main OPCS: H48.2 Excision of skin tag of anus
 Operative procedures - main OPCS: H51.1 Haemorrhoidectomy
 Operative procedures - main OPCS: H52.4 Rubber band ligation of haemorrhoid
+Operative procedures - main OPCS: J13.2 Percutaneous biopsy of lesion of liver NEC
 Operative procedures - main OPCS: J18.3 Total cholecystectomy NEC
+Operative procedures - main OPCS: J43.9 Unspecified diagnostic endoscopic retrograde examination of bile duct and pancreatic duct
 Operative procedures - main OPCS: K45.3 Anastomosis of mammary artery to left anterior descending coronary artery
 Operative procedures - main OPCS: K49.1 Percutaneous transluminal balloon angioplasty of one coronary artery
+Operative procedures - main OPCS: K63.1 Angiocardiography of combination of right and left side of heart
 Operative procedures - main OPCS: K63.3 Angiocardiography of left side of heart NEC
 Operative procedures - main OPCS: K63.4 Coronary arteriography using two catheters
 Operative procedures - main OPCS: K63.6 Coronary arteriography NEC
 Operative procedures - main OPCS: K75.1 Percutaneous transluminal balloon angioplasty and insertion of 1-2 drug-eluting stents into coronary artery
+Operative procedures - main OPCS: K75.3 Percutaneous transluminal balloon angioplasty and insertion of 1-2 stents into coronary artery
+Operative procedures - main OPCS: L84.1 Combined operations on primary long saphenous vein
 Operative procedures - main OPCS: L85.1 Ligation of long saphenous vein
+Operative procedures - main OPCS: L87.4 Avulsion of varicose vein of leg
+Operative procedures - main OPCS: M14.1 Extracorporeal shock wave lithotripsy of calculus of kidney
+Operative procedures - main OPCS: M29.3 Endoscopic removal of tubal prosthesis from ureter
+Operative procedures - main OPCS: M42.1 Endoscopic resection of lesion of bladder
+Operative procedures - main OPCS: M45.1 Diagnostic endoscopic examination of bladder and biopsy of lesion of bladder NEC
+Operative procedures - main OPCS: M45.8 Other specified diagnostic endoscopic examination of bladder
 Operative procedures - main OPCS: M45.9 Unspecified diagnostic endoscopic examination of bladder
+Operative procedures - main OPCS: M47.3 Removal of urethral catheter from bladder
+Operative procedures - main OPCS: M47.4 Urodynamic studies using catheter
 Operative procedures - main OPCS: M47.8 Other specified urethral catheterisation of bladder
+Operative procedures - main OPCS: M47.9 Unspecified urethral catheterisation of bladder
+Operative procedures - main OPCS: M53.8 Other specified vaginal operations to support outlet of female bladder
+Operative procedures - main OPCS: M61.1 Total excision of prostate and capsule of prostate
+Operative procedures - main OPCS: M65.1 Endoscopic resection of prostate using electrotome
+Operative procedures - main OPCS: M65.3 Endoscopic resection of prostate NEC
 Operative procedures - main OPCS: M70.3 Rectal needle biopsy of prostate
+Operative procedures - main OPCS: M76.4 Endoscopic dilation of urethra
 Operative procedures - main OPCS: N17.1 Bilateral vasectomy
+Operative procedures - main OPCS: N30.3 Circumcision
+Operative procedures - main OPCS: O29.1 Subacromial decompression
+Operative procedures - main OPCS: P23.1 Anterior and posterior colporrhaphy NEC
 Operative procedures - main OPCS: P23.2 Anterior colporrhaphy NEC
+Operative procedures - main OPCS: P23.3 Posterior colporrhaphy NEC
+Operative procedures - main OPCS: P27.3 Colposcopy of vagina
 Operative procedures - main OPCS: Q01.3 Excision of lesion of cervix uteri
 Operative procedures - main OPCS: Q07.4 Total abdominal hysterectomy NEC
 Operative procedures - main OPCS: Q08.9 Unspecified vaginal excision of uterus
 Operative procedures - main OPCS: Q10.3 Dilation of cervix uteri and curettage of uterus NEC
+Operative procedures - main OPCS: Q11.1 Vacuum aspiration of products of conception from uterus NEC
+Operative procedures - main OPCS: Q11.3 Evacuation of products of conception from uterus NEC
+Operative procedures - main OPCS: Q12.1 Introduction of intrauterine contraceptive device
 Operative procedures - main OPCS: Q17.1 Endoscopic resection of lesion of uterus
 Operative procedures - main OPCS: Q18.1 Diagnostic endoscopic examination of uterus and biopsy of lesion of uterus
 Operative procedures - main OPCS: Q18.8 Other specified diagnostic endoscopic examination of uterus
 Operative procedures - main OPCS: Q18.9 Unspecified diagnostic endoscopic examination of uterus
+Operative procedures - main OPCS: Q22.1 Bilateral salpingoophorectomy
 Operative procedures - main OPCS: Q35.2 Endoscopic bilateral clipping of fallopian tubes
+Operative procedures - main OPCS: R17.2 Elective lower uterine segment caesarean delivery
 Operative procedures - main OPCS: R18.2 Lower uterine segment caesarean delivery NEC
 Operative procedures - main OPCS: R24.9 All normal delivery
 Operative procedures - main OPCS: S06.5 Excision of lesion of skin of head or neck NEC
 Operative procedures - main OPCS: S06.8 Other specified other excision of lesion of skin
 Operative procedures - main OPCS: S06.9 Unspecified other excision of lesion of skin
 Operative procedures - main OPCS: S47.2 Drainage of lesion of skin NEC
+Operative procedures - main OPCS: S57.1 Debridement of skin NEC
 Operative procedures - main OPCS: T20.2 Primary repair of inguinal hernia using insert of prosthetic material
+Operative procedures - main OPCS: T20.9 Unspecified primary repair of inguinal hernia
+Operative procedures - main OPCS: T24.3 Repair of umbilical hernia using sutures
 Operative procedures - main OPCS: T43.9 Unspecified diagnostic endoscopic examination of peritoneum
 Operative procedures - main OPCS: T52.1 Palmar fasciectomy
+Operative procedures - main OPCS: T67.6 Primary simple repair of tendon
 Operative procedures - main OPCS: T72.3 Release of constriction of sheath of tendon
 Operative procedures - main OPCS: U05.1 Computed tomography of head
+Operative procedures - main OPCS: U08.1 Computed tomography of abdomen NEC
+Operative procedures - main OPCS: U20.1 Transthoracic echocardiography
 Operative procedures - main OPCS: U21.2 Computed tomography NEC
 Operative procedures - main OPCS: V54.4 Injection around spinal facet of spine
+Operative procedures - main OPCS: W15.1 Osteotomy of neck of first metatarsal bone
+Operative procedures - main OPCS: W15.3 Osteotomy of first metatarsal bone NEC
 Operative procedures - main OPCS: W20.1 Primary open reduction of fracture of long bone and extramedullary fixation using plate NEC
+Operative procedures - main OPCS: W20.5 Primary open reduction of fracture of ankle and extramedullary fixation NEC
+Operative procedures - main OPCS: W26.2 Manipulation of fracture of bone NEC
 Operative procedures - main OPCS: W28.3 Removal of internal fixation from bone NEC
 Operative procedures - main OPCS: W36.5 Diagnostic extraction of bone marrow NEC
 Operative procedures - main OPCS: W37.1 Primary total prosthetic replacement of hip joint using cement
 Operative procedures - main OPCS: W38.1 Primary total prosthetic replacement of hip joint not using cement
 Operative procedures - main OPCS: W40.1 Primary total prosthetic replacement of knee joint using cement
+Operative procedures - main OPCS: W58.1 Primary resurfacing arthroplasty of joint
+Operative procedures - main OPCS: W79.1 Soft tissue correction of hallux valgus
 Operative procedures - main OPCS: W82.2 Endoscopic resection of semilunar cartilage NEC
+Operative procedures - main OPCS: W84.8 Other specified therapeutic endoscopic operations on other joint structure
+Operative procedures - main OPCS: W85.2 Endoscopic irrigation of knee joint
 Operative procedures - main OPCS: W87.9 Unspecified diagnostic endoscopic examination of knee joint
+Operative procedures - main OPCS: W90.1 Aspiration of joint
 Operative procedures - main OPCS: W90.3 Injection of therapeutic substance into joint
+Operative procedures - main OPCS: W91.9 Unspecified other manipulation of joint
 Operative procedures - main OPCS: X29.2 Continuous intravenous infusion of therapeutic substance NEC
 Operative procedures - main OPCS: X29.8 Other specified continuous Infusion of therapeutic substance
+Operative procedures - main OPCS: X31.2 Intravenous pyelography
+Operative procedures - main OPCS: X33.9 Unspecified other blood transfusion
 Operative procedures - main OPCS: X35.2 Intravenous chemotherapy
 Operative procedures - main OPCS: X50.1 Direct current cardioversion
+Operative procedures - main OPCS: X55.8 Other specified other operations on unspecified organ
+Operative procedures - main OPCS: X70.2 Procurement of drugs for chemotherapy for neoplasm for regimens in Band 2
+Operative procedures - main OPCS: X72.4 Delivery of subsequent element of cycle of chemotherapy for neoplasm
 Operative procedures - main OPCS: X99.8 No procedure performed
+Operative procedures - main OPCS: X99.9 Not known (procedure performed)
 Operative procedures - secondary OPCS: C71.2 Phacoemulsification of lens
+Operative procedures - secondary OPCS: C79.5 Internal tamponade of retina using gas
+Operative procedures - secondary OPCS: C90.3 Subtenons anaesthetic
+Operative procedures - secondary OPCS: C90.9 Unspecified local anaesthetics for ophthalmology procedures
+Operative procedures - secondary OPCS: E04.1 Submucous diathermy to turbinate of nose
+Operative procedures - secondary OPCS: E13.3 Intranasal antrostomy
+Operative procedures - secondary OPCS: E13.6 Puncture of maxillary antrum
+Operative procedures - secondary OPCS: E36.9 Unspecified diagnostic endoscopic examination of larynx
+Operative procedures - secondary OPCS: G45.1 Fibreoptic endoscopic examination of upper gastrointestinal tract and biopsy of lesion of upper gastrointestinal tract
+Operative procedures - secondary OPCS: G45.9 Unspecified diagnostic fibreoptic endoscopic examination of upper gastrointestinal tract
+Operative procedures - secondary OPCS: H22.1 Diagnostic fibreoptic endoscopic examination of colon and biopsy of lesion of colon
 Operative procedures - secondary OPCS: H22.9 Unspecified diagnostic endoscopic examination of colon
 Operative procedures - secondary OPCS: H25.9 Unspecified diagnostic endoscopic examination of lower bowel using fibreoptic sigmoidoscope
+Operative procedures - secondary OPCS: H28.9 Unspecified diagnostic endoscopic examination of sigmoid colon using rigid sigmoidoscope
+Operative procedures - secondary OPCS: H44.4 Examination of rectum under anaesthetic
+Operative procedures - secondary OPCS: J43.9 Unspecified diagnostic endoscopic retrograde examination of bile duct and pancreatic duct
+Operative procedures - secondary OPCS: K40.2 Saphenous vein graft replacement of two coronary arteries
+Operative procedures - secondary OPCS: K63.3 Angiocardiography of left side of heart NEC
 Operative procedures - secondary OPCS: K63.4 Coronary arteriography using two catheters
 Operative procedures - secondary OPCS: K63.6 Coronary arteriography NEC
 Operative procedures - secondary OPCS: L87.1 Stripping of long saphenous vein
 Operative procedures - secondary OPCS: L87.4 Avulsion of varicose vein of leg
+Operative procedures - secondary OPCS: L91.2 Insertion of central venous catheter NEC
 Operative procedures - secondary OPCS: M45.9 Unspecified diagnostic endoscopic examination of bladder
+Operative procedures - secondary OPCS: M47.3 Removal of urethral catheter from bladder
+Operative procedures - secondary OPCS: M47.9 Unspecified urethral catheterisation of bladder
+Operative procedures - secondary OPCS: O14.2 Sentinel lymph node
+Operative procedures - secondary OPCS: P27.3 Colposcopy of vagina
 Operative procedures - secondary OPCS: Q08.9 Unspecified vaginal excision of uterus
 Operative procedures - secondary OPCS: Q12.1 Introduction of intrauterine contraceptive device
+Operative procedures - secondary OPCS: Q12.4 Removal of intrauterine contraceptive device NEC
+Operative procedures - secondary OPCS: Q18.1 Diagnostic endoscopic examination of uterus and biopsy of lesion of uterus
+Operative procedures - secondary OPCS: Q18.8 Other specified diagnostic endoscopic examination of uterus
 Operative procedures - secondary OPCS: Q18.9 Unspecified diagnostic endoscopic examination of uterus
 Operative procedures - secondary OPCS: Q22.1 Bilateral salpingoophorectomy
+Operative procedures - secondary OPCS: Q55.3 Papanicolau smear NEC
+Operative procedures - secondary OPCS: R14.1 Forewater rupture of amniotic membrane
+Operative procedures - secondary OPCS: R14.9 Unspecified surgical induction of labour
 Operative procedures - secondary OPCS: R15.1 Medical induction of labour
 Operative procedures - secondary OPCS: R27.1 Episiotomy to facilitate delivery
 Operative procedures - secondary OPCS: R32.3 Repair of obstetric laceration of vagina and floor of pelvis
+Operative procedures - secondary OPCS: R32.4 Repair of minor obstetric laceration
+Operative procedures - secondary OPCS: S06.5 Excision of lesion of skin of head or neck NEC
+Operative procedures - secondary OPCS: S06.9 Unspecified other excision of lesion of skin
+Operative procedures - secondary OPCS: S57.1 Debridement of skin NEC
 Operative procedures - secondary OPCS: T43.9 Unspecified diagnostic endoscopic examination of peritoneum
 Operative procedures - secondary OPCS: T85.2 Block dissection of axillary lymph nodes
 Operative procedures - secondary OPCS: T86.2 Sampling of axillary lymph nodes
+Operative procedures - secondary OPCS: T87.3 Excision or biopsy of axillary lymph node
+Operative procedures - secondary OPCS: U05.1 Computed tomography of head
+Operative procedures - secondary OPCS: U08.1 Computed tomography of abdomen NEC
+Operative procedures - secondary OPCS: U20.1 Transthoracic echocardiography
 Operative procedures - secondary OPCS: U21.2 Computed tomography NEC
 Operative procedures - secondary OPCS: V55.1 One level of spine
+Operative procedures - secondary OPCS: V55.2 Two levels of spine
+Operative procedures - secondary OPCS: V55.3 Greater than two levels of spine
+Operative procedures - secondary OPCS: W28.1 Application of internal fixation to bone NEC
+Operative procedures - secondary OPCS: W85.2 Endoscopic irrigation of knee joint
 Operative procedures - secondary OPCS: W90.3 Injection of therapeutic substance into joint
+Operative procedures - secondary OPCS: X29.8 Other specified continuous Infusion of therapeutic substance
+Operative procedures - secondary OPCS: X33.9 Unspecified other blood transfusion
+Operative procedures - secondary OPCS: X72.1 Delivery of complex chemotherapy for neoplasm including prolonged infusional treatment at first attendance
+Operative procedures - secondary OPCS: X72.3 Delivery of simple parenteral chemotherapy for neoplasm at first attendance
 Operative procedures - secondary OPCS: Y02.2 Insertion of prosthesis into organ NOC
+Operative procedures - secondary OPCS: Y03.7 Removal of prosthesis from organ NOC
 Operative procedures - secondary OPCS: Y20.3 Biopsy of lesion of organ NOC
+Operative procedures - secondary OPCS: Y21.8 Other specified cytology of organ NOC
+Operative procedures - secondary OPCS: Y44.2 Monitoring of pressure in organ NOC
 Operative procedures - secondary OPCS: Y50.8 Other specified approach through abdominal cavity
+Operative procedures - secondary OPCS: Y52.8 Other specified approach to organ through other opening
 Operative procedures - secondary OPCS: Y53.1 Approach to organ under radiological control
 Operative procedures - secondary OPCS: Y53.2 Approach to organ under ultrasonic control
+Operative procedures - secondary OPCS: Y53.3 Approach to organ under computed tomography scan control
 Operative procedures - secondary OPCS: Y53.4 Approach to organ under fluoroscopic control
 Operative procedures - secondary OPCS: Y53.5 Approach to organ under image intensifier
 Operative procedures - secondary OPCS: Y53.9 Unspecified approach to organ under image control
+Operative procedures - secondary OPCS: Y58.8 Other specified harvest of skin for graft
+Operative procedures - secondary OPCS: Y71.3 Revisional operations NOC
+Operative procedures - secondary OPCS: Y73.1 Cardiopulmonary bypass
 Operative procedures - secondary OPCS: Y75.2 Laparoscopic approach to abdominal cavity NEC
 Operative procedures - secondary OPCS: Y76.7 Arthroscopic approach to joint
 Operative procedures - secondary OPCS: Y80.1 Inhalation anaesthetic using muscle relaxant
 Operative procedures - secondary OPCS: Y80.2 Inhalation anaesthetic using endotracheal intubation NEC
 Operative procedures - secondary OPCS: Y80.3 Inhalation anaesthetic NEC
+Operative procedures - secondary OPCS: Y80.4 Intravenous anaesthetic NEC
+Operative procedures - secondary OPCS: Y80.8 Other specified general anaesthetic
 Operative procedures - secondary OPCS: Y80.9 Unspecified general anaesthetic
 Operative procedures - secondary OPCS: Y81.1 Epidural anaesthetic using lumbar approach
 Operative procedures - secondary OPCS: Y81.9 Unspecified spinal anaesthetic
 Operative procedures - secondary OPCS: Y82.1 Local anaesthetic nerve block
 Operative procedures - secondary OPCS: Y82.2 Injection of local anaesthetic NEC
 Operative procedures - secondary OPCS: Y82.3 Application of local anaesthetic NEC
+Operative procedures - secondary OPCS: Y82.8 Other specified local anaesthetic
 Operative procedures - secondary OPCS: Y82.9 Unspecified local anaesthetic
+Operative procedures - secondary OPCS: Y84.1 Gas and air analgesia in labour
 Operative procedures - secondary OPCS: Y84.2 Sedation NEC
+Operative procedures - secondary OPCS: Y84.8 Other specified other anaesthetic
 Operative procedures - secondary OPCS: Y90.3 Scanning NEC
 Operative procedures - secondary OPCS: Y97.3 Radiology with post contrast
 Operative procedures - secondary OPCS: Y98.1 Radiology of one body area
 Operative procedures - secondary OPCS: Y98.2 Radiology of two body areas
+Operative procedures - secondary OPCS: Y98.3 Radiology of three body areas (or 20-40 minutes)
 Operative procedures - secondary OPCS: Z27.1 Oesophagus
 Operative procedures - secondary OPCS: Z27.2 Stomach
+Operative procedures - secondary OPCS: Z27.3 Pylorus
 Operative procedures - secondary OPCS: Z27.4 Duodenum
 Operative procedures - secondary OPCS: Z27.6 Ileum
+Operative procedures - secondary OPCS: Z27.8 Specified upper digestive tract NEC
 Operative procedures - secondary OPCS: Z28.2 Caecum
 Operative procedures - secondary OPCS: Z28.3 Ascending colon
 Operative procedures - secondary OPCS: Z28.4 Transverse colon
@@ -1036,21 +1630,38 @@ Operative procedures - secondary OPCS: Z28.6 Sigmoid colon
 Operative procedures - secondary OPCS: Z28.7 Colon NEC
 Operative procedures - secondary OPCS: Z28.8 Specified large intestine NEC
 Operative procedures - secondary OPCS: Z29.1 Rectum
+Operative procedures - secondary OPCS: Z40.1 Pulmonary artery
 Operative procedures - secondary OPCS: Z47.1 Skin of forehead
+Operative procedures - secondary OPCS: Z47.2 Skin of temple
 Operative procedures - secondary OPCS: Z47.3 Skin of cheek
 Operative procedures - secondary OPCS: Z48.1 Skin of scalp
 Operative procedures - secondary OPCS: Z48.2 Skin of neck
+Operative procedures - secondary OPCS: Z49.1 Skin of breast
+Operative procedures - secondary OPCS: Z49.2 Skin of axilla
 Operative procedures - secondary OPCS: Z49.3 Skin of anterior trunk
 Operative procedures - secondary OPCS: Z49.4 Skin of back
+Operative procedures - secondary OPCS: Z49.8 Specified skin of trunk NEC
 Operative procedures - secondary OPCS: Z50.1 Skin of arm
+Operative procedures - secondary OPCS: Z50.2 Skin of hand
 Operative procedures - secondary OPCS: Z50.3 Skin of finger
 Operative procedures - secondary OPCS: Z50.4 Skin of leg NEC
+Operative procedures - secondary OPCS: Z50.5 Skin of foot NEC
+Operative procedures - secondary OPCS: Z66.5 Lumbar vertebra
+Operative procedures - secondary OPCS: Z67.5 Lumbar intervertebral joint
+Operative procedures - secondary OPCS: Z67.6 Lumbosacral joint
 Operative procedures - secondary OPCS: Z70.5 Lower end of radius NEC
+Operative procedures - secondary OPCS: Z80.1 First metatarsal
+Operative procedures - secondary OPCS: Z81.2 Acromioclavicular joint
 Operative procedures - secondary OPCS: Z81.4 Shoulder joint
+Operative procedures - secondary OPCS: Z81.5 Elbow joint
+Operative procedures - secondary OPCS: Z84.1 Sacroiliac joint
 Operative procedures - secondary OPCS: Z84.3 Hip joint
 Operative procedures - secondary OPCS: Z84.6 Knee joint
 Operative procedures - secondary OPCS: Z85.6 Ankle joint
+Operative procedures - secondary OPCS: Z86.4 Metatarsophalangeal joint of great toe
+Operative procedures - secondary OPCS: Z89.5 Thumb NEC
 Operative procedures - secondary OPCS: Z89.6 Finger NEC
+Operative procedures - secondary OPCS: Z92.4 Chest NEC
 Operative procedures - secondary OPCS: Z92.6 Abdomen NEC
 Operative procedures - secondary OPCS: Z92.7 Trunk NEC
 Operative procedures - secondary OPCS: Z94.1 Bilateral operation
@@ -1062,6 +1673,7 @@ Osteomyelitis
 Other and unspecified disorders of skin and subcutaneous tissue
 Other disorders of eyelid
 Other disorders of skin and subcutaneous tissue, not elsewhere classified
+Other enthesopathies
 Other ILD-related CVD-co-morbidities
 Other non-alcoholic drinks
 Other serious medical condition/disability diagnosed by doctor
@@ -1088,6 +1700,8 @@ Paralytic ileus and intestinal obstruction
 Participation in an health questionnaire (not invited vs invited)
 Part of a multiple birth
 Paternal history of Alzheimer's disease
+PCT responsible for patient data: ASHTON, LEIGH AND WIGAN PCT
+PCT responsible for patient data: BARNSLEY PCT
 PCT responsible for patient data: BATH AND NORTH EAST SOMERSET PCT
 PCT responsible for patient data: BERKSHIRE EAST PCT
 PCT responsible for patient data: BERKSHIRE WEST PCT
@@ -1095,18 +1709,30 @@ PCT responsible for patient data: BIRMINGHAM EAST AND NORTH PCT
 PCT responsible for patient data: BOLTON PCT
 PCT responsible for patient data: BRADFORD AND AIREDALE TEACHING PCT
 PCT responsible for patient data: BRISTOL PCT
+PCT responsible for patient data: BROMLEY PCT
+PCT responsible for patient data: BUCKINGHAMSHIRE PCT
 PCT responsible for patient data: BURY PCT
+PCT responsible for patient data: CALDERDALE PCT
 PCT responsible for patient data: CENTRAL AND EASTERN CHESHIRE PCT
 PCT responsible for patient data: COUNTY DURHAM PCT
 PCT responsible for patient data: CROYDON PCT
+PCT responsible for patient data: DERBY CITY PCT
 PCT responsible for patient data: DERBYSHIRE COUNTY PCT
+PCT responsible for patient data: EALING PCT
+PCT responsible for patient data: EAST LANCASHIRE TEACHING PCT
 PCT responsible for patient data: GATESHEAD PCT
 PCT responsible for patient data: HALTON AND ST HELENS PCT
 PCT responsible for patient data: HAMPSHIRE PCT
+PCT responsible for patient data: HEYWOOD, MIDDLETON AND ROCHDALE PCT
+PCT responsible for patient data: HOUNSLOW PCT
+PCT responsible for patient data: ISLINGTON PCT
 PCT responsible for patient data: KIRKLEES PCT
+PCT responsible for patient data: KNOWSLEY PCT
+PCT responsible for patient data: LAMBETH PCT
 PCT responsible for patient data: LEEDS PCT
 PCT responsible for patient data: LIVERPOOL PCT
 PCT responsible for patient data: MANCHESTER PCT
+PCT responsible for patient data: MIDDLESBROUGH PCT
 PCT responsible for patient data: NEWCASTLE PCT
 PCT responsible for patient data: NORTH SOMERSET PCT
 PCT responsible for patient data: NORTH STAFFORDSHIRE PCT
@@ -1115,55 +1741,108 @@ PCT responsible for patient data: NORTHUMBERLAND CARE TRUST
 PCT responsible for patient data: NORTH YORKSHIRE AND YORK PCT
 PCT responsible for patient data: NOTTINGHAM CITY PCT
 PCT responsible for patient data: NOTTINGHAMSHIRE COUNTY TEACHING PCT
+PCT responsible for patient data: OLDHAM PCT
 PCT responsible for patient data: OXFORDSHIRE PCT
+PCT responsible for patient data: REDCAR AND CLEVELAND PCT
+PCT responsible for patient data: RICHMOND AND TWICKENHAM PCT
 PCT responsible for patient data: ROTHERHAM PCT
+PCT responsible for patient data: SALFORD PCT
+PCT responsible for patient data: SANDWELL PCT
 PCT responsible for patient data: SEFTON PCT
 PCT responsible for patient data: SHEFFIELD PCT
+PCT responsible for patient data: SOLIHULL CARE TRUST
 PCT responsible for patient data: SOUTH BIRMINGHAM PCT
 PCT responsible for patient data: SOUTH GLOUCESTERSHIRE PCT
+PCT responsible for patient data: SOUTH TYNESIDE PCT
 PCT responsible for patient data: STOCKTON-ON-TEES TEACHING PCT
 PCT responsible for patient data: STOKE ON TRENT PCT
 PCT responsible for patient data: SUNDERLAND TEACHING PCT
 PCT responsible for patient data: SURREY PCT
 PCT responsible for patient data: SUTTON AND MERTON PCT
+PCT responsible for patient data: TAMESIDE AND GLOSSOP PCT
 PCT responsible for patient data: TRAFFORD PCT
 PCT responsible for patient data: WAKEFIELD DISTRICT PCT
+PCT responsible for patient data: WARRINGTON PCT
+PCT responsible for patient data: WESTERN CHESHIRE PCT
 PCT responsible for patient data: WIRRAL PCT
+PCT where patients GP was registered: AMBER VALLEY PCT
 PCT where patients GP was registered: ASHTON, LEIGH AND WIGAN PCT
 PCT where patients GP was registered: BARNSLEY PCT
 PCT where patients GP was registered: BATH AND NORTH EAST SOMERSET PCT
+PCT where patients GP was registered: BEBINGTON AND WEST WIRRAL PCT
 PCT where patients GP was registered: BERKSHIRE EAST PCT
 PCT where patients GP was registered: BERKSHIRE WEST PCT
+PCT where patients GP was registered: BIRKENHEAD AND WALLASEY PCT
 PCT where patients GP was registered: BIRMINGHAM EAST AND NORTH PCT
+PCT where patients GP was registered: BLACKWATER VALLEY AND HART PCT
 PCT where patients GP was registered: BOLTON PCT
+PCT where patients GP was registered: BRACKNELL FOREST PCT
 PCT where patients GP was registered: BRADFORD AND AIREDALE TEACHING PCT
+PCT where patients GP was registered: BRADFORD SOUTH AND WEST PCT
 PCT where patients GP was registered: BRISTOL NORTH PCT
 PCT where patients GP was registered: BRISTOL PCT
 PCT where patients GP was registered: BRISTOL SOUTH AND WEST PCT
 PCT where patients GP was registered: BROMLEY PCT
 PCT where patients GP was registered: BROXTOWE AND HUCKNALL PCT
+PCT where patients GP was registered: BUCKINGHAMSHIRE PCT
+PCT where patients GP was registered: BURNLEY, PENDLE AND ROSSENDALE PCT
 PCT where patients GP was registered: BURY PCT
+PCT where patients GP was registered: CALDERDALE PCT
+PCT where patients GP was registered: CAMDEN PCT
 PCT where patients GP was registered: CENTRAL AND EASTERN CHESHIRE PCT
+PCT where patients GP was registered: CENTRAL CHESHIRE PCT
 PCT where patients GP was registered: CENTRAL LIVERPOOL PCT
+PCT where patients GP was registered: CENTRAL MANCHESTER PCT
+PCT where patients GP was registered: CHESTERFIELD PCT
+PCT where patients GP was registered: CITY AND HACKNEY TEACHING PCT
 PCT where patients GP was registered: COUNTY DURHAM PCT
+PCT where patients GP was registered: CRAVEN, HARROGATE AND RURAL DISTRICT PCT
 PCT where patients GP was registered: CROYDON PCT
+PCT where patients GP was registered: DARLINGTON PCT
+PCT where patients GP was registered: DERBY CITY PCT
 PCT where patients GP was registered: DERBYSHIRE COUNTY PCT
+PCT where patients GP was registered: DURHAM AND CHESTER-LE-STREET PCT
 PCT where patients GP was registered: EALING PCT
+PCT where patients GP was registered: EASTERN BIRMINGHAM PCT
+PCT where patients GP was registered: EASTERN WAKEFIELD PCT
+PCT where patients GP was registered: EAST LANCASHIRE TEACHING PCT
 PCT where patients GP was registered: EAST LEEDS PCT
+PCT where patients GP was registered: EREWASH PCT
 PCT where patients GP was registered: GATESHEAD PCT
+PCT where patients GP was registered: GEDLING PCT
+PCT where patients GP was registered: GREATER DERBY PCT
 PCT where patients GP was registered: HALTON AND ST HELENS PCT
 PCT where patients GP was registered: HAMPSHIRE PCT
+PCT where patients GP was registered: HARTLEPOOL PCT
+PCT where patients GP was registered: HEYWOOD, MIDDLETON AND ROCHDALE PCT
+PCT where patients GP was registered: HILLINGDON PCT
 PCT where patients GP was registered: HOUNSLOW PCT
+PCT where patients GP was registered: ISLINGTON PCT
+PCT where patients GP was registered: KINGSTON PCT
 PCT where patients GP was registered: KIRKLEES PCT
+PCT where patients GP was registered: KNOWSLEY PCT
+PCT where patients GP was registered: LAMBETH PCT
+PCT where patients GP was registered: LANGBAURGH PCT
 PCT where patients GP was registered: LEEDS NORTH EAST PCT
 PCT where patients GP was registered: LEEDS NORTH WEST PCT
 PCT where patients GP was registered: LEEDS PCT
+PCT where patients GP was registered: LEEDS WEST PCT
 PCT where patients GP was registered: LIVERPOOL PCT
 PCT where patients GP was registered: MANCHESTER PCT
 PCT where patients GP was registered: MIDDLESBROUGH PCT
 PCT where patients GP was registered: NEWCASTLE PCT
+PCT where patients GP was registered: NEWCASTLE-UNDER-LYME PCT
+PCT where patients GP was registered: NORTH BIRMINGHAM PCT
+PCT where patients GP was registered: NORTH BRADFORD PCT
+PCT where patients GP was registered: NORTH EASTERN DERBYSHIRE PCT
+PCT where patients GP was registered: NORTH HAMPSHIRE PCT
+PCT where patients GP was registered: NORTH KIRKLEES PCT
+PCT where patients GP was registered: NORTH MANCHESTER PCT
+PCT where patients GP was registered: NORTH SHEFFIELD PCT
 PCT where patients GP was registered: NORTH SOMERSET PCT
 PCT where patients GP was registered: NORTH STAFFORDSHIRE PCT
+PCT where patients GP was registered: NORTH STOKE PCT
+PCT where patients GP was registered: NORTH SURREY PCT
 PCT where patients GP was registered: NORTH TYNESIDE PCT
 PCT where patients GP was registered: NORTHUMBERLAND CARE TRUST
 PCT where patients GP was registered: NORTH YORKSHIRE AND YORK PCT
@@ -1174,27 +1853,48 @@ PCT where patients GP was registered: OLDHAM PCT
 PCT where patients GP was registered: OXFORD CITY PCT
 PCT where patients GP was registered: OXFORDSHIRE PCT
 PCT where patients GP was registered: READING PCT
+PCT where patients GP was registered: REDCAR AND CLEVELAND PCT
 PCT where patients GP was registered: RICHMOND AND TWICKENHAM PCT
+PCT where patients GP was registered: ROCHDALE PCT
 PCT where patients GP was registered: ROTHERHAM PCT
 PCT where patients GP was registered: RUSHCLIFFE PCT
 PCT where patients GP was registered: SALFORD PCT
+PCT where patients GP was registered: SANDWELL PCT
 PCT where patients GP was registered: SEFTON PCT
 PCT where patients GP was registered: SHEFFIELD PCT
 PCT where patients GP was registered: SHEFFIELD SOUTH WEST PCT
 PCT where patients GP was registered: SHEFFIELD WEST PCT
+PCT where patients GP was registered: SOLIHULL CARE TRUST
+PCT where patients GP was registered: SOLIHULL PCT
 PCT where patients GP was registered: SOUTH BIRMINGHAM PCT
+PCT where patients GP was registered: SOUTH EAST OXFORDSHIRE PCT
 PCT where patients GP was registered: SOUTH EAST SHEFFIELD PCT
 PCT where patients GP was registered: SOUTH GLOUCESTERSHIRE PCT
+PCT where patients GP was registered: SOUTH LEEDS PCT
+PCT where patients GP was registered: SOUTH LIVERPOOL PCT
+PCT where patients GP was registered: SOUTH SEFTON PCT
+PCT where patients GP was registered: SOUTH STOKE PCT
 PCT where patients GP was registered: SOUTH TYNESIDE PCT
+PCT where patients GP was registered: SOUTHWARK PCT
 PCT where patients GP was registered: SOUTH WEST OXFORDSHIRE PCT
+PCT where patients GP was registered: STAFFORDSHIRE MOORLANDS PCT
+PCT where patients GP was registered: ST HELENS PCT
 PCT where patients GP was registered: STOCKTON-ON-TEES TEACHING PCT
 PCT where patients GP was registered: STOKE ON TRENT PCT
 PCT where patients GP was registered: SUNDERLAND TEACHING PCT
 PCT where patients GP was registered: SURREY PCT
 PCT where patients GP was registered: SUTTON AND MERTON PCT
+PCT where patients GP was registered: TAMESIDE AND GLOSSOP PCT
+PCT where patients GP was registered: TRAFFORD NORTH PCT
 PCT where patients GP was registered: TRAFFORD PCT
 PCT where patients GP was registered: TRAFFORD SOUTH PCT
 PCT where patients GP was registered: WAKEFIELD DISTRICT PCT
+PCT where patients GP was registered: WAKEFIELD WEST PCT
+PCT where patients GP was registered: WANDSWORTH PCT
+PCT where patients GP was registered: WARRINGTON PCT
+PCT where patients GP was registered: WESTERN CHESHIRE PCT
+PCT where patients GP was registered: WESTMINSTER PCT
+PCT where patients GP was registered: WINDSOR, ASCOT AND MAIDENHEAD PCT
 PCT where patients GP was registered: WIRRAL PCT
 PCT where patients GP was registered: WOKINGHAM PCT
 PGC cross-disorder traits
@@ -1256,6 +1956,8 @@ Smoking status: Never
 Smoking status: Previous
 Soup consumers
 Sources of admission to hospital (recoded): Other admission source
+Sources of admission to hospital (recoded): Temporary place of residence
+Sources of admission to hospital (recoded): Transfer to other NHS provider
 Sources of admission to hospital (recoded): Transfer to other NHS provider: General ward, young physically disabled, A&E
 Sources of admission to hospital (recoded): Transfer within NHS provider
 Sources of admission to hospital (recoded): Transfer within NHS provider: Medical specialty
@@ -1263,6 +1965,7 @@ Sources of admission to hospital (recoded): Usual Place of residence
 Sources of admission to hospital (recoded): Usual Place of residence: Living with relatives
 Spreads/sauces consumers
 Spread type: Butter/spreadable butter
+Spread type: Flora Pro-Active/Benecol
 Spread type: Never/rarely use spread
 Spread type: Other type of spread/margarine
 Starchy food consumers
@@ -1277,6 +1980,7 @@ Substances taken for depression: Medication prescribed to you (for at least two 
 Substances taken for depression: Unprescribed medication (more than once)
 Suffer from 'nerves'
 Suggestive for eosinophilic asthma
+Surgery on leg arteries (other than for varicose veins)
 Sweet snack consumers
 Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
 Systemic lupus erythematosus
@@ -1285,9 +1989,11 @@ Target heart rate achieved
 Tea consumed
 Tense / 'highly strung'
 Tense, sore, or aching muscles during worst period of anxiety
+Thickness of butter/margarine spread on baguettes: thin
 Thickness of butter/margarine spread on bread rolls: medium
 Thickness of butter/margarine spread on bread rolls: thin
 Thickness of butter/margarine spread on sliced bread: medium
+Thickness of butter/margarine spread on sliced bread: thick
 Thickness of butter/margarine spread on sliced bread: thin
 Thoughts of death during worst depression
 Tinnitus: No, never
@@ -1300,30 +2006,43 @@ Tinnitus: Yes  now some of the time
 Tinnitus: Yes, now some of the time
 Tobacco smoking: Ex-smoker
 Tobacco smoking: Never smoked
+Tobacco smoking: Occasionally
 Tobacco smoking: Smokes on most or all days
 Transport type for commuting to job workplace: Car/motor vehicle
 Transport type for commuting to job workplace: Cycle
+Transport type for commuting to job workplace: None of the above
 Transport type for commuting to job workplace: Public transport
 Transport type for commuting to job workplace: Walk
 Trauma exposure
 Trauma exposure in major depressive disorder-negative individuals
+Treatment/medication code: adalat 5mg capsule
+Treatment/medication code: adcal 600mg chewable tablet
 Treatment/medication code: adcal-d3 1.5g/10micrograms chewable tablet
 Treatment/medication code: alendronate sodium
+Treatment/medication code: alfuzosin
 Treatment/medication code: allopurinol
 Treatment/medication code: amitriptyline
 Treatment/medication code: amlodipine
 Treatment/medication code: aspirin
 Treatment/medication code: atenolol
 Treatment/medication code: atorvastatin
+Treatment/medication code: beclazone 50 inhaler
 Treatment/medication code: beclometasone
+Treatment/medication code: beclomethasone
 Treatment/medication code: beconase 50micrograms nasal spray
 Treatment/medication code: becotide 50 inhaler
 Treatment/medication code: bendrofluazide
 Treatment/medication code: bendroflumethiazide
+Treatment/medication code: betahistine
+Treatment/medication code: betnovate cream
 Treatment/medication code: bisoprolol
+Treatment/medication code: bricanyl 250mcg inhaler
+Treatment/medication code: calcichew 1.25g chewable tablet
 Treatment/medication code: calcichew d3 tablet
 Treatment/medication code: calcium salts
+Treatment/medication code: calcium+vitamin d 500units tablet
 Treatment/medication code: candesartan cilexetil
+Treatment/medication code: cerazette 75micrograms tablet
 Treatment/medication code: cetirizine
 Treatment/medication code: chondroitin product
 Treatment/medication code: citalopram
@@ -1332,16 +2051,26 @@ Treatment/medication code: co-codamol
 Treatment/medication code: codeine
 Treatment/medication code: cod liver oil capsule
 Treatment/medication code: co-dydramol
+Treatment/medication code: co-enzyme q10/ubiquinone/bio-quinone/coenzyme q10
+Treatment/medication code: diazepam
 Treatment/medication code: diclofenac
+Treatment/medication code: digoxin
+Treatment/medication code: dihydrocodeine
+Treatment/medication code: dosulepin
 Treatment/medication code: doxazosin
 Treatment/medication code: enalapril
+Treatment/medication code: esomeprazole
 Treatment/medication code: evening primrose oil
 Treatment/medication code: ezetimibe
 Treatment/medication code: felodipine
 Treatment/medication code: ferrous sulphate
+Treatment/medication code: fexofenadine
+Treatment/medication code: finasteride
+Treatment/medication code: flixonase 50micrograms aqueous nasal spray
 Treatment/medication code: fluoxetine
 Treatment/medication code: fluticasone
 Treatment/medication code: folic acid product
+Treatment/medication code: food supplement/plant/herbal extract
 Treatment/medication code: Free-text entry, unable to be coded
 Treatment/medication code: furosemide
 Treatment/medication code: gabapentin
@@ -1350,50 +2079,88 @@ Treatment/medication code: gaviscon liquid
 Treatment/medication code: ginkgo forte tablet
 Treatment/medication code: gliclazide
 Treatment/medication code: glucosamine product
+Treatment/medication code: glyceryl trinitrate
+Treatment/medication code: gtn 400micrograms spray
 Treatment/medication code: ibuprofen
+Treatment/medication code: indapamide
 Treatment/medication code: insulin product
 Treatment/medication code: irbesartan
+Treatment/medication code: iron product
+Treatment/medication code: isosorbide mononitrate
+Treatment/medication code: lactulose product
 Treatment/medication code: lansoprazole
+Treatment/medication code: lercanidipine
 Treatment/medication code: levothyroxine sodium
 Treatment/medication code: lipitor 10mg tablet
 Treatment/medication code: lisinopril
+Treatment/medication code: loperamide
 Treatment/medication code: loratadine
 Treatment/medication code: losartan
 Treatment/medication code: mebeverine
+Treatment/medication code: meloxicam
 Treatment/medication code: metformin
 Treatment/medication code: methotrexate
+Treatment/medication code: minerals - magnesium
+Treatment/medication code: mirtazapine
+Treatment/medication code: movicol oral powder
 Treatment/medication code: multivitamin+mineral preparations
 Treatment/medication code: multivitamins
 Treatment/medication code: naproxen
 Treatment/medication code: nasonex 0.05% aqueous nasal spray
+Treatment/medication code: nicorandil
+Treatment/medication code: nifedipine
 Treatment/medication code: omega-3/fish oil supplement
 Treatment/medication code: omeprazole
+Treatment/medication code: oxybutynin
+Treatment/medication code: oxytetracycline
 Treatment/medication code: paracetamol
+Treatment/medication code: paroxetine
 Treatment/medication code: perindopril
 Treatment/medication code: pravastatin
 Treatment/medication code: prednisolone
+Treatment/medication code: premarin 625micrograms tablet
 Treatment/medication code: propranolol
 Treatment/medication code: quinine
+Treatment/medication code: qvar 50 inhaler
 Treatment/medication code: ramipril
 Treatment/medication code: ranitidine
 Treatment/medication code: rosuvastatin
+Treatment/medication code: salamol 100micrograms inhaler
 Treatment/medication code: salbutamol
+Treatment/medication code: salmeterol
+Treatment/medication code: selenium product
 Treatment/medication code: seretide 50 evohaler
+Treatment/medication code: serevent 25mcg inhaler
+Treatment/medication code: sertraline
 Treatment/medication code: simvastatin
+Treatment/medication code: sumatriptan
 Treatment/medication code: symbicort 100/6 turbohaler
+Treatment/medication code: tamoxifen
 Treatment/medication code: tamsulosin
+Treatment/medication code: tegretol 100mg tablet
 Treatment/medication code: thyroxine product
+Treatment/medication code: thyroxine sodium
+Treatment/medication code: tiotropium
 Treatment/medication code: tramadol
+Treatment/medication code: vagifem 25mcg pessary
 Treatment/medication code: valsartan
+Treatment/medication code: venlafaxine
 Treatment/medication code: ventolin 100micrograms inhaler
+Treatment/medication code: viscotears liquid eye gel
+Treatment/medication code: vitamin b12 preparation
 Treatment/medication code: vitamin b compound tablet
 Treatment/medication code: vitamin c product
+Treatment/medication code: vitamin d product
+Treatment/medication code: vitamin e product
 Treatment/medication code: warfarin
+Treatment/medication code: xalatan 0.005% eye drops
 Treatment/medication code: zinc product
+Treatment/medication code: zopiclone
 Treatment speciality of consultant (recoded): Accident & emergency (A&E)
 Treatment speciality of consultant (recoded): Adult mental illness
 Treatment speciality of consultant (recoded): Anaesthetics
 Treatment speciality of consultant (recoded): Breast surgery
+Treatment speciality of consultant (recoded): Cardiac surgery
 Treatment speciality of consultant (recoded): Cardiology
 Treatment speciality of consultant (recoded): Cardiothoracic surgery
 Treatment speciality of consultant (recoded): Clinical haematology
@@ -1401,12 +2168,17 @@ Treatment speciality of consultant (recoded): Clinical oncology
 Treatment speciality of consultant (recoded): Colorectal surgery
 Treatment speciality of consultant (recoded): Dermatology
 Treatment speciality of consultant (recoded): Ear, nose and throat (ENT)
+Treatment speciality of consultant (recoded): Endocrinology
 Treatment speciality of consultant (recoded): Gastroenterology
 Treatment speciality of consultant (recoded): General medicine
 Treatment speciality of consultant (recoded): General surgery
 Treatment speciality of consultant (recoded): Geriatric medicine
 Treatment speciality of consultant (recoded): Gynaecology
+Treatment speciality of consultant (recoded): Infectious diseases
+Treatment speciality of consultant (recoded): Maxillo-facial surgery
 Treatment speciality of consultant (recoded): Medical oncology
+Treatment speciality of consultant (recoded): Midwife episode
+Treatment speciality of consultant (recoded): Nephrology
 Treatment speciality of consultant (recoded): Neurology
 Treatment speciality of consultant (recoded): Neurosurgery
 Treatment speciality of consultant (recoded): Obstetrics
@@ -1414,15 +2186,19 @@ Treatment speciality of consultant (recoded): Ophthalmology
 Treatment speciality of consultant (recoded): Oral surgery
 Treatment speciality of consultant (recoded): Pain management
 Treatment speciality of consultant (recoded): Plastic surgery
+Treatment speciality of consultant (recoded): Respiratory Medicine
 Treatment speciality of consultant (recoded): Rheumatology
 Treatment speciality of consultant (recoded): Thoracic medicine
 Treatment speciality of consultant (recoded): Trauma & orthopaedics
+Treatment speciality of consultant (recoded): Upper gastrointestinal surgery
 Treatment speciality of consultant (recoded): Urology
 Treatment speciality of consultant (recoded): Vascular surgery
+Trigger finger
 Trouble falling asleep
 Type milk consumed: did not have milk
 Type milk consumed: semiskimmed
 Type milk consumed: skimmed
+Type milk consumed: soya with calcium
 Type milk consumed: wholemilk
 Type of
 Type of accommodation lived in: A flat, maisonette or apartment
@@ -1453,14 +2229,15 @@ Types of transport used (excluding work): Cycle
 Types of transport used (excluding work): Public transport
 Types of transport used (excluding work): Walk
 Typical diet yesterday
-ukb-a-66	Allergy	NA	Non-cancer illness code  self-reported: asthma
-ukb-a-94	Allergy	NA	Non-cancer illness code  self-reported: hayfever/allergic rhinitis
-ukb-b-10351	Allergy	NA	Non-cancer illness code, self-reported: allergy or anaphylactic reaction to drug
-ukb-b-16499	Allergy	NA	Non-cancer illness code, self-reported: hayfever/allergic rhinitis
-ukb-b-18113	Allergy	NA	Non-cancer illness code, self-reported: asthma
-ukb-b-18787	Allergy	NA	Non-cancer illness code, self-reported: allergy or anaphylactic reaction to food
-ukb-b-9039	Allergy	NA	Non-cancer illness code, self-reported: allergy/hypersensitivity/anaphylaxis
+ukb-a-66 Allergy NA Non-cancer illness code  self-reported: asthma
+ukb-a-94 Allergy NA Non-cancer illness code  self-reported: hayfever/allergic rhinitis
+ukb-b-10351 Allergy NA Non-cancer illness code, self-reported: allergy or anaphylactic reaction to drug
+ukb-b-16499 Allergy NA Non-cancer illness code, self-reported: hayfever/allergic rhinitis
+ukb-b-18113 Allergy NA Non-cancer illness code, self-reported: asthma
+ukb-b-18787 Allergy NA Non-cancer illness code, self-reported: allergy or anaphylactic reaction to food
+ukb-b-9039 Allergy NA Non-cancer illness code, self-reported: allergy/hypersensitivity/anaphylaxis
 Ulcer of oesophagus
+Underlying (primary) cause of death: ICD10: C34.9 Bronchus or lung, unspecified
 Unstable angina pectoris
 URTI
 Used an inhaler for chest within last hour
@@ -1486,20 +2263,35 @@ Vitamin and/or mineral supplement use: Calcium
 Vitamin and/or mineral supplement use: Evening primrose
 Vitamin and/or mineral supplement use: Fish oil
 Vitamin and/or mineral supplement use: Glucosamine/chondroitin
+Vitamin and/or mineral supplement use: Magnesium
 Vitamin and/or mineral supplement use: Multivitamin
 Vitamin and/or mineral supplement use: Multivitamin with multimineral
 Vitamin and/or mineral supplement use: Other vitamin
+Vitamin and/or mineral supplement use: Selenium
+Vitamin and/or mineral supplement use: Vitamin B12
+Vitamin and/or mineral supplement use: Vitamin B6
 Vitamin and/or mineral supplement use: Vitamin C
 Vitamin and/or mineral supplement use: Vitamin D
+Vitamin and/or mineral supplement use: Vitamin E
+Vitamin and/or mineral supplement use: Zinc
 Vitamin supplement user
 Weight change during worst episode of depression: Both gained and lost some weight during the episode
 Weight change during worst episode of depression: Gained weight
 Weight change during worst episode of depression: Lost weight
 Weight change during worst episode of depression: Stayed about the same or was on a diet
 Wheeze or whistling in the chest in last year
+Which eye(s) affected by astigmatism: Both eyes
+Which eye(s) affected by astigmatism: Left eye
+Which eye(s) affected by astigmatism: Right eye
 Which eye(s) affected by hypermetropia (long sight): Both eyes
+Which eye(s) affected by hypermetropia (long sight): Left eye
+Which eye(s) affected by hypermetropia (long sight): Right eye
 Which eye(s) affected by myopia (short sight): Both eyes
+Which eye(s) affected by myopia (short sight): Left eye
+Which eye(s) affected by myopia (short sight): Right eye
 Which eye(s) affected by presbyopia: Both eyes
+Which eye(s) affected by presbyopia: Left eye
+Which eye(s) affected by presbyopia: Right eye
 Why reduced smoking: Doctor's advice
 Why reduced smoking: Financial reasons
 Why reduced smoking: Health precaution
@@ -1512,6 +2304,7 @@ Why stopped smoking: Illness or ill health
 Why stopped smoking: None of the above
 Willing to attempt cognitive tests
 Witnessed sudden violent death
+Worked with materials containing asbestos: Often
 Worked with materials containing asbestos: Rarely/never
 Worked with materials containing asbestos: Sometimes
 Worked with paints, thinners or glues: Often
