@@ -1,6 +1,6 @@
 # Colocalization of eQTLs and GWAS variants
 
-This is a colocalization pipeline of eQTLs from the eQTL catalogue and the IEU OpenGWAS project
+This is a eQTL/GWAS variant colocalization pipeline based on eQTLs from the eQTL catalogue and GWAS from the IEU OpenGWAS project
 
 ## Install
 
