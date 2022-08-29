@@ -1,3 +1,4 @@
+name: eqtl2gwas
 channels:
   - defaults
   - bioconda
