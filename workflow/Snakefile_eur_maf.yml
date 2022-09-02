@@ -16,7 +16,7 @@ if "image_sif" in config:
 ###############################################################################
 # GWAS config
 chr_lst = range(1, 23)
-chr_lst = [22]
+#chr_lst = [22]
 
 rule all:
     input:
@@ -39,11 +39,11 @@ rule dwnld_g1k:
     shell:
         """wget -c -q -r {params[0]} -P {params[1]}"""
 
-rule create_db:
-    output:
-        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv"),
-    shell:
-        """export DBFILE=eur_af.sqlite; rm -f $DBFILE; sqlite3 $DBFILE 'create table eur_af (chrom INTEGER, pos INTEGER, id TEXT, ref TEXT, alt TEXT, eur_af REAL, PRIMARY KEY(id));'"""
+#rule create_db:
+#    output:
+#        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv"),
+#    shell:
+#        """export DBFILE=eur_af.sqlite; rm -f $DBFILE; sqlite3 $DBFILE 'create table eur_af (chrom INTEGER, pos INTEGER, id TEXT, ref TEXT, alt TEXT, eur_af REAL, PRIMARY KEY(id));'"""
 
 
 #export DBFILE=eur_af.sqlite; rm -f $DBFILE; sqlite3 $DBFILE 'create table eur_af (chrom INTEGER, pos INTEGER, id TEXT, ref TEXT, alt TEXT, eur_af REAL, PRIMARY KEY(id));'
