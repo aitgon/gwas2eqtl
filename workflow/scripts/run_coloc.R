@@ -59,7 +59,7 @@ for (i in 1:nrow(eqtl_leads_df)) {
   end = eqtl_leads_df[i, "end"]
   molecular_trait_id_i = eqtl_leads_df[i, "molecular_trait_id"]
   region_i = paste0(chrom, ":", start, "-", end)
-  # print(region_i)
+  print(region_i)
 
   ################################################################################
   # Load and filter gwas summary statistics
