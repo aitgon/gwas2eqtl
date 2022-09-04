@@ -42,7 +42,6 @@ gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_id_lst, gwas_traitname_lst))
 
 
-
 rule all:
     input:
         expand(os.path.join("out/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.tsv"), eqtl_id=eqtl_id_lst, gwas_id=gwas_id_lst),
