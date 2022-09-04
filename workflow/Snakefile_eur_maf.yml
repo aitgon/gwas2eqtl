@@ -8,7 +8,12 @@ import shlex
 from eqtl2gwas.various import sql_insert_ignore
 from pathlib import Path
 
-"""snakemake -p -j all -s workflow/Snakefile_eur_maf2.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=20 outdir=out/maf --resources db_maf=1 --rerun-incomplete"""
+"""
+ONE CHROM
+snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=21 outdir=out/maf --resources db_maf=1 --rerun-incomplete
+ALL CHROMS
+snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1 --rerun-incomplete
+"""
 
 ###############################################################################
 # General config
