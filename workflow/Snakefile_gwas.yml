@@ -20,7 +20,7 @@ gwas_identifier_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
-rule all:
+rule all_gwas:
     input:
         expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
 

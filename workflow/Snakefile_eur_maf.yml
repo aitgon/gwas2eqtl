@@ -33,7 +33,7 @@ if "CHR" in config:
 else:
     chr_lst = range(1, 23)
 
-rule all:
+rule _eur_maf:
     input:
         expand(os.path.join(outdir, "sqlite_touched_chrom/{CHR}"), CHR=chr_lst),
 

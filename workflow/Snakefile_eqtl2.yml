@@ -26,7 +26,7 @@ eqtl_df.index = eqtl_id_lst
 ###############################################################################
 # PYTHONPATH=.:$PYTHONPATH snakemake -j 1 -s workflow/Snakefile_eqtl2.yml -p --rerun-incomplete  --config  eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv public_data_dir=$HOME/Software/public process_data_dir=$HOME/Software/process region=genome
 
-rule all:
+rule all_eqtl2:
     input:
         expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
         expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
