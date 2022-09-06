@@ -70,6 +70,7 @@ rule maf_to_tsv:
         os.path.join(public_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"),
     output:
         os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+    threads: 2
     shell:
         """bcftools query -f '%CHROM\t%POS\t%ID\t%REF\t%ALT\t%INFO/EUR_AF\n' {input[0]} |gzip >{output[0]}"""
 
