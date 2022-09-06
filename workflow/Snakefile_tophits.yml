@@ -40,7 +40,7 @@ rule gwas_tophits_hg38:
     output:
         tophits_hg19_tsv=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.tsv"),
     shell:
-        "Rscript workflow/scripts2/gwas_tophits_hg38.R {input.tophits_hg19_tsv} {input.tophits_hg38_bed} {output.tophits_hg19_tsv}"
+        "Rscript workflow/scripts/gwas_tophits_hg38.R {input.tophits_hg19_tsv} {input.tophits_hg38_bed} {output.tophits_hg19_tsv}"
 
 rule gwas_tophits_liftover_hg38:
     input:
@@ -62,4 +62,4 @@ rule gwas_tophits_hg19:
         kb=kb,
     resources: tophits=1
     shell:
-        "Rscript workflow/scripts2/gwasglue_tophits.R {params.gwas_id} {params.pval} {params.r2} {params.kb} {output.tophits_hg19_tsv} {output.tophits_hg19_bed}"
+        "Rscript workflow/scripts/gwasglue_tophits.R {params.gwas_id} {params.pval} {params.r2} {params.kb} {output.tophits_hg19_tsv} {output.tophits_hg19_bed}"

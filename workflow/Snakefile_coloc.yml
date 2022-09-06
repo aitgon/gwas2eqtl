@@ -6,10 +6,11 @@ import pandas
 
 ###############################################################################
 # General config
-public_data_dir_path = config['public_data_dir'] # db path
-process_data_dir_path = config['process_data_dir'] # singularity image
-region = config['region'] # singularity image
-window = config['window'] # singularity image
+maf_sqlite = config['maf_sqlite']
+outdir = config['outdir']
+process_data_dir_path = config['process_data_dir']
+public_data_dir_path = config['public_data_dir']
+window = str(config['window'])
 
 if "image_sif" in config:
     image_sif = config['image_sif'] # singularity image
@@ -29,38 +30,51 @@ eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t")
 eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
 eqtl_id_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
 eqtl_df.index = eqtl_id_lst
-eqtl_fdr=str(config["eqtl_fdr"]) # gwas p-value, eg. 5e-8
+#eqtl_fdr=str(config["eqtl_fdr"]) # gwas p-value, eg. 5e-8
 
 ###############################################################################
 # GWAS config
-gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
-gwas_df = pandas.read_excel(gwas_ods_path, header=0)
+gwas_df = pandas.read_excel(gwas_ods_path, header=0, sheet_name="all")
+# substract no tophits
+no_tophits_df = pandas.read_excel(gwas_ods_path, header=0, sheet_name="no_tophits")
+gwas_df = pandas.merge(gwas_df, no_tophits_df, on='id', how='outer', indicator=True)
+gwas_df = gwas_df.loc[gwas_df['_merge'] == "left_only"]
+# end of "substract no tophits"
 gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_id_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_id_lst, gwas_traitname_lst))
 
+###############################################################################
+# Tophits config (https://rdrr.io/github/MRCIEU/ieugwasr/man/tophits.html)
+pval = str(config["pval"])  # use this p-value threshold
+r2 = str(config["r2"])  # use this clumping r2 threshold
+kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
-rule all:
+"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_coloc.yml -p --config gwas_ods=config/gwas413_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf"""
+
+rule all_coloc2:
     input:
-        expand(os.path.join("out/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.tsv"), eqtl_id=eqtl_id_lst, gwas_id=gwas_id_lst),
+        expand(os.path.join(outdir, "coloc", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "window_" + window, "{eqtl_id}.tsv"), eqtl_id=eqtl_id_lst, gwas_id=gwas_id_lst),
 
 rule coloc:
     input:
+        tophits_hg38_tsv=os.path.join(outdir, "tophits", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.tsv"),
         gwas_vcf=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
         gwas_tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
-        eqtl_leadpair_tsv=lambda w: os.path.join("out", "fdr"+str(eqtl_fdr), "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.leadpair.tsv"),
         eqtl_all_gz=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.tsv.gz"),
+        eqtl_permuted=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.permuted.tsv.gz"),
         eqtl_all_gz_tbi=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.tsv.gz.tbi"),
+        eur_af_sqlite=os.path.join(outdir, "eur_af.sqlite"),
     output:
-        coloc_tsv=os.path.join("out/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.tsv"),
+        coloc_tsv=os.path.join(outdir, "coloc", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "window_" + window, "{eqtl_id}.tsv"),
     log:
-        os.path.join("logs/coloc", region, gwas_pval, str(window), "{eqtl_id}/{gwas_id}.log"),
+        os.path.join(outdir, "logs", "coloc", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "window_" + window, "{eqtl_id}.tsv"),
     params:
         window = window,
-        gwas_pval=gwas_pval,
+        pval = pval,
     shell:
         """
-        Rscript workflow/scripts/run_coloc.R {params.window} {params.gwas_pval} {input.gwas_vcf} {input.eqtl_leadpair_tsv} {input.eqtl_all_gz} {output.coloc_tsv}
+        Rscript workflow/scripts/run_coloc.R {params.window} {params.pval} {input.tophits_hg38_tsv} {input.gwas_vcf} {input.eqtl_permuted} {input.eqtl_all_gz} {input.eur_af_sqlite} {output.coloc_tsv}
         """

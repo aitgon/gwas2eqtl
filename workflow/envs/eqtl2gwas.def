@@ -100,6 +100,7 @@ exec /opt/R/bin/"${@}"
 
 # Devtools
 /opt/R/bin/Rscript -e 'install.packages(c("devtools"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages("RSQLite", repos = "https://cran.biotools.fr/")'
 
 # Process extract_lead_var_pairs
 /opt/R/bin/Rscript -e 'devtools::install_version("dplyr", version = "1.0.5", repos = "https://cran.biotools.fr/")'

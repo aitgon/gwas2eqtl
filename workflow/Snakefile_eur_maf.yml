@@ -39,7 +39,7 @@ rule _eur_maf:
 
 rule maf_to_sqlite:
     input:
-        os.path.join(outdir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
     output:
         os.path.join(outdir, "sqlite_touched_chrom/{CHR}"),
     params:
@@ -57,7 +57,7 @@ rule process_maf:
     input:
         os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
     output:
-        os.path.join(outdir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af2.tsv.gz"),
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af2.tsv.gz"),
     run:
         df=pandas.read_csv(input[0], sep="\t", header=None)
         df.columns = ['chrom', 'pos', 'id', 'ref', 'alt', 'eur_af']
