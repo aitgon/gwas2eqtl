@@ -66,7 +66,7 @@ rule coloc:
         eqtl_all_gz=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.tsv.gz"),
         eqtl_permuted=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.permuted.tsv.gz"),
         eqtl_all_gz_tbi=lambda w: os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats", eqtl_df.loc[w.eqtl_id, "study"], eqtl_df.loc[w.eqtl_id, "quant_method"], "{eqtl_id}.all.tsv.gz.tbi"),
-        eur_af_sqlite=os.path.join(outdir, "eur_af.sqlite"),
+        eur_af_sqlite=maf_sqlite,
     output:
         coloc_tsv=os.path.join(outdir, "coloc", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "window_" + window, "{eqtl_id}.tsv"),
     log:
