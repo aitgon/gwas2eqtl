@@ -12,7 +12,7 @@ from pathlib import Path
 ONE CHROM
 snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=21 outdir=out/maf --resources db_maf=1 --rerun-incomplete
 ALL CHROMS
-snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1 --rerun-incomplete
+snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config  maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
 """
 
 ###############################################################################
@@ -20,6 +20,7 @@ snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/
 public_data_dir = config['public_data_dir']
 process_data_dir = config['process_data_dir']
 outdir = config['outdir']  # path to the bases outdir
+maf_sqlite = config['maf_sqlite']
 
 ###############################################################################
 # Conditional config
@@ -43,7 +44,7 @@ rule maf_to_sqlite:
     output:
         os.path.join(outdir, "sqlite_touched_chrom/{CHR}"),
     params:
-        os.path.join(outdir, "eur_af.sqlite"),
+        maf_sqlite,
     resources: db_maf=1
     run:
         cmd_str = "sqlite3 " + params[0] + " 'create table IF NOT EXISTS eur_af (chrom INTEGER, pos INTEGER, id TEXT, ref TEXT, alt TEXT, eur_af REAL, PRIMARY KEY(id))'"
@@ -68,7 +69,7 @@ rule maf_to_tsv:
     input:
         os.path.join(public_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"),
     output:
-        os.path.join(outdir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
     shell:
         """bcftools query -f '%CHROM\t%POS\t%ID\t%REF\t%ALT\t%INFO/EUR_AF\n' {input[0]} |gzip >{output[0]}"""
 
