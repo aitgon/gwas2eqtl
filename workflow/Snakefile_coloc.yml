@@ -47,7 +47,7 @@ pval = str(config["pval"])  # use this p-value threshold
 r2 = str(config["r2"])  # use this clumping r2 threshold
 kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
-"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_coloc.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite tophits_tsv=out/gwas420/tophits_pval_5e-8_r2_0.1_kb_1000.tsv"""
+"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_coloc.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite"""
 
 rule all_coloc2:
     input:
