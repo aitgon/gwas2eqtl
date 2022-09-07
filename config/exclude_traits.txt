@@ -17,6 +17,7 @@ Alcohol drinker status: Never
 Alcohol drinker status: Previous
 Alcohol usually taken with meals
 Allergic disease (asthma, hay fever or eczema)
+Delivery methods: Spontaneous vertex
 Ambidextrousness
 Ankylosing spondylitis
 Answered sexual history questions

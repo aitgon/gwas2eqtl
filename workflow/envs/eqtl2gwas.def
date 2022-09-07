@@ -100,6 +100,7 @@ exec /opt/R/bin/"${@}"
 
 # Devtools
 /opt/R/bin/Rscript -e 'install.packages(c("devtools"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages("RSQLite", repos = "https://cran.biotools.fr/")'
 
 # Process extract_lead_var_pairs
 /opt/R/bin/Rscript -e 'devtools::install_version("dplyr", version = "1.0.5", repos = "https://cran.biotools.fr/")'
@@ -141,6 +142,8 @@ export GITHUB_PAT="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"
 /opt/R/bin/Rscript -e 'remotes::install_github("jrs95/gassocplot", upgrade="never")'
 /opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/TwoSampleMR", upgrade="never")'
 /opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/gwasglue", upgrade="never")'
+/opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/ieugwasr")'
+
 
 ###############################################################################
 #

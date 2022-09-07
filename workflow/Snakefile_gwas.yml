@@ -7,8 +7,9 @@ import pandas
 
 ###############################################################################
 # General config
-public_data_dir_path = config['public_data_dir'] # db path
-process_data_dir_path = config['process_data_dir'] # singularity image
+public_data_dir = config['public_data_dir']
+process_data_dir = config['process_data_dir']
+outdir = config['outdir']
 
 ###############################################################################
 # GWAS config
@@ -19,28 +20,28 @@ gwas_identifier_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
 gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
-rule all:
+rule all_gwas:
     input:
-        expand(os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
+        expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
 
 rule gwas_hg38_tbi:
     input:
-        vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+        vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
     output:
-        tbi=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
+        tbi=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
     shell:
         "tabix -p vcf {input.vcf_bgz}"
 
 rule gwas_liftover_hg38:
     input:
-        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
-        vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
-        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
-        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
-        dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
+        jar=os.path.join(public_data_dir, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        vcf_gz=os.path.join(public_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+        chain_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        fa_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        dict=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
     output:
-        vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-        reject_vcf_bgz=os.path.join(process_data_dir_path, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
+        vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+        reject_vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
     resources:
         mem_mb= 20000
     log:
@@ -50,45 +51,45 @@ rule gwas_liftover_hg38:
 
 rule picard_ref_dict:
     input:
-        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
-        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        jar=os.path.join(public_data_dir, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        fa_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
     output:
-        dict=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
+        dict=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
     shell:
         "java -jar {input.jar} CreateSequenceDictionary -R {input.fa_gz} -O {output.dict}"
 
 rule wget_vcf:
     output:
-        vcf_gz=os.path.join(public_data_dir_path, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+        vcf_gz=os.path.join(public_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
     params:
         url="gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -c -q -r {params.url} -P {params.public_data_dir}"""
 
 rule wget_chain:
     output:
-        chain_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        chain_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
     params:
         url="ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -c -q -r {params.url} -P {params.public_data_dir}"""
 
 rule wget_ref_fasta:
     output:
-        fa_gz=os.path.join(public_data_dir_path, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
+        fa_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
     params:
         url="ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -c -q -r {params.url} -P {params.public_data_dir}"""
 
 rule wget_picard_jar:
     output:
-        jar=os.path.join(public_data_dir_path, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        jar=os.path.join(public_data_dir, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
     params:
         url="github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -c -q -r {params.url} -P {params.public_data_dir}"""

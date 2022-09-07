@@ -5,35 +5,21 @@ suppressWarnings(suppressPackageStartupMessages({
 }))
 
 # PARAMS
-# window = 1000000
-# pval = 5e-08
-# r2 = 0.1
-# kb = 1000
-# tophits_tsv_path = sprintf("/home/gonzalez/Repositories/eqtl2gwas/out/maf/tophits/%s/pval_%s/r2_%.1f/kb_%d/hg38.tsv", gwas_id, as.character(pval), r2, kb)
-# gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
-#eqtl_permuted_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.leadpair.tsv"
-# eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
-# out_tsv_path = "coloc.tsv"
-# eur_af_sqlite = "/home/gonzalez/Repositories/eqtl2gwas/out/maf/eur_af.sqlite"
-# eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
+window = 1000000
+pval = 5e-08
+r2 = 0.1
+kb = 1000
+gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
+#eqtl_leads_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.leadpair.tsv"
+eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
+out_tsv_path = "coloc.tsv"
+eur_af_sqlite = "/home/gonzalez/Repositories/eqtl2gwas/out/maf/eur_af.sqlite"
 # END PARAMS
 
-args = commandArgs(trailingOnly=TRUE)
-if (length(args)!=8) {
-  stop("8 arguments must be supplied", call.=FALSE)
-}
-window = as.numeric(args[1])
-pval = as.numeric(args[2])
-tophits_tsv_path = args[3]
-gwas_vcf_path = args[4]
-eqtl_permuted_path = args[5]
-eqtl_all_path = args[6]
-eur_af_sqlite = args[7]
-out_tsv_path = args[8]
-
+permuted_tsv_gz = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
 eqtl_id = gsub(".all.tsv.gz", "", strsplit(eqtl_all_path, split = "/", fixed = T)[[1]][length(strsplit(eqtl_all_path, split = "/", fixed = T)[[1]])])
 gwas_id = strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]][length(strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]]) - 1]
-
+tophits_tsv_path = sprintf("/home/gonzalez/Repositories/eqtl2gwas/out/maf/tophits/%s/pval_%s/r2_%.1f/kb_%d/hg38.tsv", gwas_id, as.character(pval), r2, kb)
 dir.create(dirname(out_tsv_path), showWarnings = FALSE, recursive = TRUE)
 
 # no bcftools error message and exit
@@ -56,19 +42,8 @@ out_cols = c("chrom", "pos", "rsid", "ref", "alt", "egene",
 out_df = data.frame(matrix(vector(), 0, length(out_cols), dimnames = list(c(), out_cols)), stringsAsFactors = F)
 
 ################################################################################
-if (file.size(tophits_tsv_path) == 0L) {  # empty file
-  write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
-  quit(save = "no", status = 0, runLast = FALSE)
-}
-
 # Load tophits
 tophits_df = read.table(tophits_tsv_path, sep = '\t', header = T)
-
-if (nrow(tophits_df) == 0) {  # not tophits
-  write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
-  quit(save = "no", status = 0, runLast = FALSE)
-}
-
 tophits_df = tophits_df %>% dplyr::rename(chrom = chr, pos = position, ref = nea, alt = ea, maf = eaf)  # rename maf column
 
 ################################################################################
@@ -84,9 +59,8 @@ for (rsid in unique(tophits_df$rsid)) {
   start = tophits_df[tophits_df$rsid == rsid, "pos"] - window / 2
   if (start < 1) { start = 1 }
   end = tophits_df[tophits_df$rsid == rsid, "pos"] + window / 2
-  if (chrom==6 & pos >= 25000000 & pos <= 35000000) { next }  # continue if MHC locus
   region_i = paste0(chrom, ":", start, "-", end)
-  # print(paste(region_i, rsid))
+  print(paste(region_i, rsid))
 
   ################################################################################
   # Load gwas summary statistics
@@ -110,7 +84,7 @@ for (rsid in unique(tophits_df$rsid)) {
   if (nrow(gwas_tbl) == 0) { next }  # continue if empty gwas
 
   # Load eqtl permuted and intersect gwas
-  permuted_df = read.table(eqtl_permuted_path, sep = "\t", header = TRUE)
+  permuted_df = read.table(permuted_tsv_gz, sep = "\t", header = TRUE)
   permuted_df = permuted_df %>% dplyr::rename(chrom = chromosome, pos = position, egene = molecular_trait_id)
   permuted_df = permuted_df[permuted_df$p_perm < 0.01,]
   gwas_eqtl_permuted_df = merge(gwas_tbl, permuted_df, by = c("chrom", "pos"))
@@ -139,7 +113,7 @@ for (rsid in unique(tophits_df$rsid)) {
   # egene="ENSG00000204084"
   # egene = "ENSG00000204528"
   for (egene in egene_lst) {
-    # print(egene)
+    print(egene)
 
     eqtl_egene_tbl = eqtl_tbl[eqtl_tbl$egene == egene, ]
     if (nrow(eqtl_egene_tbl) == 0) { next }  # continue if empty gwas
@@ -157,18 +131,17 @@ for (rsid in unique(tophits_df$rsid)) {
     # Update MAF with 1000 genomes when all NA in opengwas
     if (all(is.na(merge_df$"gwas_maf"))) {
       # gwas_maf_na_df = merge_df[is.na(merge_df$AF), c("chromosome", "rsid", "ref", "alt", "AF")]
-      con <- dbConnect(RSQLite::SQLite(), eur_af_sqlite)
-      # dbGetQuery(con, 'SELECT * FROM eur_af where chrom=1 and id="rs12137845" and ref="T" and alt="C"')
-      # query <- dbSendQuery(con, 'SELECT * FROM iris WHERE "Sepal.Length" < :x')
-      query <- dbSendQuery(con, 'SELECT chrom, id, ref, alt, eur_af FROM eur_af where chrom=:chromosome and id=:rsid and ref=:ref and alt=:alt')
-      # query <- dbSendQuery(con, 'SELECT * FROM eur_af where id=:x')
-      dbBind(query, params = list(chromosome = merge_df$chrom,
+      mydb <- dbConnect(RSQLite::SQLite(), eur_af_sqlite)
+      # dbGetQuery(mydb, 'SELECT * FROM eur_af where chrom=1 and id="rs12137845" and ref="T" and alt="C"')
+      # rs <- dbSendQuery(mydb, 'SELECT * FROM iris WHERE "Sepal.Length" < :x')
+      rs <- dbSendQuery(mydb, 'SELECT chrom, id, ref, alt, eur_af FROM eur_af where chrom=:chromosome and id=:rsid and ref=:ref and alt=:alt')
+      # rs <- dbSendQuery(mydb, 'SELECT * FROM eur_af where id=:x')
+      dbBind(rs, params = list(chromosome = merge_df$chrom,
                                rsid = merge_df$rsid,
                                ref = merge_df$ref,
                                alt = merge_df$alt
       ))
-      gwas_maf_df = dbFetch(query)
-      dbDisconnect(con)
+      gwas_maf_df = dbFetch(rs)
       # gwas_maf_df = subset(gwas_maf_df, select = -c(pos) )  # drop pos hg19
       gwas_maf_df = gwas_maf_df %>% dplyr::rename(chrom = chrom,
                                                   rsid = id,
@@ -240,8 +213,8 @@ for (rsid in unique(tophits_df$rsid)) {
     coloc_df$coloc_region = region_i
     # coloc_df$gwas_pvalue = exp(-coloc_df$gwas_pvalue)  # change -log10 pval to pval
     coloc_df = coloc_df[, out_cols]
-# print(dim(coloc_df))
     out_df = rbind(out_df, coloc_df)
+print(dim(coloc_df))
   }
 }
 

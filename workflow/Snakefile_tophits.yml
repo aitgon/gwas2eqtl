@@ -1,0 +1,84 @@
+from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
+HTTP = HTTPRemoteProvider()
+
+import math
+import os
+import pandas
+
+###############################################################################
+# General config
+public_data_dir = config['public_data_dir']
+process_data_dir = config['process_data_dir']
+outdir = config['outdir']
+tophits_tsv = config['tophits_tsv']
+
+###############################################################################
+# GWAS config
+gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
+gwas_df = pandas.read_excel(gwas_ods_path, header=0)
+gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
+gwas_identifier_lst = gwas_df['id'].tolist()
+gwas_traitname_lst = gwas_df['trait'].tolist()
+gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+
+###############################################################################
+# Tophits config (https://rdrr.io/github/MRCIEU/ieugwasr/man/tophits.html)
+pval = str(config["pval"])  # use this p-value threshold
+r2 = str(config["r2"])  # use this clumping r2 threshold
+kb = str(config["kb"])  # use this clumping "kb_" + kb window
+
+###############################################################################
+#PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_tophits.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods pval=5e-8 r2=0.1 kb=1000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process image_sif=out/eqt2gwas.sif outdir=out/maf gwas_pval="5e-8" tophits_tsv=out/gwas420/tophits_pval_5e-8_r2_0.1_kb_1000.tsv --resources tophits=1
+
+rule tophits_all:
+    input:
+        tophits_tsv,
+
+rule tophits_stats:
+    input:
+        expand(os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.tsv"), gwas_id=gwas_identifier_lst),
+    output:
+        tophits_tsv,
+    run:
+        out_df = pandas.DataFrame(columns=['gwas_id', 'tophits_count'])
+        for i, gwas_id in enumerate(sorted(gwas_identifier_lst)):
+            tophits_path = os.path.join(outdir, "tophits/{}".format(gwas_id), "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.tsv")
+            try:
+                tophits_df = pandas.read_csv(tophits_path, sep="\t", header=0)
+                tophits_count=tophits_df.shape[0]
+            except pandas.errors.EmptyDataError:
+                tophits_count=0
+            row_out_df = pandas.DataFrame({'gwas_id': gwas_id, 'tophits_count': tophits_count}, index=[i])
+            out_df = pandas.concat([out_df, row_out_df], axis=0)
+            out_df.to_csv(output[0], sep="\t", index=False, header=True)
+
+rule gwas_tophits_hg38:
+    input:
+        tophits_hg19_tsv=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg19.tsv"),
+        tophits_hg38_bed=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.bed"),
+    output:
+        tophits_hg19_tsv=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.tsv"),
+    shell:
+        "Rscript workflow/scripts/gwas_tophits_hg38.R {input.tophits_hg19_tsv} {input.tophits_hg38_bed} {output.tophits_hg19_tsv}"
+
+rule gwas_tophits_liftover_hg38:
+    input:
+        chain_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        tophits_hg19_bed=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg19.bed"),
+    output:
+        tophits_hg38_bed=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.bed"),
+    shell:
+        "CrossMap.py bed {input.chain_gz} {input.tophits_hg19_bed} {output.tophits_hg38_bed}"
+
+rule gwas_tophits_hg19:
+    output:
+        tophits_hg19_tsv=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg19.tsv"),
+        tophits_hg19_bed=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg19.bed"),
+    params:
+        gwas_id="{gwas_id}",
+        pval=pval,
+        r2=r2,
+        kb=kb,
+    resources: tophits=1
+    shell:
+        "Rscript workflow/scripts/gwasglue_tophits.R {params.gwas_id} {params.pval} {params.r2} {params.kb} {output.tophits_hg19_tsv} {output.tophits_hg19_bed}"

@@ -1,0 +1,84 @@
+from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
+HTTP = HTTPRemoteProvider()
+
+import os
+import pandas
+from sqlalchemy import create_engine
+import shlex
+from eqtl2gwas.various import sql_insert_ignore
+from pathlib import Path
+
+"""
+ONE CHROM
+snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=21 outdir=out/maf --resources db_maf=1 --rerun-incomplete
+ALL CHROMS
+snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config  maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
+"""
+
+###############################################################################
+# General config
+public_data_dir = config['public_data_dir']
+process_data_dir = config['process_data_dir']
+outdir = config['outdir']  # path to the bases outdir
+maf_sqlite = config['maf_sqlite']
+
+###############################################################################
+# Conditional config
+if "image_sif" in config:
+    image_sif = config['image_sif'] # singularity image
+    container: image_sif
+
+# Used for testing one chromosome
+if "CHR" in config:
+    chr_lst = [int(config['CHR'])]
+else:
+    chr_lst = range(1, 23)
+
+rule _eur_maf:
+    input:
+        expand(os.path.join(outdir, "sqlite_touched_chrom/{CHR}"), CHR=chr_lst),
+
+rule maf_to_sqlite:
+    input:
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+    output:
+        os.path.join(outdir, "sqlite_touched_chrom/{CHR}"),
+    params:
+        maf_sqlite,
+    resources: db_maf=1
+    run:
+        cmd_str = "sqlite3 " + params[0] + " 'create table IF NOT EXISTS eur_af (chrom INTEGER, pos INTEGER, id TEXT, ref TEXT, alt TEXT, eur_af REAL, PRIMARY KEY(id))'"
+        subprocess.Popen(shlex.split(cmd_str)).communicate()
+        engine = create_engine('sqlite:///' + params[0], echo=False)
+        df = pandas.read_csv(input[0], sep="\t", header=None, names=['chrom', 'pos', 'id', 'ref', 'alt', 'eur_af'])
+        df.to_sql('eur_af', con=engine, if_exists='append', index=False, method=sql_insert_ignore)
+        Path(output[0]).touch()
+
+rule process_maf:
+    input:
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+    output:
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af2.tsv.gz"),
+    run:
+        df=pandas.read_csv(input[0], sep="\t", header=None)
+        df.columns = ['chrom', 'pos', 'id', 'ref', 'alt', 'eur_af']
+        df.drop_duplicates(subset=['id'], keep=False, inplace=True)
+        df.to_csv(output[0], sep="\t", index=False, header=None)
+
+rule maf_to_tsv:
+    input:
+        os.path.join(public_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"),
+    output:
+        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+    threads: 2
+    shell:
+        """bcftools query -f '%CHROM\t%POS\t%ID\t%REF\t%ALT\t%INFO/EUR_AF\n' {input[0]} |gzip >{output[0]}"""
+
+rule dwnld_g1k:
+    output:
+        os.path.join(public_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"),
+    params:
+        "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz",
+        public_data_dir,
+    shell:
+        """wget -c -q -r {params[0]} -P {params[1]}"""
