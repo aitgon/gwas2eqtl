@@ -58,6 +58,14 @@ out_df = data.frame(matrix(vector(), 0, length(out_cols), dimnames = list(c(), o
 ################################################################################
 # Load tophits
 tophits_df = read.table(tophits_tsv_path, sep = '\t', header = T)
+
+if (nrow(df) == 0) {  # not tophits
+  write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
+  opt <- options(show.error.messages = FALSE)
+  on.exit(options(opt))
+  stop()
+}
+
 tophits_df = tophits_df %>% dplyr::rename(chrom = chr, pos = position, ref = nea, alt = ea, maf = eaf)  # rename maf column
 
 ################################################################################
