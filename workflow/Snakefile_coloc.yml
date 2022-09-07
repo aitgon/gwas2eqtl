@@ -36,11 +36,6 @@ eqtl_df.index = eqtl_id_lst
 # GWAS config
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
 gwas_df = pandas.read_excel(gwas_ods_path, header=0, sheet_name="all")
-# substract no tophits
-no_tophits_df = pandas.read_excel(gwas_ods_path, header=0, sheet_name="no_tophits")
-gwas_df = pandas.merge(gwas_df, no_tophits_df, on='id', how='outer', indicator=True)
-gwas_df = gwas_df.loc[gwas_df['_merge'] == "left_only"]
-# end of "substract no tophits"
 gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_id_lst = gwas_df['id'].tolist()
 gwas_traitname_lst = gwas_df['trait'].tolist()
@@ -52,7 +47,7 @@ pval = str(config["pval"])  # use this p-value threshold
 r2 = str(config["r2"])  # use this clumping r2 threshold
 kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
-"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_coloc.yml -p --config gwas_ods=config/gwas413_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf"""
+"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_coloc.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite"""
 
 rule all_coloc2:
     input:
