@@ -27,7 +27,7 @@ r2 = str(config["r2"])  # use this clumping r2 threshold
 kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
 ###############################################################################
-#PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_tophits.yml -p --config gwas_ods=config/gwas413_ebi-a-GCST002318.ods pval=5e-8 r2=0.1 kb=1000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process image_sif=out/eqt2gwas.sif outdir=out/maf gwas_pval="5e-8" --resources tophits=1 --rerun-incomplete
+#PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_tophits.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods pval=5e-8 r2=0.1 kb=1000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process image_sif=out/eqt2gwas.sif outdir=out/maf gwas_pval="5e-8" --resources tophits=1
 
 rule all_tophits:
     input:
