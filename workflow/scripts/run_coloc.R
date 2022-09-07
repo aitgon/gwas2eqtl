@@ -56,14 +56,17 @@ out_cols = c("chrom", "pos", "rsid", "ref", "alt", "egene",
 out_df = data.frame(matrix(vector(), 0, length(out_cols), dimnames = list(c(), out_cols)), stringsAsFactors = F)
 
 ################################################################################
+if (file.size(tophits_tsv_path) == 0L) {  # empty file
+  write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
+  quit(save = "no", status = 0, runLast = FALSE)
+}
+
 # Load tophits
 tophits_df = read.table(tophits_tsv_path, sep = '\t', header = T)
 
 if (nrow(tophits_df) == 0) {  # not tophits
   write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
-  opt <- options(show.error.messages = FALSE)
-  on.exit(options(opt))
-  stop()
+  quit(save = "no", status = 0, runLast = FALSE)
 }
 
 tophits_df = tophits_df %>% dplyr::rename(chrom = chr, pos = position, ref = nea, alt = ea, maf = eaf)  # rename maf column
