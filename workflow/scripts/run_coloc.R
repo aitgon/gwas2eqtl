@@ -63,6 +63,7 @@ if (file.size(tophits_tsv_path) == 0L) {  # empty file
 
 # Load tophits
 tophits_df = read.table(tophits_tsv_path, sep = '\t', header = T)
+tophits_df = unique(tophits_df)
 
 if (nrow(tophits_df) == 0) {  # not tophits
   write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
