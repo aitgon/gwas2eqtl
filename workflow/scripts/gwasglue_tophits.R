@@ -14,6 +14,7 @@ dir.create(dirname(out_bed_path), showWarnings = FALSE)
 
 # top gwasglue and convert them to granges
 gwas_top_hg19_tbl <- ieugwasr::tophits(identifier, pval = pval, r2 = r2, kb = kb)
+gwas_top_hg19_tbl <- unique(gwas_top_hg19_tbl)
 if (class(gwas_top_hg19_tbl)[[1]] == "response") { # server code error 503
   cat("No significant GWAS signals at p-value: ", sprintf("%f", pval), "\n")
   cat(NULL, file = out_tsv_path)
