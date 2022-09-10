@@ -153,7 +153,9 @@ for (rsid in unique(tophits_df$rsid)) {
 
     # Keep common SNPs
     merge_df = merge(gwas_tbl, eqtl_egene_tbl, by = c("chrom", "pos", "rsid", "ref", "alt"))
-
+    coloc_cols=c("chrom", "pos", "rsid", "ref", "alt", "gwas_pval", "gwas_beta", "gwas_maf", "SS", "SE", "eqtl_pval", "eqtl_beta", "eqtl_maf", "an", "se")
+    merge_df = merge_df[, coloc_cols]
+    merge_df = na.omit(merge_df)
     if (nrow(merge_df) == 0) { next }  # continue if empty merge
 
     # Update MAF with 1000 genomes when all NA in opengwas
@@ -226,7 +228,7 @@ for (rsid in unique(tophits_df$rsid)) {
     coloc_df = coloc_df %>% dplyr::mutate(PP.H0.abf = coloc_res$summary[['PP.H0.abf']])
 
     # merge coloc results and input
-    merge_cols = c("chrom", "pos", "rsid", "ref", "alt", "egene", "gwas_beta", "gwas_pval", "eqtl_beta", "eqtl_pval")
+    merge_cols = c("chrom", "pos", "rsid", "ref", "alt", "gwas_beta", "gwas_pval", "eqtl_beta", "eqtl_pval")
     snp_info_df = merge_df[, merge_cols]
     # coloc_cols = c("chrom", "pos", "rsid", "ref", "alt", "egene", "SNP.PP.H4", 'PP.H4.abf', 'PP.H3.abf', 'PP.H2.abf', 'PP.H1.abf', 'PP.H0.abf', "nsnps")
     # coloc_df = coloc_df[, coloc_cols]
@@ -235,6 +237,7 @@ for (rsid in unique(tophits_df$rsid)) {
     # rename columns
     # coloc_df = dplyr::rename(coloc_df, egene=gene_id, eqtl_beta=beta, eqtl_pvalue=pvalue, gwas_beta=ES, gwas_pvalue=LP)
     # add columns
+    coloc_df$egene = egene
     coloc_df$gwas_id = gwas_id
     coloc_df$eqtl_id = eqtl_id
     coloc_df$coloc_lead_pos = pos
