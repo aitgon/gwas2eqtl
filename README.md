@@ -24,20 +24,24 @@ Other R dependencies
 
 - gwasvcf ( https://github.com/MRCIEU/gwasvcf )
 
-Alternative there is a singularity image
+An alternative is to use a singularity image
 
 ~~~
 sudo singularity build eqtl2gwas.sif eqtl2gwas.def
 ~~~
 
-## Run
+## Prepare the GWAS list
 
 This command creates and annotates a list of GWAS identifiers.
 It allows to exclude traits, exclude datasets, include a minimum of subjects, controls and cases.
 
 ~~~
-python workflow/scripts/dwnld_gwas_info.py config/exclude_traits.txt config/exclude_datasets.txt config/manual_annotation.ods 50000 10000 10000 out/dwnld_gwas_info.py/gwasinfo_noelesect.tsv out/dwnld_gwas_info.py/gwasinfo_50000_10000_10000.ods
+python workflow/scripts/dwnld_gwas_info.py config/exclude_traits.txt config/exclude_datasets.txt config/manual_annotation.ods 10000 2000 2000 out/dwnld_gwas_info.py/gwasinfo_noelesect.tsv out/dwnld_gwas_info.py/gwasinfo_10000_2000_2000.ods
 ~~~
+
+## Prepare the EUR MAF
+
+## Run one GWAS and eQTL for testing
 
 Prepare a small set of eQTLs for testing
 
@@ -57,15 +61,11 @@ Run the colocalization based on the small number of eQTLs and GWAS
 PYTHONPATH=.:$PYTHONPATH snakemake -j 999 -s workflow/Snakefile.yml -p --config gwas_ods=config/gwas_ieu-a1162.ods eqtl_tsv=config/eqtl_Kasela_2017_CD8.tsv gwas_pval=5e-8 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process region=genome window=1000000 eqtl_fdr=0.05 --rerun-incomplete
 ~~~
 
-Then, concatenate coloc results with the eQTL annotations. 
-
 ~~~
-wget -nc -r -q raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv -P /home/gonzalez/Software/public
+python workflow/scripts/cat_coloc.py config/eqtl_Kasela_2017_CD8.tsv config/gwas420.ods out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id} out/gwas420/coloc_gwas420.tsv out/gwas420/coloc_gwas420.ods
 ~~~
 
-~~~
-export OUTDIR=out/merged/manualannot20220714/genome/5e-08/1000000; python workflow/scripts/cat_tsv_sql.py /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv config/manual_annotation.ods "out/coloc/genome/5e-08/1000000" ${OUTDIR}/coloc.tsv ${OUTDIR}/coloc.ods ${OUTDIR}/db.sqlite
-~~~
+# Run the whole set of GWAS and eQTL
 
 ## References
 
