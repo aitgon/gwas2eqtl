@@ -7,7 +7,7 @@ import os
 import pathlib
 import tempfile
 
-import eqtl2gwas
+import gwas2eqtl
 
 
 class PathManager:
@@ -42,12 +42,12 @@ class PathManager:
     @staticmethod
     def get_package_path():
         """
-        Returns the eqtl2gwas.__path__[0]
+        Returns the gwas2eqtl.__path__[0]
 
         :return: path to the package
         """
 
-        package_path = eqtl2gwas.__path__[0]
+        package_path = gwas2eqtl.__path__[0]
         return package_path
 
     @classmethod

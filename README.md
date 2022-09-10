@@ -10,12 +10,12 @@ Python dependencies
 conda env create -f workflow/envs/environment.yml -y
 ~~~
 
-For R dependencies and other dependencies, see: "workflow/envs/eqtl2gwas.def"
+For R dependencies and other dependencies, see: "workflow/envs/gwas2eqtl.def"
 
 The alternative is to use entirely the singularity image
 
 ~~~
-sudo singularity build eqtl2gwas.sif eqtl2gwas.def
+sudo singularity build gwas2eqtl.sif gwas2eqtl.def
 ~~~
 
 ## Prepare the GWAS list

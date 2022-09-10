@@ -7,4 +7,4 @@ out_ods: results/merged/genome/1e-7/500000/coloc_all.ods
 coloc_all_tsv: results/release/genome/1e-7/500000/coloc_all.tsv
 coloc_h4_tsv: results/release/genome/1e-7/500000/coloc_h4.tsv
 db_sqlite: results/release/genome/1e-7/500000/db.sqlite
-image_sif: resources/eqtl2gwas.sif
+image_sif: resources/gwas2eqtl.sif

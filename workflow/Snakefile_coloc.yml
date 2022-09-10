@@ -21,7 +21,7 @@ if "image_sif" in config:
 if "eqtl_tsv" in config:
     eqtl_tsv_path = config["eqtl_tsv"] # path to the eqtl< ods list
 else:
-    from eqtl2gwas.URL import URL
+    from gwas2eqtl.URL import URL
     url = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
     eqtl_tsv_path = URL(url=url).download()
     config["eqtl_tsv"] = eqtl_tsv_path

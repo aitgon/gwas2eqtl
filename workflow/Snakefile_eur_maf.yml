@@ -5,7 +5,7 @@ import os
 import pandas
 from sqlalchemy import create_engine
 import shlex
-from eqtl2gwas.various import sql_insert_ignore
+from gwas2eqtl.various import sql_insert_ignore
 from pathlib import Path
 
 """

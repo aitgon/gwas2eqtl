@@ -1,5 +1,5 @@
 import os
-from eqtl2gwas.PathManager import PathManager
+from gwas2eqtl.PathManager import PathManager
 
 # Raw colocalization data
 coloc_all_path = os.path.join(PathManager.get_project_path(), "out", "coloc_all")

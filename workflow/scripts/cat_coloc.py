@@ -1,4 +1,4 @@
-from eqtl2gwas.Logger import Logger
+from gwas2eqtl.Logger import Logger
 
 import gzip
 import os

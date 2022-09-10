@@ -11,7 +11,7 @@ class Logger:
 
     log_level = logging.DEBUG  # default log level
 
-    logger = logging.getLogger("eqtl2gwas")
+    logger = logging.getLogger("gwas2eqtl")
     formatter_str = '%(asctime)s :: %(levelname)s :: %(name)s :: %(message)s'
     handler = logging.StreamHandler()
     __formatter = logging.Formatter('%(asctime)s :: %(levelname)s :: %(name)s :: %(message)s')

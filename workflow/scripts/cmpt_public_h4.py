@@ -1,6 +1,6 @@
-from eqtl2gwas.PathManager import PathManager
-from eqtl2gwas.PyTabix import bgzip, tabix_index
-from eqtl2gwas.constants import coloc_raw_tsv_path, h4_cutoff
+from gwas2eqtl.PathManager import PathManager
+from gwas2eqtl.PyTabix import bgzip, tabix_index
+from gwas2eqtl.constants import coloc_raw_tsv_path, h4_cutoff
 
 import os
 import pandas

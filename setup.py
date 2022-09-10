@@ -24,13 +24,13 @@ def get_version(rel_path):
         raise RuntimeError("Unable to find version string.")
 
 setup(
-    name='eqtl2gwas',
-    version=get_version("eqtl2gwas/__init__.py"),
-    url='https://eqtl2gwas.readthedocs.io',
+    name='gwas2eqtl',
+    version=get_version("gwas2eqtl/__init__.py"),
+    url='https://tagc.univ-amu.fr/en/users/gonzalez-aitor',
     author=author,
     author_email=email,
     license=license,
-    description='eQTL2GWAS: A Workflow and Data Ressource of Colocalized eQTLs and GWAS',
+    description='GWAS2eQTL: A Workflow and Data Ressource of Colocalized eQTLs and GWAS',
     packages=find_packages(),
     install_requires=[],
 )

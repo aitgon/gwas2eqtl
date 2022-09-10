@@ -9,12 +9,12 @@ suppressWarnings(suppressPackageStartupMessages({
 # pval = 5e-08
 # r2 = 0.1
 # kb = 1000
-# tophits_tsv_path = sprintf("/home/gonzalez/Repositories/eqtl2gwas/out/maf/tophits/%s/pval_%s/r2_%.1f/kb_%d/hg38.tsv", gwas_id, as.character(pval), r2, kb)
+# tophits_tsv_path = sprintf("/home/gonzalez/Repositories/gwas2eqtl/out/maf/tophits/%s/pval_%s/r2_%.1f/kb_%d/hg38.tsv", gwas_id, as.character(pval), r2, kb)
 # gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
 #eqtl_permuted_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.leadpair.tsv"
 # eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
 # out_tsv_path = "coloc.tsv"
-# eur_af_sqlite = "/home/gonzalez/Repositories/eqtl2gwas/out/maf/eur_af.sqlite"
+# eur_af_sqlite = "/home/gonzalez/Repositories/gwas2eqtl/out/maf/eur_af.sqlite"
 # eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
 # END PARAMS
 

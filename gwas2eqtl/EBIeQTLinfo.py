@@ -1,15 +1,15 @@
 import pdb
 
-from eqtl2gwas.Logger import Logger
-from eqtl2gwas.PathManager import PathManager
+from gwas2eqtl.Logger import Logger
+from gwas2eqtl.PathManager import PathManager
 from pandas import ExcelWriter
 import os
 import pandas
 import pathlib
 import requests
 
-from eqtl2gwas.URL import URL
-from eqtl2gwas.constants import eqtl_metadata_url
+from gwas2eqtl.URL import URL
+from gwas2eqtl.constants import eqtl_metadata_url
 
 
 class EBIeQTLinfo:

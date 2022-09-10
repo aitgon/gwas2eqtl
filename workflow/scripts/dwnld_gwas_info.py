@@ -1,7 +1,7 @@
-from eqtl2gwas.Logger import Logger
-from eqtl2gwas.PathManager import PathManager
-from eqtl2gwas.URL import URL
-from eqtl2gwas.constants import public_data_dir
+from gwas2eqtl.Logger import Logger
+from gwas2eqtl.PathManager import PathManager
+from gwas2eqtl.URL import URL
+from gwas2eqtl.constants import public_data_dir
 
 import os
 import pandas
