@@ -36,10 +36,10 @@ eqtl_df.index = eqtl_id_lst
 #gwas_pval=str(config["gwas_pval"]) # gwas p-value, eg. 5e-8
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
+#gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_id_lst = gwas_df['id'].tolist()
-gwas_traitname_lst = gwas_df['trait'].tolist()
-gwas_dic = dict(zip(gwas_id_lst, gwas_traitname_lst))
+#gwas_traitname_lst = gwas_df['trait'].tolist()
+#gwas_dic = dict(zip(gwas_id_lst, gwas_traitname_lst))
 
 ###############################################################################
 # Tophits config (https://rdrr.io/github/MRCIEU/ieugwasr/man/tophits.html)
@@ -53,8 +53,8 @@ rule all:
     input:
         expand(os.path.join(outdir, "coloc", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "window_" + window, "{eqtl_id}.tsv"), eqtl_id=eqtl_id_lst, gwas_id=gwas_id_lst),
 
-include: 'Snakefile_coloc.yml'
-include: 'Snakefile_tophits.yml'
-include: 'Snakefile_eur_maf.yml'
-include: 'Snakefile_eqtl.yml'
-include: 'Snakefile_gwas.yml'
+include: 'snkfl_coloc.yml'
+include: 'snkfl_tophits.yml'
+include: 'snkfl_eur_maf.yml'
+include: 'snkfl_eqtl.yml'
+include: 'snkfl_gwas.yml'
