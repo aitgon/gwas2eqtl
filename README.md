@@ -40,7 +40,7 @@ snakemake -j all -s workflow/snkfl_all.yml -p --config gwas_ods=config/gwas_ebi-
 ~~~
 
 ~~~
-python workflow/scripts/cat_coloc.py config/gwas_ebi-a-GCST002318.ods  config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv   out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv out/gwas420/gwas_ebi-a-GCST002318_eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv.gz
+python workflow/scripts/concat.py config/gwas_ebi-a-GCST002318.ods config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv   out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv out/concat/coloc_gwas420_pval_5e-08_r2_0.1_kb_1000_window_1000000.tsv.gz
 ~~~
 
 # Run the whole set of GWAS and eQTL
@@ -50,7 +50,7 @@ snakemake -j 800 -s workflow/snkfl_all.yml -p --config gwas_ods=config/gwas420.o
 ~~~
 
 ~~~
-python workflow/scripts/cat_coloc.py config/gwas420.ods  /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv   out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv out/gwas420/coloc_gwas420.tsv.gz
+python workflow/scripts/concat.py config/gwas420.ods  /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv   out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv out/concat/coloc_gwas420_pval_5e-08_r2_0.1_kb_1000_window_1000000.tsv.gz
 ~~~
 
 ## References
