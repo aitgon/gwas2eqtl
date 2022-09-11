@@ -16,10 +16,10 @@ tophits_tsv = config['tophits_tsv']
 # GWAS config
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
+#gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
 gwas_identifier_lst = gwas_df['id'].tolist()
-gwas_traitname_lst = gwas_df['trait'].tolist()
-gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+#gwas_traitname_lst = gwas_df['trait'].tolist()
+#gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
 
 ###############################################################################
 # Tophits config (https://rdrr.io/github/MRCIEU/ieugwasr/man/tophits.html)

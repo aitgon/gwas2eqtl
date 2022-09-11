@@ -63,7 +63,7 @@ if (file.size(tophits_tsv_path) == 0L) {  # empty file
 
 # Load tophits
 tophits_df = read.table(tophits_tsv_path, sep = '\t', header = T)
-tophits_df = tophits_df[order(tophits_df$p), ]  # most significant first 
+tophits_df = tophits_df[order(tophits_df$p, decreasing=TRUE), ]  # less significant first, a priori not effect
 tophits_df = tophits_df[!duplicated(tophits_df[, c('chr', 'position', 'rsid', 'nea', 'ea')]), ]
 
 if (nrow(tophits_df) == 0) {  # not tophits
@@ -80,7 +80,7 @@ tophits_df = tophits_df %>% dplyr::rename(chrom = chr, pos = position, ref = nea
 # rsid = "rs3130663"
 # rsid_lst = c("rs9357094", "rs112702727", "rs17875360", "rs4711222", "rs3130663")
 for (rsid in unique(tophits_df$rsid)) {
-  # print(rsid)
+  print(rsid)
   chrom = tophits_df[tophits_df$rsid == rsid, "chrom"]
   pos = tophits_df[tophits_df$rsid == rsid, "pos"]
   start = tophits_df[tophits_df$rsid == rsid, "pos"] - window / 2
@@ -113,7 +113,7 @@ for (rsid in unique(tophits_df$rsid)) {
 
   # Load eqtl permuted and intersect gwas
   permuted_df = read.table(eqtl_permuted_path, sep = "\t", header = TRUE)
-  permuted_df = permuted_df %>% dplyr::rename(chrom = chromosome, pos = position, egene = molecular_trait_id)
+  permuted_df = permuted_df %>% dplyr::rename(chrom = chromosome, pos = position, egene = molecular_trait_object_id)
   permuted_df = permuted_df[permuted_df$p_perm < 0.01,]
   gwas_eqtl_permuted_df = merge(gwas_tbl, permuted_df, by = c("chrom", "pos"))
   # continue if regulatory QTL with beta-distribution permuted p value below 0.01 (bpval <0.01), 2021.Li.Mu.GenomeBiology.impactcelltype
@@ -124,7 +124,7 @@ for (rsid in unique(tophits_df$rsid)) {
   eqtl_tbl = seqminer::tabix.read.table(tabixFile = eqtl_all_path, tabixRange = region_i, stringsAsFactors = FALSE) %>% dplyr::as_tibble()
   if (nrow(eqtl_tbl) == 0) { next }  # continue if empty
   # rename columns
-  eqtl_cols = c("egene", "chrom", "pos", "ref", "alt", "variant", "ma_samples", "maf", "pvalue", "beta", "se", "type", "ac", "an", "r2", "molecular_trait_object_id", "gene_id", "median_tpm", "rsid")
+  eqtl_cols = c("molecular_trait_id", "chrom", "pos", "ref", "alt", "variant", "ma_samples", "maf", "pvalue", "beta", "se", "type", "ac", "an", "r2", "egene", "gene_id", "median_tpm", "rsid")
   colnames(eqtl_tbl) <- eqtl_cols
   # strip newlines
   eqtl_tbl$rsid = gsub("[\r\n]", "", eqtl_tbl$rsid)
@@ -144,6 +144,11 @@ for (rsid in unique(tophits_df$rsid)) {
     # print(egene)
 
     eqtl_egene_tbl = eqtl_tbl[eqtl_tbl$egene == egene, ]
+    
+    # remove duplicate snps
+    eqtl_egene_tbl = eqtl_egene_tbl[order(eqtl_egene_tbl$pvalue, decreasing=TRUE), ]  # less significant first, a priori not effect
+    eqtl_egene_tbl = eqtl_egene_tbl[!duplicated(eqtl_egene_tbl[, c('chrom', 'pos', 'rsid', 'ref', 'alt', 'egene')]), ]
+    
     if (nrow(eqtl_egene_tbl) == 0) { next }  # continue if empty gwas
 
     ################################################################################
