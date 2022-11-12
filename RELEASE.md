@@ -1,8 +1,9 @@
 **Changes in Version 0.1.2 (Nov. 12, 2022)**
 
-- ENH Real coloc of 418 GWAS
 - BUG Fixed missing MAFs
+- ENH Real coloc of 418 GWAS
 - RFR Refactored package
+- ENH Companion web portal, gwas2eqtl_web v 0.1.0
 
 **Changes In Version 0.1.1 (July 21, 2022)**
 
