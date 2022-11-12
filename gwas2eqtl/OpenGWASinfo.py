@@ -1,6 +1,6 @@
-from eqtl2gwas.Logger import Logger
-from eqtl2gwas.PathManager import PathManager
-from eqtl2gwas.constants import opengwas_metadata_url
+from gwas2eqtl.Logger import Logger
+from gwas2eqtl.PathManager import PathManager
+from gwas2eqtl.constants import opengwas_metadata_url
 from pandas import ExcelWriter
 
 import os

@@ -1,4 +1,4 @@
-from eqtl2gwas.BaseColoc import Base, Coloc
+from gwas2eqtl.BaseColoc import Base, Coloc
 from pandas import ExcelWriter
 from sqlalchemy import create_engine
 import csv
@@ -12,8 +12,8 @@ import sys
 # some Parameters
 #
 ###############################################################################
-from eqtl2gwas.Logger import Logger
-from eqtl2gwas.UCSCpysql import UCSCpysql
+from gwas2eqtl.Logger import Logger
+from gwas2eqtl.UCSCpysql import UCSCpysql
 
 eqtl_identifier_tsv_path = "config/eqtl_Kasela_2017_CD8.ods"
 gwas_identifier_ods_path = "config/gwas_ieu-a1162.ods"
