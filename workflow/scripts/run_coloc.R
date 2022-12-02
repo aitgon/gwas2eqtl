@@ -1,38 +1,41 @@
 suppressWarnings(suppressPackageStartupMessages({
+  library(coloc)
   library(DBI)
-  library(VariantAnnotation)
   library(dplyr)
+  library(gwasvcf)
+  library(VariantAnnotation)
 }))
 
 # PARAMS
+# gwas_id = "ebi-a-GCST002318"
+# eqtl_id = "Schmiedel_2018_ge_CD8_T-cell_naive"
 # window = 1000000
 # pval = 5e-08
-# r2 = 0.1
-# kb = 1000
-# tophits_tsv_path = sprintf("/home/gonzalez/Repositories/gwas2eqtl/out/maf/tophits/%s/pval_%s/r2_%.1f/kb_%d/hg38.tsv", gwas_id, as.character(pval), r2, kb)
+# tophits_tsv_path = "out/gwas418/tophits/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/hg38.tsv"
 # gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
-#eqtl_permuted_path = "/home/gonzalez/Software/process/fdr0.05/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.leadpair.tsv"
-# eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
-# out_tsv_path = "coloc.tsv"
-# eur_af_sqlite = "/home/gonzalez/Repositories/gwas2eqtl/out/maf/eur_af.sqlite"
 # eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
+# eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
+# eur_af_sqlite = "out/eur_af.sqlite"
+# out_tsv_path = "out/gwas418/coloc/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/window_1000000/Schmiedel_2018_ge_CD8_T-cell_naive.tsv"
 # END PARAMS
 
 args = commandArgs(trailingOnly=TRUE)
-if (length(args)!=8) {
-  stop("8 arguments must be supplied", call.=FALSE)
+if (length(args)!=10) {
+  stop("10 arguments must be supplied", call.=FALSE)
 }
-window = as.numeric(args[1])
-pval = as.numeric(args[2])
-tophits_tsv_path = args[3]
-gwas_vcf_path = args[4]
-eqtl_permuted_path = args[5]
-eqtl_all_path = args[6]
-eur_af_sqlite = args[7]
-out_tsv_path = args[8]
+gwas_id = args[1]
+eqtl_id = args[2]
+window = as.numeric(args[3])
+pval = as.numeric(args[4])
+tophits_tsv_path = args[5]
+gwas_vcf_path = args[6]
+eqtl_permuted_path = args[7]
+eqtl_all_path = args[8]
+eur_af_sqlite = args[9]
+out_tsv_path = args[10]
 
-eqtl_id = gsub(".all.tsv.gz", "", strsplit(eqtl_all_path, split = "/", fixed = T)[[1]][length(strsplit(eqtl_all_path, split = "/", fixed = T)[[1]])])
-gwas_id = strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]][length(strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]]) - 1]
+# eqtl_id = gsub(".all.tsv.gz", "", strsplit(eqtl_all_path, split = "/", fixed = T)[[1]][length(strsplit(eqtl_all_path, split = "/", fixed = T)[[1]])])
+# gwas_id = strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]][length(strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]]) - 1]
 
 dir.create(dirname(out_tsv_path), showWarnings = FALSE, recursive = TRUE)
 

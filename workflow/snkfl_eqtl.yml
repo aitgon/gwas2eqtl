@@ -21,10 +21,13 @@ eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t")
 # keep urls containing "ge" or "microarray"
 eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
 eqtl_id_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
-eqtl_df.index = eqtl_id_lst
+eqtl_df.index = sorted(eqtl_id_lst)
 
 ###############################################################################
-# PYTHONPATH=.:$PYTHONPATH snakemake -j 1 -s workflow/Snakefile_eqtl.yml -p --rerun-incomplete  --config  eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv public_data_dir=$HOME/Software/public process_data_dir=$HOME/Software/process region=genome
+# ONE eqtl_id
+# snakemake -j 1 -s workflow/snkfl_eqtl.yml -p --rerun-incomplete  --config  eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv public_data_dir=$HOME/Software/public
+# ALL eqtl_id's
+# snakemake -j 1 -s workflow/snkfl_eqtl.yml -p --rerun-incomplete  --config public_data_dir=$HOME/Software/public
 
 rule all_eqtl2:
     input:

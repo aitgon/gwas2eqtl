@@ -144,6 +144,21 @@ export GITHUB_PAT="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"
 /opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/gwasglue", upgrade="never")'
 /opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/ieugwasr")'
 
+#Rscript -e 'install.packages("BiocManager", repos = "https://cran.biotools.fr/")'
+#Rscript -e 'BiocManager::install("VariantAnnotation")'
+#Rscript -e 'install.packages(c("remotes", "devtools", "DBI"), repos = "https://cran.biotools.fr/")'
+#Rscript -e 'devtools::install_version("dplyr", repos = "https://cran.biotools.fr/")'
+#Rscript -e 'remotes::install_github("mrcieu/gwasvcf")'
+#Rscript -e 'remotes::install_github("mrcieu/ieugwasr")'
+#Rscript -e 'install.packages(c("coloc"), repos = "https://cran.biotools.fr/")'
+
+###############################################################################
+#
+# R: others
+#
+###############################################################################
+
+/opt/R/bin/Rscript -e 'install.packages(c("DBI"), repos = "https://cran.biotools.fr/")'
 
 ###############################################################################
 #

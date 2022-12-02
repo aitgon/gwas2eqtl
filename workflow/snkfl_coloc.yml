@@ -29,17 +29,14 @@ eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t")
 # keep urls containing "ge" or "microarray"
 eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
 eqtl_id_lst = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
-eqtl_df.index = eqtl_id_lst
+eqtl_df.index = sorted(eqtl_id_lst)
 #eqtl_fdr=str(config["eqtl_fdr"]) # gwas p-value, eg. 5e-8
 
 ###############################################################################
 # GWAS config
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-#gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
-gwas_id_lst = gwas_df['id'].tolist()
-#gwas_traitname_lst = gwas_df['trait'].tolist()
-#gwas_dic = dict(zip(gwas_id_lst, gwas_traitname_lst))
+gwas_id_lst = sorted(gwas_df['id'].tolist())
 
 ###############################################################################
 # Tophits config (https://rdrr.io/github/MRCIEU/ieugwasr/man/tophits.html)
@@ -47,7 +44,7 @@ pval = str(config["pval"])  # use this p-value threshold
 r2 = str(config["r2"])  # use this clumping r2 threshold
 kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
-"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/Snakefile_coloc.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite"""
+"""PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/snkfl_coloc.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite"""
 
 rule all_coloc2:
     input:
@@ -67,9 +64,11 @@ rule coloc:
     log:
         os.path.join(outdir, "logs", "coloc", "{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "window_" + window, "{eqtl_id}.tsv"),
     params:
+        gwas_id = "{gwas_id}",
+        eqtl_id = "{eqtl_id}",
         window = window,
         pval = pval,
     shell:
         """
-        Rscript workflow/scripts/run_coloc.R {params.window} {params.pval} {input.tophits_hg38_tsv} {input.gwas_vcf} {input.eqtl_permuted} {input.eqtl_all_gz} {input.eur_af_sqlite} {output.coloc_tsv}
+        Rscript workflow/scripts/run_coloc.R {params.gwas_id} {params.eqtl_id} {params.window} {params.pval} {input.tophits_hg38_tsv} {input.gwas_vcf} {input.eqtl_permuted} {input.eqtl_all_gz} {input.eur_af_sqlite} {output.coloc_tsv}
         """

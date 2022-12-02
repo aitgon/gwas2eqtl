@@ -1,28 +1,24 @@
-from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
-HTTP = HTTPRemoteProvider()
-
 import math
 import os
 import pandas
 
-###############################################################################
-# General config
+################################################################################
+# ONE GWAS
+# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418 outdir=out/gwas418
+# ALL GWAS
+# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418
+
 public_data_dir = config['public_data_dir']
 process_data_dir = config['process_data_dir']
 outdir = config['outdir']
-
-###############################################################################
-# GWAS config
 gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
+
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-#gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
-gwas_identifier_lst = gwas_df['id'].tolist()
-#gwas_traitname_lst = gwas_df['trait'].tolist()
-#gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+gwas_id_lst = sorted(gwas_df['id'].tolist())
 
 rule all_gwas:
     input:
-        expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
+        expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_id_lst),
 
 rule gwas_hg38_tbi:
     input:

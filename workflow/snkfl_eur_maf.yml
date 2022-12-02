@@ -1,19 +1,16 @@
-from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
-HTTP = HTTPRemoteProvider()
-
-import os
-import pandas
-from sqlalchemy import create_engine
-import shlex
 from gwas2eqtl.various import sql_insert_ignore
 from pathlib import Path
+from sqlalchemy import create_engine
+    
+import os
+import pandas
+import shlex
 
-"""
-ONE CHROM
-snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=21 outdir=out/maf --resources db_maf=1 --rerun-incomplete
-ALL CHROMS
-snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config  maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
-"""
+###############################################################################
+# ONE CHROM
+# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=22 outdir=out/maf --resources db_maf=1
+# ALL CHROMS
+# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
 
 ###############################################################################
 # General config
