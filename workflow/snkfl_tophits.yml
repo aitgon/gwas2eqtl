@@ -29,11 +29,11 @@ rule tophits_tsv_hg38:
         tophits_hg19_tsv=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.tsv"),
     run:
         hg19_tsv_df = pandas.read_csv(input[0], sep='\t')
-        hg19_tsv_df.rename({'chr': 'chrom', 'position': 'pos19', 'p': 'pval', 'nea': 'ref', 'ea': 'alt', 'id': 'gwas_id'}, axis=1, inplace=True)
+        hg19_tsv_df.rename({'chr': 'chrom', 'position': 'pos19', 'p': 'pval', 'id': 'gwas_id'}, axis=1, inplace=True)
         hg38_bed_df = pandas.read_csv(input[1], sep='\t', usecols=[0, 2, 3], names=['chrom', 'pos', 'rsid'])
         hg19_tsv_df.merge(hg38_bed_df, on=['chrom', 'rsid'])
         hg38_tsv_df = hg19_tsv_df.merge(hg38_bed_df, on=['chrom', 'rsid'])
-        hg38_tsv_df = hg38_tsv_df[['chrom', 'pos', 'rsid', 'ref', 'alt', 'pval', 'beta', 'n', 'se', 'gwas_id', 'eaf', 'pos19']]
+        hg38_tsv_df = hg38_tsv_df[['chrom', 'pos', 'rsid', 'nea', 'ea', 'pval', 'beta', 'n', 'se', 'gwas_id', 'eaf', 'pos19']]
         hg38_tsv_df.to_csv(output[0], sep="\t", header=True, index=False)
 
 rule tophits_bed_hg38:
