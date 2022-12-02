@@ -99,7 +99,7 @@ tophits_df = tophits_df %>% dplyr::rename(ref = nea, alt = ea, maf = eaf)  # ren
 # Loop over tophits
 # coloc_lead_rsid = "rs28411352"
 # rsid = "rs6930468"
-rsid = "rs11203201"
+coloc_lead_rsid = "rs80054410"
 # rsid_lst = c("rs9357094", "rs112702727", "rs17875360", "rs4711222", "rs3130663")
 for (coloc_lead_rsid in unique(tophits_df$rsid)) {
   chrom = tophits_df[tophits_df$rsid == coloc_lead_rsid, "chrom"]
@@ -214,7 +214,7 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
       "variant_id"
     )
     merge_df = merge_df[, coloc_cols]
-    merge_df = na.omit(merge_df)
+    # merge_df = na.omit(merge_df)
     if (nrow(merge_df) == 0) {
       next
     }  # continue if empty merge
@@ -288,7 +288,7 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
     
     coloc_df = coloc_res$results[, c('snp', 'SNP.PP.H4')]
     # coloc_df = coloc_df[coloc_df$SNP.PP.H4 > 0.2,]
-    coloc_df = dplyr::rename(coloc_df, variant_id = snp)
+    coloc_df = dplyr::rename(coloc_df, rsid = snp)
     
     coloc_df = coloc_df %>% dplyr::mutate(nsnps = coloc_res$summary[['nsnps']])
     coloc_df = coloc_df %>% dplyr::mutate(PP.H4.abf = coloc_res$summary[['PP.H4.abf']])
@@ -313,7 +313,7 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
     snp_info_df = merge_df[, merge_cols]
     # coloc_cols = c("chrom", "pos", "rsid", "ref", "alt", "egene", "SNP.PP.H4", 'PP.H4.abf', 'PP.H3.abf', 'PP.H2.abf', 'PP.H1.abf', 'PP.H0.abf', "nsnps")
     # coloc_df = coloc_df[, coloc_cols]
-    coloc_df = merge(snp_info_df, coloc_df, by = "variant_id")
+    coloc_df = merge(snp_info_df, coloc_df, by = "rsid")
     # print(244)
     # rename columns
     # coloc_df = dplyr::rename(coloc_df, egene=gene_id, eqtl_beta=beta, eqtl_pvalue=pvalue, gwas_beta=ES, gwas_pvalue=LP)
@@ -323,7 +323,7 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
     coloc_df$gwas_id = gwas_id
     coloc_df$eqtl_id = eqtl_id
     coloc_df$coloc_lead_pos = pos
-    coloc_df$coloc_lead_variant = coloc_lead_variant_id
+    # coloc_df$coloc_lead_variant = coloc_lead_variant_id
     coloc_df$coloc_region = coloc_lead_region
     # coloc_df$gwas_pvalue = exp(-coloc_df$gwas_pvalue)  # change -log10 pval to pval
     coloc_df = coloc_df[, out_cols]
