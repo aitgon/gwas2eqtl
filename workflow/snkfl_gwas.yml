@@ -8,10 +8,10 @@ import pandas
 # ALL GWAS
 # snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418
 
-public_data_dir = config['public_data_dir']
-process_data_dir = config['process_data_dir']
+gwas_ods_path = config["gwas_ods"]
 outdir = config['outdir']
-gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
+process_data_dir = config['process_data_dir']
+public_data_dir = config['public_data_dir']
 
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
 gwas_id_lst = sorted(gwas_df['id'].tolist())

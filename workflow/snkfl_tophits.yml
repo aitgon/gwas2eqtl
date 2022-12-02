@@ -2,7 +2,7 @@ import os
 import pandas
 
 ###############################################################################
-#snakemake --cores all -s workflow/snkfl_tophits.yml --config gwas_ods=config/gwas_ebi-a-GCST002318.ods  pval=5e-8 r2=0.1 kb=1000 outdir=out/gwas418 public_data_dir=/home/gonzalez/Software/public
+# snakemake --cores all -s workflow/snkfl_tophits.yml --config gwas_ods=config/gwas_ebi-a-GCST002318.ods  pval=5e-8 r2=0.1 kb=1000 outdir=out/gwas418 public_data_dir=/home/gonzalez/Software/public
 
 ###############################################################################
 # General config

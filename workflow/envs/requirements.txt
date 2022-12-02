@@ -1,13 +1,12 @@
 CrossMap
 odfpy
 pandas
+pandas
+psycopg2-binary
 pymysql
 recommonmark
 requests
 snakemake
-sphinx_rtd_theme
 sqlalchemy
 statsmodels
 termcolor
-sqlalchemy
-pandas
