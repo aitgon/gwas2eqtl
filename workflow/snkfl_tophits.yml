@@ -14,7 +14,7 @@ r2 = str(config["r2"])  # use this clumping r2 threshold
 kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-gwas_id_lst = gwas_df['id'].tolist()
+gwas_id_lst = sorted(gwas_df['id'].tolist())
 
 
 rule all_tophits2:
