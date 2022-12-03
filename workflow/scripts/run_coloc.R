@@ -106,13 +106,13 @@ if (nrow(permuted_df) == 0) {
 
 ################################################################################
 # Loop over tophits
-# coloc_lead_variant_id = "21_42415901_T_C"
-for (coloc_lead_variant_id in unique(tophits_df$variant_id)) {
-  chrom = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "chrom"]
-  pos = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "pos"]
-  start = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "pos"] - window / 2
+# coloc_variant_id = "21_42415901_T_C"
+for (coloc_variant_id in unique(tophits_df$variant_id)) {
+  chrom = tophits_df[tophits_df$variant_id == coloc_variant_id, "chrom"]
+  pos = tophits_df[tophits_df$variant_id == coloc_variant_id, "pos"]
+  start = tophits_df[tophits_df$variant_id == coloc_variant_id, "pos"] - window / 2
   if (start < 1) { start = 1 }
-  end = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "pos"] + window / 2 - 1
+  end = tophits_df[tophits_df$variant_id == coloc_variant_id, "pos"] + window / 2 - 1
   if (chrom==6 & pos >= 25000000 & pos <= 35000000) { next }  # continue if MHC locus
   coloc_lead_region = paste0(chrom, ":", start, "-", end)
 #   print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_lead_region))
@@ -259,7 +259,7 @@ for (coloc_lead_variant_id in unique(tophits_df$variant_id)) {
     coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H1.abf = coloc_res$summary[['PP.H1.abf']])
     coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H0.abf = coloc_res$summary[['PP.H0.abf']])
     if (nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ]) > 0) {
-      print( sprintf( "%s %s %s %s %s nb colocs: %d", gwas_id, eqtl_id, coloc_lead_variant_id, coloc_lead_region, molecular_trait_id, nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ])) )
+      print( sprintf( "%s %s %s %s %s nb colocs: %d", gwas_id, eqtl_id, coloc_variant_id, coloc_lead_region, molecular_trait_id, nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ])) )
     }
     
     # print(237)
@@ -284,7 +284,7 @@ for (coloc_lead_variant_id in unique(tophits_df$variant_id)) {
     out_coloc_df$eqtl_gene_id = unique(eqtl_molecular_trait_id_tbl$eqtl_gene_id)
     out_coloc_df$gwas_id = gwas_id
     out_coloc_df$eqtl_id = eqtl_id
-    out_coloc_df$coloc_lead_variant = coloc_lead_variant_id
+    out_coloc_df$coloc_variant_id = coloc_variant_id
     out_coloc_df$coloc_region = coloc_lead_region
     # coloc_df$gwas_pvalue = exp(-coloc_df$gwas_pvalue)  # change -log10 pval to pval
     out_coloc_df = out_coloc_df[, out_cols]
