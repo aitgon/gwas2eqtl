@@ -258,7 +258,10 @@ for (coloc_lead_variant_id in unique(tophits_df$variant_id)) {
     coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H2.abf = coloc_res$summary[['PP.H2.abf']])
     coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H1.abf = coloc_res$summary[['PP.H1.abf']])
     coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H0.abf = coloc_res$summary[['PP.H0.abf']])
-    print( sprintf( "%s %s %s %s %s nb colocs: %d", gwas_id, eqtl_id, coloc_lead_variant_id, coloc_lead_region, molecular_trait_id, nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ])) )
+    if (nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ]) > 0) {
+      print( sprintf( "%s %s %s %s %s nb colocs: %d", gwas_id, eqtl_id, coloc_lead_variant_id, coloc_lead_region, molecular_trait_id, nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ])) )
+    }
+    
     # print(237)
     # merge coloc results and input
     cols_select = c(
