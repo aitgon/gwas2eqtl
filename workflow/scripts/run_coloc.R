@@ -7,16 +7,16 @@ suppressWarnings(suppressPackageStartupMessages({
 }))
 
 # PARAMS
-gwas_id = "ebi-a-GCST002318"
-eqtl_id = "Schmiedel_2018_ge_CD8_T-cell_naive"
-window = 1000000
-pval = 5e-08
-tophits_tsv_path = "out/gwas418/tophits/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/hg38.tsv"
-gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
-eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
-eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
-eur_af_sqlite = "out/eur_af.sqlite"
-out_tsv_path = "out/gwas418/coloc/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/window_1000000/Schmiedel_2018_ge_CD8_T-cell_naive.tsv"
+# gwas_id = "ebi-a-GCST002318"
+# eqtl_id = "Schmiedel_2018_ge_CD8_T-cell_naive"
+# window = 1000000
+# pval = 5e-08
+# tophits_tsv_path = "out/gwas418/tophits/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/hg38.tsv"
+# gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
+# eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
+# eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
+# eur_af_sqlite = "out/eur_af.sqlite"
+# out_tsv_path = "out/gwas418/coloc/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/window_1000000/Schmiedel_2018_ge_CD8_T-cell_naive.tsv"
 # END PARAMS
 
 args = commandArgs(trailingOnly=TRUE)
