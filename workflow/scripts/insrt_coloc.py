@@ -42,18 +42,20 @@ for gwas_id in gwas_identifier_lst:
         print("GWAS counter: " + str(gwas_counter))
     for eqtl_id in eqtl_identifier_lst:
         coloc_tsv_path = coloc_path_strf.format(**{'gwas_id': gwas_id, 'eqtl_id': eqtl_id})
+        # import pdb; pdb.set_trace()
         if os.path.isfile(coloc_tsv_path):
             df = pandas.read_csv(coloc_tsv_path, sep="\t")
             df.columns = [c.lower() for c in df.columns]  # change to lower case
             df.columns = [c.replace('.', '_') for c in df.columns]  # replace dots with underline
             df['rsid'] = df['rsid'].str.replace('rs', '').astype(int)
             df_index = df['chrom'].astype(str) + "_" + df['pos'].astype(str) + "_" + df['eqtl_gene_id'] + "_" \
-                       + df['gwas_id'] + "_" + df['eqtl_id'] + "_" + df['coloc_lead_variant']
+                       + df['gwas_id'] + "_" + df['eqtl_id'] + "_" + df['coloc_variant_id']
             df.set_index(df_index, inplace=True, verify_integrity=True)
             df.index.rename('id', inplace=True)
             # Delete data if exists and insert
             coloc_tab = Base.metadata.tables['coloc']
             stmt = coloc_tab.delete().where(coloc_tab.c.gwas_id==gwas_id).where(coloc_tab.c.eqtl_id==eqtl_id)
             engine.execute(stmt)
+            # import pdb; pdb.set_trace()
             df = df[[c.key for c in coloc_tab.columns][1:]]
             df.to_sql('coloc', con=engine, if_exists='append', index=True, index_label='id')

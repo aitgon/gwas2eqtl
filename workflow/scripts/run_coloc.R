@@ -70,7 +70,7 @@ out_cols = c(
   "PP.H2.abf",
   "PP.H1.abf",
   "PP.H0.abf",
-  "coloc_lead_variant",
+  "coloc_variant_id",
   "coloc_region"
 )
 out_df = data.frame(matrix(vector(), 0, length(out_cols), dimnames = list(c(), out_cols)), stringsAsFactors = F)
