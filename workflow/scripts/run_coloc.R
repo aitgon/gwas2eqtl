@@ -56,7 +56,7 @@ out_cols = c(
   "rsid",
   "ref",
   "alt",
-  "gene_id",
+  "eqtl_gene_id",
   "gwas_beta",
   "gwas_pval",
   "gwas_id",
@@ -70,7 +70,6 @@ out_cols = c(
   "PP.H2.abf",
   "PP.H1.abf",
   "PP.H0.abf",
-  "coloc_lead_pos",
   "coloc_lead_variant",
   "coloc_region"
 )
@@ -82,34 +81,41 @@ if (file.size(tophits_tsv_path) == 0L) {  # empty file
   quit(save = "no", status = 0, runLast = FALSE)
 }
 
+################################################################################
 # Load tophits
 tophits_df = read.table(tophits_tsv_path, sep = '\t', header = T)
 tophits_df = tophits_df[order(tophits_df$pval, decreasing=TRUE), ]  # less significant first, a priori not effect
 tophits_df = tophits_df[!duplicated(tophits_df[, c('chrom', 'pos', 'nea', 'ea')]), ]
 tophits_df = tophits_df[order(tophits_df$chrom, tophits_df$pos),]
-
 if (nrow(tophits_df) == 0) {  # not tophits
   write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
   quit(save = "no", status = 0, runLast = FALSE)
 }
-
 tophits_df = tophits_df %>% dplyr::rename(ref = nea, alt = ea, maf = eaf)  # rename maf column
+tophits_df$variant_id = paste(tophits_df$chrom, tophits_df$pos, tophits_df$ref, tophits_df$alt, sep="_")
+
+################################################################################
+# Load eqtl permuted df
+permuted_df = read.table(eqtl_permuted_path, sep = "\t", header = TRUE)
+permuted_df = permuted_df[permuted_df$p_perm < 0.01,]
+# stop if regulatory QTL with beta-distribution permuted p value below 0.01 (bpval <0.01), 2021.Li.Mu.GenomeBiology.impactcelltype
+if (nrow(permuted_df) == 0) {
+  write.table(out_df, out_tsv_path, quote = F, sep = "\t", row.names = F, append = F, col.names = T)
+  quit(save = "no", status = 0, runLast = FALSE)
+  }
 
 ################################################################################
 # Loop over tophits
-# coloc_lead_rsid = "rs28411352"
-# rsid = "rs6930468"
-coloc_lead_rsid = "rs80054410"
-# rsid_lst = c("rs9357094", "rs112702727", "rs17875360", "rs4711222", "rs3130663")
-for (coloc_lead_rsid in unique(tophits_df$rsid)) {
-  chrom = tophits_df[tophits_df$rsid == coloc_lead_rsid, "chrom"]
-  pos = tophits_df[tophits_df$rsid == coloc_lead_rsid, "pos"]
-  start = tophits_df[tophits_df$rsid == coloc_lead_rsid, "pos"] - window / 2
+# coloc_lead_variant_id = "21_42415901_T_C"
+for (coloc_lead_variant_id in unique(tophits_df$variant_id)) {
+  chrom = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "chrom"]
+  pos = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "pos"]
+  start = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "pos"] - window / 2
   if (start < 1) { start = 1 }
-  end = tophits_df[tophits_df$rsid == coloc_lead_rsid, "pos"] + window / 2 - 1
+  end = tophits_df[tophits_df$variant_id == coloc_lead_variant_id, "pos"] + window / 2 - 1
   if (chrom==6 & pos >= 25000000 & pos <= 35000000) { next }  # continue if MHC locus
   coloc_lead_region = paste0(chrom, ":", start, "-", end)
-  print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_lead_region))
+#   print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_lead_region))
 
   ################################################################################
   # Load gwas summary statistics
@@ -119,102 +125,57 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
   if (length(gwas_vcf) == 0) { next }  # continue if empty gwas
   gwas_tbl <- gwas_vcf %>% gwasvcf::vcf_to_granges() %>% dplyr::as_tibble()
 
-  gwas_tbl = gwas_tbl %>% dplyr::rename(chrom = seqnames, pos = start, rsid = ID, ref = REF, alt = ALT, gwas_maf = AF, gwas_beta = ES)  # rename columns
+  gwas_tbl = gwas_tbl %>% dplyr::rename(chrom = seqnames, pos = start, rsid = ID, ref = REF, alt = ALT, gwas_beta = ES, gwas_maf = AF, gwas_id=id, gwas_ss=SS, gwas_se=SE)  # rename columns
   gwas_tbl$gwas_pval = 10^-gwas_tbl$LP
-  gwas_tbl = gwas_tbl[!duplicated(gwas_tbl$rsid),]  # keep unique RSIDs
+  col_select=c('chrom', 'pos', 'rsid' , 'ref', 'alt', 'gwas_pval', 'gwas_beta', 'gwas_maf', 'gwas_se', 'gwas_ss')
+  gwas_tbl = gwas_tbl[, col_select]
+  gwas_tbl$variant_id = paste(gwas_tbl$chrom, gwas_tbl$pos, gwas_tbl$ref, gwas_tbl$alt, sep="_")
+  gwas_tbl = gwas_tbl[!duplicated(gwas_tbl$variant_id),]  # keep unique RSIDs
   gwas_tbl = gwas_tbl[!is.na(gwas_tbl$gwas_beta),]  # keep non-null effect size/Z
-  gwas_tbl = gwas_tbl[!is.na(gwas_tbl$SE),]  # remove non-null se
-  gwas_tbl = gwas_tbl[!is.na(gwas_tbl$SS),]  # keep non-null ss
+  gwas_tbl = gwas_tbl[!is.na(gwas_tbl$gwas_se),]  # remove non-null se
+  gwas_tbl = gwas_tbl[!is.na(gwas_tbl$gwas_ss),]  # keep non-null ss
   if (nrow(gwas_tbl) == 0) { next }  # continue if empty gwas
 
   # Load eqtl permuted and intersect gwas
-  permuted_df = read.table(eqtl_permuted_path, sep = "\t", header = TRUE)
-  # permuted_df = permuted_df %>% dplyr::rename(chrom = chromosome, pos = position, egene = molecular_trait_object_id)
-  # permuted_df = permuted_df[permuted_df$p_perm < 0.01,]
-  # gwas_eqtl_permuted_df = merge(gwas_tbl, permuted_df, by = c("chrom", "pos"))
-  gwas_eqtl_permuted_1_df = dplyr::filter(permuted_df, chrom == chrom & pos >= start & pos <= end)
-  gwas_eqtl_permuted_df = gwas_eqtl_permuted_1_df[gwas_eqtl_permuted_1_df$chrom == chrom,]
-  # continue if regulatory QTL with beta-distribution permuted p value below 0.01 (bpval <0.01), 2021.Li.Mu.GenomeBiology.impactcelltype
-  if (nrow(gwas_eqtl_permuted_df) == 0) { next }
+  permuted_chrom_df = permuted_df[permuted_df$chrom == chrom,]
+  permuted_start_df = permuted_chrom_df[permuted_chrom_df$pos >= start,]
+  permuted_region_df = permuted_start_df[permuted_start_df$pos <= end,]
 
   ################################################################################
   # Load eqtls summary statistics
   eqtl_tbl = seqminer::tabix.read.table(tabixFile = eqtl_all_path, tabixRange = coloc_lead_region, stringsAsFactors = FALSE) %>% dplyr::as_tibble()
   if (nrow(eqtl_tbl) == 0) { next }  # continue if empty
   # rename columns
-  eqtl_cols = c("molecular_trait_id", "chrom", "pos", "ref", "alt", "variant", "ma_samples", "eqtl_maf", "eqtl_pval", "eqtl_beta", "se", "type", "ac", "an", "r2", "egene", "gene_id", "median_tpm", "rsid")
+  eqtl_cols = c("molecular_trait_id", "chrom", "pos", "ref", "alt", "variant_id", "ma_samples", "eqtl_maf", "eqtl_pval", "eqtl_beta", "eqtl_se", "type", "ac", "eqtl_an", "r2", "molecular_trait_object_id", "eqtl_gene_id", "median_tpm", "rsid")
   colnames(eqtl_tbl) <- eqtl_cols
-  # strip newlines
-  eqtl_tbl$rsid = gsub("[\r\n]", "", eqtl_tbl$rsid)
+  col_sel = c("molecular_trait_id", "chrom", "pos", "ref", "alt", "variant_id", "eqtl_maf", "eqtl_pval", "eqtl_beta", "eqtl_se", "eqtl_an", "eqtl_gene_id", "rsid")
+  eqtl_tbl = eqtl_tbl[, col_sel]
+  eqtl_tbl$variant_id = gsub("chr", "", eqtl_tbl$variant_id)  # strip newlines
+  eqtl_tbl$rsid = gsub("[\r\n]", "", eqtl_tbl$rsid)  # strip newlines
 
   eqtl_tbl = eqtl_tbl[eqtl_tbl$eqtl_maf<1, ]  # keep MAF<1
   eqtl_tbl = eqtl_tbl[eqtl_tbl$eqtl_maf>0, ]  # keep MAF>0
   # eqtl_tbl = eqtl_tbl[!duplicated(eqtl_tbl$rsid), ]  # keep non-duplicated RSIDs
   eqtl_tbl = eqtl_tbl[!is.na(eqtl_tbl$eqtl_beta),]  # keep non-null effect size, z, beta
-  eqtl_tbl = eqtl_tbl[!is.na(eqtl_tbl$se),]  # remove non-null se
+  eqtl_tbl = eqtl_tbl[!is.na(eqtl_tbl$eqtl_se),]  # remove non-null se
   if (nrow(eqtl_tbl) == 0) { next }  # continue if empty gwas
 
   ####################### Loop over moleculear trait id
-  # egene_lst = unique(gwas_eqtl_permuted_df$egene)
-  molecular_trait_id_lst = unique(gwas_eqtl_permuted_df$molecular_trait_id)
-  # egene="ENSG00000204084"
-  molecular_trait_id = "ENSG00000160185"
+  molecular_trait_id_lst = unique(permuted_region_df$molecular_trait_id)
+  # molecular_trait_id = "ENSGs00000160185"
   for (molecular_trait_id in molecular_trait_id_lst) {
-    # print(
-    #   sprintf(
-    #     "%s %s %s %s %s %s",
-    #     gwas_id,
-    #     eqtl_id,
-    #     chrom,
-    #     pos,
-    #     coloc_lead_rsid,
-    #     molecular_trait_id
-    #   )
-    # )
-
     eqtl_molecular_trait_id_tbl = eqtl_tbl[eqtl_tbl$molecular_trait_id == molecular_trait_id,]
-    
-    # remove duplicate snps
-    # eqtl_egene_tbl = eqtl_egene_tbl[order(eqtl_egene_tbl$pvalue, decreasing=TRUE), ]  # less significant first, a priori not effect
-    # eqtl_egene_tbl = eqtl_egene_tbl[!duplicated(eqtl_egene_tbl[, c('chrom', 'pos', 'rsid', 'ref', 'alt', 'egene')]), ]
-    
+
     if (nrow(eqtl_molecular_trait_id_tbl) == 0) { next }  # continue if empty gwas
 
     ################################################################################
     # Coloc
 
-    # eqtl_egene_tbl = eqtl_egene_tbl %>% dplyr::rename(eqtl_beta = beta, eqtl_pval = pvalue, eqtl_maf = maf)  # rename
-
     # merge gwas and eqtl
     merge_df = merge(gwas_tbl,
                      eqtl_molecular_trait_id_tbl,
-                     by = c("chrom", "pos", "ref", "alt", "rsid"))
-    # create variant_id based on chrom, pos, ref and alt
-    merge_df$variant_id = paste(merge_df$chrom,
-                                merge_df$pos,
-                                merge_df$ref,
-                                merge_df$alt,
-                                sep = "_")
-    coloc_cols = c(
-      "chrom",
-      "pos",
-      "rsid",
-      "ref",
-      "alt",
-      "gwas_pval",
-      "gwas_beta",
-      "gwas_maf",
-      "SS",
-      "SE",
-      "eqtl_pval",
-      "eqtl_beta",
-      "eqtl_maf",
-      "an",
-      "se",
-      "variant_id"
-    )
-    merge_df = merge_df[, coloc_cols]
-    # merge_df = na.omit(merge_df)
+                     by = c("chrom", "pos", "ref", "alt", "rsid", "variant_id"))
+
     if (nrow(merge_df) == 0) {
       next
     }  # continue if empty merge
@@ -233,6 +194,7 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
                                alt = merge_df$alt
       ))
       gwas_maf_df = dbFetch(query)
+#       dbClearResult(gwas_maf_df)
       dbDisconnect(con)
       # gwas_maf_df = subset(gwas_maf_df, select = -c(pos) )  # drop pos hg19
       gwas_maf_df = gwas_maf_df %>% dplyr::rename(chrom = chrom,
@@ -251,29 +213,28 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
     # Format for coloc
     type1 = 'quant'
 
-    gwas_coloc_lst = merge_df %>% {
-      list(
-        pvalues = .$gwas_pval,
-        N = .$SS,
-        MAF = .$gwas_maf,
-        beta = .$gwas_beta,
-        varbeta = .$SE ^ 2,
+    gwas_coloc_lst = list(
+        pvalues = merge_df$gwas_pval,
+        N = merge_df$gwas_ss,
+        MAF = merge_df$gwas_maf,
+        beta = merge_df$gwas_beta,
+        varbeta = merge_df$gwas_se ^ 2,
         type = type1,
-        snp = .$rsid,
-        z = .$gwas_beta / .$SE,
+        snp = merge_df$variant_id,
+        z = merge_df$gwas_beta / merge_df$gwas_se,
         id = gwas_id
       )
-    }
     
     eqtl_coloc_lst = list(
       pvalues = merge_df$eqtl_pval,
-      N = (merge_df$an)[1] / 2,
+      N = (merge_df$eqtl_an)[1] / 2,
       # Samples size is allele number (AN) dvided by 2
       MAF = merge_df$eqtl_maf,
       beta = merge_df$eqtl_beta,
-      varbeta = merge_df$se ^ 2,
+      varbeta = merge_df$eqtl_se ^ 2,
       type = type1,
-      snp = merge_df$rsid,
+      snp = merge_df$variant_id,
+      z = merge_df$eqtl_beta / merge_df$eqtl_se,
       id = eqtl_id
     )
 
@@ -282,23 +243,25 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
       coloc_res <- coloc::coloc.abf(gwas_coloc_lst, eqtl_coloc_lst)
     ))
     options(warn = 0)  # turn on warning
-    print(coloc_res)
+    # print(coloc_res)
     ################################################################################
     # Format output
     
-    coloc_df = coloc_res$results[, c('snp', 'SNP.PP.H4')]
-    # coloc_df = coloc_df[coloc_df$SNP.PP.H4 > 0.2,]
-    coloc_df = dplyr::rename(coloc_df, rsid = snp)
+    coloc_res_df = coloc_res$results[, c('snp', 'SNP.PP.H4')]
     
-    coloc_df = coloc_df %>% dplyr::mutate(nsnps = coloc_res$summary[['nsnps']])
-    coloc_df = coloc_df %>% dplyr::mutate(PP.H4.abf = coloc_res$summary[['PP.H4.abf']])
-    coloc_df = coloc_df %>% dplyr::mutate(PP.H3.abf = coloc_res$summary[['PP.H3.abf']])
-    coloc_df = coloc_df %>% dplyr::mutate(PP.H2.abf = coloc_res$summary[['PP.H2.abf']])
-    coloc_df = coloc_df %>% dplyr::mutate(PP.H1.abf = coloc_res$summary[['PP.H1.abf']])
-    coloc_df = coloc_df %>% dplyr::mutate(PP.H0.abf = coloc_res$summary[['PP.H0.abf']])
+    # coloc_res_df = coloc_res_df[coloc_df$SNP.PP.H4 > 0.2,]
+    coloc_res_df = dplyr::rename(coloc_res_df, variant_id = snp)
+    
+    coloc_res_df = coloc_res_df %>% dplyr::mutate(nsnps = coloc_res$summary[['nsnps']])
+    coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H4.abf = coloc_res$summary[['PP.H4.abf']])
+    coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H3.abf = coloc_res$summary[['PP.H3.abf']])
+    coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H2.abf = coloc_res$summary[['PP.H2.abf']])
+    coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H1.abf = coloc_res$summary[['PP.H1.abf']])
+    coloc_res_df = coloc_res_df %>% dplyr::mutate(PP.H0.abf = coloc_res$summary[['PP.H0.abf']])
+    print( sprintf( "%s %s %s %s %s nb colocs: %d", gwas_id, eqtl_id, coloc_lead_variant_id, coloc_lead_region, molecular_trait_id, nrow(coloc_res_df[coloc_res_df$PP.H4.abf>=0.8, ])) )
     # print(237)
     # merge coloc results and input
-    merge_cols = c(
+    cols_select = c(
       "chrom",
       "pos",
       "rsid",
@@ -310,25 +273,20 @@ for (coloc_lead_rsid in unique(tophits_df$rsid)) {
       "eqtl_pval",
       'variant_id'
     )
-    snp_info_df = merge_df[, merge_cols]
-    # coloc_cols = c("chrom", "pos", "rsid", "ref", "alt", "egene", "SNP.PP.H4", 'PP.H4.abf', 'PP.H3.abf', 'PP.H2.abf', 'PP.H1.abf', 'PP.H0.abf', "nsnps")
-    # coloc_df = coloc_df[, coloc_cols]
-    coloc_df = merge(snp_info_df, coloc_df, by = "rsid")
-    # print(244)
-    # rename columns
-    # coloc_df = dplyr::rename(coloc_df, egene=gene_id, eqtl_beta=beta, eqtl_pvalue=pvalue, gwas_beta=ES, gwas_pvalue=LP)
+    snp_info_df = merge_df[, cols_select]
+    out_coloc_df = merge(snp_info_df, coloc_res_df, by = "variant_id")
+
     # add columns
-    coloc_df$molecular_trait_id = molecular_trait_id
-    coloc_df$gene_id = unique(eqtl_molecular_trait_id_tbl$gene_id)
-    coloc_df$gwas_id = gwas_id
-    coloc_df$eqtl_id = eqtl_id
-    coloc_df$coloc_lead_pos = pos
-    # coloc_df$coloc_lead_variant = coloc_lead_variant_id
-    coloc_df$coloc_region = coloc_lead_region
+    out_coloc_df$molecular_trait_id = molecular_trait_id
+    out_coloc_df$eqtl_gene_id = unique(eqtl_molecular_trait_id_tbl$eqtl_gene_id)
+    out_coloc_df$gwas_id = gwas_id
+    out_coloc_df$eqtl_id = eqtl_id
+    out_coloc_df$coloc_lead_variant = coloc_lead_variant_id
+    out_coloc_df$coloc_region = coloc_lead_region
     # coloc_df$gwas_pvalue = exp(-coloc_df$gwas_pvalue)  # change -log10 pval to pval
-    coloc_df = coloc_df[, out_cols]
+    out_coloc_df = out_coloc_df[, out_cols]
     # print(dim(coloc_df))
-    out_df = rbind(out_df, coloc_df)
+    out_df = rbind(out_df, out_coloc_df)
   }
 }
 # print(260)

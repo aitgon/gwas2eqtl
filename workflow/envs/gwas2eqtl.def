@@ -151,6 +151,7 @@ export GITHUB_PAT="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"
 ###############################################################################
 
 /opt/R/bin/Rscript -e 'install.packages(c("DBI"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages(c("R.utils"), repos = "https://cran.biotools.fr/")'
 
 ###############################################################################
 #
