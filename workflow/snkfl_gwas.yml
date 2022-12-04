@@ -39,11 +39,11 @@ rule gwas_liftover_hg38:
         vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
         reject_vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
     resources:
-        mem_mb= 20000
+        mem_mb=10000
     log:
         os.path.join("out/logs", "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.log"),
     shell:
-        "java -jar {input.jar} LiftoverVcf --VERBOSITY ERROR --QUIET -I {input.vcf_gz} -O {output.vcf_bgz}  -CHAIN {input.chain_gz} -R {input.fa_gz} -REJECT {output.reject_vcf_bgz}"
+        "java -Xmx{resources.mem_mb}M -jar {input.jar} LiftoverVcf --VERBOSITY ERROR --QUIET -I {input.vcf_gz} -O {output.vcf_bgz}  -CHAIN {input.chain_gz} -R {input.fa_gz} -REJECT {output.reject_vcf_bgz}"
 
 rule picard_ref_dict:
     input:
