@@ -4,9 +4,9 @@ channels:
   - bioconda
 dependencies:
   - anaconda::libopenblas
-  - bioconda::bcftools
-  - bioconda::samtools
-  - bioconda::tabix
-  - pip
+  - bioconda::bcftools=1.11
+  - bioconda::samtools=1.6
+  - bioconda::tabix=1.11
+  - conda-forge::pip
   - pip:
     - -r requirements.txt

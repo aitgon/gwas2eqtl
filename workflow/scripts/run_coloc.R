@@ -7,16 +7,16 @@ suppressWarnings(suppressPackageStartupMessages({
 }))
 
 # PARAMS
-# gwas_id = "ebi-a-GCST002318"
-# eqtl_id = "Schmiedel_2018_ge_CD8_T-cell_naive"
-# window = 1000000
-# pval = 5e-08
-# tophits_tsv_path = "out/gwas418/tophits/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/hg38.tsv"
-# gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ebi-a-GCST002318/ebi-a-GCST002318.vcf.bgz"
-# eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.permuted.tsv.gz"
-# eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz"
-# eur_af_sqlite = "out/eur_af.sqlite"
-# out_tsv_path = "out/gwas418/coloc/ebi-a-GCST002318/pval_5e-08/r2_0.1/kb_1000/window_1000000/Schmiedel_2018_ge_CD8_T-cell_naive.tsv"
+gwas_id = "ieu-a-801"
+eqtl_id = "Kasela_2017_microarray_T-cell_CD8"
+window = 1000000
+pval = 5e-08
+tophits_tsv_path = "out/gwas418/tophits/ieu-a-801/pval_5e-08/r2_0.1/kb_1000/hg38.tsv"
+gwas_vcf_path = "/home/gonzalez/Software/process/hg38/gwas.mrcieu.ac.uk/files/ieu-a-801/ieu-a-801.vcf.bgz"
+eqtl_permuted_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.permuted.tsv.gz"
+eqtl_all_path = "/home/gonzalez/Software/public/ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Kasela_2017/microarray/Kasela_2017_microarray_T-cell_CD8.all.tsv.gz"
+eur_af_sqlite = "out/eur_af.sqlite"
+out_tsv_path = "out/gwas418/coloc/ieu-a-801/pval_5e-08/r2_0.1/kb_1000/window_1000000/Kasela_2017_microarray_T-cell_CD8.tsv"
 # END PARAMS
 
 args = commandArgs(trailingOnly=TRUE)
@@ -33,9 +33,6 @@ eqtl_permuted_path = args[7]
 eqtl_all_path = args[8]
 eur_af_sqlite = args[9]
 out_tsv_path = args[10]
-
-# eqtl_id = gsub(".all.tsv.gz", "", strsplit(eqtl_all_path, split = "/", fixed = T)[[1]][length(strsplit(eqtl_all_path, split = "/", fixed = T)[[1]])])
-# gwas_id = strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]][length(strsplit(gwas_vcf_path, split = "/", fixed = T)[[1]]) - 1]
 
 dir.create(dirname(out_tsv_path), showWarnings = FALSE, recursive = TRUE)
 
@@ -106,7 +103,7 @@ if (nrow(permuted_df) == 0) {
 
 ################################################################################
 # Loop over tophits
-# coloc_variant_id = "21_42415901_T_C"
+coloc_variant_id = "10_60519366_C_T"
 for (coloc_variant_id in unique(tophits_df$variant_id)) {
   chrom = tophits_df[tophits_df$variant_id == coloc_variant_id, "chrom"]
   pos = tophits_df[tophits_df$variant_id == coloc_variant_id, "pos"]
@@ -115,7 +112,7 @@ for (coloc_variant_id in unique(tophits_df$variant_id)) {
   end = tophits_df[tophits_df$variant_id == coloc_variant_id, "pos"] + window / 2 - 1
   if (chrom==6 & pos >= 25000000 & pos <= 35000000) { next }  # continue if MHC locus
   coloc_lead_region = paste0(chrom, ":", start, "-", end)
-#   print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_lead_region))
+  print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_variant_id))
 
   ################################################################################
   # Load gwas summary statistics
@@ -162,8 +159,9 @@ for (coloc_variant_id in unique(tophits_df$variant_id)) {
 
   ####################### Loop over moleculear trait id
   molecular_trait_id_lst = unique(permuted_region_df$molecular_trait_id)
-  # molecular_trait_id = "ENSGs00000160185"
+  molecular_trait_id = "ILMN_2390609"
   for (molecular_trait_id in molecular_trait_id_lst) {
+    print(sprintf("%s %s %s %s", gwas_id, eqtl_id, coloc_variant_id, molecular_trait_id))
     eqtl_molecular_trait_id_tbl = eqtl_tbl[eqtl_tbl$molecular_trait_id == molecular_trait_id,]
 
     if (nrow(eqtl_molecular_trait_id_tbl) == 0) { next }  # continue if empty gwas
@@ -181,28 +179,21 @@ for (coloc_variant_id in unique(tophits_df$variant_id)) {
     }  # continue if empty merge
 
     # Update MAF with 1000 genomes when all NA in opengwas
-    if (all(is.na(merge_df$"gwas_maf"))) {
-      # gwas_maf_na_df = merge_df[is.na(merge_df$AF), c("chromosome", "rsid", "ref", "alt", "AF")]
+    if (any(is.na(merge_df$gwas_maf))) {
       con <- dbConnect(RSQLite::SQLite(), eur_af_sqlite)
-      # dbGetQuery(con, 'SELECT * FROM eur_af where chrom=1 and id="rs12137845" and ref="T" and alt="C"')
-      # query <- dbSendQuery(con, 'SELECT * FROM iris WHERE "Sepal.Length" < :x')
-      query <- dbSendQuery(con, 'SELECT chrom, id, ref, alt, eur_af FROM eur_af where chrom=:chromosome and id=:rsid and ref=:ref and alt=:alt')
-      # query <- dbSendQuery(con, 'SELECT * FROM eur_af where id=:x')
-      dbBind(query, params = list(chromosome = merge_df$chrom,
-                               rsid = merge_df$rsid,
-                               ref = merge_df$ref,
-                               alt = merge_df$alt
-      ))
-      gwas_maf_df = dbFetch(query)
-#       dbClearResult(gwas_maf_df)
-      dbDisconnect(con)
-      # gwas_maf_df = subset(gwas_maf_df, select = -c(pos) )  # drop pos hg19
-      gwas_maf_df = gwas_maf_df %>% dplyr::rename(chrom = chrom,
-                                                  rsid = id,
-                                                  gwas_maf = eur_af,
-      )  # rename maf column
-      merge_df = subset(merge_df, select = -c(gwas_maf))  # drop old gwas MAF
-      merge_df = merge(merge_df, gwas_maf_df, on = c("chromosome", "rsid", "ref", "alt"))
+      query <- dbSendQuery(con, 'SELECT chrom, id, ref, alt, eur_af FROM eur_af where chrom=:chrom and id=:rsid and ref=:ref and alt=:alt')
+      query_values = as.list(merge_df[is.na(merge_df$gwas_maf), c('chrom', 'rsid', 'ref', 'alt')])
+      dbBind(query, params = query_values)
+      fetch_missing_mafs_df = dbFetch(query)
+      fetch_missing_mafs_df = fetch_missing_mafs_df %>% dplyr::rename(rsid = id, gwas_maf=eur_af)
+      
+      merge_with_maf_na_df = merge_df[is.na(merge_df$gwas_maf), c('chrom', 'pos', 'ref', 'alt', 'rsid', 'variant_id', 'gwas_pval', 'gwas_beta', 'gwas_se', 'gwas_ss', 'molecular_trait_id', 'eqtl_maf', 'eqtl_pval', 'eqtl_beta', 'eqtl_se', 'eqtl_an', 'eqtl_gene_id')]
+      merge_with_maf_ok_df = merge_df[!is.na(merge_df$gwas_maf), ]
+      
+      merge_with_maf_new_df = merge(merge_with_maf_na_df, fetch_missing_mafs_df, by=c('chrom', 'rsid', 'ref', 'alt'))
+      merge_with_maf_new_df = merge_with_maf_new_df[, colnames(merge_with_maf_ok_df)]
+      
+      merge_df = unique(rbind(merge_with_maf_ok_df, merge_with_maf_new_df))
     }
     if (nrow(merge_df) == 0) { next }  # continue if empty merge
 
