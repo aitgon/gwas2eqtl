@@ -112,7 +112,7 @@ for (coloc_variant_id in unique(tophits_df$variant_id)) {
   end = tophits_df[tophits_df$variant_id == coloc_variant_id, "pos"] + window / 2 - 1
   if (chrom==6 & pos >= 25000000 & pos <= 35000000) { next }  # continue if MHC locus
   coloc_lead_region = paste0(chrom, ":", start, "-", end)
-  print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_variant_id))
+  # print(sprintf("%s %s %s", gwas_id, eqtl_id, coloc_variant_id))
 
   ################################################################################
   # Load gwas summary statistics
@@ -161,7 +161,7 @@ for (coloc_variant_id in unique(tophits_df$variant_id)) {
   molecular_trait_id_lst = unique(permuted_region_df$molecular_trait_id)
   molecular_trait_id = "ILMN_2390609"
   for (molecular_trait_id in molecular_trait_id_lst) {
-    print(sprintf("%s %s %s %s", gwas_id, eqtl_id, coloc_variant_id, molecular_trait_id))
+    # print(sprintf("%s %s %s %s", gwas_id, eqtl_id, coloc_variant_id, molecular_trait_id))
     eqtl_molecular_trait_id_tbl = eqtl_tbl[eqtl_tbl$molecular_trait_id == molecular_trait_id,]
 
     if (nrow(eqtl_molecular_trait_id_tbl) == 0) { next }  # continue if empty gwas
