@@ -32,7 +32,7 @@ class tophits(Base):
 class coloc(Base):
    """scripts/insrt_coloc.py"""
    __tablename__ = "coloc"
-   __table_args__ = (UniqueConstraint('chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id', 'coloc_variant_id', name='_coloc_uc'),)
+   __table_args__ = (UniqueConstraint('chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id', name='_coloc_uc'),)
 
    id = Column('id', String(127), primary_key=True)
    chrom = Column('chrom', SmallInteger, nullable=False)
@@ -48,11 +48,11 @@ class coloc(Base):
    eqtl_beta = Column('eqtl_beta', Float, nullable=False)
    eqtl_id = Column('eqtl_id', String(127), nullable=False)
    pp_h4_abf = Column('pp_h4_abf', Float, nullable=False)
+   snp_pp_h4 = Column('snp_pp_h4', Float, nullable=False)
+   nsnps = Column('nsnps', SmallInteger, nullable=False)
+   coloc_variant_id = Column('coloc_variant_id', String(63), nullable=False)
+   coloc_region = Column('coloc_region', String(63), nullable=False)
    pp_h3_abf = Column('pp_h3_abf', Float, nullable=False)
    pp_h2_abf = Column('pp_h2_abf', Float, nullable=False)
    pp_h1_abf = Column('pp_h1_abf', Float, nullable=False)
    pp_h0_abf = Column('pp_h0_abf', Float, nullable=False)
-   snp_pp_h4 = Column('snp_pp_h4', Float, nullable=False)
-   coloc_variant_id = Column('coloc_variant_id', String(63), nullable=False)
-   coloc_region = Column('coloc_region', String(63), nullable=False)
-   nsnps = Column('nsnps', SmallInteger, nullable=False)
