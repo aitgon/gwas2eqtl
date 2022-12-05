@@ -185,6 +185,7 @@ for (coloc_variant_id in unique(tophits_df$variant_id)) {
       query_values = as.list(merge_df[is.na(merge_df$gwas_maf), c('chrom', 'rsid', 'ref', 'alt')])
       dbBind(query, params = query_values)
       fetch_missing_mafs_df = dbFetch(query)
+      dbDisconnect(con)
       fetch_missing_mafs_df = fetch_missing_mafs_df %>% dplyr::rename(rsid = id, gwas_maf=eur_af)
       
       merge_with_maf_na_df = merge_df[is.na(merge_df$gwas_maf), c('chrom', 'pos', 'ref', 'alt', 'rsid', 'variant_id', 'gwas_pval', 'gwas_beta', 'gwas_se', 'gwas_ss', 'molecular_trait_id', 'eqtl_maf', 'eqtl_pval', 'eqtl_beta', 'eqtl_se', 'eqtl_an', 'eqtl_gene_id')]

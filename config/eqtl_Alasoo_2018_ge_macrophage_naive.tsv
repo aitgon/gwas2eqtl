@@ -1,0 +1,2 @@
+study	qtl_group	tissue_ontology_id	tissue_ontology_term	tissue_label	condition_label	quant_method	sample_size	ftp_path
+Alasoo_2018	macrophage_naive	CL_0000235	macrophage	macrophage	naive	ge	84	ftp://ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Alasoo_2018/ge/Alasoo_2018_ge_macrophage_naive.all.tsv.gz

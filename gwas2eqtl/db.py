@@ -32,7 +32,7 @@ class tophits(Base):
 class coloc(Base):
    """scripts/insrt_coloc.py"""
    __tablename__ = "coloc"
-   __table_args__ = (UniqueConstraint('chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id', name='_coloc_uc'),)
+   __table_args__ = (UniqueConstraint('chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id', 'coloc_variant_id', name='_coloc_uc'),)
 
    id = Column('id', String(127), primary_key=True)
    chrom = Column('chrom', SmallInteger, nullable=False)
