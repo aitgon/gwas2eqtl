@@ -4,7 +4,7 @@ import pandas
 
 ################################################################################
 # ONE GWAS
-# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418 outdir=out/gwas418
+# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418 outdir=out/gwas418 gwas_id="ebi-a-GCST000612"
 # ALL GWAS
 # snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418
 
@@ -19,7 +19,7 @@ gwas_df.sort_index(inplace=True)
 if "gwas_id" in config:
     gwas_id = config["gwas_id"] # path to the eqtl< ods list
     gwas_df = gwas_df.loc[[gwas_id]]
-gwas_id_lst = sorted((gwas_df.index).tolist())
+gwas_id_lst = (gwas_df.index).tolist()
 
 
 rule all_gwas:
