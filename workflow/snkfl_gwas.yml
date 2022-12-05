@@ -20,6 +20,11 @@ rule all_gwas:
     input:
         expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_id_lst),
 
+# This rule is useful to force download incomplete files
+rule all_gwas_wget_vcf:
+    input:
+        expand(os.path.join(public_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"), gwas_id=gwas_id_lst)
+
 rule gwas_hg38_tbi:
     input:
         vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
