@@ -22,7 +22,7 @@ eqtl_tsv_path = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue
 eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t", usecols=[0, 6, 8])
 if "eqtl_id" in config:
     eqtl_id = config["eqtl_id"] # path to the eqtl< ods list
-eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains(eqtl_id)]
+    eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains(eqtl_id)]
 # keep urls containing "ge" or "microarray"
 eqtl_df['index'] = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
 eqtl_df.set_index('index', drop=True, verify_integrity=True, inplace=True)
