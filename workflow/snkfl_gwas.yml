@@ -51,7 +51,7 @@ rule gwas_liftover_hg38:
         reject_vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
         tbi=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
     params:
-        MAX_RECORDS_IN_RAM=100000,
+        MAX_RECORDS_IN_RAM=10000,
     log:
         os.path.join("out/logs", "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.log"),
     shell:
