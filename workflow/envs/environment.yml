@@ -1,12 +1,10 @@
 name: gwas2eqtl
-channels:
-  - defaults
-  - bioconda
 dependencies:
-  - anaconda::libopenblas
-  - bioconda::bcftools
-  - bioconda::samtools
-  - bioconda::tabix
-  - pip
+  - conda-forge::libopenblas=0.3.20
+  - bioconda::bcftools=1.11
+  - bioconda::samtools=1.6
+  - bioconda::tabix=1.11
+  - conda-forge::pip=22.2.2
   - pip:
     - -r requirements.txt
+

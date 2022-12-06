@@ -1,0 +1,6 @@
+## ports
+POSTGRES_HOST_PORT=5438
+ADMINER_HOST_PORT=8088
+
+CONTAINER_NAME_POSTGRES=gwas2eqtl_postgres_prod
+CONTAINER_NAME_ADMINER=gwas2eqtl_adminer_prod

@@ -144,6 +144,14 @@ export GITHUB_PAT="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"
 /opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/gwasglue", upgrade="never")'
 /opt/R/bin/Rscript -e 'remotes::install_github("mrcieu/ieugwasr")'
 
+###############################################################################
+#
+# R: others
+#
+###############################################################################
+
+/opt/R/bin/Rscript -e 'install.packages(c("DBI"), repos = "https://cran.biotools.fr/")'
+/opt/R/bin/Rscript -e 'install.packages(c("R.utils"), repos = "https://cran.biotools.fr/")'
 
 ###############################################################################
 #

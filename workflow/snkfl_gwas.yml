@@ -1,36 +1,43 @@
-from snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider
-HTTP = HTTPRemoteProvider()
-
 import math
 import os
 import pandas
 
-###############################################################################
-# General config
-public_data_dir = config['public_data_dir']
-process_data_dir = config['process_data_dir']
-outdir = config['outdir']
+################################################################################
+# ONE GWAS
+# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418 outdir=out/gwas418 gwas_id="ebi-a-GCST000612"
+# ALL GWAS
+# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418
 
-###############################################################################
-# GWAS config
-gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
-gwas_df = pandas.read_excel(gwas_ods_path, header=0)
-#gwas_df['trait'] = gwas_df['trait'].str.replace("'", "")
-gwas_identifier_lst = gwas_df['id'].tolist()
-#gwas_traitname_lst = gwas_df['trait'].tolist()
-#gwas_dic = dict(zip(gwas_identifier_lst, gwas_traitname_lst))
+gwas_ods_path = config["gwas_ods"]
+outdir = config['outdir']
+process_data_dir = config['process_data_dir']
+public_data_dir = config['public_data_dir']
+
+gwas_df = pandas.read_excel(gwas_ods_path, header=0, usecols=[0])
+gwas_df.set_index('id', verify_integrity=True, drop=False, inplace=True)
+gwas_df.sort_index(inplace=True)
+if "gwas_id" in config:
+    gwas_id = config["gwas_id"] # path to the eqtl< ods list
+    gwas_df = gwas_df.loc[[gwas_id]]
+gwas_id_lst = (gwas_df.index).tolist()
+
 
 rule all_gwas:
     input:
-        expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_identifier_lst),
+        expand(os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"), gwas_id=gwas_id_lst),
 
-rule gwas_hg38_tbi:
+# This rule is useful to force download incomplete files
+rule all_gwas_wget_vcf:
     input:
-        vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-    output:
-        tbi=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
-    shell:
-        "tabix -p vcf {input.vcf_bgz}"
+        expand(os.path.join(public_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"), gwas_id=gwas_id_lst)
+
+#rule gwas_hg38_tbi:
+#    input:
+#        vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
+#    output:
+#        tbi=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
+#    shell:
+#        "tabix -p vcf {input.vcf_bgz}"
 
 rule gwas_liftover_hg38:
     input:
@@ -42,12 +49,13 @@ rule gwas_liftover_hg38:
     output:
         vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
         reject_vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}_reject.vcf.bgz"),
-    resources:
-        mem_mb= 20000
+        tbi=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
+    params:
+        MAX_RECORDS_IN_RAM=10000,
     log:
         os.path.join("out/logs", "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.log"),
     shell:
-        "java -jar {input.jar} LiftoverVcf --VERBOSITY ERROR --QUIET -I {input.vcf_gz} -O {output.vcf_bgz}  -CHAIN {input.chain_gz} -R {input.fa_gz} -REJECT {output.reject_vcf_bgz}"
+        "java -jar {input.jar} LiftoverVcf --QUIET -I {input.vcf_gz} -O {output.vcf_bgz}  -CHAIN {input.chain_gz} -R {input.fa_gz} -REJECT {output.reject_vcf_bgz} --CREATE_INDEX --MAX_RECORDS_IN_RAM {params.MAX_RECORDS_IN_RAM}"
 
 rule picard_ref_dict:
     input:
@@ -55,6 +63,15 @@ rule picard_ref_dict:
         fa_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"),
     output:
         dict=os.path.join(public_data_dir, "ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.dict"),
+    shell:
+        "java -jar {input.jar} CreateSequenceDictionary -R {input.fa_gz} -O {output.dict}"
+
+rule picard_sort_vcf:
+    input:
+        jar=os.path.join(public_data_dir, "github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar"),
+        vcf_gz=os.path.join(public_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"),
+    output:
+        vcf_gz=os.path.join(process_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.sorted.vcf.gz"),
     shell:
         "java -jar {input.jar} CreateSequenceDictionary -R {input.fa_gz} -O {output.dict}"
 
