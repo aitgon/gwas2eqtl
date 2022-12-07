@@ -1,5 +1,7 @@
 snakemake --cores all -s workflow/snkfl_tophits.yml --config gwas_ods=config/gwas418.ods  pval=5e-8 r2=0.1 kb=1000 outdir=out public_data_dir=/home/gonzalez/Software/public --resources tophits=1 --rerun-incomplete -p
 
+PYTHONPATH=.:$PYTHONPATH snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=config/gwas418.ods pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process outdir=out/gwas418 maf_sqlite=out/eur_af.sqlite image_sif=out/gwas2eqtl.sif --resource tophits=1
+
 cd container
 
 docker compose --project-name gwas2eqtl_dev -f docker-compose.yml up --build --force-recreate --remove-orphans -d

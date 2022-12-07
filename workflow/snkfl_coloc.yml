@@ -17,17 +17,14 @@ if "image_sif" in config:
     container: image_sif
 
 ###############################################################################
-# eQTL config
-if "eqtl_tsv" in config:
-    eqtl_tsv_path = config["eqtl_tsv"] # path to the eqtl< ods list
-else:
-    from gwas2eqtl.URL import URL
-    eqtl_tsv_path = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
+# eQTL
+eqtl_tsv_path = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
 eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t", usecols=[0, 6, 8])
 eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
-#    eqtl_ftp_path_lst = eqtl_df['ftp_path'].tolist()
+if "eqtl_id" in config:
+    eqtl_id = config["eqtl_id"] # path to the eqtl< ods list
+    eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains(eqtl_id)]
 # keep urls containing "ge" or "microarray"
-#eqtl_df.sort_values(eqtl_df.columns.tolist(), inplace=True)
 eqtl_df['index'] = (eqtl_df['ftp_path'].str.replace('.all.tsv.gz', '', regex=True)).str.split('/', expand=True)[10].tolist()
 eqtl_df.set_index('index', drop=True, verify_integrity=True, inplace=True)
 eqtl_id_lst = (eqtl_df.index).tolist()

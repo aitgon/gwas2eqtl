@@ -6,9 +6,10 @@ import pandas
 public_data_dir_path = config['public_data_dir'] # db path
 
 ###############################################################################
-# eQTL config
+# eQTL
 eqtl_tsv_path = 'https://raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv'
 eqtl_df = pandas.read_csv(eqtl_tsv_path, sep="\t", usecols=[0, 6, 8])
+eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains('/ge/|/microarray/',regex=True,na=False), ]
 if "eqtl_id" in config:
     eqtl_id = config["eqtl_id"] # path to the eqtl< ods list
     eqtl_df = eqtl_df.loc[eqtl_df['ftp_path'].str.contains(eqtl_id)]
