@@ -28,13 +28,12 @@ class tophits(Base):
    Column('coloc_region', String(50), nullable=False)
 
 
-
 class coloc(Base):
    """scripts/insrt_coloc.py"""
    __tablename__ = "coloc"
    __table_args__ = (UniqueConstraint('chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id', name='_coloc_uc'),)
 
-   id = Column('id', String(255), primary_key=True)
+   id = Column('id', Integer, primary_key=True)
    chrom = Column('chrom', SmallInteger, nullable=False)
    pos = Column('pos', Integer, nullable=False)
    rsid= Column('rsid', Integer, nullable=False)
