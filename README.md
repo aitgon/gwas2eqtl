@@ -36,26 +36,25 @@ snakemake -p -j all -s workflow/Snakefile_eur_maf.yml --config  maf_sqlite=out/e
 # Run a test set of GWAS and eQTL
 
 ~~~
-snakemake -j all -s workflow/snkfl_all.yml -p --config gwas_ods=config/gwas_ebi-a-GCST002318.ods eqtl_tsv=config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite tophits_tsv=out/gwas420/tophits_pval_5e-8_r2_0.1_kb_1000.tsv --resource tophits=1
+snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=config/gwas_ebi-a-GCST000679 eqtl_id=eqtl_id=Alasoo_2018_ge_macrophage_naive pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process outdir=out/gwas418 maf_sqlite=out/eur_af.sqlite image_sif=out/gwas2eqtl.sif --resource tophits=1
 ~~~
 
-~~~
-python workflow/scripts/concat.py config/gwas_ebi-a-GCST002318.ods config/eqtl_Schmiedel_2018_CD8_T-cell_naive.tsv   out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv out/concat/coloc_gwas420_pval_5e-08_r2_0.1_kb_1000_window_1000000.tsv.gz
-~~~
 
 # Run the whole set of GWAS and eQTL
 
 ~~~
-snakemake -j 800 -s workflow/snkfl_all.yml -p --config gwas_ods=config/gwas420.ods pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas420 maf_sqlite=out/eur_af.sqlite tophits_tsv=out/gwas420/tophits_pval_5e-8_r2_0.1_kb_1000.tsv --resource tophits=1
+snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=config/gwas418.ods pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process outdir=out/gwas418 maf_sqlite=out/eur_af.sqlite image_sif=out/gwas2eqtl.sif --resource tophits=1
+~~~
+
+# Insert into DB
+
+~~~
+cd container
+docker compose --project-name gwas2eqtl_dev -f docker-compose.yml up --build --force-recreate --remove-orphans -d
+cd ..
 ~~~
 
 ~~~
-python workflow/scripts/concat.py config/gwas420.ods  /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv   out/gwas420/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv out/concat/coloc_gwas420_pval_5e-08_r2_0.1_kb_1000_window_1000000.tsv.gz
+python workflow/scripts/insrt_tophits.py postgresql://postgres:postgres@0.0.0.0:5437/gwas2eqtl config/gwas418.ods  out/gwas418/tophits/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/hg38.tsv
+python workflow/scripts/insrt_coloc.py postgresql://postgres:postgres@0.0.0.0:5437/gwas2eqtl config/gwas418.ods /home/gonzalez/Software/public/raw.githubusercontent.com/eQTL-Catalogue/eQTL-Catalogue-resources/master/tabix/tabix_ftp_paths.tsv out/gwas418/coloc/{gwas_id}/pval_5e-08/r2_0.1/kb_1000/window_1000000/{eqtl_id}.tsv
 ~~~
-
-## References
-
-- <https://cran.r-project.org/web/packages/coloc>
-- <https://gwas.mrcieu.ac.uk/>
-- <https://snakemake.readthedocs.io>
-- <https://www.ebi.ac.uk/eqtl/>
