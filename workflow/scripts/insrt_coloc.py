@@ -38,13 +38,15 @@ coloc_tab = Base.metadata.tables['coloc']
 stmt = coloc_tab.delete()
 engine.execute(stmt)
 
-gwas_eqtl_counter = 0
-gwas_counter = 0
-for gwas_id in gwas_identifier_lst:
+gwas_eqtl_counter = 1
+eqtl_counter = 1
+# for gwas_id in gwas_identifier_lst:
+for eqtl_id in eqtl_identifier_lst:
     concat_df = pandas.DataFrame()
-    if gwas_counter % 10 == 0:
-        print("GWAS counter: " + str(gwas_counter))
-    for eqtl_id in eqtl_identifier_lst:
+    if eqtl_counter % 10 == 0:
+        print("eQTL counter: " + str(eqtl_counter))
+    # for eqtl_id in eqtl_identifier_lst:
+    for gwas_id in gwas_identifier_lst:
         if gwas_eqtl_counter % 100 == 0:
             print("\tGWAS/eQTL counter: " + str(gwas_eqtl_counter))
         coloc_tsv_path = coloc_path_strf.format(**{'gwas_id': gwas_id, 'eqtl_id': eqtl_id})
@@ -55,7 +57,7 @@ for gwas_id in gwas_identifier_lst:
             coloc_df.sort_values(by='pp_h4_abf', inplace=True, ascending=False)  # keep coloc with highest pp_h4_abf
             coloc_df.drop_duplicates(['chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id'], inplace=True)
             coloc_df['rsid'] = coloc_df['rsid'].str.replace('rs', '').astype(int)
-            df_index = coloc_df['chrom'].astype(str) + "_" + coloc_df['pos'].astype(str) + "_" + coloc_df['eqtl_gene_id'] + "_" + coloc_df['gwas_id'] + "_" + coloc_df['eqtl_id']
+            df_index = coloc_df['chrom'].astype(str) + "_" + coloc_df['pos'].astype(str) + "_" + coloc_df['alt'] + "_" + coloc_df['eqtl_gene_id'] + "_" + coloc_df['gwas_id'] + "_" + coloc_df['eqtl_id']
             coloc_df.set_index(df_index, inplace=True, verify_integrity=True)
             coloc_df.index.rename('id', inplace=True)
             concat_df = pandas.concat([concat_df, coloc_df], axis=0)
@@ -65,4 +67,4 @@ for gwas_id in gwas_identifier_lst:
         concat_df = concat_df[[c.key for c in coloc_tab.columns][1:]]
         print('insert', concat_df.shape)
         concat_df.to_sql('coloc', con=engine, if_exists='append', index=True, index_label='id')
-    gwas_counter = gwas_counter + 1
+    eqtl_counter = eqtl_counter + 1
