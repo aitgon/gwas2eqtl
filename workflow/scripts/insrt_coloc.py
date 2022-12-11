@@ -1,20 +1,22 @@
 import os
+import pandas
+import sys
 
 from sqlalchemy import create_engine
 from gwas2eqtl.db import Base
-
-import pandas
-import sys
+from sqlalchemy_utils import database_exists, create_database
 
 
 #%%
 help_cmd_str = "todo"
 try:
-    url = sys.argv[1]
-    gwas_ods_path = sys.argv[2]
-    eqtl_tsv_path = sys.argv[3]
-    coloc_path_strf = sys.argv[4]
-    if len(sys.argv) > 5:
+    pp_h4_abf = float(sys.argv[1])
+    snp_h4_pp = float(sys.argv[2])
+    url = sys.argv[3]
+    gwas_ods_path = sys.argv[4]
+    eqtl_tsv_path = sys.argv[5]
+    coloc_path_strf = sys.argv[6]
+    if len(sys.argv) > 7:
         print("""Two many arguments!
         {}""".format(help_cmd_str))
         sys.exit(1)
@@ -36,6 +38,14 @@ eqtl_df.sort_index(inplace=True)
 
 # Create all tables
 engine = create_engine(url)
+
+# Create database if it does not exist.
+if not database_exists(engine.url):
+    create_database(engine.url)
+else:
+    # Connect the database if exists.
+    engine.connect()
+
 Base.metadata.create_all(engine)
 
 coloc_tab = Base.metadata.tables['coloc']
@@ -50,22 +60,19 @@ for eqtl_id in eqtl_df.index.tolist():
     concat_df = pandas.DataFrame()
     if eqtl_counter % 10 == 0:
         print("eQTL counter: " + str(eqtl_counter))
-    # for eqtl_id in eqtl_identifier_lst:
     for gwas_id in gwas_df.index.tolist():
         if gwas_eqtl_counter % 100 == 0:
             print("\tGWAS/eQTL counter: " + str(gwas_eqtl_counter))
         coloc_tsv_path = coloc_path_strf.format(**{'gwas_id': gwas_id, 'eqtl_id': eqtl_id})
         if os.path.isfile(coloc_tsv_path):
             coloc_df = pandas.read_csv(coloc_tsv_path, sep="\t")
-            coloc_df.sort_values(coloc_df.columns.tolist(), inplace=True)
             coloc_df.columns = [c.lower() for c in coloc_df.columns]  # change to lower case
             coloc_df.columns = [c.replace('.', '_') for c in coloc_df.columns]  # replace dots with underline
+            coloc_df = coloc_df.query("pp_h4_abf>={} & snp_pp_h4>={}".format(pp_h4_abf, snp_h4_pp))
             coloc_df.sort_values(by='pp_h4_abf', inplace=True, ascending=False)  # keep coloc with highest pp_h4_abf
             coloc_df.drop_duplicates(['chrom', 'pos', 'alt', 'eqtl_gene_id', 'gwas_id', 'eqtl_id'], inplace=True)
+            coloc_df.sort_values(coloc_df.columns.tolist(), inplace=True)
             coloc_df['rsid'] = coloc_df['rsid'].str.replace('rs', '').astype(int)
-            # df_index = coloc_df['chrom'].astype(str) + "_" + coloc_df['pos'].astype(str) + "_" + coloc_df['alt'] + "_" + coloc_df['eqtl_gene_id'] + "_" + coloc_df['gwas_id'] + "_" + coloc_df['eqtl_id']
-            # coloc_df.set_index(df_index, inplace=True, verify_integrity=True)
-            # coloc_df.index.rename('id', inplace=True)
             concat_df = pandas.concat([concat_df, coloc_df], axis=0)
         gwas_eqtl_counter = gwas_eqtl_counter + 1
         # Delete and insert coloc data

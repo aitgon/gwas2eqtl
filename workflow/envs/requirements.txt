@@ -3,5 +3,6 @@ odfpy==1.4.1
 pandas==1.5.2
 psycopg2-binary==2.9.5
 snakemake==7.18.2
+sqlalchemy_utils==0.38.3
 SQLAlchemy==1.4.44
 termcolor==2.1.1
