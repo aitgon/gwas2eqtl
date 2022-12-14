@@ -1,5 +1,6 @@
 **Changes in Version 0.1.3 (Dec. 14, 2022)**
 
+- BUG Fixed 1mb intervals
 - ENH More MAFs from 1000 genomes
 - ENH 293 GWAS IDs at PP.H4.abf >= 0.75 and SNP.PP.H4>=0
 
