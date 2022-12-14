@@ -3,7 +3,7 @@ dist
 ftp.ebi.ac.uk
 ftp.ensembl.org
 gwas2eqtl.egg-info/
-gwas2eqtl.Rproj
+*.Rproj
 gwas.mrcieu.ac.uk
 .idea
 logs
