@@ -3,15 +3,14 @@ version: '3.9'
 services:
   postgres:
     image: postgres:15.1-alpine
-    container_name: "${CONTAINER_NAME_POSTGRES}"
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     ports:
       - "${POSTGRES_HOST_PORT}:5432"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - vol_data_postgres:/var/lib/postgresql 
     healthcheck:
       test: ["CMD-SHELL", "pg_isready", "-U", "dbvarnoncod", "-d", "dbvarnoncod"]
@@ -21,7 +20,6 @@ services:
       start_period: 80s
   adminer:
     image: adminer:4.8.1
-    container_name: "${CONTAINER_NAME_ADMINER}"
     restart: always
     ports:
       - "${ADMINER_HOST_PORT}:8080"
