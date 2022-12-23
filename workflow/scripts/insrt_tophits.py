@@ -1,6 +1,7 @@
 import math
 import os
 
+import sqlalchemy
 from sqlalchemy import create_engine
 from gwas2eqtl.db import Base
 
@@ -28,29 +29,30 @@ gwas_id_lst = sorted(gwas_df["id"].tolist())
 
 # Create all tables
 engine = create_engine(url)
+if sqlalchemy.inspect(engine).has_table("tophits"):
+    tophits_tab = Base.metadata.tables['tophits']
+    tophits_tab.drop(engine)
 Base.metadata.create_all(engine)
 
 concat_lst = []
-
+concat_df = pandas.DataFrame()
+id = 0
 for gwas_id in gwas_id_lst:
     tophits_tsv_path = hg38_tsv_path_strf.format(gwas_id=gwas_id)
-    if os.path.isfile(tophits_tsv_path):
-        df = pandas.read_csv(tophits_tsv_path, sep="\t", header=0)
-        concat_lst = concat_lst + df.values.tolist()
+    df = pandas.read_csv(tophits_tsv_path, sep="\t", header=0)
+    df.drop_duplicates(inplace=True)
+    df.index = df.index + id
+    concat_df = pandas.concat([concat_df, df], axis=0, verify_integrity=True)
+    if df.shape[0] > 0:
+        id = max(df.index) + 1
 
-concat_df = pandas.DataFrame(concat_lst, columns=df.columns)
-concat_df = concat_df.drop_duplicates(keep='first')
-
-# aggregate different pvals and betas
-concat_df = concat_df.groupby(['chrom', 'pos', 'rsid', 'nea', 'ea', 'n', 'se', 'gwas_id', 'eaf', 'pos19']).agg({'beta': lambda x: ','.join([str(it) for it in x]), 'pval': lambda x: ','.join([str(it) for it in x])}).reset_index()
-concat_df2_index = concat_df['chrom'].astype(str) + "_" + concat_df['pos'].astype(str) + "_" + concat_df['gwas_id']
-concat_df.set_index(concat_df2_index, verify_integrity=True, inplace=True)
-concat_df['rsid'] = concat_df['rsid'].str.replace('rs', '').astype(int)
-
-# import pdb; pdb.set_trace()
+concat_df.drop_duplicates(inplace=True)
+concat_df.sort_values('pval', ascending=True, inplace=True)
+concat_df.drop_duplicates(subset=['chrom', 'pos', 'ea', 'gwas_id'], inplace=True)
+concat_df['rsid'] = concat_df['rsid'].str.split('rs', expand=True)[1]
 
 # Delete data if exists and insert
-tophits_tab = Base.metadata.tables['tophits']
-stmt = tophits_tab.delete()
+stmt = Base.metadata.tables['tophits'].delete()
 engine.execute(stmt)
+
 concat_df.to_sql('tophits', con=engine, if_exists='append', index=True, index_label='id')

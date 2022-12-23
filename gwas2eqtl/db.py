@@ -8,25 +8,24 @@ Base = declarative_base()
 class tophits(Base):
    """scripts/tophits2db2.py"""
    __tablename__ = "tophits"
-   __table_args__ = (UniqueConstraint('chrom', 'pos', 'gwas_id', name='_chrom_pos_uc'),)
+   __table_args__ = (UniqueConstraint('chrom', 'pos', 'ea', 'gwas_id', name='_chrom_pos_uc'),)
 
-   id = Column('id', String(63), primary_key=True)
+   id = Column('id', SmallInteger, primary_key=True)
    chrom = Column('chrom', SmallInteger, nullable=False)
    pos = Column('pos', Integer, nullable=False)
    rsid= Column('rsid', Integer, nullable=False)
    nea = Column('nea', String(255), nullable=False)
    ea = Column('ea', String(255), nullable=False)
-   pval = Column('pval', String(31), nullable=False)  # comma sep list of pvals
-   beta = Column('beta', String(31), nullable=False)  # comma sep list of betas
+   pval = Column('pval', Float, nullable=False)  # comma sep list of pvals
+   beta = Column('beta', Float, nullable=False)  # comma sep list of betas
    se = Column('se', Float, nullable=False)
    eaf = Column('eaf', Float, nullable=True)
-   n = Column('n', Integer, nullable=False)
+   n = Column('n', Integer, nullable=True)
    gwas_id = Column('gwas_id', String(63), primary_key=True)
    pos19 = Column('pos19', Integer, nullable=False)
    Column('coloc_lead_pos', Integer, nullable=False)
    Column('coloc_variant_id', String(50), nullable=False)
    Column('coloc_region', String(50), nullable=False)
-
 
 class coloc(Base):
    """scripts/insrt_coloc.py"""
