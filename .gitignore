@@ -18,3 +18,4 @@ results
 .Rhistory
 .Rproj.user
 .snakemake
+.wget-hsts

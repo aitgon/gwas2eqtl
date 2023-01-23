@@ -8,9 +8,9 @@ import shlex
 
 ###############################################################################
 # ONE CHROM
-# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=22 outdir=out/maf --resources db_maf=1
+# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=22 outdir=out/maf --resources db_maf=1
 # ALL CHROMS
-# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
+# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
 
 ###############################################################################
 # General config

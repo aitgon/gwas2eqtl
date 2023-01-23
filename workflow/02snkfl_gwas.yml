@@ -4,9 +4,9 @@ import pandas
 
 ################################################################################
 # ONE GWAS
-# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418 outdir=out/gwas418 gwas_id="ebi-a-GCST000612"
+# snakemake -j all -s workflow/02snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418 outdir=out/gwas418 gwas_id="ebi-a-GCST000612"
 # ALL GWAS
-# snakemake -j all -s workflow/snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418
+# snakemake -j all -s workflow/02snkfl_gwas.yml -p --config gwas_ods=config/gwas418.ods public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/gwas418
 
 gwas_ods_path = config["gwas_ods"]
 outdir = config['outdir']
@@ -30,14 +30,6 @@ rule all_gwas:
 rule all_gwas_wget_vcf:
     input:
         expand(os.path.join(public_data_dir, "gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.gz"), gwas_id=gwas_id_lst)
-
-#rule gwas_hg38_tbi:
-#    input:
-#        vcf_bgz=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz"),
-#    output:
-#        tbi=os.path.join(process_data_dir, "hg38/gwas.mrcieu.ac.uk/files/{gwas_id}/{gwas_id}.vcf.bgz.tbi"),
-#    shell:
-#        "tabix -p vcf {input.vcf_bgz}"
 
 rule gwas_liftover_hg38:
     input:

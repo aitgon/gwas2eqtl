@@ -5,7 +5,7 @@ Install and enter a minimal conda environment
 ~~~
 conda install -n base -c conda-forge mamba
 conda activate base
-mamba create -c conda-forge -c bioconda -n gwas2eqtl snakemake sqlalchemy
+mamba create -c conda-forge -c bioconda -n gwas2eqtl snakemake sqlalchemy odfpy
 conda activate gwas2eqtl
 ~~~
 
@@ -33,15 +33,22 @@ export MAF_SQLITE=out/eur_af.sqlite
 export PUBLIC_DIR=${HOME}/Software/public
 export PROCESS_DIR=${HOME}/Software/process
 export IMAGE_SIF=out/gwas2eqtl.sif
-PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config  maf_sqlite=${MAF_SQLITE} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${MAF_OUTDIR} image_sif=${IMAGE_SIF} --resources db_maf=1 --use-singularity
+PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config  maf_sqlite=${MAF_SQLITE} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${MAF_OUTDIR} image_sif=${IMAGE_SIF} --resources db_maf=1 --use-singularity
 ~~~
 
 # Run a test set of GWAS and eQTL
 
 ~~~
-snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=config/gwas_ebi-a-GCST000679 eqtl_id=eqtl_id=Alasoo_2018_ge_macrophage_naive pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process outdir=out/gwas418 maf_sqlite=out/eur_af.sqlite image_sif=out/gwas2eqtl.sif --resource tophits=1
+export config/gwas_ebi-a-GCST000679
+export OUTDIR=out/gwas417
+export GWAS_ODS=config/gwas_ebi-a-GCST000679.ods
+snakemake -j all -s workflow/02snkfl_gwas.yml -p --config  gwas_ods=${GWAS_ODS} eqtl_id=${EQTL_ID} pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
 ~~~
 
+~~~
+export EQTL_ID=Alasoo_2018_ge_macrophage_naive
+snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=${GWAS_ODS} eqtl_id=${EQTL_ID} pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR} maf_sqlite=${MAF_SQLITE} image_sif=${IMAGE_SIF} --resource tophits=1 --use-singularity
+~~~
 
 # Run the whole set of GWAS and eQTL
 
