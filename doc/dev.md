@@ -16,7 +16,7 @@ mkdir out
 sudo singularity build out/gwas2eqtl.sif gwas2eqtl.def
 ~~~
 
-## Prepare the GWAS list
+## Prepare the GWAS list (Optional)
 
 This command creates and annotates a list of GWAS identifiers.
 It allows to exclude traits, exclude datasets, include a minimum of subjects, controls and cases.
@@ -33,7 +33,7 @@ export MAF_SQLITE=out/eur_af.sqlite
 export PUBLIC_DIR=${HOME}/Software/public
 export PROCESS_DIR=${HOME}/Software/process
 export IMAGE_SIF=out/gwas2eqtl.sif
-snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config  maf_sqlite=${MAF_SQLITE} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${MAF_OUTDIR} image_sif=${IMAGE_SIF} --resources db_maf=1
+PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j all -s workflow/snkfl_eur_maf.yml --config  maf_sqlite=${MAF_SQLITE} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${MAF_OUTDIR} image_sif=${IMAGE_SIF} --resources db_maf=1 --use-singularity
 ~~~
 
 # Run a test set of GWAS and eQTL
