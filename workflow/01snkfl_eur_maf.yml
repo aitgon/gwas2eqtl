@@ -1,4 +1,7 @@
 import pandas
+import shlex
+from sqlalchemy import create_engine
+from gwas2eqtl.various import sql_insert_ignore
 
 # config
 chr_lst = range(1, 23)
