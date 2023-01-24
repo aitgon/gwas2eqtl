@@ -1,45 +1,28 @@
-from gwas2eqtl.various import sql_insert_ignore
-from pathlib import Path
-from sqlalchemy import create_engine
-    
-import os
-import pandas
-import shlex
-
-###############################################################################
-# ONE CHROM
-# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process CHR=22 outdir=out/maf --resources db_maf=1
-# ALL CHROMS
-# PYTHONPATH=gwas2eqtl:$PYTHONPATH  snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config maf_sqlite=out/eur_af.sqlite public_data_dir=/home/gonzalez/Software/public process_data_dir=/home/gonzalez/Software/process outdir=out/maf --resources db_maf=1
-
-###############################################################################
-# General config
-public_data_dir = config['public_data_dir']
-process_data_dir = config['process_data_dir']
-outdir = config['outdir']  # path to the bases outdir
+# config
+chr_lst = range(1, 23)
 maf_sqlite = config['maf_sqlite']
-
-###############################################################################
-# Conditional config
-if "image_sif" in config:
-    image_sif = config['image_sif'] # singularity image
-    container: image_sif
+outdir_maf = config['outdir_maf']
+process_data_dir = config['process_data_dir']
+public_data_dir = config['public_data_dir']
 
 # Used for testing one chromosome
-if "CHR" in config:
-    chr_lst = [int(config['CHR'])]
-else:
-    chr_lst = range(1, 23)
+if "chr" in config:
+    chr_lst = [int(config['chr'])]
 
-rule _eur_maf:
+# variables
+genotypes_vcf_gz_url="ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+genotypes_eur_af_tsv_gz_url="ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"
+genotypes_eur_af2_tsv_gz_url="ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af2.tsv.gz"
+
+rule all_dwnld_1kg:
     input:
-        expand(os.path.join(outdir, "sqlite_touched_chrom/{CHR}"), CHR=chr_lst),
+        expand(os.path.join(outdir_maf, "sqlite_touched_chrom/{CHR}"), CHR=chr_lst),
 
 rule maf_to_sqlite:
     input:
-        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+        os.path.join(process_data_dir, genotypes_eur_af2_tsv_gz_url),
     output:
-        os.path.join(outdir, "sqlite_touched_chrom/{CHR}"),
+        os.path.join(outdir_maf, "sqlite_touched_chrom/{CHR}"),
     params:
         maf_sqlite,
     resources: db_maf=1
@@ -53,9 +36,9 @@ rule maf_to_sqlite:
 
 rule process_maf:
     input:
-        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+        os.path.join(process_data_dir, genotypes_eur_af_tsv_gz_url),
     output:
-        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af2.tsv.gz"),
+        os.path.join(process_data_dir, genotypes_eur_af2_tsv_gz_url),
     run:
         df=pandas.read_csv(input[0], sep="\t", header=None)
         df.columns = ['chrom', 'pos', 'id', 'ref', 'alt', 'eur_af']
@@ -64,18 +47,18 @@ rule process_maf:
 
 rule maf_to_tsv:
     input:
-        os.path.join(public_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"),
+        os.path.join(public_data_dir, genotypes_vcf_gz_url),
     output:
-        os.path.join(process_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.eur_af.tsv.gz"),
+        os.path.join(process_data_dir, genotypes_eur_af_tsv_gz_url),
     threads: 2
     shell:
         """bcftools query -f '%CHROM\t%POS\t%ID\t%REF\t%ALT\t%INFO/EUR_AF\n' {input[0]} |gzip >{output[0]}"""
 
 rule dwnld_g1k:
     output:
-        os.path.join(public_data_dir, "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"),
+        os.path.join(public_data_dir, genotypes_vcf_gz_url),
     params:
-        "ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr{CHR}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz",
+        genotypes_vcf_gz_url,
         public_data_dir,
     shell:
         """wget -c -q -r {params[0]} -P {params[1]}"""

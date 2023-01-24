@@ -5,7 +5,7 @@ Install and enter a minimal conda environment
 ~~~
 conda install -n base -c conda-forge mamba
 conda activate base
-mamba create -c conda-forge -c bioconda -n gwas2eqtl snakemake sqlalchemy odfpy
+mamba create -c conda-forge -c bioconda -n gwas2eqtl snakemake sqlalchemy odfpy pandas bcftools
 conda activate gwas2eqtl
 ~~~
 
@@ -16,33 +16,27 @@ mkdir out
 sudo singularity build out/gwas2eqtl.sif gwas2eqtl.def
 ~~~
 
-## Prepare the GWAS list (Optional)
+## Download and create EUR MAF database
 
-This command creates and annotates a list of GWAS identifiers.
-It allows to exclude traits, exclude datasets, include a minimum of subjects, controls and cases.
-
-~~~
-python workflow/scripts/dwnld_gwas_info.py config/exclude_traits.txt config/exclude_datasets.txt config/manual_annotation.ods 10000 2000 2000 out/dwnld_gwas_info.py/gwasinfo_noelesect.tsv out/dwnld_gwas_info.py/gwasinfo_10000_2000_2000.ods
-~~~
-
-## Prepare the EUR MAF
+No singularity required
 
 ~~~
-export MAF_OUTDIR=out
 export MAF_SQLITE=out/eur_af.sqlite
-export PUBLIC_DIR=${HOME}/Software/public
+export OUTDIR_MAF=out
 export PROCESS_DIR=${HOME}/Software/process
-export IMAGE_SIF=out/gwas2eqtl.sif
-PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config  maf_sqlite=${MAF_SQLITE} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${MAF_OUTDIR} image_sif=${IMAGE_SIF} --resources db_maf=1 --use-singularity
+export PUBLIC_DIR=${HOME}/Software/public
+PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir_maf=${OUTDIR_MAF} maf_sqlite=${MAF_SQLITE}
 ~~~
 
-# Run a test set of GWAS and eQTL
+# Downlaod GWAS
+
+- No singularity required
+- Some error expected if GWAS summary statistics not public available. Remove them from the GWAS ODS file.
 
 ~~~
-export config/gwas_ebi-a-GCST000679
-export OUTDIR=out/gwas417
-export GWAS_ODS=config/gwas_ebi-a-GCST000679.ods
-snakemake -j all -s workflow/02snkfl_gwas.yml -p --config  gwas_ods=${GWAS_ODS} eqtl_id=${EQTL_ID} pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
+export OUTDIR=out/gwasigg
+export GWAS_ODS=config/gwasigg.ods
+snakemake -j all -s workflow/02snkfl_gwas.yml -p --config  gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
 ~~~
 
 ~~~
