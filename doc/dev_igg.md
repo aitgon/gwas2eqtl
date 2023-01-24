@@ -25,7 +25,7 @@ export MAF_SQLITE=out/eur_af.sqlite
 export OUTDIR_MAF=out
 export PROCESS_DIR=${HOME}/Software/process
 export PUBLIC_DIR=${HOME}/Software/public
-PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j all -s workflow/01snkfl_eur_maf.yml --config public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir_maf=${OUTDIR_MAF} maf_sqlite=${MAF_SQLITE}
+PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j 15 -s workflow/01snkfl_eur_maf.yml --config public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir_maf=${OUTDIR_MAF} maf_sqlite=${MAF_SQLITE}  --resources db_maf=1
 ~~~
 
 # Downlaod GWAS
