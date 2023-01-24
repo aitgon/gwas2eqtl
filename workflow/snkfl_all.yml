@@ -47,6 +47,6 @@ rule all:
 
 include: 'snkfl_coloc.yml'
 include: 'snkfl_tophits.yml'
-include: 'snkfl_eqtl.yml'
+include: '03snkfl_eqtl.yml'
 include: '02snkfl_gwas.yml'
 include: '01snkfl_eur_maf.yml'

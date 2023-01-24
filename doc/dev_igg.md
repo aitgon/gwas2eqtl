@@ -5,7 +5,7 @@ Install and enter a minimal conda environment
 ~~~
 conda install -n base -c conda-forge mamba
 conda activate base
-mamba create -c conda-forge -c bioconda -n gwas2eqtl snakemake sqlalchemy odfpy pandas bcftools
+mamba create -c conda-forge -c bioconda -c gtcg -n gwas2eqtl snakemake sqlalchemy odfpy pandas bcftools oraclejdk
 conda activate gwas2eqtl
 ~~~
 
@@ -16,7 +16,7 @@ mkdir out
 sudo singularity build out/gwas2eqtl.sif gwas2eqtl.def
 ~~~
 
-## Download and create EUR MAF database
+## Download and create EUR MAF SQLITE database
 
 No singularity required
 
@@ -25,7 +25,7 @@ export MAF_SQLITE=out/eur_af.sqlite
 export OUTDIR_MAF=out
 export PROCESS_DIR=${HOME}/Software/process
 export PUBLIC_DIR=${HOME}/Software/public
-PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j 15 -s workflow/01snkfl_eur_maf.yml --config public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir_maf=${OUTDIR_MAF} maf_sqlite=${MAF_SQLITE}  --resources db_maf=1
+PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake --cores all -s workflow/01snkfl_eur_maf.yml --config public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir_maf=${OUTDIR_MAF} maf_sqlite=${MAF_SQLITE}  --resources db_maf=1
 ~~~
 
 # Downlaod GWAS
@@ -36,18 +36,26 @@ PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake -p -j 15 -s workflow/01snkfl_eur_maf.
 ~~~
 export OUTDIR=out/gwasigg
 export GWAS_ODS=config/gwasigg.ods
-snakemake -j all -s workflow/02snkfl_gwas.yml -p --config  gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
+snakemake --cores all -s workflow/02snkfl_gwas.yml --config  gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
+~~~
+
+# Downlaod eQTLs
+
+- No singularity required
+
+~~~
+snakemake --cores all -s workflow/03snkfl_eqtl.yml --config public_data_dir=${PUBLIC_DIR}
 ~~~
 
 ~~~
 export EQTL_ID=Alasoo_2018_ge_macrophage_naive
-snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=${GWAS_ODS} eqtl_id=${EQTL_ID} pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR} maf_sqlite=${MAF_SQLITE} image_sif=${IMAGE_SIF} --resource tophits=1 --use-singularity
+snakemake --cores all -s workflow/snkfl_all.yml -p --config  gwas_ods=${GWAS_Osnakemake --cores all -s workflow/02snkfl_gwas.yml -p --config  gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}DS} eqtl_id=${EQTL_ID} pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR} maf_sqlite=${MAF_SQLITE} image_sif=${IMAGE_SIF} --resource tophits=1 --use-singularity
 ~~~
 
 # Run the whole set of GWAS and eQTL
 
 ~~~
-snakemake -j all -s workflow/snkfl_all.yml -p --config  gwas_ods=config/gwas418.ods pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process outdir=out/gwas418 maf_sqlite=out/eur_af.sqlite image_sif=out/gwas2eqtl.sif --resource tophits=1
+snakemake --cores all -s workflow/snkfl_all.yml -p --config  gwas_ods=config/gwas418.ods pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=/scratch/agonzalez/Software/public process_data_dir=/scratch/agonzalez/Software/process outdir=out/gwas418 maf_sqlite=out/eur_af.sqlite image_sif=out/gwas2eqtl.sif --resource tophits=1
 ~~~
 
 # Insert into DB
