@@ -3,7 +3,7 @@ import pandas
 
 ###############################################################################
 # General config
-public_data_dir_path = config['public_data_dir'] # db path
+public_data_dir = config['public_data_dir'] # db path
 
 ###############################################################################
 # eQTL
@@ -26,51 +26,51 @@ eqtl_id_lst = (eqtl_df.index).tolist()
 
 rule all_eqtl2:
     input:
-        expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
-        expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
-        expand(os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
+        expand(os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv.gz"), zip, eqtl_id=eqtl_id_lst, study=eqtl_df['study'].tolist(), quant_method=eqtl_df['quant_method'].tolist()),
 
 rule dwnld_eqtl_permuted:
     input:
-        md5sum=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
+        md5sum=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
     output:
-        permuted=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv.gz"),
+        permuted=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv.gz"),
     params:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.permuted.tsv.gz",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}
+        """wget -c -q -r {params.url} -P {params.public_data_dir}
         python workflow/scripts/md5sum_check.py {output.permuted} {input.md5sum}"""
 
 rule dwnld_eqtl_tbi:
     input:
-        md5sum=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
+        md5sum=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
     output:
-        tbi=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"),
+        tbi=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi"),
     params:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz.tbi",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}
+        """wget -c -q -r {params.url} -P {params.public_data_dir}
         python workflow/scripts/md5sum_check.py {output.tbi} {input.md5sum}"""
 
 rule dwnld_eqtl_all:
     input:
-        md5sum=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
+        md5sum=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
     output:
-        all=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"),
+        all=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz"),
     params:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/{eqtl_id}.all.tsv.gz",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}
+        """wget -c -q -r {params.url} -P {params.public_data_dir}
         python workflow/scripts/md5sum_check.py {output.all} {input.md5sum}"""
 
 rule dwnld_eqtl_md5sum:
     output:
-        md5sum=os.path.join(public_data_dir_path, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
+        md5sum=os.path.join(public_data_dir, "ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt"),
     params:
         url="ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/{study}/{quant_method}/md5sum.txt",
-        public_data_dir_path=public_data_dir_path,
+        public_data_dir=public_data_dir,
     shell:
-        """wget -nc -q -r {params.url} -P {params.public_data_dir_path}"""
+        """wget -c -q -r {params.url} -P {params.public_data_dir}"""

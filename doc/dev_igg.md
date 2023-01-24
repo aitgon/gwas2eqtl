@@ -36,7 +36,7 @@ PYTHONPATH=gwas2eqtl:$PYTHONPATH snakemake --cores all -s workflow/01snkfl_eur_m
 ~~~
 export OUTDIR=out/gwasigg
 export GWAS_ODS=config/gwasigg.ods
-snakemake --cores all -s workflow/02snkfl_gwas.yml --config  gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
+snakemake --cores all -s workflow/02snkfl_gwas.yml --config gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}
 ~~~
 
 # Downlaod eQTLs
@@ -47,9 +47,22 @@ snakemake --cores all -s workflow/02snkfl_gwas.yml --config  gwas_ods=${GWAS_ODS
 snakemake --cores all -s workflow/03snkfl_eqtl.yml --config public_data_dir=${PUBLIC_DIR}
 ~~~
 
+# Get tophits
+
+- Singularity required
+- ressources tophits=1
+
 ~~~
-export EQTL_ID=Alasoo_2018_ge_macrophage_naive
-snakemake --cores all -s workflow/snkfl_all.yml -p --config  gwas_ods=${GWAS_Osnakemake --cores all -s workflow/02snkfl_gwas.yml -p --config  gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR}DS} eqtl_id=${EQTL_ID} pval=5e-8 r2=0.1 kb=1000 window=1000000 public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR} maf_sqlite=${MAF_SQLITE} image_sif=${IMAGE_SIF} --resource tophits=1 --use-singularity
+export IMAGE_SIF=out/gwas2eqtl.sif
+snakemake --cores all -p -s workflow/04snkfl_tophits.yml --config pval=5e-8 r2=0.1 kb=1000 window=1000000 gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR} maf_sqlite=${MAF_SQLITE} image_sif=${IMAGE_SIF} --use-singularity --resource tophits=1
+~~~
+
+# Carry out colocalization
+
+- Singularity required
+
+~~~
+snakemake --cores all -s workflow/05snkfl_coloc.yml --config  pval=5e-8 r2=0.1 kb=1000 window=1000000 gwas_ods=${GWAS_ODS} public_data_dir=${PUBLIC_DIR} process_data_dir=${PROCESS_DIR} outdir=${OUTDIR} maf_sqlite=${MAF_SQLITE} --use-singularity
 ~~~
 
 # Run the whole set of GWAS and eQTL

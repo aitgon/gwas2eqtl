@@ -2,20 +2,23 @@ import os
 import pandas
 
 ###############################################################################
-# snakemake --cores all -s workflow/snkfl_tophits.yml --config gwas_ods=config/gwas_ebi-a-GCST002318.ods  pval=5e-8 r2=0.1 kb=1000 outdir=out/gwas418 public_data_dir=/home/gonzalez/Software/public
+# snakemake --cores all -s workflow/04snkfl_tophits.yml --config gwas_ods=config/gwas_ebi-a-GCST002318.ods  pval=5e-8 r2=0.1 kb=1000 outdir=out/gwas418 public_data_dir=/home/gonzalez/Software/public
 
 ###############################################################################
 # General config
+gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
+kb = str(config["kb"])  # use this clumping "kb_" + kb window
 outdir = config['outdir']
 public_data_dir = config['public_data_dir']
-gwas_ods_path = config["gwas_ods"] # path to the gwas ods list
 pval = str(config["pval"])  # use this p-value threshold
 r2 = str(config["r2"])  # use this clumping r2 threshold
-kb = str(config["kb"])  # use this clumping "kb_" + kb window
 
 gwas_df = pandas.read_excel(gwas_ods_path, header=0)
 gwas_id_lst = sorted(gwas_df['id'].tolist())
 
+if "image_sif" in config:
+    image_sif = config['image_sif'] # singularity image
+    container: image_sif
 
 rule all_tophits2:
     input:
@@ -38,12 +41,12 @@ rule tophits_tsv_hg38:
 
 rule tophits_bed_hg38:
     input:
-        chain_gz=os.path.join(public_data_dir, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
-        tophits_hg19_bed=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg19.bed"),
+        os.path.join(public_data_dir, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+        os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg19.bed"),
     output:
         tophits_hg38_bed=os.path.join(outdir, "tophits/{gwas_id}", "pval_" + pval, "r2_" + r2, "kb_" + kb, "hg38.bed"),
     shell:
-        "CrossMap.py bed {input.chain_gz} {input.tophits_hg19_bed} {output.tophits_hg38_bed}"
+        "CrossMap.py bed {input[0]} {input[1]} {output.tophits_hg38_bed}"
 
 rule gwas_tophits_hg19:
     output:
@@ -57,3 +60,12 @@ rule gwas_tophits_hg19:
     resources: tophits=1
     shell:
         "Rscript workflow/scripts/dwnld_ieugwasr_tophits.R {params.gwas_id} {params.pval} {params.r2} {params.kb} {output.tophits_hg19_tsv} {output.tophits_hg19_bed}"
+
+rule dwnld_chain:
+    output:
+        os.path.join(public_data_dir, "ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz"),
+    params:
+        url="ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/GRCh37_to_GRCh38.chain.gz",
+        public_data_dir=public_data_dir,
+    shell:
+        """wget -c -q -r {params.url} -P {params.public_data_dir}"""
