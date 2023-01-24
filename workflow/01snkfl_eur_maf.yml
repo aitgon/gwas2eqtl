@@ -1,3 +1,5 @@
+import pandas
+
 # config
 chr_lst = range(1, 23)
 maf_sqlite = config['maf_sqlite']
