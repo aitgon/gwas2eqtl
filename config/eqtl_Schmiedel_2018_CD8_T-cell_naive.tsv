@@ -1,0 +1,2 @@
+study	qtl_group	tissue_ontology_id	tissue_ontology_term	tissue_label	condition_label	quant_method	sample_size	ftp_path
+Schmiedel_2018	CD8_T-cell_naive	CL_0000625	CD8-positive, alpha-beta T cell	CD8+ T cell	naive	ge	89	ftp://ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/Schmiedel_2018/ge/Schmiedel_2018_ge_CD8_T-cell_naive.all.tsv.gz

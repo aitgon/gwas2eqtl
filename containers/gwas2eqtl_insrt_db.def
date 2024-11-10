@@ -1,0 +1,37 @@
+BootStrap: docker
+From: debian:bookworm-20240926-slim
+
+%labels
+Maintainer "aitor.gonzalez@univ-amu.fr"
+
+%post
+# Update package manager and install necessary dependencies
+apt-get update && apt-get install -y \
+    wget \
+    bzip2 \
+    ca-certificates \
+    bash \
+    coreutils \
+    && apt-get clean
+
+apt install python3-dev libpq-dev -y
+# apt install gcc
+
+# Install micromamba
+MICROMAMBA_VERSION="0.25.1"
+wget -qO- https://micromamba.snakepit.net/api/micromamba/linux-64/$MICROMAMBA_VERSION | tar -xvj -C /usr/local/bin --strip-components=1 bin/micromamba
+
+# Create a micromamba environment and install statannotations
+micromamba create --prefix /root/micromamba/envs/myenv conda-forge::python=3.11 --yes
+/usr/local/bin/micromamba install --prefix /root/micromamba/envs/myenv conda-forge::pandas=2.2.3 --yes
+/usr/local/bin/micromamba install --prefix /root/micromamba/envs/myenv conda-forge::sqlalchemy=2.0.35 --yes
+/usr/local/bin/micromamba install --prefix /root/micromamba/envs/myenv conda-forge::psycopg2=2.9.9 --yes
+/usr/local/bin/micromamba install --prefix /root/micromamba/envs/myenv conda-forge::odfpy=1.4.1 --yes
+#micromamba install --prefix /root/micromamba/envs/myenv conda-forge::statannotations=0.6.0 --yes
+#micromamba install --prefix /root/micromamba/envs/myenv/ conda-forge::termcolor=2.4.0 --yes
+#micromamba install --prefix /root/micromamba/envs/myenv/ conda-forge::odfpy=1.4.1 --yes
+
+%environment
+# Set up environment variables for micromamba
+export MAMBA_ROOT_PREFIX=/root/micromamba
+export PATH="/root/micromamba/envs/myenv/bin:$PATH"
